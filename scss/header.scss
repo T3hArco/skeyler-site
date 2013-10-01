@@ -1,0 +1,21 @@
+
+@import "base";
+
+h1 {
+  text-transform:uppercase;
+  font-size:4em;
+}
+
+h1:before {
+  text-transform:uppercase;
+  content:'Skeyler';
+  position:absolute;
+  @include transform(scaleY(0.4) skewX(-30deg) translateX(-5px));
+  @include transform-origin(50%, 100%);
+  line-height:1.0;
+  pointer-events:none; // a pathetic attempt to get IE to not allow you to select :before text
+  color:rgba(0,0,0,0.3);
+  color:rgba(0,0,0,0.1);
+  text-shadow:0 0 2px rgba(0,0,0,0.3);
+}
+

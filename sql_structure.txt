@@ -1,0 +1,109 @@
+PK = primary key
+FK = foreign key
+
+
+
+forums
+id           int     -- PK
+name         varchar
+description  varchar
+postCount    int
+threadCount  int
+visibleRank  int
+
+
+forum_parents
+id       int -- PK
+forumId  int -- FK: forums.id - the id of the forum
+parentId int -- FK: forums.id - if it's a subforum, the id of it's parent. otherwise null
+
+
+threads
+id        int     -- PK
+userId    int     -- FK: users.id
+title     varchar
+forumId   int     -- FK: forums.id
+postCount int
+
+
+posts
+id                int  -- PK
+userId            int  -- FK: users.id
+timestamp         int
+content           text
+ip                int  -- unsigned int or varchar? will IPv6 be an issue?
+threadId          int  -- FK: threads.id
+deleted           int  -- timestamp of when it was deleted. 0 (or NULL?) = not deleted
+lastEditTimestamp int
+lastEditUser      int -- FK: users.id
+// need a way to keep track of old copies of an edited post
+
+
+users
+id                 int     -- PK
+steamId64          bigint  -- unique
+steamId            varchar -- unique
+name               varchar
+registerIp         int     -- ???
+lastLoginIp        int     -- ???
+registerTimestamp  int
+lastLoginTimestamp int
+token              varchar -- ???
+rank               int     -- doing it this way will still have weirdness like the need for a devmin rank, etc
+money              int
+avatarUrl          varchar
+
+
+
+items - each row is an item such as a dunce hat
+id           int     -- PK
+name         varchar
+modelname    varchar -- ???? not sure what info is needed for this
+price        int
+type         int     -- FK: item_types.id
+icon         varchar -- .vmt location I guess?
+purchaseable bool    -- whether or not this item can be bought in the store
+purchaseRank int     -- required rank to purchase this. ex: VIP+ can buy special items
+// stuff like hat position or whatever else is needed also goes in this table. should there also be a player_models table that just has positioning information in it? It's better to put it in the db than in the code imo. just make sure to backup it all so we don't lose a ton of progress
+// this stuff needs to be loaded and in memory on server start
+
+
+item_types - ex: trail, hat, gesture, misc, etc. this table may seem unnecessary but is awesome for future edits
+id   int     -- PK
+name varchar
+icon varchar
+
+
+inventory - each row is an item that a user owns
+id                 int -- PK
+userId             int -- FK: user.id
+itemId             int -- FK: item.id
+purchasedTimestamp int
+
+
+
+achievements
+id          int     -- PK
+name        varchar
+description varchar
+maxValue    int     -- true/false stuff is 1. 100 kills = 100. this column needs a better name
+icon        varchar
+
+
+achievement_status
+id                int  -- PK
+achievementId     int  -- FK: achievements.id
+userId            int  -- FK: users.id
+value             int  -- 1 for true/false achieves. a number for progressive achievements (get 100 kill, etc)
+achieved          bool
+achievedTimestamp int
+
+
+
+
+
+
+
+
+
+
