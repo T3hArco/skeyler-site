@@ -23,6 +23,26 @@ class User
     return $DB->q($query, $id)->fetch();
   }
 
+  public function loadIds($userIds)
+  {
+    global $DB;
+    $userIds = (array)$userIds;
+    if (count($userIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($userIds);
+
+    $query = '
+      SELECT *
+      FROM users
+      WHERE id IN(' . $whereIn . ')
+      ;
+    ';
+
+    return populateIds($DB->q($query)->fetchAll());
+  }
+
   /**
    * @param $user
    * @param $rankLevel
@@ -44,27 +64,6 @@ class User
       }
     }
     return $user['rank'] >= $rankLevel;
-  }
-
-
-  public function fetchUsers($userIds)
-  {
-    global $DB;
-    $userIds = (array)$userIds;
-    if (count($userIds) == 0) {
-      return array();
-    }
-
-    $whereIn = DB::whereIn($userIds);
-
-    $query = '
-      SELECT *
-      FROM users
-      WHERE id IN(' . $whereIn . ')
-      ;
-    ';
-
-    return populateIds($DB->q($query)->fetchAll());
   }
 
 
