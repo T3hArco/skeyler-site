@@ -4,7 +4,7 @@ require '../_.php';
 $Page = new Page();
 $Page->header();
 
-$data = array('asdf'=>45);
+$data = array('asdf' => 45);
 
 view($data);
 

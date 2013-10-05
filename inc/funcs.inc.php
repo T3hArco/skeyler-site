@@ -190,7 +190,7 @@ function view($variables)
   }
 
   // if json, just exit. we don't need a view for it
-  if($isJson) {
+  if ($isJson) {
     exit;
   }
 

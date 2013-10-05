@@ -2,7 +2,6 @@
 require '_.php';
 $page = new Page();
 $page->header('test');
-var_dump(Steam::getUserProfile('76561198010087850'));
 
 
 function parseForums()

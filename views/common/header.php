@@ -2,7 +2,7 @@
 <?php global $Config; ?>
 <html>
 <head>
-  <title><?php echo ($local['title'] ? $local['title'] . ' - ' : ''); ?>Skeyler</title>
+  <title><?php echo($local['title'] ? $local['title'] . ' - ' : ''); ?>Skeyler</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <link rel="shortcut icon" href="<?php echo $Config['mediaServer']; ?>favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/main.css">
