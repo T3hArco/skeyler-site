@@ -1,2 +1,7 @@
-.sass-cache
+# ignore config settings
 inc/config.inc.php
+
+# ignore non-code related files (ide settings, etc)
+.sass-cache
+.idea/
+skeyler.iml

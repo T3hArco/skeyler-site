@@ -151,7 +151,7 @@ function curlPost($url, $postData) {
   curl_setopt($c, CURLOPT_URL, $url);
   curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($c, CURLOPT_POST, 1);
-  curl_setopt($c, CURLOPT_POSTFIELDS, $data);
+  curl_setopt($c, CURLOPT_POSTFIELDS, $postData);
   $output = curl_exec($c);
   curl_close($c);
   return $output;
@@ -168,22 +168,6 @@ function getJson($url) {
   $content = curlGet($url);
   return json_decode($content, true);
 }
-
-
-function ipToInt($ip) {
-  $ipPieces = 
-}
-
-function intToIp($ipInt) {
-  $ipPieces = array(
-    (ipInt & 0xff000000) >>> 24,
-    (ipInt & 0xff0000) >>> 16,
-    (ipInt & 0xff00) >>> 8,
-    (ipInt & 0xff),
-  );
-  return implode('.', $ipPieces)
-}
-
 
 
 

@@ -1,33 +1,19 @@
 <?php
+require '_.php';
+$page = new Page();
+$page->header('test');
+var_dump(Steam::getUserProfile('76561198010087850'));
 
-function jsonToArray($json)
-{
-  return json_decode($json, true);
-}
 
-function doCurl($act)
-{
-  $curl = curl_init();
-  $goto = 'http://www.mineplaycraft.com/mpc/forums/api.php?act=' . $act;
 
-  curl_setopt_array($curl, array(
-      CURLOPT_RETURNTRANSFER => 1,
-      CURLOPT_URL => $goto
-  ));
 
-  $resp = curl_exec($curl);
-
-  curl_close($curl);    
-
-  return $resp;
-}
 
 function parseForums()
 {
   $out = "";
-  $resp = doCurl("showboards");
+  $resp = curlGet("showboards");
 
-  $boardArray = jsonToArray($resp);
+  $boardArray = json_decode($resp, true);
 
   for($i = 0; $i < count($boardArray); $i++)
   {
@@ -55,9 +41,9 @@ function parseForums()
 function parsePosts($id)
 {
   $out = "";
-  $resp = doCurl("showposts&id=" . $id);
+  $resp = curlGet("showposts&id=" . $id);
 
-  $postArray = jsonToArray($resp);
+  $postArray = json_decode($resp, true);
 
   for($i = 0; $i < count($postArray); $i++)
   {

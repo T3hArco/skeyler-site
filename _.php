@@ -2,7 +2,8 @@
 
 $s = microtime(1);
 
-function assertCallback(){
+function assertCallback()
+{
   echo 'YO! Check _.php:15+';
 }
 
@@ -14,41 +15,44 @@ assert_options(ASSERT_CALLBACK, 'assertCallback');
 
 assert("!function_exists('get_magic_quotes_gpc') || !get_magic_quotes_gpc()"); // YO! turn off get magic quotes
 assert("!ini_get('register_globals');"); // YO! turn off register globals!
-assert("function_exists('bc_add');"); // YO! enable/install BC Math
+assert("function_exists('bcadd');"); // YO! enable/install BC Math
 
 ini_set('max_execution_time', 60);
+
+$startTime = microtime(true);
 
 //loads config data
 require 'inc/config.inc.php';
 
 //error_reporting(E_ALL);
 ini_set('display_errors', $Config['displayErrors']);
-date_default_timezone_set($Config['tz']);
+//date_default_timezone_set($Config['tz']);
 
 define('LF', "\n");
 define('CRLF', "\n");
 define('BR', '<br />' . LF);
 define('CLR', '<br class="clr" />');
 define('HR', '<hr />' . BR);
-define('ROOT', dirname(__FILE__).'/');
+define('ROOT', dirname(__FILE__) . '/');
 
 // session stuff here
 
 $startTime = microtime(1);
-$now       = time();
+$now = time();
 
 //loads base classes
 require 'inc/db.inc.php';
 require 'inc/funcs.inc.php';
 require 'inc/page.inc.php';
+require 'inc/steam.inc.php';
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {
   $dsn = $Config['db']['lang'] . ':dbname=' . $Config['db']['dbName'] . ';host=' . $Config['db']['host'];
   $DB = new DB($dsn, $Config['db']['user'], $Config['db']['pass']);
-} catch(Exception $e) {
+} catch (Exception $e) {
   header('HTTP/1.1 500 Internal Server Error');
-  if(!$isJson) {
+  if (!isset($isJson) || !$isJson) {
     echo 'Failed to connect to database. Oh no!';
   } else {
     $err = array(
@@ -66,5 +70,8 @@ $pageId = max(
   (int)filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR),
   (int)filter_input(INPUT_POST, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR)
 );
+
+// variables get passed to the view in the $local variable.
+$local = array();
 
 

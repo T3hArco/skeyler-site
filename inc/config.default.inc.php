@@ -10,5 +10,6 @@ $Config = array(
     'pass'   => '',
     'dbName' => 'skeyler',
   ),
+  'steamApiKey' => '',
 );
 ?>
