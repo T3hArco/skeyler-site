@@ -181,7 +181,27 @@ function getJson($url)
 }
 
 
+function view($variables)
+{
+  global $controllerName, $local, $isJson;
 
+  foreach ($variables as $key => $val) {
+    $local[$key] = $val;
+  }
+
+  // if json, just exit. we don't need a view for it
+  if($isJson) {
+    exit;
+  }
+
+  $includePath = realpath(ROOT . '/views/' . $controllerName);
+  if ($includePath && strpos($includePath, realpath(ROOT . '/views/')) === 0) {
+    include $includePath;
+  } else {
+    // exploit attempt or missing view file
+    throw new ErrorException('Failed to include view');
+  }
+}
 
 
 

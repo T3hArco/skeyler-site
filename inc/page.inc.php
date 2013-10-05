@@ -35,6 +35,7 @@ class Page
    */
   public function header($title = '', $classes = array())
   {
+    global $local, $isJson;
     if ($this->echoedHeader != 'waiting') { //echo'ing or already echo'd
       return false;
     }
@@ -43,10 +44,10 @@ class Page
     }
     $this->echoedHeader = 'echoing';
 
-    global $local;
-    $local['title'] = $this->title;
-    include ROOT . '/views/common/header.php';
-
+    if (!$isJson) {
+      $local['title'] = $this->title;
+      include ROOT . '/views/common/header.php';
+    }
     $this->echoedHeader = 'done';
   }
 
@@ -56,18 +57,20 @@ class Page
    */
   public function footer()
   {
-    global $startTime, $local;
+    global $startTime, $local, $isJson;
     $this->header();
     if ($this->echoedFooter != 'waiting') { //echo'ing or already echo'd
       return false;
     }
     $this->echoedFooter = 'echoing';
 
-    $local['startTime'] = $startTime;
-    $local['endTime'] = microtime(true);
+    $local['totalMs'] = round((microtime(true) - $startTime) * 1000);
 
-    include ROOT . '/views/common/footer.php';
-
+    if (!$isJson) {
+      include ROOT . '/views/common/footer.php';
+    } else {
+      echo json_encode($local);
+    }
     $this->echoedFooter = 'done';
     exit;
   }

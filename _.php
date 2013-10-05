@@ -33,7 +33,7 @@ define('CRLF', "\n");
 define('BR', '<br />' . LF);
 define('CLR', '<br class="clr" />');
 define('HR', '<hr />' . BR);
-define('ROOT', dirname(__FILE__) . '/');
+define('ROOT', realpath(dirname(__FILE__)));
 
 // session stuff here
 
@@ -70,6 +70,8 @@ $pageId = max(
   (int)filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR),
   (int)filter_input(INPUT_POST, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR)
 );
+
+$controllerName = $_SERVER['SCRIPT_NAME'];
 
 // variables get passed to the view in the $local variable.
 $local = array();
