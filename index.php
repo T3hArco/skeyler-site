@@ -5,9 +5,6 @@ $page->header('test');
 var_dump(Steam::getUserProfile('76561198010087850'));
 
 
-
-
-
 function parseForums()
 {
   $out = "";
@@ -15,20 +12,13 @@ function parseForums()
 
   $boardArray = json_decode($resp, true);
 
-  for($i = 0; $i < count($boardArray); $i++)
-  {
-    for($j = 0; $j < count($boardArray[$i]) / 2; $j++)
-    {
-      if($j == 0)
-      {
+  for ($i = 0; $i < count($boardArray); $i++) {
+    for ($j = 0; $j < count($boardArray[$i]) / 2; $j++) {
+      if ($j == 0) {
         $out .= "<a href='?act=viewforum&id=" . $boardArray[$i][$j] . "'>";
-      }
-      else if($j == count($boardArray[$i]) / 2)
-      {
+      } else if ($j == count($boardArray[$i]) / 2) {
         $out .= $boardArray[$i][$j] . " ";
-      }
-      else
-      {
+      } else {
         $out .= $boardArray[$i][$j] . "</a>";
       }
     }
@@ -45,20 +35,13 @@ function parsePosts($id)
 
   $postArray = json_decode($resp, true);
 
-  for($i = 0; $i < count($postArray); $i++)
-  {
-    for($j = 0; $j < count($postArray[$i]) / 2; $j++)
-    {
-      if($j == 0)
-      {
+  for ($i = 0; $i < count($postArray); $i++) {
+    for ($j = 0; $j < count($postArray[$i]) / 2; $j++) {
+      if ($j == 0) {
         $out .= "<a href='?act=viewpost&id=" . $postArray[$i][$j] . "'>";
-      }
-      else if($j == count($postArray[$i]) / 2)
-      {
+      } else if ($j == count($postArray[$i]) / 2) {
         $out .= $postArray[$i][$j] . "&nbsp;";
-      }
-      else
-      {
+      } else {
         $out .= $postArray[$i][$j] . "</a>";
       }
     }
@@ -67,13 +50,12 @@ function parsePosts($id)
   return $out;
 }
 
-if(!isset($_GET['act'])) $_GET['act'] = "";
+if (!isset($_GET['act'])) $_GET['act'] = "";
 
-switch($_GET['act'])
-{
+switch ($_GET['act']) {
   case 'viewforum':
 
-    if(!isset($_GET['id'])) header("Location: index.php");
+    if (!isset($_GET['id'])) header("Location: index.php");
     $id = mysql_real_escape_string($_GET['id']);
 
     echo parsePosts($id);

@@ -6,7 +6,8 @@
  *
  * @param string $str
  */
-function ent($str){
+function ent($str)
+{
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
@@ -18,9 +19,10 @@ function ent($str){
  * @param bool $dontExit whether to kill execution after the redir
  * @todo Make this cross-site safe
  */
-function redirect($page, $dontExit = false){
+function redirect($page, $dontExit = false)
+{
   header('Location: ' . $page);
-  if(!$dontExit){
+  if (!$dontExit) {
     exit;
   }
 }
@@ -29,14 +31,15 @@ function redirect($page, $dontExit = false){
 /**
  * Creates a random str that is $len chars long using chars from $alphabet
  *
- * @param int    $len = the length of the str to return
+ * @param int $len = the length of the str to return
  * @param string $alphabet = the list of chars to use
  * @return The random string
  */
-function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789') {
+function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789')
+{
   $str = '';
-  $alphaLength = strlen($alphabet) - 1; 
-  for($a = 0; $a < $len; $a++) {
+  $alphaLength = strlen($alphabet) - 1;
+  for ($a = 0; $a < $len; $a++) {
     $n = mt_rand(0, $alphaLength);
     $str .= $alphabet[$n];
   }
@@ -49,7 +52,8 @@ function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHI
  *
  * @param string $str
  */
-function sha2($str) {
+function sha2($str)
+{
   return hash('sha256', $str);
 }
 
@@ -68,9 +72,10 @@ function sha2($str) {
  *   7 => array('id'=>7, name='george'),
  * );
  */
-function populateIds($data, $idField = 'id') {
+function populateIds($data, $idField = 'id')
+{
   $out = array();
-  foreach($data as $row) {
+  foreach ($data as $row) {
     $out[$row[$idField]] = $row;
   }
   return $out;
@@ -84,12 +89,13 @@ function populateIds($data, $idField = 'id') {
  * @param string $fieldName
  * @param bool $unique
  */
-function eachField($data, $fieldName, $unique = true) {
+function eachField($data, $fieldName, $unique = true)
+{
   $out = array();
-  foreach($data as $row) {
+  foreach ($data as $row) {
     $out[] = $row[$fieldName];
   }
-  if($unique){
+  if ($unique) {
     $out = array_unique($out);
   }
   return $out;
@@ -103,8 +109,9 @@ function eachField($data, $fieldName, $unique = true) {
  * @param $prefix = the str to add before each item
  * @param $suffix = the str to append after each item
  */
-function presuf($arr, $prefix = '', $suffix = '') {
-  foreach($arr as &$str) {
+function presuf($arr, $prefix = '', $suffix = '')
+{
+  foreach ($arr as &$str) {
     $str = $prefix . $str . $suffix;
     unset($str);
   }
@@ -119,7 +126,8 @@ function presuf($arr, $prefix = '', $suffix = '') {
  * @param string $sing = what to output on singular
  * @param string $plur = what to output on plural
  */
-function singPlur($count, $sing = '', $plur = 's') {
+function singPlur($count, $sing = '', $plur = 's')
+{
   return ($count == 1 ? $sing : $plur);
 }
 
@@ -130,7 +138,8 @@ function singPlur($count, $sing = '', $plur = 's') {
  * @param string $url
  * @return string output
  */
-function curlGet($url) {
+function curlGet($url)
+{
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
   curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
@@ -138,7 +147,7 @@ function curlGet($url) {
   curl_close($c);
   return $output;
 }
-  
+
 /**
  * Loads a single page using the POST method
  *
@@ -146,7 +155,8 @@ function curlGet($url) {
  * @param array $postData = array of post data
  * @return string output
  */
-function curlPost($url, $postData) {
+function curlPost($url, $postData)
+{
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
   curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
@@ -164,7 +174,8 @@ function curlPost($url, $postData) {
  * @param string $url
  * @return array data
  */
-function getJson($url) {
+function getJson($url)
+{
   $content = curlGet($url);
   return json_decode($content, true);
 }

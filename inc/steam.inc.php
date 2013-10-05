@@ -5,7 +5,7 @@ class Steam
   public static function fetchAPI($interfaceName, $methodName, $version = 1, $qs = array(), $deepness = '', $postData = null)
   {
     global $Config;
-    if(isset($qs['key'])) {
+    if (isset($qs['key'])) {
       $qs['key'] = $Config['steamApiKey'];
     }
     $query = http_build_query($qs);
