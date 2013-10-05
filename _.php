@@ -45,6 +45,7 @@ require 'inc/db.inc.php';
 require 'inc/funcs.inc.php';
 require 'inc/page.inc.php';
 require 'inc/steam.inc.php';
+require 'inc/user.inc.php';
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {
@@ -76,4 +77,14 @@ $controllerName = $_SERVER['SCRIPT_NAME'];
 // variables get passed to the view in the $local variable.
 $local = array();
 
+// init the logged in user
+$isLoggedIn = false;
+$User = array(
+  'id' => 0,
+  'steamId64' => 0,
+  'name' => 'Guest',
+  'rank' => -1,
+  'money' => 0,
+  'avatarUrl' => '',
+);
 

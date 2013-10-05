@@ -21,7 +21,7 @@ The footer is automatically included when everything exits
 inc/funcs.inc.php has custom functions
 
 to access the db, use $DB. If it's inside a class, first you have to "global $DB;"
-to fetch rows:  "$rows = $DB->fetchAll($query);"
+to fetch rows:  "$rows = $DB->q($query)->fetchAll();"
 
 in the controllers, run the "view($variables);" function to pass variables to the view
 

@@ -55,6 +55,22 @@ class DB extends PDO
     }
     return $prep;
   }
+
+  /**
+   * @param $arr
+   * @return string - returns a the $arr of data in a save IN() WHERE clause
+   * @throws Exception
+   */
+  public static function whereIn($arr){
+    if(count($arr) == 0) {
+      throw new Exception('Length of whereIn() is 0! Make sure to check for 0 before using whereIn()');
+    }
+    $safeArr = array();
+    foreach($arr as $val) {
+      $safeArr[] = '\'' . mysql_real_escape_string($val) . '\'';
+    }
+    return implode(',', $safeArr);
+  }
 }
 
 ?>
