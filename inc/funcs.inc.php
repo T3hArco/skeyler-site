@@ -39,7 +39,7 @@ function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHI
 {
   $str = '';
   $alphaLength = strlen($alphabet) - 1;
-  for ($a = 0; $a < $len; $a++) {
+  for ($a = 0; $a < $length; $a++) {
     $n = mt_rand(0, $alphaLength);
     $str .= $alphabet[$n];
   }

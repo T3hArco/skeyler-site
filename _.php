@@ -19,8 +19,6 @@ assert("function_exists('bcadd');"); // YO! enable/install BC Math
 
 ini_set('max_execution_time', 60);
 
-$startTime = microtime(true);
-
 //loads config data
 require 'inc/config.inc.php';
 
@@ -87,4 +85,24 @@ $User = array(
   'money' => 0,
   'avatarUrl' => '',
 );
+
+// if there's already a session for the user, log them in
+if (isset($_SESSION['userId']) && $_SESSION['userId']) {
+  $User = User::load($_SESSION['userId']);
+} else if (isset($_COOKIE['userId'], $_COOKIE['authKey'])) {
+  //if there isnt a session, but they have an auth key, then tries to build their session from that
+  $cookieInfo = array(
+    'userId' => filter_input(INPUT_COOKIE, 'userId', FILTER_DEFAULT, FILTER_REQUIRE_SCALAR),
+    'authKey' => filter_input(INPUT_COOKIE, 'authKey', FILTER_DEFAULT, FILTER_REQUIRE_SCALAR),
+  );
+  $query = 'SELECT id, profileId, authKey FROM users WHERE id = ? LIMIT 1;';
+  $keyInfo = $DB->q($query, $cookieInfo['userId'])->fetch();
+  if ($keyInfo && sha2($keyInfo['authKey']) === $cookieInfo['authKey'] && $cookieInfo['authKey'] && $keyInfo['authKey'] && $keyInfo['id'] == $cookieInfo['userId']) {
+    $_SESSION['userId'] = $keyInfo['id'];
+    $User = User::load($_SESSION['userId']);
+  }
+  unset($cookieInfo, $keyInfo);
+}
+
+$isLoggedIn = (!!$User['id']);
 

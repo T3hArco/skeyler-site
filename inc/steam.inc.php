@@ -51,6 +51,22 @@ class Steam
   }
 
 
+  /**
+   * Converts a steam64 to a STEAM_ID
+   *
+   * @param string $profileId
+   * @return string steam id
+   */
+  public static function steam64ToSTEAM($profileId)
+  {
+    $steamPieces = array(0 => '0', 1 => '', 2 => '');
+    $steamPieces[1] = substr($profileId, -1) % 2;
+    $steamPieces[2] = ((int)bcsub($profileId, '76561197960265728') - $steamPieces[1]) / 2;
+    $steamId = implode(':', $steamPieces);
+    return $steamId;
+  }
+
+
 }
 
 
