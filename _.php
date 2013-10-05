@@ -39,6 +39,7 @@ $startTime = microtime(1);
 $now = time();
 
 //loads base classes
+require 'inc/notice.inc.php';
 require 'inc/db.inc.php';
 require 'inc/funcs.inc.php';
 require 'inc/page.inc.php';
@@ -75,7 +76,7 @@ $controllerName = $_SERVER['SCRIPT_NAME'];
 // variables get passed to the view in the $local variable.
 $local = array();
 
-// init the logged in user
+// init the $User
 $isLoggedIn = false;
 $User = array(
   'id' => 0,
@@ -95,7 +96,7 @@ if (isset($_SESSION['userId']) && $_SESSION['userId']) {
     'userId' => filter_input(INPUT_COOKIE, 'userId', FILTER_DEFAULT, FILTER_REQUIRE_SCALAR),
     'authKey' => filter_input(INPUT_COOKIE, 'authKey', FILTER_DEFAULT, FILTER_REQUIRE_SCALAR),
   );
-  $query = 'SELECT id, profileId, authKey FROM users WHERE id = ? LIMIT 1;';
+  $query = 'SELECT id, authKey FROM users WHERE id = ? LIMIT 1;';
   $keyInfo = $DB->q($query, $cookieInfo['userId'])->fetch();
   if ($keyInfo && sha2($keyInfo['authKey']) === $cookieInfo['authKey'] && $cookieInfo['authKey'] && $keyInfo['authKey'] && $keyInfo['id'] == $cookieInfo['userId']) {
     $_SESSION['userId'] = $keyInfo['id'];

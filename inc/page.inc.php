@@ -48,6 +48,11 @@ class Page
       $local['title'] = $this->title;
       include ROOT . '/views/common/header.php';
     }
+
+    if(isset($local['notices'])) {
+      Notice::writeNotices();
+    }
+
     $this->echoedHeader = 'done';
   }
 

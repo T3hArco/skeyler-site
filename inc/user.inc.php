@@ -67,7 +67,7 @@ class User
   }
 
 
-  public function login($steamId64)
+  public static function login($steamId64)
   {
     global $DB, $now;
 
@@ -97,8 +97,8 @@ class User
       'avatarUrl' => $user['avatar'],
     );
 
-    $DB->q($query, $binds);
-    return true;
+    $DB->q($query, $binds)->fetch();
+    return $DB->lastInsertId();
 
   }
 

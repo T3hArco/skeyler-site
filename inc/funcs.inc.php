@@ -196,6 +196,7 @@ function view($variables)
 
   $includePath = realpath(ROOT . '/views/' . $controllerName);
   if ($includePath && strpos($includePath, realpath(ROOT . '/views/')) === 0) {
+    Notice::writeNotices();
     include $includePath;
   } else {
     // exploit attempt or missing view file
