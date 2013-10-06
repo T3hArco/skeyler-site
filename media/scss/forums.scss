@@ -6,6 +6,9 @@
 }
 
 .table.subforums {
+
+  $subforumBg: #3d3d3e;
+
   thead {
     border-bottom: 1px solid #000;
 
@@ -15,25 +18,67 @@
   }
 
   .row {
-    background: #3d3d3e;
+    background: $subforumBg;
     color: #949495;
     min-height: 32px;
-    padding: 8px 8px 8px 40px;
+    padding: 0 0 0 48px;
+    @include border-radius(0.25em);
+
+    .cell {
+      display: inline-block;
+      padding: 8px 0;
+
+      &.lastPostInfo {
+        display: inline-block;
+        float: right;
+        background: #fff;
+        @include border-radius(0.25em);
+        margin: 1px;
+        padding: 2px;
+
+        .avatar {
+          vertical-align: top;
+          width: 42px;
+          height: 42px;
+          @include border-radius(0.25em);
+        }
+
+        .subPostInfo {
+          display: inline-block;
+        }
+
+        .timestamp, .userLink, .viewLink {
+          display: block;
+          font-size: 0.65em;
+        }
+
+        .timestamp {
+          color: #929292;
+        }
+        .userLink {
+          color: #4b4b4b;
+        }
+        .viewLink {
+          color: #385464;
+        }
+
+      }
+    }
   }
 
-  .row.forumNew .cell:first-child {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX//////////////////////////////////Pr3lB7////4nzb7yIv7xIP4njP4nTH7xoj7xYUoD6vSAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat left center;
+  .row.forumNew {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX//////////////////////////////////Pr3lB7////4nzb7yIv7xIP4njP4nTH7xoj7xYUoD6vSAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px center $subforumBg;
   }
-  .row.forumSeen .cell {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC') no-repeat left center;
+  .row.forumSeen {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
 
   }
-  .row.threadNew .cell {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC') no-repeat left center;
+  .row.threadNew {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
 
   }
-  .row.threadNew .cell {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC') no-repeat left center;
+  .row.threadNew {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
 
   }
 }

@@ -21,11 +21,14 @@
             <?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
             topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts
           </div>
-          <div class="cell">
-            <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl']); ?>" class="avatar"/>
-            <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
-            <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
-            <a href="#" class="viewLink">(view)</a>
+          <div class="cell lastPostInfo">
+            <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>
+
+            <div class="subPostInfo">
+              <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
+              <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
+              <a href="#" class="viewLink">(view)</a>
+            </div>
           </div>
 
         </div>
