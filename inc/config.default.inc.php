@@ -1,5 +1,6 @@
 <?php
 $Config = array(
+  'debug' => false,
   'displayErrors' => true,
   'staticFileCacheId' => '1',
   'server' => 'http://local.skeyler.com/',

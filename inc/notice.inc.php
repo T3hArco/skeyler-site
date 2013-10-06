@@ -1,6 +1,13 @@
 <?php
 class Notice
 {
+  public static $classes = array(
+    'info' => 'success',
+    'error' => 'danger',
+    'debug' => 'info',
+  );
+
+
   public static function add($str, $type)
   {
     global $local, $Page;
@@ -18,6 +25,11 @@ class Notice
 
   public static function message($str)
   {
+    self::add($str, 'info');
+  }
+
+  public static function success($str)
+  {
     self::add($str, 'success');
   }
 
@@ -33,7 +45,15 @@ class Notice
 
   public static function write($str, $type)
   {
-    echo '<div class="alert alert-' . ent($type) . '">' . ent($str) . '</div>';
+    echo '<div class="alert alert-' . self::getTypeClass($type) . '">' . $str . '</div>';
+  }
+
+  public static function getTypeClass($type)
+  {
+    if (isset(self::$classes[$type])) {
+      return self::$classes[$type];
+    }
+    return $type;
   }
 
   public static function writeNotices()

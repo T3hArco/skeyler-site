@@ -12,6 +12,7 @@ class DB extends PDO
    */
   public function q($query)
   {
+    global $Config;
     $s = microtime(1);
     $args = func_get_args();
     $query = array_shift($args);
@@ -21,6 +22,9 @@ class DB extends PDO
     $prep = $this->prepare($query);
     $prep->setFetchMode(PDO::FETCH_ASSOC);
     $prep->execute($args);
+    if($Config['debug']) {
+      Notice::debug($query . BR . round((microtime(1) - $s) * 1000) . 'ms');
+    }
     $errorInfo = $prep->errorInfo();
     if (isset($errorInfo[1])) {
       trigger_error('DB error: ' . var_export($errorInfo, 1), E_USER_ERROR);
@@ -61,12 +65,13 @@ class DB extends PDO
    * @return string - returns a the $arr of data in a save IN() WHERE clause
    * @throws Exception
    */
-  public static function whereIn($arr){
-    if(count($arr) == 0) {
+  public static function whereIn($arr)
+  {
+    if (count($arr) == 0) {
       throw new Exception('Length of whereIn() is 0! Make sure to check for 0 before using whereIn()');
     }
     $safeArr = array();
-    foreach($arr as $val) {
+    foreach ($arr as $val) {
       $safeArr[] = '\'' . mysql_real_escape_string($val) . '\'';
     }
     return implode(',', $safeArr);
