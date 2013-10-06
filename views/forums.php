@@ -6,18 +6,18 @@
 
 <?php if (count($local['forums']) > 1) : ?>
   <div class="table subforums">
-    <div class="cell">
+    <div class="row head">
       <div class="cell">Forum</div>
       <div class="cell">Topics</div>
     </div>
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
         <div class="row forumNew">
-          <div class="cell">
-            <span class="forumName"><?php echo $forum['name']; ?></span>
+          <div class="cell forumInfo">
+            <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
           </div>
-          <div class="cell">
+          <div class="cell postCount">
             <?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
             topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts
           </div>
