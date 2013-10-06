@@ -5,22 +5,31 @@
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
-/* line 4, ../scss/header.scss */
+/* line 3, ../scss/header.scss */
 h1 {
+  vertical-align: top;
+  padding: 0 0 0 80px;
+  margin: 0 0 32px 0;
+  background: url(../images/logo.png) left center no-repeat;
+  display: inline-block;
   text-transform: uppercase;
-  font-size: 4em;
 }
-
-/* line 9, ../scss/header.scss */
-h1:before {
+/* line 11, ../scss/header.scss */
+h1 strong {
+  font-size: 1em;
+  font-weight: normal;
+  color: #404041;
+}
+/* line 16, ../scss/header.scss */
+h1 strong:before {
   text-transform: uppercase;
   content: 'Skeyler';
   position: absolute;
-  -webkit-transform: scaleY(0.4) skewX(-30deg) translateX(-5px);
-  -moz-transform: scaleY(0.4) skewX(-30deg) translateX(-5px);
-  -ms-transform: scaleY(0.4) skewX(-30deg) translateX(-5px);
-  -o-transform: scaleY(0.4) skewX(-30deg) translateX(-5px);
-  transform: scaleY(0.4) skewX(-30deg) translateX(-5px);
+  -webkit-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
+  -moz-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
+  -ms-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
+  -o-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
+  transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
@@ -29,6 +38,52 @@ h1:before {
   line-height: 1.0;
   pointer-events: none;
   color: rgba(0, 0, 0, 0.3);
-  color: rgba(0, 0, 0, 0.1);
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+/* line 33, ../scss/header.scss */
+h1 span {
+  vertical-align: top;
+  line-height: 1;
+  font-size: .5em;
+}
+/* line 38, ../scss/header.scss */
+h1 span:before {
+  content: 'a\a';
+  display: block;
+  height: 1px;
+  clear: both;
+  font-size: 1px;
+}
+
+/* line 49, ../scss/header.scss */
+ul.topNav {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  float: right;
+}
+/* line 56, ../scss/header.scss */
+ul.topNav li {
+  display: inline-block;
+}
+/* line 59, ../scss/header.scss */
+ul.topNav li a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: #646464;
+  text-decoration: none;
+  font-family: Arial;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+/* line 68, ../scss/header.scss */
+ul.topNav li.selected a {
+  background: #42474a;
+  color: #f2f2f2;
 }

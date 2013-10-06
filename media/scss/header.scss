@@ -1,21 +1,74 @@
-
 @import "base";
 
 h1 {
-  text-transform:uppercase;
-  font-size:4em;
+  vertical-align: top;
+  padding:0 0 0 80px;
+  margin:0 0 32px 0;
+  background:url(../images/logo.png) left center no-repeat;
+  display:inline-block;
+  text-transform: uppercase;
+
+  strong {
+    font-size: 1em;
+    font-weight:normal;
+    color: #404041;
+
+    &:before {
+      text-transform: uppercase;
+      content: 'Skeyler';
+      position: absolute;
+      @include transform(scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px));
+      @include transform-origin(50%, 100%);
+      line-height: 1.0;
+      pointer-events: none;
+      // a pathetic attempt to get IE to not allow you to select :before text
+      color: rgba(0, 0, 0, 0.3);
+      color: rgba(0, 0, 0, 0.2);
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+      //color: #D1D2D4;
+      z-index: -1;
+    }
+  }
+
+  span {
+    vertical-align: top;
+    line-height: 1;
+    font-size:.5em;
+
+    &:before {
+      content: 'a\a';
+      display: block;
+      height: 1px;
+      clear: both;
+      font-size: 1px;
+    }
+  }
 }
 
-h1:before {
-  text-transform:uppercase;
-  content:'Skeyler';
-  position:absolute;
-  @include transform(scaleY(0.4) skewX(-30deg) translateX(-5px));
-  @include transform-origin(50%, 100%);
-  line-height:1.0;
-  pointer-events:none; // a pathetic attempt to get IE to not allow you to select :before text
-  color:rgba(0,0,0,0.3);
-  color:rgba(0,0,0,0.1);
-  text-shadow:0 0 2px rgba(0,0,0,0.3);
+
+ul.topNav {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  float:right;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      padding: 0.5em 1em;
+      color: #646464;
+      text-decoration: none;
+      font-family: Arial;
+      @include border-radius(0.5em);
+    }
+
+    &.selected a {
+      background: #42474a;
+      color: #f2f2f2;
+    }
+  }
 }
 

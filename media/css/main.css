@@ -1,4 +1,35 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
 /* line 3, ../scss/main.scss */
-a {
-  color: red;
+body {
+  text-align: center;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #ffffff), color-stop(100%, #c3c3c3));
+  background: -webkit-radial-gradient(#ffffff, #c3c3c3);
+  background: -moz-radial-gradient(#ffffff, #c3c3c3);
+  background: -o-radial-gradient(#ffffff, #c3c3c3);
+  background: radial-gradient(#ffffff, #c3c3c3);
+  padding-top: 50px;
+}
+
+/* line 9, ../scss/main.scss */
+#container {
+  width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* line 15, ../scss/main.scss */
+.alert {
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+/* line 20, ../scss/main.scss */
+.content {
+  background: #fff;
 }

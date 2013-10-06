@@ -3,6 +3,8 @@ require '../_.php';
 
 $Page = new Page();
 
+Notice::message('test message');
+
 $Page->header('test');
 ?>
 TESTING
