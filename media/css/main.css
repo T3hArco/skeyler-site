@@ -32,4 +32,6 @@ body {
 /* line 20, ../scss/main.scss */
 .content {
   background: #fff;
+  border: 1px solid #dfdfdf;
+  padding: 16px;
 }

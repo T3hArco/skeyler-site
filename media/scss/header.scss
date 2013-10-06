@@ -2,15 +2,15 @@
 
 h1 {
   vertical-align: top;
-  padding:0 0 0 80px;
-  margin:0 0 32px 0;
-  background:url(../images/logo.png) left center no-repeat;
-  display:inline-block;
+  padding: 0 0 0 80px;
+  margin: 0 0 32px 0;
+  background: url(../images/logo.png) left center no-repeat;
+  display: inline-block;
   text-transform: uppercase;
 
   strong {
     font-size: 1em;
-    font-weight:normal;
+    font-weight: normal;
     color: #404041;
 
     &:before {
@@ -33,7 +33,7 @@ h1 {
   span {
     vertical-align: top;
     line-height: 1;
-    font-size:.5em;
+    font-size: .5em;
 
     &:before {
       content: 'a\a';
@@ -45,13 +45,12 @@ h1 {
   }
 }
 
-
 ul.topNav {
   display: inline-block;
   padding: 0;
   margin: 0;
   list-style: none;
-  float:right;
+  float: right;
 
   li {
     display: inline-block;
@@ -72,3 +71,40 @@ ul.topNav {
   }
 }
 
+ul.subNav {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    font-size: 0.75em;
+    line-height: 1.0;
+    @include background(linear-gradient(#fff, #eee));
+    border: 1px solid $borderGray;
+    border-bottom: 0px;
+    @include border-radius(0.5em 0.5em 0 0);
+
+    a {
+      display: inline-block;
+      color: #6f6f6f;
+
+      padding: 6px 16px 6px 16px;
+      text-decoration: none;
+    }
+
+    &.selected {
+      position: relative;
+      top: 1px;
+      background:#fff;
+
+      a {
+        padding-top: 10px;
+        position:relative;
+        top:-1px;
+
+      }
+    }
+  }
+}
