@@ -27,7 +27,7 @@
             <div class="subPostInfo">
               <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
               <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
-              <a href="#" class="viewLink">(view)</a>
+              <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>" class="viewLink">(view)</a>
             </div>
           </div>
 
@@ -36,3 +36,31 @@
     <?php endforeach; ?>
   </div>
 <?php endif; ?>
+
+<?php if (count($local['threads']) > 0) : ?>
+<table class="threads">
+  <thead>
+  <tr class="row head">
+    <th>Topic</th>
+    <th>Author</th>
+    <th>Posts</th>
+    <th>Views</th>
+    <th>Last Post</th>
+  </tr>
+  </thead>
+
+  <?php foreach ($local['threads'] as $thread) : ?>
+    <tr class="threadSeen">
+      <td><?php echo ent($thread['title']); ?></td>
+      <td><?php echo $thread['creatorUserId']; ?></td>
+      <td><?php echo $thread['postCount']; ?></td>
+      <td><?php echo $thread['views']; ?></td>
+      <td><?php echo $thread['lastPostTimestamp']; ?></td>
+    </tr>
+
+  <?php endforeach; ?>
+
+  <?php endif; ?>
+
+
+

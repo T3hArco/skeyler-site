@@ -6,7 +6,7 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* line 3, ../scss/forums.scss */
-.table {
+.table, table {
   width: 866px;
   border: none;
   margin: 0;

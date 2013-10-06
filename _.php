@@ -45,6 +45,7 @@ require 'inc/funcs.inc.php';
 require 'inc/page.inc.php';
 require 'inc/steam.inc.php';
 require 'inc/user.inc.php';
+require 'inc/threads.inc.php';
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {
