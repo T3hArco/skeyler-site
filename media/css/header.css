@@ -13,7 +13,7 @@ h1 {
   background: url(../images/logo.png) left center no-repeat;
   display: inline-block;
   text-transform: uppercase;
-  font-family: Arvil, Arial;
+  font-family: 'Arvil Sans', Arial;
 }
 /* line 13, ../scss/header.scss */
 h1 strong {
