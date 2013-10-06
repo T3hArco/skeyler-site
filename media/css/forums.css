@@ -125,11 +125,29 @@
 .table.subforums .row.forumSeen {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC") no-repeat 8px center #3d3d3e;
 }
-/* line 114, ../scss/forums.scss */
-.table.subforums .row.threadNew {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC") no-repeat 8px center #3d3d3e;
+
+/* line 117, ../scss/forums.scss */
+table.threads tr {
+  height: 25px;
+  background-color: #e5e5e5;
 }
-/* line 119, ../scss/forums.scss */
-.table.subforums .row.threadNew {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC") no-repeat 8px center #3d3d3e;
+/* line 122, ../scss/forums.scss */
+table.threads tr .title {
+  padding-left: 32px;
+}
+/* line 126, ../scss/forums.scss */
+table.threads tr.threadNew .title {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC") no-repeat 4px center;
+}
+/* line 130, ../scss/forums.scss */
+table.threads tr.threadSeen .title {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC") no-repeat 4px center;
+}
+/* line 134, ../scss/forums.scss */
+table.threads tr.sticky {
+  background-color: #f2ecb6;
+}
+/* line 139, ../scss/forums.scss */
+table.threads thead tr {
+  background: transparent;
 }

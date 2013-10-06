@@ -40,7 +40,7 @@
 <?php if (count($local['threads']) > 0) : ?>
 <table class="threads">
   <thead>
-  <tr class="row head">
+  <tr>
     <th>Topic</th>
     <th>Author</th>
     <th>Posts</th>
@@ -49,9 +49,10 @@
   </tr>
   </thead>
 
+  <tbody>
   <?php foreach ($local['threads'] as $thread) : ?>
     <tr class="threadSeen">
-      <td><?php echo ent($thread['title']); ?></td>
+      <td class="title"><?php echo ent($thread['title']); ?></td>
       <td><?php echo $thread['creatorUserId']; ?></td>
       <td><?php echo $thread['postCount']; ?></td>
       <td><?php echo $thread['views']; ?></td>
@@ -59,6 +60,7 @@
     </tr>
 
   <?php endforeach; ?>
+  </tbody>
 
   <?php endif; ?>
 

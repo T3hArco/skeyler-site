@@ -24,15 +24,15 @@
     &.head {
       border-bottom: 1px solid #000;
       background: transparent;
-      padding:0;
-      color:#000;
-      margin:0 0 15px 0;
+      padding: 0;
+      color: #000;
+      margin: 0 0 15px 0;
       @include border-radius(0);
-      vertical-align:bottom;
-      min-height:0;
+      vertical-align: bottom;
+      min-height: 0;
 
       .cell {
-        padding:0;
+        padding: 0;
       }
     }
 
@@ -111,16 +111,34 @@
 
   }
 
-  .row.threadNew {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
+}
 
+table.threads {
+  tr {
+
+    height: 25px;
+    background-color: #e5e5e5;
+
+    .title {
+      padding-left:32px;
+    }
+
+    &.threadNew .title {
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC') no-repeat 4px center;
+    }
+
+    &.threadSeen .title {
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC') no-repeat 4px center;
+    }
+
+    &.sticky {
+      background-color: #f2ecb6;
+    }
   }
 
-  .row.threadNew {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
-
+  thead tr {
+    background: transparent;
   }
-
 }
 
 
