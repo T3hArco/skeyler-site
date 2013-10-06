@@ -205,7 +205,37 @@ function view($variables)
 }
 
 
+/**
+ * Writes time length
+ *
+ * @param int length - amount of seconds
+ */
+function writeTimeLength($length)
+{
+  if ($length < 0 || !$length) {
+    $length = 0;
+  }
+  $lengthDisplay = '';
+  $amount = 0;
 
+  if ($length < 60) {
+    $amount = $length;
+    $lengthDisplay = $length . ' second' . singPlur($amount);
+  } else if ($length < 60 * 60) {
+    $amount = round($length / 60);
+    $lengthDisplay = $amount . ' minute' . singPlur($amount);
+  } else if ($length < 60 * 60 * 25) {
+    $amount = round($length / 60 / 60);
+    $lengthDisplay = $amount . ' hour' . singPlur($amount);
+  } else if ($length < 60 * 60 * 24 * 50) {
+    $amount = round($length / 60 / 60 / 24);
+    $lengthDisplay = $amount . ' day' . singPlur($amount);
+  } else {
+    $amount = round($length / 60 / 60 / 24 / (365 / 12) * 10) / 10;
+    $lengthDisplay = $amount . ' month' . singPlur($amount);
+  }
+  return $lengthDisplay;
+}
 
 
 

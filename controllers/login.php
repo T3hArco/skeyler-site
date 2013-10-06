@@ -29,7 +29,10 @@ try {
         view(array('err' => 'There was a problem authenticating you. Please try again later.'));
       }
       $steamId64 = $match[1];
-      $steamUser = User::login($steamId64);
+      $steamUserId = User::login($steamId64);
+
+      $steamUser = User::load($steamUserId);
+
       if (!$steamUser) {
         echo('There was a problem authenticating you. Please try again later.');
         exit;

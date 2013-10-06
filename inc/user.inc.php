@@ -23,7 +23,7 @@ class User
     return $DB->q($query, $id)->fetch();
   }
 
-  public function loadIds($userIds)
+  public static function loadIds($userIds)
   {
     global $DB;
     $userIds = (array)$userIds;
@@ -102,5 +102,13 @@ class User
 
   }
 
+
+  public static function writeAvatar($url, $type = '')
+  {
+    if ($type) {
+      $url = substr($url, 0, -4) . '_' . $type . '.jpg';
+    }
+    return $url;
+  }
 
 }

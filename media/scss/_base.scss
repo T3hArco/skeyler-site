@@ -11,7 +11,6 @@
 // - Last we import a _custom.scss partial that includes our custom mixins.
 //
 
-
 //
 // Legacy IE support
 //
@@ -27,9 +26,10 @@ $legacy-support-for-ie6: false;
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie8: true;
 
-
 //
 // Font faces, stacks and sizes.
+//
+
 //
 
 // Compass' vertical_rhythm extension is a powerful tool to set up a vertical
@@ -37,8 +37,10 @@ $legacy-support-for-ie8: true;
 // use in the normalize.scss file.
 // @see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 
-$base-font-size:   16px; // The font size set on the root html element.
-$base-line-height: 24px; // This line-height determines the basic unit of vertical rhythm.
+$base-font-size: 16px;
+// The font size set on the root html element.
+$base-line-height: 24px;
+// This line-height determines the basic unit of vertical rhythm.
 
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.5  * $base-font-size;
@@ -60,27 +62,27 @@ $h6-font-size: 0.75 * $base-font-size;
 
 // First, let's create some font stacks.
 $times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
-$times:           Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
-$georgia:         Georgia, "Times New Roman", "DejaVu Serif", serif;
+$times: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+$georgia: Georgia, "Times New Roman", "DejaVu Serif", serif;
 
-$verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
-$tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
-$helvetica:       Helvetica, Arial, "Nimbus Sans L", sans-serif;
-$arial:           Arial, Helvetica, "Nimbus Sans L", sans-serif;
-$lato:            'Lato', sans-serif;
+$verdana: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+$tahoma: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+$helvetica: Helvetica, Arial, "Nimbus Sans L", sans-serif;
+$arial: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+$lato: 'Lato', sans-serif;
 
 // For an explanation of why "sans-serif" is at the end of this list, see
 // http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
-$courier:         "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+$courier: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
 
 // Now create some variables for the font stacks we want to use on this site.
-$base-font-family: $lato; // The font family set on the html element.
-$font-body:        $lato;
-$font-monospace:   $courier;
+$base-font-family: $lato;
+// The font family set on the html element.
+$font-body: $lato;
+$font-monospace: $courier;
 
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
-
 
 //
 // Partials to be shared with all .scss files.
@@ -96,5 +98,6 @@ $indent-amount: 30px;
 
 @import "compass";
 
-@import "custom";           // Import our custom mixins last.
+@import "custom";
+// Import our custom mixins last.
 

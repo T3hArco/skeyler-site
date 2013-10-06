@@ -98,7 +98,13 @@ if (isset($_SESSION['userId']) && $_SESSION['userId']) {
   );
   $query = 'SELECT id, authKey FROM users WHERE id = ? LIMIT 1;';
   $keyInfo = $DB->q($query, $cookieInfo['userId'])->fetch();
-  if ($keyInfo && sha2($keyInfo['authKey']) === $cookieInfo['authKey'] && $cookieInfo['authKey'] && $keyInfo['authKey'] && $keyInfo['id'] == $cookieInfo['userId']) {
+  if (
+    $keyInfo
+    && sha2($keyInfo['authKey']) === $cookieInfo['authKey']
+    && $cookieInfo['authKey']
+    && $keyInfo['authKey']
+    && $keyInfo['id'] == $cookieInfo['userId']
+  ) {
     $_SESSION['userId'] = $keyInfo['id'];
     $User = User::load($_SESSION['userId']);
   }
@@ -106,4 +112,5 @@ if (isset($_SESSION['userId']) && $_SESSION['userId']) {
 }
 
 $isLoggedIn = (!!$User['id']);
+
 

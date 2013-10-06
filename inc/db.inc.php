@@ -22,7 +22,7 @@ class DB extends PDO
     $prep = $this->prepare($query);
     $prep->setFetchMode(PDO::FETCH_ASSOC);
     $prep->execute($args);
-    if($Config['debug']) {
+    if ($Config['debug']) {
       Notice::debug($query . BR . round((microtime(1) - $s) * 1000) . 'ms');
     }
     $errorInfo = $prep->errorInfo();
