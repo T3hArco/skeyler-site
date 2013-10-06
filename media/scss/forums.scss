@@ -115,12 +115,12 @@
 
 table.threads {
   tr {
-
+    color: #515151;
     height: 25px;
     background-color: #e5e5e5;
 
     .title {
-      padding-left:32px;
+      padding-left: 32px;
     }
 
     &.threadNew .title {
@@ -133,6 +133,17 @@ table.threads {
 
     &.sticky {
       background-color: #f2ecb6;
+
+      .title:before {
+        content: 'Sticky: ';
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+
+    a {
+      color: #515151;
+      font-weight: bold;
     }
   }
 

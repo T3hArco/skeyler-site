@@ -30,6 +30,10 @@ if (count($additionalThreadIds) != 0) {
 }
 
 $userIds = eachField($forums, 'lastPostUserId');
+
+$userIds = array_merge($userIds, eachField($threads, 'userId'));
+$userIds = array_merge($userIds, eachField($threads, 'lastPostUserId'));
+
 $users = User::loadIds($userIds);
 
 $data['forums'] = $forums;

@@ -52,11 +52,11 @@
   <tbody>
   <?php foreach ($local['threads'] as $thread) : ?>
     <tr class="threadSeen">
-      <td class="title"><?php echo ent($thread['title']); ?></td>
-      <td><?php echo $thread['creatorUserId']; ?></td>
+      <td class="title"><a href="#"><?php echo ent($thread['title']); ?></a></td>
+      <td><a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a></td>
       <td><?php echo $thread['postCount']; ?></td>
       <td><?php echo $thread['views']; ?></td>
-      <td><?php echo $thread['lastPostTimestamp']; ?></td>
+      <td><?php echo $thread['lastPostTimestamp']; ?> by <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a> <a href="#">(view)</a></td>
     </tr>
 
   <?php endforeach; ?>

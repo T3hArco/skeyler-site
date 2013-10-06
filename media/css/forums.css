@@ -128,6 +128,7 @@
 
 /* line 117, ../scss/forums.scss */
 table.threads tr {
+  color: #515151;
   height: 25px;
   background-color: #e5e5e5;
 }
@@ -147,7 +148,18 @@ table.threads tr.threadSeen .title {
 table.threads tr.sticky {
   background-color: #f2ecb6;
 }
-/* line 139, ../scss/forums.scss */
+/* line 137, ../scss/forums.scss */
+table.threads tr.sticky .title:before {
+  content: 'Sticky: ';
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 144, ../scss/forums.scss */
+table.threads tr a {
+  color: #515151;
+  font-weight: bold;
+}
+/* line 150, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
 }
