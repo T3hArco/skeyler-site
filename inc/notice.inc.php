@@ -20,7 +20,7 @@ class Notice
     if (!isset($local['notices'][$type])) {
       $local['notices'][$type] = array();
     }
-    $local['notices'][$type] = $str;
+    $local['notices'][$type][] = $str;
   }
 
   public static function message($str)
@@ -60,8 +60,10 @@ class Notice
   {
     global $local;
     if (isset($local['notices'])) {
-      foreach ($local['notices'] as $type => $str) {
-        self::write($str, $type);
+      foreach ($local['notices'] as $type => $notices) {
+        foreach($notices as $str){
+          self::write($str, $type);
+        }
       }
       unset($local['notices']);
     }

@@ -70,6 +70,7 @@ class DB extends PDO
     if (count($arr) == 0) {
       throw new Exception('Length of whereIn() is 0! Make sure to check for 0 before using whereIn()');
     }
+    $arr = array_unique($arr);
     $safeArr = array();
     foreach ($arr as $val) {
       $safeArr[] = '\'' . mysql_real_escape_string($val) . '\'';
