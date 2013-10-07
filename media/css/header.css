@@ -20,18 +20,18 @@ h1 strong {
   font-size: 1.5em;
   font-weight: normal;
   color: #404041;
-  letter-spacing: 3px;
+  letter-spacing: 8px;
 }
 /* line 18, ../scss/header.scss */
 h1 strong:before {
   text-transform: uppercase;
   content: 'Skeyler';
   position: absolute;
-  -webkit-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
-  -moz-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
-  -ms-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
-  -o-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
-  transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
+  -webkit-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
+  -moz-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
+  -ms-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
+  -o-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
+  transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;

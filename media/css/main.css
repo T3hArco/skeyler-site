@@ -35,3 +35,33 @@ body {
   border: 1px solid #dfdfdf;
   padding: 16px;
 }
+
+/* line 26, ../scss/main.scss */
+ul.sideNav {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+}
+/* line 32, ../scss/main.scss */
+ul.sideNav li {
+  display: inline-block;
+  position: absolute;
+  margin-bottom: 7px;
+}
+/* line 37, ../scss/main.scss */
+ul.sideNav li a {
+  color: #fff;
+  padding: 12px 16px 12px 28px;
+}
+/* line 42, ../scss/main.scss */
+ul.sideNav li:after {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAHCAMAAADZPFZOAAAAM1BMVEX///93d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3cFyiH2AAAAEHRSTlMA+oQSuzjld/kMtP4u32734uF19AAAAC5JREFUeF5VyLcRwDAAAzEqZ9n7T6tj+SghxfCDpJQ5VirHWsfYmAtj+3Dsfp4HOYMEea3gTjEAAAAASUVORK5CYII=");
+}
+/* line 49, ../scss/main.scss */
+ul.sideNav li.selected:after {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHCAMAAAA2/j1wAAAAM1BMVEUSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhPJKAuDAAAAEHRSTlMAhPoSuzjld/kMtP4u3273KDpR6AAAAC9JREFUeF5dyLcBACAMAzCH2sv/10KGDEajIO4QwAeOJyYKlcsXqK1bmDEp1NoaFymYBHmq1F0xAAAAAElFTkSuQmCC");
+}

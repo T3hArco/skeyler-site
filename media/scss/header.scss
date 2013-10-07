@@ -13,13 +13,13 @@ h1 {
     font-size: 1.5em;
     font-weight: normal;
     color: #404041;
-    letter-spacing: 3px;
+    letter-spacing: 8px;
 
     &:before {
       text-transform: uppercase;
       content: 'Skeyler';
       position: absolute;
-      @include transform(scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px));
+      @include transform(scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px));
       @include transform-origin(50%, 100%);
       line-height: 1.0;
       pointer-events: none;
