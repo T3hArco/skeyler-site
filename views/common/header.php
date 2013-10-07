@@ -17,7 +17,7 @@
 <body>
 <div id="container">
   <div class="header">
-    <h1><strong>Skeyler</strong> <span>Gaming Servers</span></h1>
+    <h1><strong>Skeyler</strong> <span>Gaming <em>Community</em></span></h1>
     <ul class="topNav">
       <li><a href="#">Blog</a></li>
       <li class="selected"><a href="#">Forums</a></li>

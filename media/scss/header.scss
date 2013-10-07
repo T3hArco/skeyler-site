@@ -4,21 +4,22 @@ h1 {
   vertical-align: top;
   padding: 0 0 0 80px;
   margin: 0 0 32px 0;
-  background: url(../images/logo.png) left center no-repeat;
+  background: url(../images/logo.png) left 8px no-repeat;
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
 
   strong {
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: normal;
     color: #404041;
+    letter-spacing: 3px;
 
     &:before {
       text-transform: uppercase;
       content: 'Skeyler';
       position: absolute;
-      @include transform(scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px));
+      @include transform(scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px));
       @include transform-origin(50%, 100%);
       line-height: 1.0;
       pointer-events: none;
@@ -32,12 +33,23 @@ h1 {
   }
 
   span {
-    vertical-align: top;
     line-height: 1;
-    font-size: .5em;
+    font-size: .4em;
+    letter-spacing: 1px;
+    font-family: Univers, Arial;
+    font-style: italic;
+    color: #808284;
+    vertical-align: top;
+
+    em {
+      color: #F7931D;
+      font-weight: bold;
+      vertical-align: top;
+      text-shadow: 0 0 0.25em rgba(0, 0, 0, .1);
+    }
 
     &:before {
-      content: 'a\a';
+      content: '\a';
       display: block;
       height: 1px;
       clear: both;

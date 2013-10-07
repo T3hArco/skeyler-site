@@ -237,6 +237,9 @@ function writeTimeLength($length)
   return $lengthDisplay;
 }
 
+function writeDate($timestamp) {
+  return date('M d, Y g:ia', $timestamp);
+}
 
 
 

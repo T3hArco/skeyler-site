@@ -10,27 +10,28 @@ h1 {
   vertical-align: top;
   padding: 0 0 0 80px;
   margin: 0 0 32px 0;
-  background: url(../images/logo.png) left center no-repeat;
+  background: url(../images/logo.png) left 8px no-repeat;
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
 }
 /* line 12, ../scss/header.scss */
 h1 strong {
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: normal;
   color: #404041;
+  letter-spacing: 3px;
 }
-/* line 17, ../scss/header.scss */
+/* line 18, ../scss/header.scss */
 h1 strong:before {
   text-transform: uppercase;
   content: 'Skeyler';
   position: absolute;
-  -webkit-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
-  -moz-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
-  -ms-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
-  -o-transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
-  transform: scaleY(0.4) skewX(-30deg) translateX(-5px) translateY(-3px);
+  -webkit-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
+  -moz-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
+  -ms-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
+  -o-transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
+  transform: scaleY(0.4) skewX(-30deg) translateX(-9px) translateY(-5px);
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
@@ -43,22 +44,33 @@ h1 strong:before {
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   z-index: -1;
 }
-/* line 34, ../scss/header.scss */
+/* line 35, ../scss/header.scss */
 h1 span {
-  vertical-align: top;
   line-height: 1;
-  font-size: .5em;
+  font-size: .4em;
+  letter-spacing: 1px;
+  font-family: Univers, Arial;
+  font-style: italic;
+  color: #808284;
+  vertical-align: top;
 }
-/* line 39, ../scss/header.scss */
+/* line 44, ../scss/header.scss */
+h1 span em {
+  color: #F7931D;
+  font-weight: bold;
+  vertical-align: top;
+  text-shadow: 0 0 0.25em rgba(0, 0, 0, 0.1);
+}
+/* line 51, ../scss/header.scss */
 h1 span:before {
-  content: 'a\a';
+  content: '\a';
   display: block;
   height: 1px;
   clear: both;
   font-size: 1px;
 }
 
-/* line 49, ../scss/header.scss */
+/* line 61, ../scss/header.scss */
 ul.topNav {
   display: inline-block;
   padding: 0;
@@ -66,11 +78,11 @@ ul.topNav {
   list-style: none;
   float: right;
 }
-/* line 56, ../scss/header.scss */
+/* line 68, ../scss/header.scss */
 ul.topNav li {
   display: inline-block;
 }
-/* line 59, ../scss/header.scss */
+/* line 71, ../scss/header.scss */
 ul.topNav li a {
   display: inline-block;
   padding: 0.5em 1em;
@@ -83,20 +95,20 @@ ul.topNav li a {
   -o-border-radius: 0.5em;
   border-radius: 0.5em;
 }
-/* line 68, ../scss/header.scss */
+/* line 80, ../scss/header.scss */
 ul.topNav li.selected a {
   background: #42474a;
   color: #f2f2f2;
 }
 
-/* line 75, ../scss/header.scss */
+/* line 87, ../scss/header.scss */
 ul.subNav {
   list-style: none;
   display: inline-block;
   padding: 0;
   margin: 0;
 }
-/* line 81, ../scss/header.scss */
+/* line 93, ../scss/header.scss */
 ul.subNav li {
   display: inline-block;
   font-size: 0.75em;
@@ -114,48 +126,48 @@ ul.subNav li {
   -o-border-radius: 0.5em 0.5em 0 0;
   border-radius: 0.5em 0.5em 0 0;
 }
-/* line 90, ../scss/header.scss */
+/* line 102, ../scss/header.scss */
 ul.subNav li a {
   display: inline-block;
   color: #6f6f6f;
   padding: 6px 16px 6px 16px;
   text-decoration: none;
 }
-/* line 98, ../scss/header.scss */
+/* line 110, ../scss/header.scss */
 ul.subNav li.selected {
   position: relative;
   top: 1px;
   background: #fff;
 }
-/* line 103, ../scss/header.scss */
+/* line 115, ../scss/header.scss */
 ul.subNav li.selected a {
   padding-top: 10px;
   position: relative;
   top: -1px;
 }
 
-/* line 113, ../scss/header.scss */
+/* line 125, ../scss/header.scss */
 ul.breadcrumbs {
   display: inline-block;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 119, ../scss/header.scss */
+/* line 131, ../scss/header.scss */
 ul.breadcrumbs li {
   display: inline-block;
   font-size: 0.85em;
 }
-/* line 123, ../scss/header.scss */
+/* line 135, ../scss/header.scss */
 ul.breadcrumbs li a {
   color: #767676;
 }
-/* line 128, ../scss/header.scss */
+/* line 140, ../scss/header.scss */
 ul.breadcrumbs li ~ li:before {
   content: ' > ';
 }
 
-/* line 133, ../scss/header.scss */
+/* line 145, ../scss/header.scss */
 ul.welcome {
   float: right;
   display: inline-block;
@@ -163,21 +175,21 @@ ul.welcome {
   padding: 0;
   font-size: 0.85em;
 }
-/* line 140, ../scss/header.scss */
+/* line 152, ../scss/header.scss */
 ul.welcome li {
   display: inline-block;
 }
-/* line 143, ../scss/header.scss */
+/* line 155, ../scss/header.scss */
 ul.welcome li a {
   color: #545d63;
   margin: 0 0.25em;
   font-weight: bold;
 }
-/* line 150, ../scss/header.scss */
+/* line 162, ../scss/header.scss */
 ul.welcome li + li ~ li:before {
   content: ' | ';
 }
-/* line 154, ../scss/header.scss */
+/* line 166, ../scss/header.scss */
 ul.welcome .avatar {
   vertical-align: middle;
   height: 16px;
@@ -185,7 +197,7 @@ ul.welcome .avatar {
   margin-right: 4px;
 }
 
-/* line 164, ../scss/header.scss */
+/* line 176, ../scss/header.scss */
 h2 {
   color: #565656;
   font-family: Arial;

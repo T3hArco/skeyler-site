@@ -33,7 +33,13 @@
 
       .cell {
         padding: 0;
+
+        & + .cell {
+          float: right;
+          width: 200px;
+        }
       }
+
     }
 
     .cell {
@@ -70,16 +76,19 @@
         @include border-radius(0.25em);
         margin: 1px;
         padding: 2px;
+        min-width: 200px;
 
         .avatar {
           vertical-align: top;
           width: 42px;
           height: 42px;
           @include border-radius(0.25em);
+          vertical-align: middle;
         }
 
         .subPostInfo {
           display: inline-block;
+          vertical-align: middle;
         }
 
         .timestamp, .userLink, .viewLink {
@@ -118,9 +127,11 @@ table.threads {
     color: #515151;
     height: 25px;
     background-color: #e5e5e5;
+    font-size: 0.75em;
 
     .title {
       padding-left: 32px;
+      font-size: 1.25em;
     }
 
     &.threadNew .title {
@@ -143,8 +154,12 @@ table.threads {
 
     a {
       color: #515151;
-      font-weight: bold;
     }
+
+    a.userLink {
+      color: #385464;
+    }
+
   }
 
   thead tr {

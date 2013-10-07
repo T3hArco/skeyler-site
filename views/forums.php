@@ -56,7 +56,7 @@
       <td><a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a></td>
       <td><?php echo $thread['postCount']; ?></td>
       <td><?php echo $thread['views']; ?></td>
-      <td><?php echo $thread['lastPostTimestamp']; ?> by <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a> <a href="#">(view)</a></td>
+      <td><?php echo writeDate($thread['lastPostTimestamp']); ?> by <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a> <a href="#">(view)</a></td>
     </tr>
 
   <?php endforeach; ?>
