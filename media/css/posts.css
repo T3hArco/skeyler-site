@@ -1,0 +1,20 @@
+/* line 1, ../scss/posts.scss */
+#parsedContent {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  display: inline-block;
+}
+
+/* line 7, ../scss/posts.scss */
+#postContent {
+  max-width: 100%;
+}
+
+/* line 12, ../scss/posts.scss */
+.createThread label {
+  display: block;
+}
+/* line 16, ../scss/posts.scss */
+.createThread #postTitle {
+  width: 621px;
+}

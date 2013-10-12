@@ -31,7 +31,7 @@
   public static function loadFromForum($forumId)
   {
     global $DB;
-    $query = 'SELECT * FROM threads WHERE forumId = ?;';
+    $query = 'SELECT * FROM threads WHERE forumId = ? ORDER BY lastPostTimestamp DESC;';
     return populateIds($DB->q($query, $forumId)->fetchAll());
   }
 
@@ -79,7 +79,8 @@
 
   }
 
-  public static function getPosts($threadId, $pageNum) {
+  public static function getPosts($threadId, $pageNum)
+  {
     global $Config, $DB;
 
     $query = '
@@ -95,6 +96,27 @@
 
     return populateIds($DB->q($query, $binds)->fetchAll());
 
+  }
+
+  public static function insertThread($title, $content, $forumId)
+  {
+    global $DB, $User, $now;
+    $query = '
+      INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp)
+      VALUES(:userId, :title, :forumId, :userId, :now);
+    ';
+    $binds = array(
+      'userId' => $User['id'],
+      'title' => $title,
+      'forumId' => $forumId,
+      'now' => $now,
+    );
+    $DB->q($query, $binds);
+    $threadId = $DB->lastInsertId();
+
+    Posts::insertPost($content, $threadId);
+
+    return $threadId;
   }
 
 

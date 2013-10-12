@@ -72,6 +72,12 @@ ul.sideNav li.selected:after {
 }
 
 /* line 59, ../scss/main.scss */
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 64, ../scss/main.scss */
 ul.pageNav {
   display: inline-block;
   background: #3d628c;
@@ -87,37 +93,37 @@ ul.pageNav {
   margin: 0;
   padding: 0;
 }
-/* line 70, ../scss/main.scss */
+/* line 75, ../scss/main.scss */
 ul.pageNav.right {
   float: right;
 }
-/* line 74, ../scss/main.scss */
+/* line 79, ../scss/main.scss */
 ul.pageNav li {
   display: inline-block;
 }
-/* line 77, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 ul.pageNav li a {
   display: inline-block;
   background: #fff;
 }
-/* line 82, ../scss/main.scss */
+/* line 87, ../scss/main.scss */
 ul.pageNav li a, ul.pageNav li span {
   padding: 0.25em 0.5em;
 }
-/* line 86, ../scss/main.scss */
+/* line 91, ../scss/main.scss */
 ul.pageNav li.firstPage a:before {
   content: '<< ';
 }
-/* line 89, ../scss/main.scss */
+/* line 94, ../scss/main.scss */
 ul.pageNav li.lastPage a:after {
   content: ' >>';
 }
-/* line 93, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 ul.pageNav li.curPage a {
   background: #3d628c;
   color: #d5d5d5;
 }
-/* line 98, ../scss/main.scss */
+/* line 103, ../scss/main.scss */
 ul.pageNav li:last-child a {
   -webkit-border-radius: 0 0.125em 0 0;
   -moz-border-radius: 0 0.125em 0 0;
@@ -125,7 +131,7 @@ ul.pageNav li:last-child a {
   -o-border-radius: 0 0.125em 0 0;
   border-radius: 0 0.125em 0 0;
 }
-/* line 103, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 ul.pageNav.bottom {
   -webkit-border-radius: 0 0 0.25em 0.25em;
   -moz-border-radius: 0 0 0.25em 0.25em;
@@ -135,7 +141,7 @@ ul.pageNav.bottom {
   border: 1px solid #3d628c;
   border-top: none;
 }
-/* line 108, ../scss/main.scss */
+/* line 113, ../scss/main.scss */
 ul.pageNav.bottom li:last-child a {
   -webkit-border-radius: 0 0 0.125em 0;
   -moz-border-radius: 0 0 0.125em 0;
@@ -144,37 +150,37 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.125em 0;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-vip:before {
   content: url("../images/tags/vip.png");
   display: inline-block;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-mod:before {
   content: url("../images/tags/mod.png");
   display: inline-block;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-admin:before {
   content: url("../images/tags/admin.png");
   display: inline-block;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-dev:before {
   content: url("../images/tags/dev.png");
   display: inline-block;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-super:before {
   content: url("../images/tags/super.png");
   display: inline-block;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .tag-owner:before {
   content: url("../images/tags/owner.png");
   display: inline-block;

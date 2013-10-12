@@ -12,8 +12,15 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/header.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/forums.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/threads.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/posts.css"/>
+
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/underscore-min.js"></script>
+
+  <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/jquery.caret.1.02.js"></script>
+  <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/bbcode.js"></script>
+  <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/main.js"></script>
+
 </head>
 <body>
 <div id="container">
@@ -44,7 +51,7 @@
       <ul class="breadcrumbs">
         <?php foreach($local['breadcrumbs'] as $name => $url) : ?>
           <?php if(strlen($name) > 25) :?>
-            <?php $name = substr($name, 0, 20) . '...';?>
+            <?php $name = substr($name, 0, 20) . '...'; ?>
           <?php endif; ?>
           <li><a href="<?php echo ent($url); ?>"><?php echo ent($name); ?></a></li>
         <?php endforeach; ?>

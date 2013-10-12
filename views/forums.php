@@ -53,7 +53,7 @@
   <tbody>
   <?php foreach ($local['threads'] as $thread) : ?>
     <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
-      <td class="title"><a href="#"><?php echo ent($thread['title']); ?></a></td>
+      <td class="title"><a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></td>
       <td>
         <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
       </td>
