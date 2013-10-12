@@ -248,6 +248,17 @@ function writeDate($timestamp)
   return date('M d, Y g:ia', $timestamp);
 }
 
+function writeDateEng($timestamp) {
+  global $now;
+
+  // if > 2 days old, show the full date
+  if($now - $timestamp > 60 * 60 * 24 * 2) {
+    return writeDate($timestamp);
+  } else {
+    return writeTimeLength($now - $timestamp) . ' ago';
+  }
+}
+
 
 function writePageNav($curPageId, $totalPages)
 {

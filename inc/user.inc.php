@@ -107,7 +107,7 @@ class User
 
   public static function writeUserLink($user)
   {
-    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="tag-' . self::getRankStr($user['rank']) . '">' . ent($user['name']) . '</a>';
+    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="userLink tag-' . self::getRankStr($user['rank']) . '">' . ent($user['name']) . '</a>';
     return $out;
   }
 

@@ -1,0 +1,72 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 5, ../scss/threads.scss */
+.posts .post {
+  background: #f2f2f2;
+}
+/* line 9, ../scss/threads.scss */
+.posts .userInfo {
+  width: 142px;
+  display: inline-block;
+  background: #e7e7e7;
+  padding: 12px;
+}
+/* line 15, ../scss/threads.scss */
+.posts .userInfo .postTime {
+  font-size: 0.75em;
+  color: #676565;
+  font-style: italic;
+}
+/* line 21, ../scss/threads.scss */
+.posts .userInfo .avatar {
+  width: 115px;
+  height: 115px;
+  border: 3px solid #93abbd;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+/* line 28, ../scss/threads.scss */
+.posts .userInfo a.userLink {
+  color: #404346;
+  font-weight: bold;
+}
+/* line 33, ../scss/threads.scss */
+.posts .userInfo .ip, .posts .userInfo .steamId {
+  display: block;
+  color: #afafaf;
+  font-size: 0.75em;
+}
+/* line 39, ../scss/threads.scss */
+.posts .postContent {
+  display: inline-block;
+  width: 724px;
+  padding: 12px;
+  vertical-align: top;
+}
+/* line 45, ../scss/threads.scss */
+.posts .postContent blockquote {
+  padding: 7px 7px 7px 23px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC") no-repeat 7px 27px;
+  font-size: 0.9em;
+  margin: 0;
+}
+/* line 53, ../scss/threads.scss */
+.posts .postContent blockquote a.postLink {
+  font-size: 1em;
+  margin: 0 0 10px -16px;
+  display: inline-block;
+}

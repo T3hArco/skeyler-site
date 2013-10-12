@@ -1,0 +1,68 @@
+@import 'base';
+
+.posts {
+
+  .post {
+    background: #f2f2f2;
+  }
+
+  .userInfo {
+    width: 142px;
+    display: inline-block;
+    background: #e7e7e7;
+    padding: 12px;
+
+    .postTime {
+      font-size: 0.75em;
+      color: #676565;
+      font-style: italic;
+    }
+
+    .avatar {
+      width: 115px;
+      height: 115px;
+      border: 3px solid #93abbd;
+      @include border-radius(0.5em);
+    }
+
+    a.userLink {
+      color: #404346;
+      font-weight: bold;
+    }
+
+    .ip, .steamId {
+      display: block;
+      color: #afafaf;
+      font-size: 0.75em;
+    }
+  }
+  .postContent {
+    display: inline-block;
+    width: 866px - 142px;
+    padding: 12px;
+    vertical-align: top;
+
+    blockquote {
+      padding: 7px 7px 7px 23px;
+      border: 1px solid #ddd;
+      @include border-radius(0.5em);
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC') no-repeat 7px 27px;
+      font-size: 0.9em;
+      margin: 0;
+
+      a.postLink {
+        font-size: 1em;
+        margin: 0 0 10px -16px;
+        display: inline-block;
+      }
+    }
+
+  }
+
+}
+
+
+
+
+
+

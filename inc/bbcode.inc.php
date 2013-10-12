@@ -58,7 +58,7 @@ class BBCode
   {
     $pattern = '#\[quote=&quot;([^"]+?)&quot; postid=&quot;([0-9]+)&quot;\]((?:.|\n|\r)*?)\[\/quote\]#i';
     return preg_replace_callback($pattern, function ($matches) {
-      return '<blockquote><a href="/thread.php?postId=' . $matches[2] . '">' . $matches[1] . ' posted:</a><br/>' . $matches[3] . '</blockquote>';
+      return '<blockquote><a class="postLink" href="/thread.php?postId=' . $matches[2] . '">' . $matches[1] . ' posted:</a><br/>' . $matches[3] . '</blockquote>';
     }, $str);
   }
 
