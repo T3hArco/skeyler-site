@@ -131,6 +131,11 @@
 table.threads {
   width: 100%;
   border-collapse: collapse;
+  position: relative;
+
+  .pageNav {
+    float:right;
+  }
 
   tr {
     color: #515151;
@@ -184,10 +189,27 @@ table.threads {
     }
 
     th {
-      border-bottom: 1px solid #494949;
       color: #494949;
     }
+
+    td {
+      padding:0;
+      line-height:1.0;
+    }
+
+    // tables!! :argh:... lets fake a border
+    &:after {
+      content: '';
+      height: 1px;
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 866px;
+      background: $subforumBg;
+      @include transform(translateY(-1px));
+    }
   }
+
 }
 
 

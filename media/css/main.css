@@ -77,32 +77,33 @@ ul.pageNav {
   -o-border-radius: 0.25em 0.25em 0 0;
   border-radius: 0.25em 0.25em 0 0;
   border: 1px solid #3d628c;
+  border-bottom: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 65, ../scss/main.scss */
+/* line 66, ../scss/main.scss */
 ul.pageNav li {
   display: inline-block;
 }
-/* line 68, ../scss/main.scss */
+/* line 69, ../scss/main.scss */
 ul.pageNav li a {
   display: inline-block;
   background: #fff;
 }
-/* line 73, ../scss/main.scss */
+/* line 74, ../scss/main.scss */
 ul.pageNav li a, ul.pageNav li span {
   padding: 0.25em 0.5em;
 }
-/* line 77, ../scss/main.scss */
+/* line 78, ../scss/main.scss */
 ul.pageNav li.firstPage a:before {
   content: '<< ';
 }
-/* line 80, ../scss/main.scss */
+/* line 81, ../scss/main.scss */
 ul.pageNav li.lastPage a:after {
   content: ' >>';
 }
-/* line 84, ../scss/main.scss */
+/* line 85, ../scss/main.scss */
 ul.pageNav li.curPage a {
   background: #3d628c;
   color: #d5d5d5;

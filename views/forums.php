@@ -12,7 +12,7 @@
     </div>
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
-        <div class="row forum<?php echo (!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?>">
+        <div class="row forum<?php echo(!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?>">
           <div class="cell forumInfo">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
@@ -45,22 +45,21 @@
     <td>Author</td>
     <td>Posts</td>
     <td>Views</td>
-    <td>Last Post
-      <?php echo writePageNav(1, 3); ?>
-    </td>
+    <td>Last Post</td>
+    <td><?php echo writePageNav(1, 3); ?></td>
   </tr>
   </thead>
 
   <tbody>
   <?php foreach ($local['threads'] as $thread) : ?>
-    <tr class="thread<?php echo (!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
+    <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
       <td class="title"><a href="#"><?php echo ent($thread['title']); ?></a></td>
       <td>
         <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
       </td>
       <td><?php echo $thread['postCount']; ?></td>
       <td><?php echo $thread['views']; ?></td>
-      <td><?php echo writeDate($thread['lastPostTimestamp']); ?> by
+      <td colspan="2"><?php echo writeDate($thread['lastPostTimestamp']); ?> by
         <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
         <a href="#">(view)</a></td>
     </tr>
@@ -69,9 +68,6 @@
   </tbody>
 
   <?php endif; ?>
-
-  <?php var_dump($local['lastReadForumTimestamps']); ?>
-  <?php var_dump($local['lastReadThreadPostCounts']); ?>
 
 
 
