@@ -61,7 +61,7 @@ class Notice
     global $local;
     if (isset($local['notices'])) {
       foreach ($local['notices'] as $type => $notices) {
-        foreach($notices as $str){
+        foreach ($notices as $str) {
           self::write($str, $type);
         }
       }

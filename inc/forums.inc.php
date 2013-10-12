@@ -44,7 +44,7 @@ class Forums
   {
     global $User, $DB;
 
-    if(count($forumIds) == 0) {
+    if (count($forumIds) == 0) {
       return array();
     }
 

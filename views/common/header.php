@@ -31,13 +31,25 @@
 
   <?php Notice::writeNotices(); ?>
   <ul class="subNav"><!--
-    --><li class="selected"><a href="#">Forums</a></li><!--
-        --><li><a href="#">Users</a></li><!--
-        --><li><a href="#">Games</a></li><!--
-        --><li><a href="#">Staff Roster</a></li><!--
-        --><li><a href="#">Chatbox</a></li><!--
-      --></ul><!--
-    --><div class="content">
+    -->
+    <li class="selected"><a href="#">Forums</a></li>
+    <!--
+            -->
+    <li><a href="#">Users</a></li>
+    <!--
+            -->
+    <li><a href="#">Games</a></li>
+    <!--
+            -->
+    <li><a href="#">Staff Roster</a></li>
+    <!--
+            -->
+    <li><a href="#">Chatbox</a></li>
+    <!--
+          --></ul>
+  <!--
+      -->
+  <div class="content">
 
     <ul class="breadcrumbs">
       <li><a href="#">Forums</a></li>

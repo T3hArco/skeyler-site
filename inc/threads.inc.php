@@ -58,7 +58,7 @@
   {
     global $User, $DB;
 
-    if(count($threadIds) == 0) {
+    if (count($threadIds) == 0) {
       return array();
     }
 

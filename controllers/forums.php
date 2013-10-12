@@ -36,7 +36,6 @@ $userIds = array_merge($userIds, eachField($threads, 'lastPostUserId'));
 
 $users = User::loadIds($userIds);
 
-
 $data['forums'] = $forums;
 $data['forumId'] = $forumId;
 $data['users'] = $users;
