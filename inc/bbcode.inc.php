@@ -83,15 +83,25 @@ class BBCode
     }, $str);
   }
 
-  public static function parseCodeStart($str)
+  //FIXME: scope is broke
+  public static function parseCodeStart($str, &$codeTags)
   {
-    $i = 0;
-    // todo figure out how to do this good
+    $pattern = '#\[code\]((?:.|\n|\r)*?)\[\/code\]#i';
+    return preg_replace_callback($pattern, function ($matches) {
+      global $codeTags;
+      $codeTags[] = $matches[1];
+      return '<code' . count($codeTags) . '>';
+    }, $str);
   }
 
-  public static function parseCodeEnd($str)
+  //FIXME: scope is broke
+  public static function parseCodeEnd($str, $codeTags)
   {
-
+    $pattern = '#<code(\d+)>#i';
+    return preg_replace_callback($pattern, function ($matches) {
+      global $codeTags;
+      return '<pre>' . $codeTags[$matches[1]] . '</pre>';
+    }, $str);
   }
 
 
@@ -101,24 +111,25 @@ class BBCode
     $out = ent($bbcode);
 
     // take out all code tags so we don't do any replacements on their contents
-//    $out = self::parseCodeStart($out);
+
+    $codeTags = array();
+
+//    $out = self::parseCodeStart($out, $codeTags);
 
 
-    // then parse the basic tags
+    // then parse the basic (simple) tags
     $out = self::parseBasic($out);
 
-
-    // then parse urls, img, quote, lists
+    // then parse urls, img, quote, lists, youtube
     $out = self::parseUrl($out);
     $out = self::parseImg($out);
     $out = self::parseQuote($out);
     $out = self::parseList($out);
-
     $out = self::parseYoutube($out);
 
 
     // next to last, bring back all code tags
-//    $out = self::parseCodeEnd($out);
+//    $out = self::parseCodeEnd($out, $codeTags);
 
     // last, convert new lines to <br />
     $out = nl2br($out);
