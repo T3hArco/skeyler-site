@@ -27,11 +27,11 @@ h1 strong:before {
   text-transform: uppercase;
   content: 'Skeyler';
   position: absolute;
-  -webkit-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
-  -moz-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
-  -ms-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
-  -o-transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
-  transform: scaleY(0.4) skewX(-20deg) translateX(-7px) translateY(-6px);
+  -webkit-transform: scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px);
+  -moz-transform: scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px);
+  -ms-transform: scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px);
+  -o-transform: scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px);
+  transform: scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px);
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
@@ -56,7 +56,7 @@ h1 span {
 }
 /* line 44, ../scss/header.scss */
 h1 span em {
-  color: #F7931D;
+  color: #f7931d;
   font-weight: bold;
   vertical-align: top;
   text-shadow: 0 0 0.25em rgba(0, 0, 0, 0.1);
@@ -190,6 +190,10 @@ ul.welcome li + li ~ li:before {
   content: ' | ';
 }
 /* line 166, ../scss/header.scss */
+ul.welcome li:first-child {
+  margin-right: 1.5em;
+}
+/* line 170, ../scss/header.scss */
 ul.welcome .avatar {
   vertical-align: middle;
   height: 16px;
@@ -197,7 +201,7 @@ ul.welcome .avatar {
   margin-right: 4px;
 }
 
-/* line 176, ../scss/header.scss */
+/* line 180, ../scss/header.scss */
 h2 {
   color: #565656;
   font-family: Arial;

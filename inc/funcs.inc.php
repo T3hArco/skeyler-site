@@ -237,10 +237,63 @@ function writeTimeLength($length)
   return $lengthDisplay;
 }
 
-function writeDate($timestamp) {
+function writeDate($timestamp)
+{
   return date('M d, Y g:ia', $timestamp);
 }
 
+
+function writePageNav($curPageId, $totalPages)
+{
+  $out = '<ul class="pageNav">';
+  $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
+
+  if ($curPageId > 1) {
+    $out .= '<li class="firstPage"><a href="#">First</a></li>';
+
+    if ($curPageId > 2) {
+      $out .= '<li class="prevPage"><a href="#">&lt;</a></li>';
+    }
+  }
+
+  $minPageId = max($curPageId - 3, 1);
+  $maxPageId = min($curPageId + 3, $totalPages);
+
+  for ($i = $minPageId; $i <= $maxPageId; $i++) {
+    if ($i == $curPageId) {
+      $out .= '<li class="curPage"><span>' . $i . '</span></li>';
+    } else {
+      $out .= '<li class=""><a href="#">' . $i . '</a></li>';
+    }
+  }
+
+  if ($curPageId < $totalPages) {
+    if ($curPageId < $totalPages - 1) {
+      $out .= '<li class="nextPage"><a href="#">&gt;</a></li>';
+    }
+    $out .= '<li class="lastPage"><a href="#">Last</a></li>';
+  }
+
+  $out .= '</ul>';
+  return $out;
+
+  /*
+
+    <ul class="pageNav">
+        <li><span>Page 1 of 3</span></li>
+        <li class="firstPage"><a href="#">First</a></li>
+        <li class="prevPage"><a href="#">&lt;</a></li>
+        <li class="curPage"><span>1</span></li>
+        <li class=""><a href="#">2</a></li>
+        <li class=""><a href="#">3</a></li>
+        <li class="nextPage"><a href="#">&gt;</a></li>
+        <li class="lastPage"><a href="#">Last</a></li>
+      </ul>
+
+    */
+
+
+}
 
 
 

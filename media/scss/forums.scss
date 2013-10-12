@@ -1,6 +1,6 @@
 @import "base";
 
-.table, table {
+.table {
   width: 866px;
   //WHY??
   border: none;
@@ -10,8 +10,6 @@
 
 .table.subforums {
 
-  $subforumBg: #3d628c; //#3d3d3e;
-
   .row {
     background: $subforumBg;
     color: #949495;
@@ -20,16 +18,19 @@
     @include border-radius(0.25em);
     display: block;
     margin: 0;
+    text-align: right;
 
     &.head {
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #494949;
       background: transparent;
       padding: 0;
-      color: #000;
+      color: #494949;
       margin: 0 0 15px 0;
       @include border-radius(0);
       vertical-align: bottom;
       min-height: 0;
+      font-weight: bold;
+      text-align: left;
 
       .cell {
         padding: 0;
@@ -47,6 +48,9 @@
       padding: 8px 0;
 
       &.forumInfo {
+        float: left;
+        text-align: left;
+
         .forumName, .description {
           display: block;
           line-height: 1.0;
@@ -67,9 +71,11 @@
         color: #bababa;
         line-height: 32px;
         vertical-align: top;
+        margin: 0 1em 0 0;
       }
 
       &.lastPostInfo {
+        text-align: left;
         display: inline-block;
         float: right;
         background: #fff;
@@ -123,11 +129,20 @@
 }
 
 table.threads {
+  width: 100%;
+  border-collapse: collapse;
+
   tr {
     color: #515151;
     height: 25px;
     background-color: #e5e5e5;
     font-size: 0.75em;
+    border-top: 7px solid #fff;
+
+    td {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
 
     .title {
       padding-left: 32px;
@@ -162,8 +177,16 @@ table.threads {
 
   }
 
-  thead tr {
-    background: transparent;
+  thead {
+
+    tr {
+      background: transparent;
+    }
+
+    th {
+      border-bottom: 1px solid #494949;
+      color: #494949;
+    }
   }
 }
 

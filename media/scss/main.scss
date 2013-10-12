@@ -27,12 +27,12 @@ ul.sideNav {
   margin: 0;
   padding: 0;
   display: inline-block;
-  position:relative;
+  position: relative;
 
   li {
     display: inline-block;
-    position:absolute;
-    margin-bottom:7px;
+    position: absolute;
+    margin-bottom: 7px;
 
     a {
       color: #fff;
@@ -40,18 +40,54 @@ ul.sideNav {
     }
 
     &:after {
-      position:absolute;
-      top:-7px;
-      left:0;
-      content:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAHCAMAAADZPFZOAAAAM1BMVEX///93d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3cFyiH2AAAAEHRSTlMA+oQSuzjld/kMtP4u32734uF19AAAAC5JREFUeF5VyLcRwDAAAzEqZ9n7T6tj+SghxfCDpJQ5VirHWsfYmAtj+3Dsfp4HOYMEea3gTjEAAAAASUVORK5CYII=');
+      position: absolute;
+      top: -7px;
+      left: 0;
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAHCAMAAADZPFZOAAAAM1BMVEX///93d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3cFyiH2AAAAEHRSTlMA+oQSuzjld/kMtP4u32734uF19AAAAC5JREFUeF5VyLcRwDAAAzEqZ9n7T6tj+SghxfCDpJQ5VirHWsfYmAtj+3Dsfp4HOYMEea3gTjEAAAAASUVORK5CYII=');
     }
 
     &.selected:after {
-      content:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHCAMAAAA2/j1wAAAAM1BMVEUSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhPJKAuDAAAAEHRSTlMAhPoSuzjld/kMtP4u3273KDpR6AAAAC9JREFUeF5dyLcBACAMAzCH2sv/10KGDEajIO4QwAeOJyYKlcsXqK1bmDEp1NoaFymYBHmq1F0xAAAAAElFTkSuQmCC');
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHCAMAAAA2/j1wAAAAM1BMVEUSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhPJKAuDAAAAEHRSTlMAhPoSuzjld/kMtP4u3273KDpR6AAAAC9JREFUeF5dyLcBACAMAzCH2sv/10KGDEajIO4QwAeOJyYKlcsXqK1bmDEp1NoaFymYBHmq1F0xAAAAAElFTkSuQmCC');
     }
   }
 }
 
+ul.pageNav {
+  display: inline-block;
+  background: $subforumBg;
+  color: #d5d5d5;
+  @include border-radius(0.25em 0.25em 0 0);
+  border: 1px solid $subforumBg;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      background: #fff;
+    }
+
+    a, span {
+      padding: 0.25em 0.5em;
+    }
+
+    &.firstPage a:before {
+      content: '<< ';
+    }
+    &.lastPage a:after {
+      content: ' >>';
+    }
+
+    &.curPage a {
+      background: $subforumBg;
+      color: #d5d5d5;
+    }
+  }
+
+}
 
 
 
