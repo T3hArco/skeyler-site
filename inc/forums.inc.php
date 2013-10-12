@@ -22,6 +22,47 @@ class Forums
     return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
+  public static function updateLastSeen($forumId)
+  {
+    global $DB, $User, $now;
+    $query = '
+      INSERT INTO forum_seen (forumId, userId, timestamp)
+      VALUES(:forumId, :userId, :now)
+      ON DUPLICATE KEY UPDATE timestamp = :now
+    ';
+    $binds = array(
+      'forumId' => $forumId,
+      'userId' => $User['id'],
+      'now' => $now,
+    );
+
+    $DB->q($query, $binds);
+  }
+
+
+  public static function getLastSeen($forumIds)
+  {
+    global $User, $DB;
+
+    if(count($forumIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($forumIds);
+
+    $query = '
+    SELECT forumId, timestamp
+    FROM forum_seen
+    WHERE userId = :userId
+      AND forumId IN(' . $whereIn . ')
+    ;
+    ';
+    $binds = array(
+      'userId' => $User['id'],
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll(), 'forumId');
+
+  }
 
 }
 

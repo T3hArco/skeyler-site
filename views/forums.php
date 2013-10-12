@@ -70,5 +70,8 @@
 
   <?php endif; ?>
 
+  <?php var_dump($local['lastReadForumTimestamps']); ?>
+  <?php var_dump($local['lastReadThreadPostCounts']); ?>
+
 
 

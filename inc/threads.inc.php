@@ -35,4 +35,48 @@
     return populateIds($DB->q($query, $forumId)->fetchAll());
   }
 
+
+  public static function updateLastSeen($threadId, $postsSeen)
+  {
+    global $DB, $User;
+    $query = '
+      INSERT INTO thread_seen (threadId, userId, postsSeen)
+      VALUES(:forumId, :userId, :postsSeen)
+      ON DUPLICATE KEY UPDATE postsSeen = :postsSeen
+    ';
+    $binds = array(
+      'forumId' => $threadId,
+      'userId' => $User['id'],
+      'postsSeen' => $postsSeen,
+    );
+
+    $DB->q($query, $binds);
+  }
+
+
+  public static function getLastReads($threadIds)
+  {
+    global $User, $DB;
+
+    if(count($threadIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($threadIds);
+
+    $query = '
+    SELECT threadId, postsSeen
+    FROM thread_seen
+    WHERE userId = :userId
+      AND threadId IN(' . $whereIn . ')
+    ;
+    ';
+    $binds = array(
+      'userId' => $User['id'],
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll(), 'threadId');
+
+  }
+
+
 }
