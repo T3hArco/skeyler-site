@@ -260,9 +260,12 @@ function writeDateEng($timestamp) {
 }
 
 
-function writePageNav($curPageId, $totalPages)
+function writePageNav($curPageId, $totalPages, $classes = array())
 {
-  $out = '<ul class="pageNav">';
+  if($totalPages <= 1) {
+    return '';
+  }
+  $out = '<ul class="pageNav ' . implode(' ', (array)$classes) . '">';
   $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
 
   if ($curPageId > 1) {

@@ -11,6 +11,11 @@ if (!isset($forums[$forumId])) {
   exit;
 }
 
+$local['breadcrumbs'] = array(
+  'Forums' => '/forums.php',
+  $forums[$forumId]['name'] => '/forums.php?forumId=' . $forumId,
+);
+
 // marks the forum as seen at the current time by the current user
 Forums::updateLastSeen($forumId);
 

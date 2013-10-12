@@ -152,6 +152,11 @@ table.threads {
     .title {
       padding-left: 32px;
       font-size: 1.25em;
+
+      a {
+        max-width: 275px;
+        display: inline-block;
+      }
     }
 
     &.threadNew .title {
@@ -190,13 +195,12 @@ table.threads {
 
     th {
       color: #494949;
-    }
 
-    td {
       padding: 0;
 
       &.pageNav {
         vertical-align: bottom;
+        font-weight: normal;
       }
     }
 

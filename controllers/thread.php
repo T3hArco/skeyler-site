@@ -21,6 +21,12 @@ if (!$forum) {
   exit;
 }
 
+$local['breadcrumbs'] = array(
+  'Forums' => '/forums.php',
+  $forum['name'] => '/forums.php?forumId=' . $thread['forumId'],
+  $thread['title'] => '/thread.php?threadId=' . $threadId,
+);
+
 if ($User['rank'] < $forum['visibleRank']) {
   Notice::error('You do not have permission to view this thread.');
   exit;

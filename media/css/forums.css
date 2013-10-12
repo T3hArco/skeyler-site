@@ -172,49 +172,52 @@ table.threads tr .title {
   padding-left: 32px;
   font-size: 1.25em;
 }
-/* line 157, ../scss/forums.scss */
+/* line 156, ../scss/forums.scss */
+table.threads tr .title a {
+  max-width: 275px;
+  display: inline-block;
+}
+/* line 162, ../scss/forums.scss */
 table.threads tr.threadNew .title {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC") no-repeat 4px center;
 }
-/* line 161, ../scss/forums.scss */
+/* line 166, ../scss/forums.scss */
 table.threads tr.threadSeen .title {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC") no-repeat 4px center;
 }
-/* line 165, ../scss/forums.scss */
+/* line 170, ../scss/forums.scss */
 table.threads tr.sticky {
   background-color: #f2ecb6;
 }
-/* line 168, ../scss/forums.scss */
+/* line 173, ../scss/forums.scss */
 table.threads tr.sticky .title:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 175, ../scss/forums.scss */
+/* line 180, ../scss/forums.scss */
 table.threads tr a {
   color: #515151;
 }
-/* line 179, ../scss/forums.scss */
+/* line 184, ../scss/forums.scss */
 table.threads tr a.userLink {
   color: #385464;
 }
-/* line 187, ../scss/forums.scss */
+/* line 192, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
 }
-/* line 191, ../scss/forums.scss */
+/* line 196, ../scss/forums.scss */
 table.threads thead th {
   color: #494949;
-}
-/* line 195, ../scss/forums.scss */
-table.threads thead td {
   padding: 0;
 }
-/* line 198, ../scss/forums.scss */
-table.threads thead td.pageNav {
+/* line 201, ../scss/forums.scss */
+table.threads thead th.pageNav {
   vertical-align: bottom;
+  font-weight: normal;
 }
-/* line 204, ../scss/forums.scss */
+/* line 208, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 1px;

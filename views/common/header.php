@@ -40,10 +40,16 @@
   --></ul><!--
 --><div class="content">
 
-    <ul class="breadcrumbs">
-      <li><a href="#">Forums</a></li>
-      <li><a href="#">Suggestion Box</a></li>
-    </ul>
+    <?php if(isset($local['breadcrumbs'])) : ?>
+      <ul class="breadcrumbs">
+        <?php foreach($local['breadcrumbs'] as $name => $url) : ?>
+          <?php if(strlen($name) > 25) :?>
+            <?php $name = substr($name, 0, 20) . '...';?>
+          <?php endif; ?>
+          <li><a href="<?php echo ent($url); ?>"><?php echo ent($name); ?></a></li>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif; ?>
     <ul class="welcome">
       <li>Welcome back,
         <a href="/user.php?userId=<?php echo $User['id']; ?>"><img src="<?php echo User::writeAvatar($User['avatarUrl']); ?>" class="avatar small"/><?php echo ent($User['name']); ?>

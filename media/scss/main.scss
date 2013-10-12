@@ -23,6 +23,10 @@ body {
   padding: 16px;
 }
 
+.clr {
+  clear: both;
+}
+
 ul.sideNav {
   margin: 0;
   padding: 0;
@@ -63,6 +67,10 @@ ul.pageNav {
   margin: 0;
   padding: 0;
 
+  &.right {
+    float: right;
+  }
+
   li {
     display: inline-block;
 
@@ -85,6 +93,20 @@ ul.pageNav {
     &.curPage a {
       background: $subforumBg;
       color: #d5d5d5;
+    }
+
+    &:last-child a {
+      @include border-radius(0 0.125em 0 0);
+    }
+  }
+
+  &.bottom {
+    @include border-radius(0 0 0.25em 0.25em);
+    border: 1px solid $subforumBg;
+    border-top: none;
+
+    li:last-child a {
+      @include border-radius(0 0 0.125em 0);
     }
   }
 

@@ -41,12 +41,12 @@
 <table class="threads">
   <thead>
   <tr>
-    <td>Topic</td>
-    <td>Author</td>
-    <td>Posts</td>
-    <td>Views</td>
-    <td>Last Post</td>
-    <td class="pageNav"><?php echo writePageNav(1, 3); ?></td>
+    <th>Topic</th>
+    <th>Author</th>
+    <th>Posts</th>
+    <th>Views</th>
+    <th>Last Post</th>
+    <th class="pageNav"><?php echo writePageNav(1, 3); ?></th>
   </tr>
   </thead>
 

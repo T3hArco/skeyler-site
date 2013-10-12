@@ -3,6 +3,7 @@
 .posts {
 
   border: 1px solid #ddd;
+  border-bottom: none;
 
   .post {
     background: #f2f2f2;
@@ -86,10 +87,10 @@
       position: relative;
 
       &::before {
-        content:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC');
-        left:7px;
-        top:22px;
-        position:absolute;
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC');
+        left: 7px;
+        top: 22px;
+        position: absolute;
       }
 
       &:after {
