@@ -134,7 +134,7 @@ table.threads {
   position: relative;
 
   .pageNav {
-    float:right;
+    float: right;
   }
 
   tr {
@@ -193,8 +193,11 @@ table.threads {
     }
 
     td {
-      padding:0;
-      line-height:1.0;
+      padding: 0;
+
+      &.pageNav {
+        vertical-align: bottom;
+      }
     }
 
     // tables!! :argh:... lets fake a border

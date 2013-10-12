@@ -209,9 +209,12 @@ table.threads thead th {
 /* line 195, ../scss/forums.scss */
 table.threads thead td {
   padding: 0;
-  line-height: 1.0;
 }
-/* line 201, ../scss/forums.scss */
+/* line 198, ../scss/forums.scss */
+table.threads thead td.pageNav {
+  vertical-align: bottom;
+}
+/* line 204, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 1px;

@@ -3,6 +3,33 @@
 class Forums
 {
 
+  public static function load($id)
+  {
+    global $DB;
+    $query = 'SELECT * FROM forums WHERE id = ?;';
+    return $DB->q($query, $id)->fetch();
+  }
+
+  public static function loadIds($forumIds)
+  {
+    global $DB;
+    $forumIds = (array)$forumIds;
+    if (count($forumIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($forumIds);
+
+    $query = '
+      SELECT *
+      FROM forums
+      WHERE id IN(' . $whereIn . ')
+      ;
+    ';
+
+    return populateIds($DB->q($query)->fetchAll());
+  }
+
   public static function getForumAndSubforums($forumId)
   {
     global $DB, $User;

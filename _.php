@@ -49,7 +49,6 @@ require 'inc/steam.inc.php';
 require 'inc/user.inc.php';
 require 'inc/forums.inc.php';
 require 'inc/threads.inc.php';
-var_dump(999,$startTime,microtime(true));
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {
@@ -71,7 +70,7 @@ try {
 
 // pageId is gonna be the most common $_GET, so might as well put it here
 $pageId = max(
-  0,
+  1,
   (int)filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR),
   (int)filter_input(INPUT_POST, 'page', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_SCALAR)
 );

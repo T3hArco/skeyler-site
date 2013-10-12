@@ -41,8 +41,9 @@
     global $DB, $User;
     $query = '
       INSERT INTO thread_seen (threadId, userId, postsSeen)
-      VALUES(:forumId, :userId, :postsSeen)
-      ON DUPLICATE KEY UPDATE postsSeen = :postsSeen
+        VALUES(:forumId, :userId, :postsSeen)
+      ON DUPLICATE KEY UPDATE
+        postsSeen = GREATEST(postsSeen, :postsSeen)
     ';
     $binds = array(
       'forumId' => $threadId,
@@ -75,6 +76,24 @@
       'userId' => $User['id'],
     );
     return populateIds($DB->q($query, $binds)->fetchAll(), 'threadId');
+
+  }
+
+  public static function getPosts($threadId, $pageNum) {
+    global $Config, $DB;
+
+    $query = '
+    SELECT *
+    FROM posts
+    WHERE threadId = :threadId
+    LIMIT ' . ($pageNum - 1) * $Config['postsPerPage'] . ', ' . $Config['postsPerPage'] . '
+    ';
+
+    $binds = array(
+      'threadId' => $threadId,
+    );
+
+    return populateIds($DB->q($query, $binds)->fetchAll());
 
   }
 

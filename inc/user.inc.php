@@ -105,6 +105,7 @@ class User
 
   public static function writeAvatar($url, $type = '')
   {
+    // full, medium
     if ($type) {
       $url = substr($url, 0, -4) . '_' . $type . '.jpg';
     }

@@ -46,7 +46,7 @@
     <td>Posts</td>
     <td>Views</td>
     <td>Last Post</td>
-    <td><?php echo writePageNav(1, 3); ?></td>
+    <td class="pageNav"><?php echo writePageNav(1, 3); ?></td>
   </tr>
   </thead>
 
