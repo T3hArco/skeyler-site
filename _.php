@@ -19,6 +19,8 @@ assert("function_exists('bcadd');"); // YO! enable/install BC Math
 
 ini_set('max_execution_time', 60);
 
+session_start();
+
 //loads config data
 require 'inc/config.inc.php';
 
@@ -35,7 +37,7 @@ define('ROOT', realpath(dirname(__FILE__)));
 
 // session stuff here
 
-$startTime = microtime(1);
+$startTime = microtime(true);
 $now = time();
 
 //loads base classes
@@ -47,6 +49,7 @@ require 'inc/steam.inc.php';
 require 'inc/user.inc.php';
 require 'inc/forums.inc.php';
 require 'inc/threads.inc.php';
+var_dump(999,$startTime,microtime(true));
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {

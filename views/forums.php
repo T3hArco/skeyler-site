@@ -12,7 +12,7 @@
     </div>
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
-        <div class="row forumNew">
+        <div class="row forum<?php echo (!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?>">
           <div class="cell forumInfo">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
@@ -53,7 +53,7 @@
 
   <tbody>
   <?php foreach ($local['threads'] as $thread) : ?>
-    <tr class="threadSeen">
+    <tr class="thread<?php echo (!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
       <td class="title"><a href="#"><?php echo ent($thread['title']); ?></a></td>
       <td>
         <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
