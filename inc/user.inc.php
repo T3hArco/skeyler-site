@@ -49,20 +49,12 @@ class User
    * @param $rankLevel
    * @return bool
    */
-  public function can($user, $rankLevel)
+  public static function can($rankLevel, $user = null)
   {
     // if only rank is defined
     if (!$user) {
-      $rankLevel = $user;
-
-      // if a non-static call, use $this
-      if (isset($this)) {
-        $user = $this;
-      } else {
-        // otherwise grab the $User object
-        global $User;
-        $user = $User;
-      }
+      global $User;
+      $user = $User;
     }
     return $user['rank'] >= $rankLevel;
   }
