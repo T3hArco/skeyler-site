@@ -6,6 +6,18 @@ global $User, $Config, $pageId;
 $Page = new Page();
 
 $threadId = (int)(isset($_GET['threadId']) ? $_GET['threadId'] : 0);
+$postId = (int)(isset($_GET['postId']) ? $_GET['postId'] : 0);
+
+if($postId && !$threadId) {
+  $post = Posts::load($postId);
+  if($post) {
+    $threadId = $post['threadId'];
+    $postCount = Posts::getPostCountForPostIdByThread($post);
+    $pageId = floor(($postCount - 1) / $Config['postsPerPage']) + 1;
+    $postNum = (($postCount - 1) % $Config['postsPerPage']) + 1;
+    redirect('/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
+  }
+}
 
 $thread = Threads::load($threadId);
 

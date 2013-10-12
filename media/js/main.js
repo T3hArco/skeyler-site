@@ -1,6 +1,26 @@
 $(function () {
 
 
+  // handles clicking a quoted post link
+  $('a.postLink').on('click', function(){
+    var postId = 0;
+    ($(this).attr('href') || '').replace(/postId=(\d+)/i, function(z, postIdTemp){
+      postId = postIdTemp;
+    });
+
+    // if the post is on the current page, scroll to it
+    if($('.post-' + postId).length) {
+      var offsetTop = $('.post-' + postId).offset().top;
+      $(window).scrollTop(offsetTop);
+      return false;
+    }
+    // otherwise continue with normal browser behavior
+    return true;
+  });
+
+
+
+
   /////// BBCode
 
   // caches from keydown for use in keyup if necessary

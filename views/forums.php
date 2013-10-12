@@ -1,6 +1,6 @@
 <?php global $now; ?>
 <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
-<span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?> topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts</span>
+<span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?> topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?></span>
 
 
 <?php if (count($local['forums']) > 1) : ?>
@@ -18,7 +18,7 @@
           </div>
           <div class="cell postCount">
             <?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
-            topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts
+            topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?>
           </div>
           <div class="cell lastPostInfo">
             <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>

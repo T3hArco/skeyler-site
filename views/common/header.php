@@ -2,7 +2,7 @@
 <?php global $Config, $User; ?>
 <html>
 <head>
-  <title><?php echo($local['title'] ? $local['title'] . ' - ' : ''); ?>Skeyler</title>
+  <title><?php echo($local['title'] ? substr($local['title'], 0, 50) . (strlen($local['title']) > 50 ? '...' : '') . ' - ' : ''); ?>Skeyler</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <link rel="shortcut icon" href="<?php echo $Config['mediaServer']; ?>favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/fonts.css"/>

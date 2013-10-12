@@ -31,7 +31,7 @@
   public static function loadFromForum($forumId)
   {
     global $DB;
-    $query = 'SELECT * FROM threads WHERE forumId = ? ORDER BY lastPostTimestamp DESC;';
+    $query = 'SELECT * FROM threads WHERE forumId = ? ORDER BY isSticky DESC, lastPostTimestamp DESC;';
     return populateIds($DB->q($query, $forumId)->fetchAll());
   }
 

@@ -6,7 +6,7 @@
     <?php $i = 0; ?>
     <?php foreach ($local['posts'] as $post) : ?>
       <?php $i++; ?>
-      <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo ($pageId - 1) * $Config['postsPerPage'] + $i; ?>">
+      <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo ($pageId - 1) * $Config['postsPerPage'] + $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>">
         <div class="userInfo">
           <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
           <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>

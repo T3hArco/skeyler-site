@@ -2,12 +2,51 @@
 class Posts
 {
 
-  public static function bbcodeToHtml($str)
+  public static function load($id)
   {
-    return $str;
+    global $DB;
+    $query = 'SELECT * FROM posts WHERE id = ?;';
+    return $DB->q($query, $id)->fetch();
   }
 
-  public static function insertPost($content, $threadId, $isNewThread = false) {
+  public static function loadIds($postIds)
+  {
+    global $DB;
+    $postIds = (array)$postIds;
+    if (count($postIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($postIds);
+
+    $query = '
+      SELECT *
+      FROM posts
+      WHERE id IN(' . $whereIn . ')
+      ;
+    ';
+
+    return populateIds($DB->q($query)->fetchAll());
+  }
+
+  // returns the post # in the thread
+  public static function getPostCountForPostIdByThread($post)
+  {
+    global $DB;
+    $query = 'SELECT COUNT(*) AS postCount FROM posts WHERE id <= :postId AND threadId = :threadId LIMIT 1;';
+    $binds = array(
+      'postId' => $post['id'],
+      'threadId' => $post['threadId'],
+    );
+    $row = $DB->q($query, $binds)->fetch();
+    if (!$row) {
+      return 0;
+    }
+    return $row['postCount'];
+  }
+
+  public static function insertPost($content, $threadId, $isNewThread = false)
+  {
     global $DB, $User, $now;
     $query = '
       INSERT INTO posts (userId, timestamp, content, ip, threadId)
@@ -49,7 +88,6 @@ class Posts
 
 
   }
-
 
 
 }
