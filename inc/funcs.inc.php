@@ -11,6 +11,12 @@ function ent($str)
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
+// shorthand for reversing ent()
+function unent($str)
+{
+  return htmlspecialchars_decode($str);
+}
+
 
 /**
  * Redirects the user

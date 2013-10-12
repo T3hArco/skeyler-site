@@ -50,6 +50,7 @@ require 'inc/user.inc.php';
 require 'inc/forums.inc.php';
 require 'inc/threads.inc.php';
 require 'inc/posts.inc.php';
+require 'inc/bbcode.inc.php';
 
 //connects to the db. If you don't do a try-catch it will literally echo the password on error
 try {
