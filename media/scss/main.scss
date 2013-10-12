@@ -93,7 +93,7 @@ ul.pageNav {
 $tags: (vip, mod, admin, dev, super, owner);
 @each $tag in $tags {
   .tag-#{$tag}:before {
-    content: quote($tag);
+    content: url('../images/tags/#{$tag}.png');
     display: inline-block;
     // todo add background images instead of content text
   }

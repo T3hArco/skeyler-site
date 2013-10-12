@@ -7,8 +7,10 @@
     <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo ($pageId - 1) * $Config['postsPerPage'] + $i; ?>">
       <div class="userInfo">
         <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
-        <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar" />
-        <?php echo User::writeUserLink($local['users'][$post['userId']]); ?>
+        <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
+        <?php echo User::writeUserLink($local['users'][$post['userId']], array('hideTag' => true)); ?>
+        <span class="postCount"><?php echo($local['users'][$post['userId']]['postCount']); ?> posts</span>
+        <?php echo User::writeRankTag($local['users'][$post['userId']]); ?>
         <?php if (User::can(User::RANK_MOD)) : ?>
           <span class="steamId">STEAM_<?php echo $local['users'][$post['userId']]['steamId']; ?></span>
           <?php if (User::can(User::RANK_ADMIN)) : ?>
@@ -16,8 +18,12 @@
           <?php endif; ?>
         <?php endif; ?>
       </div><!--
-      --><div class="postContent">
+            --><div class="postContent">
         <?php echo BBCode::parse($post['content']); ?>
+      </div>
+      <div class="postOptions">
+        <a href="#" class="editLink"></a>
+        <a href="#" class="quoteLink"></a>
       </div>
     </div>
   <?php endforeach; ?>

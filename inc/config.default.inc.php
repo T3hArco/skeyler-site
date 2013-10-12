@@ -14,6 +14,7 @@ $Config = array(
     'dbName' => 'skeyler',
   ),
   'steamApiKey' => '',
+  'postsPerPage' => 20,
 );
 
 

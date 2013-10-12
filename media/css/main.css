@@ -111,36 +111,36 @@ ul.pageNav li.curPage a {
 
 /* line 95, ../scss/main.scss */
 .tag-vip:before {
-  content: "vip";
+  content: url("../images/tags/vip.png");
   display: inline-block;
 }
 
 /* line 95, ../scss/main.scss */
 .tag-mod:before {
-  content: "mod";
+  content: url("../images/tags/mod.png");
   display: inline-block;
 }
 
 /* line 95, ../scss/main.scss */
 .tag-admin:before {
-  content: "admin";
+  content: url("../images/tags/admin.png");
   display: inline-block;
 }
 
 /* line 95, ../scss/main.scss */
 .tag-dev:before {
-  content: "dev";
+  content: url("../images/tags/dev.png");
   display: inline-block;
 }
 
 /* line 95, ../scss/main.scss */
 .tag-super:before {
-  content: "super";
+  content: url("../images/tags/super.png");
   display: inline-block;
 }
 
 /* line 95, ../scss/main.scss */
 .tag-owner:before {
-  content: "owner";
+  content: url("../images/tags/owner.png");
   display: inline-block;
 }

@@ -105,10 +105,20 @@ class User
     return $url;
   }
 
-  public static function writeUserLink($user)
+  public static function writeUserLink($user, $options = array())
   {
-    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="userLink tag-' . self::getRankStr($user['rank']) . '">' . ent($user['name']) . '</a>';
+    if (!isset($options['hideTag'])) {
+      $options['hideTag'] = false;
+    }
+    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="userLink' . (!$options['hideTag'] ? ' tag-' . self::getRankStr($user['rank']) : '') . '">' . ent($user['name']) . '</a>';
     return $out;
+  }
+
+  // normally you won't use this func. use writeUserLink instead!
+  public static function writeRankTag($user)
+  {
+    global $Config;
+    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . self::getRankStr($user['rank']) . '.png" class="rankTag" />';
   }
 
   public static function getRankStr($rank)
