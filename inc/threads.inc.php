@@ -52,6 +52,13 @@
     );
 
     $DB->q($query, $binds);
+
+    $query = 'UPDATE threads SET views = views + 1 WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+    );
+
+    $DB->q($query, $binds);
   }
 
 
@@ -114,7 +121,7 @@
     $DB->q($query, $binds);
     $threadId = $DB->lastInsertId();
 
-    Posts::insertPost($content, $threadId);
+    Posts::insertPost($content, $threadId, true);
 
     return $threadId;
   }

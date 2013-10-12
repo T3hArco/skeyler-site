@@ -38,36 +38,37 @@
 <?php endif; ?>
 
 <?php if (count($local['threads']) > 0) : ?>
-<table class="threads">
-  <thead>
-  <tr>
-    <th>Topic</th>
-    <th>Author</th>
-    <th>Posts</th>
-    <th>Views</th>
-    <th>Last Post</th>
-    <th class="pageNav"><?php echo writePageNav(1, 3); ?></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <?php foreach ($local['threads'] as $thread) : ?>
-    <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
-      <td class="title"><a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></td>
-      <td>
-        <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
-      </td>
-      <td><?php echo $thread['postCount']; ?></td>
-      <td><?php echo $thread['views']; ?></td>
-      <td colspan="2"><?php echo writeDate($thread['lastPostTimestamp']); ?> by
-        <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
-        <a href="#">(view)</a></td>
+  <table class="threads">
+    <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Author</th>
+      <th>Posts</th>
+      <th>Views</th>
+      <th>Last Post</th>
+      <th class="pageNav"><?php echo writePageNav(1, 3); ?></th>
     </tr>
+    </thead>
 
-  <?php endforeach; ?>
-  </tbody>
+    <tbody>
+    <?php foreach ($local['threads'] as $thread) : ?>
+      <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?>">
+        <td class="title">
+          <a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></td>
+        <td>
+          <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
+        </td>
+        <td><?php echo $thread['postCount']; ?></td>
+        <td><?php echo $thread['views']; ?></td>
+        <td colspan="2"><?php echo writeDate($thread['lastPostTimestamp']); ?> by
+          <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
+          <a href="#">(view)</a></td>
+      </tr>
 
-  <?php endif; ?>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+<?php endif; ?>
 
 
 
