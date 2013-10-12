@@ -1,7 +1,6 @@
 <?php global $now; ?>
 <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
-<span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
-  topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts</span>
+<span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?> topics, <?php echo $local['forums'][$local['forumId']]['postCount']; ?> posts</span>
 
 
 <?php if (count($local['forums']) > 1) : ?>

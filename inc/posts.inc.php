@@ -41,6 +41,12 @@ class Posts
     );
     $DB->q($query, $binds);
 
+    $query = 'UPDATE users SET postCount = postCount + 1 WHERE id = :userId';
+    $binds = array(
+      'userId' => $User['id'],
+    );
+    $DB->query($query, $binds);
+
 
   }
 

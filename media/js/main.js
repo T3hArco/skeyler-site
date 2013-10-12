@@ -4,6 +4,7 @@ $(function () {
   /////// BBCode
 
   // caches from keydown for use in keyup if necessary
+  // todo: fix ctrl+z
   var oldContents = '';
   var oldCaret = {};
 
@@ -88,7 +89,7 @@ $(function () {
 
   });
 
-  if($('#parsedContent').length) {
+  if($('#parsedContent').length && $('#postContent').length) {
     $('#parsedContent').html(bbcode.parse($('#postContent').val()));
   }
 
