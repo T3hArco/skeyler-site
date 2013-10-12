@@ -3,6 +3,7 @@ class User
 {
 
   const RANK_REGULAR = 0;
+  const RANK_VIP = 5;
   const RANK_MOD = 10;
   const RANK_ADMIN = 50;
   const RANK_DEV = 70;
@@ -110,6 +111,32 @@ class User
       $url = substr($url, 0, -4) . '_' . $type . '.jpg';
     }
     return $url;
+  }
+
+  public static function writeUserLink($user)
+  {
+    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="tag-' . self::getRankStr($user['rank']) . '">' . ent($user['name']) . '</a>';
+    return $out;
+  }
+
+  public static function getRankStr($rank)
+  {
+    if ($rank >= self::RANK_OWNER) {
+      return 'owner';
+    } elseif ($rank >= self::RANK_SUPER) {
+      return 'super';
+    } elseif ($rank >= self::RANK_DEV) {
+      return 'dev';
+    } elseif ($rank >= self::RANK_ADMIN) {
+      return 'admin';
+    } elseif ($rank >= self::RANK_MOD) {
+      return 'mod';
+    } elseif ($rank >= self::RANK_VIP) {
+      return 'vip';
+    } elseif ($rank >= self::RANK_REGULAR) {
+      return 'regular';
+    }
+    return 'peanutbutter';
   }
 
 }

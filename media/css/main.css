@@ -108,3 +108,39 @@ ul.pageNav li.curPage a {
   background: #3d628c;
   color: #d5d5d5;
 }
+
+/* line 95, ../scss/main.scss */
+.tag-vip:before {
+  content: "vip";
+  display: inline-block;
+}
+
+/* line 95, ../scss/main.scss */
+.tag-mod:before {
+  content: "mod";
+  display: inline-block;
+}
+
+/* line 95, ../scss/main.scss */
+.tag-admin:before {
+  content: "admin";
+  display: inline-block;
+}
+
+/* line 95, ../scss/main.scss */
+.tag-dev:before {
+  content: "dev";
+  display: inline-block;
+}
+
+/* line 95, ../scss/main.scss */
+.tag-super:before {
+  content: "super";
+  display: inline-block;
+}
+
+/* line 95, ../scss/main.scss */
+.tag-owner:before {
+  content: "owner";
+  display: inline-block;
+}
