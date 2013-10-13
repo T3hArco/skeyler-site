@@ -23,61 +23,66 @@ body {
   text-align: left;
 }
 
-/* line 15, ../scss/main.scss */
+/* line 16, ../scss/main.scss */
 .alert {
   padding: 0.5em 1em;
   margin-bottom: 1em;
 }
 
-/* line 20, ../scss/main.scss */
+/* line 21, ../scss/main.scss */
 .content {
   background: #fff;
   border: 1px solid #dfdfdf;
   padding: 16px;
+  -webkit-border-radius: 0 0.5em 0 0;
+  -moz-border-radius: 0 0.5em 0 0;
+  -ms-border-radius: 0 0.5em 0 0;
+  -o-border-radius: 0 0.5em 0 0;
+  border-radius: 0 0.5em 0 0;
 }
 
-/* line 26, ../scss/main.scss */
+/* line 29, ../scss/main.scss */
 .clr {
   clear: both;
 }
 
-/* line 30, ../scss/main.scss */
+/* line 33, ../scss/main.scss */
 ul.sideNav {
   margin: 0;
   padding: 0;
   display: inline-block;
   position: relative;
 }
-/* line 36, ../scss/main.scss */
+/* line 39, ../scss/main.scss */
 ul.sideNav li {
   display: inline-block;
   position: absolute;
   margin-bottom: 7px;
 }
-/* line 41, ../scss/main.scss */
+/* line 44, ../scss/main.scss */
 ul.sideNav li a {
   color: #fff;
   padding: 12px 16px 12px 28px;
 }
-/* line 46, ../scss/main.scss */
+/* line 49, ../scss/main.scss */
 ul.sideNav li:after {
   position: absolute;
   top: -7px;
   left: 0;
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAHCAMAAADZPFZOAAAAM1BMVEX///93d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3cFyiH2AAAAEHRSTlMA+oQSuzjld/kMtP4u32734uF19AAAAC5JREFUeF5VyLcRwDAAAzEqZ9n7T6tj+SghxfCDpJQ5VirHWsfYmAtj+3Dsfp4HOYMEea3gTjEAAAAASUVORK5CYII=");
 }
-/* line 53, ../scss/main.scss */
+/* line 56, ../scss/main.scss */
 ul.sideNav li.selected:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHCAMAAAA2/j1wAAAAM1BMVEUSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhPJKAuDAAAAEHRSTlMAhPoSuzjld/kMtP4u3273KDpR6AAAAC9JREFUeF5dyLcBACAMAzCH2sv/10KGDEajIO4QwAeOJyYKlcsXqK1bmDEp1NoaFymYBHmq1F0xAAAAAElFTkSuQmCC");
 }
 
-/* line 59, ../scss/main.scss */
+/* line 62, ../scss/main.scss */
 h2 {
   padding: 0;
   margin: 0;
 }
 
-/* line 64, ../scss/main.scss */
+/* line 67, ../scss/main.scss */
 ul.pageNav {
   display: inline-block;
   background: #3d628c;
@@ -93,37 +98,37 @@ ul.pageNav {
   margin: 0;
   padding: 0;
 }
-/* line 75, ../scss/main.scss */
+/* line 78, ../scss/main.scss */
 ul.pageNav.right {
   float: right;
 }
-/* line 79, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 ul.pageNav li {
   display: inline-block;
 }
-/* line 82, ../scss/main.scss */
+/* line 85, ../scss/main.scss */
 ul.pageNav li a {
   display: inline-block;
   background: #fff;
 }
-/* line 87, ../scss/main.scss */
+/* line 90, ../scss/main.scss */
 ul.pageNav li a, ul.pageNav li span {
   padding: 0.25em 0.5em;
 }
-/* line 91, ../scss/main.scss */
+/* line 94, ../scss/main.scss */
 ul.pageNav li.firstPage a:before {
   content: '<< ';
 }
-/* line 94, ../scss/main.scss */
+/* line 97, ../scss/main.scss */
 ul.pageNav li.lastPage a:after {
   content: ' >>';
 }
-/* line 98, ../scss/main.scss */
+/* line 101, ../scss/main.scss */
 ul.pageNav li.curPage a {
   background: #3d628c;
   color: #d5d5d5;
 }
-/* line 103, ../scss/main.scss */
+/* line 106, ../scss/main.scss */
 ul.pageNav li:last-child a {
   -webkit-border-radius: 0 0.125em 0 0;
   -moz-border-radius: 0 0.125em 0 0;
@@ -131,7 +136,7 @@ ul.pageNav li:last-child a {
   -o-border-radius: 0 0.125em 0 0;
   border-radius: 0 0.125em 0 0;
 }
-/* line 108, ../scss/main.scss */
+/* line 111, ../scss/main.scss */
 ul.pageNav.bottom {
   -webkit-border-radius: 0 0 0.25em 0.25em;
   -moz-border-radius: 0 0 0.25em 0.25em;
@@ -141,7 +146,7 @@ ul.pageNav.bottom {
   border: 1px solid #3d628c;
   border-top: none;
 }
-/* line 113, ../scss/main.scss */
+/* line 116, ../scss/main.scss */
 ul.pageNav.bottom li:last-child a {
   -webkit-border-radius: 0 0 0.125em 0;
   -moz-border-radius: 0 0 0.125em 0;
@@ -150,49 +155,49 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.125em 0;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-vip:before {
   content: url("../images/tags/vip.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-mod:before {
   content: url("../images/tags/mod.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-admin:before {
   content: url("../images/tags/admin.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-dev:before {
   content: url("../images/tags/dev.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-super:before {
   content: url("../images/tags/super.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .tag-owner:before {
   content: url("../images/tags/owner.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 131, ../scss/main.scss */
+/* line 134, ../scss/main.scss */
 #chatbox .chats {
   font-size: 0.75em;
   border: 1px solid #d8d8d8;
@@ -208,12 +213,12 @@ ul.pageNav.bottom li:last-child a {
   overflow-x: hidden;
   background: #fff;
 }
-/* line 144, ../scss/main.scss */
+/* line 147, ../scss/main.scss */
 #chatbox .chat a.userLink:before {
   line-height: 1.0;
   vertical-align: middle;
 }
-/* line 149, ../scss/main.scss */
+/* line 152, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -226,4 +231,12 @@ ul.pageNav.bottom li:last-child a {
   -ms-border-radius: 0 0 0.5em 0.5em;
   -o-border-radius: 0 0 0.5em 0.5em;
   border-radius: 0 0 0.5em 0.5em;
+}
+
+/* line 163, ../scss/main.scss */
+.missing42 {
+  width: 42px;
+  height: 42px;
+  display: inline-block;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }

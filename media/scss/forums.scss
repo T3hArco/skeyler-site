@@ -12,12 +12,13 @@
 
   .row {
     background: $subforumBg;
-    color: #949495;
+    //color: #949495;
+    color: #94a9c0;
     min-height: 32px;
     padding: 0 0 0 48px;
     @include border-radius(0.25em);
     display: block;
-    margin: 0;
+    margin: 0 0 1em 0;
     text-align: right;
 
     &.head {
@@ -68,7 +69,8 @@
       }
 
       &.postCount {
-        color: #bababa;
+        //color: #bababa;
+        color: #94a9c0;
         line-height: 32px;
         vertical-align: top;
         margin: 0 1em 0 0;
@@ -83,6 +85,7 @@
         margin: 1px;
         padding: 2px;
         min-width: 200px;
+        min-height:46px;
 
         .avatar {
           vertical-align: top;
@@ -118,7 +121,7 @@
   }
 
   .row.forumNew {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX//////////////////////////////////Pr3lB7////4nzb7yIv7xIP4njP4nTH7xoj7xYUoD6vSAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px center $subforumBg;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX////////////////////////////////7/fpnvTj///93xE2w3Zir25F1w0t0wkiv3Jat25NOxqYUAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px center $subforumBg;
   }
 
   .row.forumSeen {
@@ -160,7 +163,7 @@ table.threads {
     }
 
     &.threadNew .title {
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAS1BMVEX////////////////////////////////////////////5r1f////5rlb3liL3lB75sFj5rlT4njT5r1b7z5r5rVL6uW36uGr5rFHUcfXuAAAAC3RSTlPe4bam30pT/eC5uOLlizkAAABSSURBVHhepchHDoAgEAXQP9QygL3c/6QmuhgDGxPf8sFqA2G0hfL5zStQnuttf4qAXIfb+Qxkxm74w5RuJpljY+ayrDLiz1AzhNRMgosBIkR3AQhTC64yvbHSAAAAAElFTkSuQmCC') no-repeat 4px center;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAATlBMVEX///////////////////////////////////////////+Ozmv///+NzWlqvjxpvjtnvTh2w0yOzmyLzWiNzmq74aaKzGWc1H2a03uKzGYLR4gOAAAAC3RSTlPe4bb9plNK4N+5uFc0eh4AAABZSURBVHhepczJDoUgEETRamZsnKf3/v9HNbBoA3HlXZ5UCs4ESME4KJ2eaQVK85A7CxGQxil3FMEtQ5GlEX4V+embzSry+zNzv+0i0hehSghdJR1s9JB8tBcwDgvd/QYRIgAAAABJRU5ErkJggg==') no-repeat 4px center;
     }
 
     &.threadSeen .title {

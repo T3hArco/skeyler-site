@@ -10,6 +10,7 @@ body {
   width: 900px;
   margin: 0 auto;
   text-align: left;
+
 }
 
 .alert {
@@ -21,6 +22,8 @@ body {
   background: #fff;
   border: 1px solid $borderGray;
   padding: 16px;
+  //@include box-shadow(0 0 1em rgba(0,0,0,0.125));
+  @include border-radius(0 0.5em 0 0);
 }
 
 .clr {
@@ -155,4 +158,11 @@ $tags: (vip, mod, admin, dev, super, owner);
 
     @include border-radius(0 0 0.5em 0.5em);
   }
+}
+
+.missing42 {
+  width:42px;
+  height:42px;
+  display:inline-block;
+  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==') no-repeat;
 }

@@ -1,9 +1,9 @@
 <?php global $now, $Config, $pageId; ?>
-<h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
-<span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
-  topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
-  , <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
-  post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?></span>
+  <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
+  <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
+    topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
+    , <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
+    post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?></span>
 
 
 <?php if (count($local['forums']) > 1) : ?>
@@ -20,19 +20,29 @@
             <span class="description"><?php echo $forum['description']; ?></span>
           </div>
           <div class="cell postCount">
-            <?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
-            topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
-            , <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
-            post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?>
+            <?php echo $forum['threadCount']; ?>
+            topic<?php echo singPlur($forum['threadCount']); ?>
+            , <?php echo $forum['postCount']; ?>
+            post<?php echo singPlur($forum['postCount']); ?>
           </div>
           <div class="cell lastPostInfo">
-            <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>
+            <?php if ($forum['lastPostUserId']) : ?>
+              <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>
 
-            <div class="subPostInfo">
-              <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
-              <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
-              <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>" class="viewLink">(view)</a>
-            </div>
+              <div class="subPostInfo">
+                <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
+                <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
+                <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>" class="viewLink">(view)</a>
+              </div>
+            <?php else : ?>
+              <div class="missing42 avatar"></div>
+
+              <div class="subPostInfo">
+                <span class="timestamp">Never</span>
+                <a class="userLink">Nobody</a>
+                <a class="viewLink"></a>
+              </div>
+            <?php endif; ?>
           </div>
 
         </div>
@@ -60,7 +70,8 @@
         <td class="title">
           <a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a>
           <?php if (isset($local['lastReadThreadPostCounts'][$thread['id']]) && $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount']) : ?>
-            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['threadsPerPage']); ?>#p_<?php echo ($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['threadsPerPage'] + 1); ?>" class="newPosts">(+<?php echo ($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>)</a>
+            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['threadsPerPage']); ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['threadsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>
+              )</a>
           <?php endif; ?>
         </td>
         <td>
@@ -68,7 +79,8 @@
         </td>
         <td><?php echo $thread['postCount']; ?></td>
         <td><?php echo $thread['views']; ?></td>
-        <td colspan="2"><?php echo writeDate($thread['lastPostTimestamp']); ?> by
+        <td colspan="2">
+          <?php echo writeDate($thread['lastPostTimestamp']); ?> by
           <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
           <a href="#">(view)</a></td>
       </tr>

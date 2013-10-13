@@ -92,11 +92,10 @@ class BBCode
     }, $str);
   }
 
-  //FIXME: scope is broke
   public static function parseCodeEnd($str, &$codeTags)
   {
     $pattern = '#<code(\d+)>#i';
-    return preg_replace_callback($pattern, function ($matches) use (&$codeTags){
+    return preg_replace_callback($pattern, function ($matches) use (&$codeTags) {
       return '<pre>' . $codeTags[$matches[1] - 1] . '</pre>';
     }, $str);
   }
