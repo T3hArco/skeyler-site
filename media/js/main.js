@@ -10,8 +10,8 @@ $(function () {
 
     // if the post is on the current page, scroll to it
     if ($('.post-' + postId).length) {
-      var offsetTop = $('.post-' + postId).offset().top;
-      $(window).scrollTop(offsetTop);
+      var offsetTop = $('.post-' + postId).offset().top || 0;
+      $('body').animate({scrollTop : offsetTop}, 250);
       return false;
     }
     // otherwise continue with normal browser behavior
@@ -25,10 +25,22 @@ $(function () {
     var postId = $post.data('postId');
     var username = $post.find('.userLink').text();
 
+    // remove nested quotes because they dont work and we dont want pyramids of quotes
     bbcode = bbcode.replace(/\[quote="[^"]+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
 
     var quoteText = '[quote="' + ent(username) + '" postid="' + postId + '"]' + bbcode + '[/quote]\n';
-    $('#postContent').focus().val(quoteText);
+
+    var $postContent = $('#postContent');
+    var oldText = $postContent.val();
+    var oldCaret = $postContent.caret();
+
+
+    var newText = oldText.substr(0, oldCaret.start) + quoteText + oldText.slice(oldCaret.end);
+
+    $postContent.focus().val(newText).caret(oldCaret.start + quoteText.length);
+
+
+
     return false;
   });
 
@@ -49,13 +61,13 @@ $(function () {
 
     if (ctrl) {
       switch (key) {
-        case 66:
-        case 73:
+        case 66: // ctrl+b
+        case 73: // ctrl+i
           e.stopPropagation();
           e.preventDefault();
           return false;
           break;
-        case 86:
+        case 86:  //ctrl+v
           oldCaret = $(this).caret();
           break;
       }

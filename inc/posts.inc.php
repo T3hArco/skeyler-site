@@ -45,7 +45,7 @@ class Posts
     return $row['postCount'];
   }
 
-  public static function insertPost($content, $threadId, $isNewThread = false)
+  public static function insertPost($content, $threadId, $forumId, $isNewThread = false)
   {
     global $DB, $User, $now;
     $query = '
@@ -72,13 +72,13 @@ class Posts
     );
     $DB->q($query, $binds);
 
-
-    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId';
+    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
     $binds = array(
       'threadInc' => ($isNewThread ? 1 : 0),
       'lastPostUserId' => $User['id'],
       'now' => $now,
       'threadId' => $threadId,
+      'forumId' => $forumId,
     );
     $DB->q($query, $binds);
 
@@ -86,7 +86,8 @@ class Posts
     $binds = array(
       'userId' => $User['id'],
     );
-    $DB->query($query, $binds);
+
+    $DB->q($query, $binds);
 
     return $lastPostId;
 

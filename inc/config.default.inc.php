@@ -15,6 +15,7 @@ $Config = array(
   ),
   'steamApiKey' => '',
   'postsPerPage' => 20,
+  'threadsPerPage' => 10,
 );
 
 

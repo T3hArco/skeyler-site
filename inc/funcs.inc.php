@@ -297,21 +297,6 @@ function writePageNav($curPageId, $totalPages, $classes = array())
   $out .= '</ul>';
   return $out;
 
-  /*
-
-    <ul class="pageNav">
-        <li><span>Page 1 of 3</span></li>
-        <li class="firstPage"><a href="#">First</a></li>
-        <li class="prevPage"><a href="#">&lt;</a></li>
-        <li class="curPage"><span>1</span></li>
-        <li class=""><a href="#">2</a></li>
-        <li class=""><a href="#">3</a></li>
-        <li class="nextPage"><a href="#">&gt;</a></li>
-        <li class="lastPage"><a href="#">Last</a></li>
-      </ul>
-
-    */
-
 
 }
 

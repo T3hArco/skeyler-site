@@ -31,8 +31,11 @@
   public static function loadFromForum($forumId)
   {
     global $DB;
-    $query = 'SELECT * FROM threads WHERE forumId = ? ORDER BY isSticky DESC, lastPostTimestamp DESC;';
-    return populateIds($DB->q($query, $forumId)->fetchAll());
+    $query = 'SELECT * FROM threads WHERE forumId = :forumId ORDER BY isSticky DESC, lastPostTimestamp DESC;';
+    $binds = array(
+      'forumId' => $forumId,
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
 
@@ -121,7 +124,7 @@
     $DB->q($query, $binds);
     $threadId = $DB->lastInsertId();
 
-    Posts::insertPost($content, $threadId, true);
+    Posts::insertPost($content, $threadId, $forumId, true);
 
     return $threadId;
   }

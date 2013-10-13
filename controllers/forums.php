@@ -24,20 +24,23 @@ $lastReadForumTimestamps = Forums::getLastSeen($forumIds);
 
 $threads = Threads::loadFromForum($forumId);
 $additionalThreadIds = eachField($forums, 'lastPostThreadId');
+$allThreads = $threads;
+
 if (count($additionalThreadIds) != 0) {
   $additionalThreads = Threads::loadIds($additionalThreadIds);
   foreach ($additionalThreads as $id => $thread) {
-    $threads[$id] = $thread;
+    $allThreads[$id] = $thread;
   }
 }
 
-$threadIds = eachField($threads, 'id');
+$threadIds = eachField($allThreads, 'id');
+
 $lastReadThreadPostCounts = Threads::getLastReads($threadIds);
 
 $userIds = eachField($forums, 'lastPostUserId');
 
-$userIds = array_merge($userIds, eachField($threads, 'userId'));
-$userIds = array_merge($userIds, eachField($threads, 'lastPostUserId'));
+$userIds = array_merge($userIds, eachField($allThreads, 'userId'));
+$userIds = array_merge($userIds, eachField($allThreads, 'lastPostUserId'));
 
 $users = User::loadIds($userIds);
 

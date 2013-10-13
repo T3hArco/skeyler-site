@@ -43,7 +43,7 @@ if ($isSubmit) {
   }
 
   if (!$hasErrors) {
-    $lastPostId = Posts::insertPost($content, $threadId);
+    $lastPostId = Posts::insertPost($content, $threadId, $forum['id']);
     redirect('/thread.php?postId=' . $lastPostId);
   }
 
