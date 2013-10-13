@@ -7,7 +7,7 @@ $forumId = (int)(isset($_GET['forumId']) ? $_GET['forumId'] : 0);
 $forums = Forums::getForumAndSubforums($forumId);
 
 if (!isset($forums[$forumId])) {
-  Notice::error('Can\'t find that forum!');
+  Notice::error('Can\'t find that forum or you do not have permission to view it!');
   exit;
 }
 

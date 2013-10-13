@@ -4,7 +4,6 @@ $Page = new Page();
 
 $threadId = (int)(isset($_GET['threadId']) ? $_GET['threadId'] : 0);
 
-
 $thread = Threads::load($threadId);
 
 if (!$thread) {

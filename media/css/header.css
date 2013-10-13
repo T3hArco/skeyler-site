@@ -56,10 +56,9 @@ h1 span {
 }
 /* line 44, ../scss/header.scss */
 h1 span em {
-  color: #f7931d;
+  color: #67bd38;
   font-weight: bold;
   vertical-align: top;
-  text-shadow: 0 0 0.25em rgba(0, 0, 0, 0.1);
 }
 /* line 51, ../scss/header.scss */
 h1 span:before {

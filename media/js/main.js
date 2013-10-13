@@ -10,7 +10,8 @@ $(function () {
     // if the post is on the current page, scroll to it
     if ($('.post-' + postId).length) {
       var offsetTop = $('.post-' + postId).offset().top || 0;
-      $('body').animate({scrollTop: offsetTop}, 250);
+      console.log(offsetTop)
+      $('html, body').animate({scrollTop: offsetTop}, 250);
       return false;
     }
     // otherwise continue with normal browser behavior
@@ -147,7 +148,7 @@ $(function () {
     $chatbox = $('#chatbox');
     $chats = $chatbox.find('.chats');
     chatbox = {
-      isEnabled: true,
+      isEnabled: false,
       displayedCount: 0,
       lowestId: 0,
       highestId: 0,

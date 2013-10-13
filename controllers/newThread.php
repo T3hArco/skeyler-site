@@ -5,6 +5,13 @@ $Page = new Page();
 
 $forumId = (int)(isset($_GET['forumId']) ? $_GET['forumId'] : 0);
 
+
+
+if (!$forumId) {
+  Notice::error('You so silly. You can\'t make a thread on the forum index. It\'s illegal!');
+  exit;
+}
+
 $forum = Forums::load($forumId);
 
 if (!$forum) {

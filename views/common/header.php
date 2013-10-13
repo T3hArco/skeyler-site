@@ -1,5 +1,5 @@
 <!doctype html>
-<?php global $Config, $User; ?>
+<?php global $Config, $User, $isLoggedIn; ?>
 <html>
 <head>
   <title><?php echo($local['title'] ? substr($local['title'], 0, 50) . (strlen($local['title']) > 50 ? '...' : '') . ' - ' : ''); ?>Skeyler</title>
@@ -28,7 +28,7 @@
     <h1><strong>Skeyler</strong> <span>Gaming <em>Community</em></span></h1>
     <ul class="topNav">
       <li><a href="#">Blog</a></li>
-      <li class="selected"><a href="#">Forums</a></li>
+      <li class="selected"><a href="/forums.php">Forums</a></li>
       <li><a href="#">UserCP</a></li>
       <li><a href="#">Servers</a></li>
       <li><a href="#">Stats</a></li>
@@ -39,7 +39,7 @@
 
   <?php Notice::writeNotices(); ?>
   <ul class="subNav"><!--
-    --><li class="selected"><a href="#">Forums</a></li><!--
+    --><li class="selected"><a href="/forums.php">Forums</a></li><!--
     --><li><a href="#">Users</a></li><!--
     --><li><a href="#">Games</a></li><!--
     --><li><a href="#">Staff Roster</a></li><!--
@@ -58,9 +58,14 @@
       </ul>
     <?php endif; ?>
     <ul class="welcome">
-      <li>Welcome back,
-        <a href="/user.php?userId=<?php echo $User['id']; ?>"><img src="<?php echo User::writeAvatar($User['avatarUrl']); ?>" class="avatar small"/><?php echo ent($User['name']); ?>
-        </a></li>
-      <li><a href="/user.php?userId=<?php echo $User['id']; ?>">Profile</a></li>
-      <li><a href="#">Logout</a></li>
+      <?php if($isLoggedIn) : ?>
+        <li>Welcome back,
+          <a href="/user.php?userId=<?php echo $User['id']; ?>"><img src="<?php echo User::writeAvatar($User['avatarUrl']); ?>" class="avatar small"/><?php echo ent($User['name']); ?>
+          </a></li>
+        <li><a href="/user.php?userId=<?php echo $User['id']; ?>">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      <?php else : ?>
+        <li>Hello, Guest!</li>
+        <li><a href="/login.php">Login</a></li>
+      <?php endif; ?>
     </ul>
