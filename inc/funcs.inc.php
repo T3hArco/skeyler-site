@@ -259,20 +259,47 @@ function writeDateEng($timestamp) {
   }
 }
 
+function queryToAssoc($query) {
+  if($query[0] == '?') {
+    $query = substr($query, 1);
+  }
+  $queries = explode('&', $query);
+  $out = array();
+  foreach($queries as $query) {
+    $arr = explode('=', $query);
+    $out[$arr[0]] = $arr[1];
+  }
+  return $out;
+}
 
-function writePageNav($curPageId, $totalPages, $classes = array())
+
+function writePageNav($curPageId = null, $totalPages, $href = null, $queryString = null, $classes = array())
 {
+  if(is_null($curPageId)) {
+    global $pageId;
+    $curPageId = $pageId;
+  }
   if($totalPages <= 1) {
     return '';
   }
+  if(is_null($href)) {
+    $requestUri = $_SERVER['REQUEST_URI'];
+    $href = substr($requestUri, 0, strpos($requestUri, '?'));
+  }
+  if(is_null($queryString)) {
+    $queryString = $_SERVER['QUERY_STRING'];
+  }
+
+  $queryAssoc = queryToAssoc($queryString);
+
   $out = '<ul class="pageNav ' . implode(' ', (array)$classes) . '">';
   $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
 
   if ($curPageId > 1) {
-    $out .= '<li class="firstPage"><a href="#">First</a></li>';
+    $out .= '<li class="firstPage"><a href="' . writeHrefPageId($href, $queryAssoc, 1) . '">First</a></li>';
 
     if ($curPageId > 2) {
-      $out .= '<li class="prevPage"><a href="#">&lt;</a></li>';
+      $out .= '<li class="prevPage"><a href="' . writeHrefPageId($href, $queryAssoc, $curPageId - 1) . '">&lt;</a></li>';
     }
   }
 
@@ -283,22 +310,27 @@ function writePageNav($curPageId, $totalPages, $classes = array())
     if ($i == $curPageId) {
       $out .= '<li class="curPage"><span>' . $i . '</span></li>';
     } else {
-      $out .= '<li class=""><a href="#">' . $i . '</a></li>';
+      $out .= '<li class=""><a href="' . writeHrefPageId($href, $queryAssoc, $i) . '">' . $i . '</a></li>';
     }
   }
 
   if ($curPageId < $totalPages) {
     if ($curPageId < $totalPages - 1) {
-      $out .= '<li class="nextPage"><a href="#">&gt;</a></li>';
+      $out .= '<li class="nextPage"><a href="' . writeHrefPageId($href, $queryAssoc, $curPageId + 1) . '">&gt;</a></li>';
     }
-    $out .= '<li class="lastPage"><a href="#">Last</a></li>';
+    $out .= '<li class="lastPage"><a href="' . writeHrefPageId($href, $queryAssoc, $totalPages) . '">Last</a></li>';
   }
 
   $out .= '</ul>';
   return $out;
-
-
 }
 
-
+// writes an href with a passed pageId and query associative
+function writeHrefPageId($href, $queryAssoc, $newPageId) {
+  if(!is_array($queryAssoc)) {
+    $queryAssoc = queryToAssoc($queryAssoc);
+  }
+  $queryAssoc['page'] = $newPageId;
+  return $href . '?' . http_build_query($queryAssoc);
+}
 

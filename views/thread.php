@@ -1,6 +1,6 @@
 <?php global $Config, $pageId; ?>
 <h2><?php echo ent($local['thread']['title']); ?></h2>
-<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, 'top right'); ?>
+<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'top right'); ?>
   <br class="clr"/>
   <div class="posts">
     <?php $i = 0; ?>
@@ -30,7 +30,7 @@
       </div>
     <?php endforeach; ?>
   </div>
-<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, 'bottom right'); ?>
+<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'bottom right'); ?>
 <form method="post" class="createPost" action="/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
   <label>
     <strong>Content:</strong><br/>

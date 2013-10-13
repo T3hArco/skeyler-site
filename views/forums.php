@@ -1,4 +1,4 @@
-<?php global $now, $Config; ?>
+<?php global $now, $Config, $pageId; ?>
 <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
 <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
   topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
@@ -50,7 +50,7 @@
       <th>Posts</th>
       <th>Views</th>
       <th>Last Post</th>
-      <th class="pageNav"><?php echo writePageNav(1, 3); ?></th>
+      <th class="pageNav"><?php echo writePageNav($pageId, floor(($local['forums'][$local['forumId']]['threadCount'] - 1) / $Config['threadsPerPage']) + 1); ?></th>
     </tr>
     </thead>
 
