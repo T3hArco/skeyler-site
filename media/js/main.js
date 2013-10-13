@@ -1,6 +1,5 @@
 $(function () {
 
-
   // handles clicking a quoted post link
   $('a.postLink').on('click', function () {
     var postId = 0;
@@ -11,7 +10,7 @@ $(function () {
     // if the post is on the current page, scroll to it
     if ($('.post-' + postId).length) {
       var offsetTop = $('.post-' + postId).offset().top || 0;
-      $('body').animate({scrollTop : offsetTop}, 250);
+      $('body').animate({scrollTop: offsetTop}, 250);
       return false;
     }
     // otherwise continue with normal browser behavior
@@ -38,7 +37,6 @@ $(function () {
     var newText = oldText.substr(0, oldCaret.start) + quoteText + oldText.slice(oldCaret.end);
 
     $postContent.focus().val(newText).caret(oldCaret.start + quoteText.length);
-
 
 
     return false;
@@ -143,24 +141,145 @@ $(function () {
 
   ////// END BBCode
 
+
+  //chatbox
+  if ($('#chatbox').length) {
+    $chatbox = $('#chatbox');
+    $chats = $chatbox.find('.chats');
+    chatbox = {
+      isEnabled: true,
+      displayedCount: 0,
+      lowestId: 0,
+      highestId: 0,
+      timeout: 5000,
+      maxCount: 5
+    };
+    chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+  }
 });
 
+var $chatbox, $chats, chatbox;
 
-function ent(str){
-  return (str||'').toString().replace(/[<>'"&]/g, function(a){
+
+function ent(str) {
+  return (str || '').toString().replace(/[<>'"&]/g, function (a) {
     return ent.replaces[a];
   });
 }
 ent.replaces = {
-  '<' : '&lt;',
-  '>' : '&gt;',
-  '\'' : '&#39;',
-  '"' : '&quot;',
-  '&' : '&amp;'
+  '<': '&lt;',
+  '>': '&gt;',
+  '\'': '&#39;',
+  '"': '&quot;',
+  '&': '&amp;'
 };
 
+function writeDate(timestamp, type) {
+  var date = new Date(timestamp * 1000);
+  var hours = date.getHours();
+  var amPm = hours > 11 ? 'pm' : 'am';
+  hours = hours % 12;
+  if (hours == 0) {
+    hours = 12;
+  }
+  switch (type) {
+    case 'small':
+      return padLeft(hours, 2) + ':' + padLeft(date.getMinutes(), 2) + amPm;
+      break;
+    default:
+      return date.toString();
+  }
+}
 
+function padLeft(str, length, paddingChar) {
+  str = str.toString();
+  if (_.isUndefined(paddingChar)) {
+    paddingChar = '0';
+  }
+  paddingChar = paddingChar.toString();
+  while (str.length < length) {
+    str = paddingChar + str;
+  }
+  return str;
+}
 
+function updateChatbox() {
+  $.getJSON('/api/chatbox.php', {id: chatbox.highestId}, function (data) {
+    chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+    chatbox.maxCount = data.maxCount;
+    data.highestId = parseInt(data.highestId, 10);
+    data.lowestId = parseInt(data.lowestId, 10);
+    for (var i = _.max([chatbox.lowestId + 1, data.lowestId]); i <= data.highestId; i++) {
+      if (!data.chats[i]) {
+        continue;
+      }
+      $div = $('<div>')
+        .data('chatId', i)
+        .addClass('chat')
+        .append(
+          $('<span>').text(writeDate(data.chats[i].timestamp, 'small') + ' '),
+          $('<a>')
+            .addClass('userLink tag-' + data.users[data.chats[i].userId].rankStr)
+            .attr('href', '/user.php?userId=' + data.users[data.chats[i].userId].id)
+            .text(data.users[data.chats[i].userId].name),
+          $('<span>').text(': ' + data.chats[i].content)
+        )
+      ;
+      $chats.append($div);
+    }
+    if (data.highestId) {
+      chatbox.highestId = data.highestId;
+    }
+    var chatCount = $chats.find('.chat').length;
+    for (var i = 0; i < chatCount - chatbox.maxCount; i++) {
+      $chats.find('.chat:eq(0)').remove();
+    }
+    chatbox.lowestId = $chats.find('.chat:eq(0)').data('chatId');
 
+  });
+}
 
+function getHiddenProp() {
+  var prefixes = ['webkit', 'moz', 'ms', 'o'];
+  // if 'hidden' is natively supported just return it
+  if ('hidden' in document) {
+    return 'hidden';
+  }
+  // otherwise loop over all the known prefixes until we find one
+  for (var i = 0; i < prefixes.length; i++) {
+    if ((prefixes[i] + 'Hidden') in document) {
+      return prefixes[i] + 'Hidden';
+    }
+  }
+  // otherwise it's not supported
+  return null;
+}
+
+function isHidden() {
+  var prop = getHiddenProp();
+  if (!prop) {
+    return false;
+  }
+  return document[prop];
+}
+// use the property name to generate the prefixed event name
+var visProp = getHiddenProp();
+if (visProp) {
+  var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+  document.addEventListener(evtname, visChange);
+}
+function visChange() {
+  if (!chatbox.isEnabled) {
+    return;
+  }
+  clearTimeout(chatbox.interval);
+  if (isHidden()) {
+    // change chatbox interval to 60 seconds when the page isn't visible
+    chatbox.timeout = 60000;
+  } else {
+    // swap the chatbox interval back to 5 seconds when the page is visible again
+    chatbox.timeout = 5000;
+  }
+  chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+}
 

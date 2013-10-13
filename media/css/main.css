@@ -152,36 +152,42 @@ ul.pageNav.bottom li:last-child a {
 
 /* line 122, ../scss/main.scss */
 .tag-vip:before {
-  content: url("../images/tags/vip.png");
+  content: url("../images/tags/vip.png") " ";
   display: inline-block;
+  white-space: pre;
 }
 
 /* line 122, ../scss/main.scss */
 .tag-mod:before {
-  content: url("../images/tags/mod.png");
+  content: url("../images/tags/mod.png") " ";
   display: inline-block;
+  white-space: pre;
 }
 
 /* line 122, ../scss/main.scss */
 .tag-admin:before {
-  content: url("../images/tags/admin.png");
+  content: url("../images/tags/admin.png") " ";
   display: inline-block;
+  white-space: pre;
 }
 
 /* line 122, ../scss/main.scss */
 .tag-dev:before {
-  content: url("../images/tags/dev.png");
+  content: url("../images/tags/dev.png") " ";
   display: inline-block;
+  white-space: pre;
 }
 
 /* line 122, ../scss/main.scss */
 .tag-super:before {
-  content: url("../images/tags/super.png");
+  content: url("../images/tags/super.png") " ";
   display: inline-block;
+  white-space: pre;
 }
 
 /* line 122, ../scss/main.scss */
 .tag-owner:before {
-  content: url("../images/tags/owner.png");
+  content: url("../images/tags/owner.png") " ";
   display: inline-block;
+  white-space: pre;
 }

@@ -76,8 +76,6 @@
     <?php endforeach; ?>
     </tbody>
   </table>
+<?php else : ?>
+  <p>There are no threads on this forum.</p>
 <?php endif; ?>
-
-
-
-<?php var_dump($local);?>
