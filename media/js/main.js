@@ -152,10 +152,13 @@ $(function () {
       lowestId: 0,
       highestId: 0,
       timeout: 5000,
-      maxCount: 5
+      maxCount: 5,
+      playNoise: false
     };
-    updateChatbox();
-    chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+    if (chatbox.isEnabled) {
+      updateChatbox();
+      chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+    }
   }
 
   // submit a message to the chatbox
@@ -173,7 +176,6 @@ $(function () {
       $.post('/api/chatboxPost.php', {content: content}, function (json) {
         data = JSON.parse(json);
         $chats.find('.chat-message').remove();
-        console.log([6435, data, data.success]);
         if (data.success) {
           $div = $('<div>')
             .addClass('chat chat-fake')
@@ -262,7 +264,7 @@ function updateChatbox() {
       if (!data.chats[i] || $chats.find('.chat-' + i).length > 0) {
         continue;
       }
-      addedNew = true;
+      addedNew = i;
       $div = $('<div>')
         .data('chatId', i)
         .addClass('chat chat-' + i)
@@ -285,12 +287,21 @@ function updateChatbox() {
       $chats.find('.chat:eq(0)').remove();
     }
 
-    if($chats.find('.chat-fake').length > 0) {
+    if ($chats.find('.chat-fake').length > 0) {
       $chats.find('.chat-fake').remove();
     }
     // if new stuff was added, and we're at the bottom of the screen
     if (addedNew && atBottom) {
       $chats.scrollTop($chats.outerHeight() + 100);
+    }
+
+    if (chatbox.playNoise && addedNew) {
+      // if they have multiple tabs open, don't let it ding for each tab
+      if (parseInt(localStorage['lastNoiseChatId'] || 0, 10) < addedNew) {
+        localStorage['lastNoiseChatId'] = addedNew;
+        $('#chatboxAudio').get(0).play();
+      }
+
     }
 
     chatbox.lowestId = $chats.find('.chat:eq(0)').data('chatId');
@@ -335,9 +346,11 @@ function visChange() {
   if (isHidden()) {
     // change chatbox interval to 60 seconds when the page isn't visible
     chatbox.timeout = 60000;
+    chatbox.playNoise = true;
   } else {
     // swap the chatbox interval back to 5 seconds when the page is visible again
     chatbox.timeout = 5000;
+    chatbox.playNoise = false;
   }
   chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
 }

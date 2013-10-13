@@ -135,7 +135,7 @@ $tags: (vip, mod, admin, dev, super, owner);
     @include border-radius(0.5em 0.5em 0 0);
     height: 170px;
     padding: 8px;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
     background: #fff;
   }

@@ -83,11 +83,10 @@ class BBCode
     }, $str);
   }
 
-  //FIXME: scope is broke
   public static function parseCodeStart($str, &$codeTags)
   {
     $pattern = '#\[code\]((?:.|\n|\r)*?)\[\/code\]#i';
-    return preg_replace_callback($pattern, function ($matches) {
+    return preg_replace_callback($pattern, function ($matches) use (&$codeTags) {
       global $codeTags;
       $codeTags[] = $matches[1];
       return '<code' . count($codeTags) . '>';
@@ -114,7 +113,7 @@ class BBCode
 
     $codeTags = array();
 
-//    $out = self::parseCodeStart($out, $codeTags);
+    $out = self::parseCodeStart($out, $codeTags);
 
 
     // then parse the basic (simple) tags
@@ -129,7 +128,7 @@ class BBCode
 
 
     // next to last, bring back all code tags
-//    $out = self::parseCodeEnd($out, $codeTags);
+    $out = self::parseCodeEnd($out, $codeTags);
 
     // last, convert new lines to <br />
     $out = nl2br($out);
