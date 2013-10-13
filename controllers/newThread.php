@@ -19,8 +19,8 @@ if (!$forum) {
   exit;
 }
 
-if ($User['rank'] < $forum['visibleRank']) {
-  Notice::error('You do not have permission to view this forum.');
+if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostRank'] || $User['rank'] < $forum['createThreadRank']) {
+  Notice::error('You do not have permission to create a new thread on this forum.');
   exit;
 }
 

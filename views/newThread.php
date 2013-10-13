@@ -13,4 +13,4 @@
   <input type="submit" name="submit"/>
 </form>
 <h3>Preview:</h3>
-<div id="parsedContent"></div>
+<div id="parsedContent" class="postContent"></div>

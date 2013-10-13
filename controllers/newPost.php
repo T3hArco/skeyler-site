@@ -18,8 +18,8 @@ if (!$forum) {
   exit;
 }
 
-if ($User['rank'] < $forum['visibleRank']) {
-  Notice::error('You do not have permission to view this forum.');
+if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostRank']) {
+  Notice::error('You do not have permission to post on this.');
   exit;
 }
 
