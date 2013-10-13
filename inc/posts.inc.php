@@ -62,6 +62,8 @@ class Posts
 
     $DB->q($query, $binds);
 
+    $lastPostId = $DB->lastInsertId();
+
     $query = 'UPDATE threads SET postCount = postCount + 1, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
@@ -86,6 +88,7 @@ class Posts
     );
     $DB->query($query, $binds);
 
+    return $lastPostId;
 
   }
 

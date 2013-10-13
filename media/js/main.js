@@ -2,14 +2,14 @@ $(function () {
 
 
   // handles clicking a quoted post link
-  $('a.postLink').on('click', function(){
+  $('a.postLink').on('click', function () {
     var postId = 0;
-    ($(this).attr('href') || '').replace(/postId=(\d+)/i, function(z, postIdTemp){
+    ($(this).attr('href') || '').replace(/postId=(\d+)/i, function (z, postIdTemp) {
       postId = postIdTemp;
     });
 
     // if the post is on the current page, scroll to it
-    if($('.post-' + postId).length) {
+    if ($('.post-' + postId).length) {
       var offsetTop = $('.post-' + postId).offset().top;
       $(window).scrollTop(offsetTop);
       return false;
@@ -18,7 +18,19 @@ $(function () {
     return true;
   });
 
+  // handles clicking the quoteLink
+  $('.quoteLink').on('click', function () {
+    var $post = $(this).closest('.post');
+    var bbcode = $post.data('bbcode') || '';
+    var postId = $post.data('postId');
+    var username = $post.find('.userLink').text();
 
+    bbcode = bbcode.replace(/\[quote="[^"]+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
+
+    var quoteText = '[quote="' + ent(username) + '" postid="' + postId + '"]' + bbcode + '[/quote]\n';
+    $('#postContent').focus().val(quoteText);
+    return false;
+  });
 
 
   /////// BBCode
@@ -79,10 +91,14 @@ $(function () {
             // if it's a url, check if it is an image, so bbcode can be autowrapped around the pasted text
             if (/\.(bmp|gif|jpe?g|png)\??.*?$/i.test(url) || /^http:\/\/cloud\.steampowered\.com\/ugc\//.test(url)) {
               return '[img]' + url + '[/img]';
+            } else if (/^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-z0-9_-]+)/i.test(url)) {
+              url.replace(/^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-z0-9_-]+)/i, function (z, youtubeId) {
+                url = youtubeId;
+              });
+              return '[youtube]' + url + '[/youtube]';
             } else {
               return '[url]' + url + '[/url]';
             }
-            // todo: also catch youtubes
           });
           modifiedText = newContents.substr(0, oldCaret.start) + copiedText + newContents.slice(oldCaret.start + copiedTextLength);
           modifiedCaretStart = caret.start + 11;
@@ -109,7 +125,7 @@ $(function () {
 
   });
 
-  if($('#parsedContent').length && $('#postContent').length) {
+  if ($('#parsedContent').length && $('#postContent').length) {
     $('#parsedContent').html(bbcode.parse($('#postContent').val()));
   }
 
@@ -117,6 +133,19 @@ $(function () {
 
 });
 
+
+function ent(str){
+  return (str||'').toString().replace(/[<>'"&]/g, function(a){
+    return ent.replaces[a];
+  });
+}
+ent.replaces = {
+  '<' : '&lt;',
+  '>' : '&gt;',
+  '\'' : '&#39;',
+  '"' : '&quot;',
+  '&' : '&amp;'
+};
 
 
 

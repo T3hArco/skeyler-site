@@ -31,3 +31,11 @@
     <?php endforeach; ?>
   </div>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, 'bottom right'); ?>
+<form method="post" class="createPost" action="/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
+  <label>
+    <strong>Content:</strong><br/>
+    <textarea id="postContent" name="content" rows="10" cols="100"></textarea>
+  </label>
+  <br/>
+  <input type="submit" name="submit"/>
+</form>
