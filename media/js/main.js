@@ -154,8 +154,55 @@ $(function () {
       timeout: 5000,
       maxCount: 5
     };
+    updateChatbox();
     chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
   }
+
+  // submit a message to the chatbox
+  $('#chatboxPostForm').on('submit', function () {
+    var content = $(this).find('#chatboxPost').val();
+    if (content.length > 0) {
+      $div = $('<div>')
+        .addClass('chat-message')
+        .text('Sending message...')
+        .appendTo($chats)
+      ;
+      $chats.scrollTop($chats.outerHeight() + 100);
+      $(this).find('#chatboxPost').val('');
+
+      $.post('/api/chatboxPost.php', {content: content}, function (json) {
+        data = JSON.parse(json);
+        $chats.find('.chat-message').remove();
+        console.log([6435, data, data.success]);
+        if (data.success) {
+          $div = $('<div>')
+            .addClass('chat chat-fake')
+            .append(
+              $('<span>').text(writeDate(data.timestamp, 'small') + ' '),
+              $('<a>')
+                .addClass('userLink tag-' + data.rankStr)
+                .attr('href', '/user.php?userId=' + data.userId)
+                .text(data.username),
+              $('<span>').text(': ' + data.content)
+            )
+          ;
+          $chats.append($div);
+          $chats.scrollTop($chats.outerHeight() + 100);
+        } else {
+          $div = $('<div>')
+            .addClass('chat-message chat-error')
+            .text('Error sending message.')
+            .appendTo($chats)
+          ;
+          $chats.scrollTop($chats.outerHeight() + 100);
+        }
+
+      })
+    }
+    return false;
+  });
+
+
 });
 
 var $chatbox, $chats, chatbox;
@@ -205,17 +252,20 @@ function padLeft(str, length, paddingChar) {
 
 function updateChatbox() {
   $.getJSON('/api/chatbox.php', {id: chatbox.highestId}, function (data) {
-    chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
+    clearTimeout(chatbox.interval);
     chatbox.maxCount = data.maxCount;
     data.highestId = parseInt(data.highestId, 10);
     data.lowestId = parseInt(data.lowestId, 10);
+    var addedNew = false;
+    var atBottom = ($chats.get(0).scrollHeight - $chats.scrollTop() <= $chats.outerHeight());
     for (var i = _.max([chatbox.lowestId + 1, data.lowestId]); i <= data.highestId; i++) {
-      if (!data.chats[i]) {
+      if (!data.chats[i] || $chats.find('.chat-' + i).length > 0) {
         continue;
       }
+      addedNew = true;
       $div = $('<div>')
         .data('chatId', i)
-        .addClass('chat')
+        .addClass('chat chat-' + i)
         .append(
           $('<span>').text(writeDate(data.chats[i].timestamp, 'small') + ' '),
           $('<a>')
@@ -234,8 +284,17 @@ function updateChatbox() {
     for (var i = 0; i < chatCount - chatbox.maxCount; i++) {
       $chats.find('.chat:eq(0)').remove();
     }
-    chatbox.lowestId = $chats.find('.chat:eq(0)').data('chatId');
 
+    if($chats.find('.chat-fake').length > 0) {
+      $chats.find('.chat-fake').remove();
+    }
+    // if new stuff was added, and we're at the bottom of the screen
+    if (addedNew && atBottom) {
+      $chats.scrollTop($chats.outerHeight() + 100);
+    }
+
+    chatbox.lowestId = $chats.find('.chat:eq(0)').data('chatId');
+    chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
   });
 }
 

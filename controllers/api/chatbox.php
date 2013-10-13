@@ -4,7 +4,7 @@ require '../../_.php';
 $Page = new Page();
 $Page->header();
 
-$max = 5;
+$max = 20;
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
 
 $query = 'SELECT * FROM chatbox WHERE id > :id ORDER BY id DESC LIMIT ' . $max . ';';

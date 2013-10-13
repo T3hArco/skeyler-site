@@ -127,4 +127,32 @@ $tags: (vip, mod, admin, dev, super, owner);
   }
 }
 
+#chatbox {
+  .chats {
+    font-size: 0.75em;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+    @include border-radius(0.5em 0.5em 0 0);
+    height: 170px;
+    padding: 8px;
+    overflow: scroll;
+    overflow-x: hidden;
+    background: #fff;
+  }
 
+  .chat {
+    a.userLink:before {
+      line-height: 1.0;
+      vertical-align: middle;
+    }
+  }
+  input {
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    padding: 4px 10px;
+    //@include background-image(linear-gradient(#d8d8d8, #fefefe 80%));
+    @include box-shadow(inset 0px 5px 10px rgba(0, 0, 0, 0.125));
+
+    @include border-radius(0 0 0.5em 0.5em);
+  }
+}
