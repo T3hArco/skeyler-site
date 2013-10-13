@@ -87,19 +87,17 @@ class BBCode
   {
     $pattern = '#\[code\]((?:.|\n|\r)*?)\[\/code\]#i';
     return preg_replace_callback($pattern, function ($matches) use (&$codeTags) {
-      global $codeTags;
       $codeTags[] = $matches[1];
       return '<code' . count($codeTags) . '>';
     }, $str);
   }
 
   //FIXME: scope is broke
-  public static function parseCodeEnd($str, $codeTags)
+  public static function parseCodeEnd($str, &$codeTags)
   {
     $pattern = '#<code(\d+)>#i';
-    return preg_replace_callback($pattern, function ($matches) {
-      global $codeTags;
-      return '<pre>' . $codeTags[$matches[1]] . '</pre>';
+    return preg_replace_callback($pattern, function ($matches) use (&$codeTags){
+      return '<pre>' . $codeTags[$matches[1] - 1] . '</pre>';
     }, $str);
   }
 
