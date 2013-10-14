@@ -141,4 +141,56 @@ class User
     return 'peanutbutter';
   }
 
+  public static function writeModOptions($type)
+  {
+    $lis = array();
+    switch ($type) {
+      case 'forum':
+        if (self::can(User::RANK_ADMIN)) {
+          $lis[] = 'Rename Forum';
+          $lis[] = 'Move Forum';
+        }
+        break;
+      case 'thread':
+        if (self::can(User::RANK_ADMIN)) {
+          $lis[] = 'Close Thread';
+          $lis[] = 'Sticky Thread';
+          $lis[] = 'Move Thread';
+          $lis[] = 'Delete Thread';
+        }
+        break;
+      case 'post':
+        if (self::can(User::RANK_MOD)) {
+          $lis[] = 'Ban User';
+        }
+        if (self::can(User::RANK_ADMIN)) {
+          $lis[] = 'Edit Post';
+          $lis[] = 'Delete Post';
+        }
+        break;
+      case 'user':
+        if (self::can(User::RANK_MOD)) {
+          $lis[] = 'Ban User';
+        }
+        if (self::can(User::RANK_SUPER)) {
+          $lis[] = 'Change Rank';
+        }
+        break;
+      default:
+        return '';
+    }
+
+    if (count($lis) == 0) {
+      return '';
+    }
+
+    $out = '<div class="modDropdown"><a href="#" class="star"></a><ul class="mod mod-' . $type . '">';
+    foreach ($lis as $li) {
+      $out .= '<li class="mod-' . spaceToCamel($li) . '" data-mod-type="' . spaceToCamel($li) . '"><a href="#">' . $li . '</a></li>';
+    }
+    $out .= '</ul></div>';
+
+    return $out;
+  }
+
 }

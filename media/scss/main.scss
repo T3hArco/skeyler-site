@@ -168,3 +168,40 @@ $tags: (vip, mod, admin, dev, super, owner);
   display: inline-block;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==') no-repeat;
 }
+
+.modDropdown {
+  display: inline-block;
+  position: relative;
+
+  .star {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: red;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    z-index:999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 16px;
+    text-align: right;
+    background: #eee;
+    border: 1px solid #000;
+
+    li {
+      a {
+        display: block;
+        white-space: pre;
+        padding:0 4px;
+      }
+      & ~ li {
+        border-top:1px solid #000;
+      }
+    }
+  }
+}

@@ -248,24 +248,26 @@ function writeDate($timestamp)
   return date('M d, Y g:ia', $timestamp);
 }
 
-function writeDateEng($timestamp) {
+function writeDateEng($timestamp)
+{
   global $now;
 
   // if > 2 days old, show the full date
-  if($now - $timestamp > 60 * 60 * 24 * 2) {
+  if ($now - $timestamp > 60 * 60 * 24 * 2) {
     return writeDate($timestamp);
   } else {
     return writeTimeLength($now - $timestamp) . ' ago';
   }
 }
 
-function queryToAssoc($query) {
-  if($query[0] == '?') {
+function queryToAssoc($query)
+{
+  if ($query[0] == '?') {
     $query = substr($query, 1);
   }
   $queries = explode('&', $query);
   $out = array();
-  foreach($queries as $query) {
+  foreach ($queries as $query) {
     $arr = explode('=', $query);
     $out[$arr[0]] = $arr[1];
   }
@@ -275,18 +277,18 @@ function queryToAssoc($query) {
 
 function writePageNav($curPageId = null, $totalPages, $href = null, $queryString = null, $classes = array())
 {
-  if(is_null($curPageId)) {
+  if (is_null($curPageId)) {
     global $pageId;
     $curPageId = $pageId;
   }
-  if($totalPages <= 1) {
+  if ($totalPages <= 1) {
     return '';
   }
-  if(is_null($href)) {
+  if (is_null($href)) {
     $requestUri = $_SERVER['REQUEST_URI'];
     $href = substr($requestUri, 0, strpos($requestUri, '?'));
   }
-  if(is_null($queryString)) {
+  if (is_null($queryString)) {
     $queryString = $_SERVER['QUERY_STRING'];
   }
 
@@ -326,11 +328,19 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
 }
 
 // writes an href with a passed pageId and query associative
-function writeHrefPageId($href, $queryAssoc, $newPageId) {
-  if(!is_array($queryAssoc)) {
+function writeHrefPageId($href, $queryAssoc, $newPageId)
+{
+  if (!is_array($queryAssoc)) {
     $queryAssoc = queryToAssoc($queryAssoc);
   }
   $queryAssoc['page'] = $newPageId;
   return $href . '?' . http_build_query($queryAssoc);
 }
 
+function spaceToCamel($str)
+{
+  $pattern = '#\s+([a-z])#i';
+  return preg_replace_callback($pattern, function ($matches) {
+    return strtoupper($matches[1]);
+  }, strtolower($str));
+}

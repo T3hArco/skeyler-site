@@ -206,6 +206,21 @@ $(function () {
   });
 
 
+  $('.modDropdown .star').on('click', function(){
+    $(this).closest('.modDropdown').find('.mod').toggle();
+    return false;
+  });
+
+  $('.mod-thread a').on('click', function(){
+    var threadData = $('.posts').data();
+  });
+
+  $('.mod-post a').on('click', function(){
+    var postData = $(this).closest('.post').data();
+  });
+
+
+
 });
 
 var $chatbox, $chats, chatbox;

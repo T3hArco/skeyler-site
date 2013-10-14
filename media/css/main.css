@@ -245,3 +245,40 @@ ul.pageNav.bottom li:last-child a {
   display: inline-block;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
+
+/* line 172, ../scss/main.scss */
+.modDropdown {
+  display: inline-block;
+  position: relative;
+}
+/* line 176, ../scss/main.scss */
+.modDropdown .star {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: red;
+}
+/* line 183, ../scss/main.scss */
+.modDropdown ul {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  right: 0;
+  top: 16px;
+  text-align: right;
+  background: #eee;
+  border: 1px solid #000;
+}
+/* line 197, ../scss/main.scss */
+.modDropdown ul li a {
+  display: block;
+  white-space: pre;
+  padding: 0 4px;
+}
+/* line 202, ../scss/main.scss */
+.modDropdown ul li ~ li {
+  border-top: 1px solid #000;
+}

@@ -1,12 +1,13 @@
-<?php global $Config, $pageId; ?>
+<?php global $Config, $pageId, $User; ?>
 <h2><?php echo ent($local['thread']['title']); ?></h2>
+<?php echo User::writeModOptions('thread'); ?>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'top right'); ?>
   <br class="clr"/>
-  <div class="posts">
+  <div class="posts" data-thread-id="<?php echo $local['thread']['id']; ?>" data-forum-id="<?php echo $local['thread']['forumId']; ?>">
     <?php $i = 0; ?>
     <?php foreach ($local['posts'] as $post) : ?>
       <?php $i++; ?>
-      <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>">
+      <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
         <div class="userInfo">
           <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
           <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
@@ -24,7 +25,10 @@
           <?php echo BBCode::parse($post['content']); ?>
         </div>
         <div class="postOptions">
-          <a href="#" class="editLink"></a>
+          <?php echo User::writeModOptions('post'); ?>
+          <?php if($post['userId'] == $User['id']) : ?>
+            <a href="#" class="editLink"></a>
+          <?php endif; ?>
           <a href="#" class="quoteLink"></a>
         </div>
       </div>
