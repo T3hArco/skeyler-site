@@ -10,7 +10,8 @@
     <textarea id="postContent" name="content" rows="10" cols="100"><?php echo ent($local['content']); ?></textarea>
   </label>
   <br/>
-  <input type="submit" name="submit"/>
+  <!--<input type="submit" value="Preview"/>-->
+  <input type="submit" name="submit" value="Post New Thread!"/>
 </form>
 <h3>Preview:</h3>
 <div id="parsedContent" class="postContent"></div>

@@ -206,19 +206,30 @@ $(function () {
   });
 
 
-  $('.modDropdown .star').on('click', function(){
-    $(this).closest('.modDropdown').find('.mod').toggle();
+  // show/hide the mod stuff
+  $('.modDropdown .star').on('click', function () {
+    $that = $(this);
+    $that.closest('.modDropdown').find('.mod').show();
+    $that.show();
+    $(window).off('click.hideMod').on('click.hideMod', function (e) {
+      if($(e.target).closest('.mod').length) {
+        return true;
+      }
+      $('.mod').hide();
+      $(window).off('click.hideMod');
+      return false;
+    });
+
     return false;
   });
 
-  $('.mod-thread a').on('click', function(){
+  $('.mod-thread a').on('click', function () {
     var threadData = $('.posts').data();
   });
 
-  $('.mod-post a').on('click', function(){
+  $('.mod-post a').on('click', function () {
     var postData = $(this).closest('.post').data();
   });
-
 
 
 });
