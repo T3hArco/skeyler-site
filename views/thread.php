@@ -22,7 +22,7 @@
         <?php endif; ?>
       </div><!--
            --><div class="postContent">
-        <?php echo BBCode::parse($post['content']); ?>
+        <?php echo $post['contentParsed'];//BBCode::parse($post['content']); ?>
       </div>
       <div class="postOptions">
         <?php if ($post['userId'] == $User['id']) : ?>

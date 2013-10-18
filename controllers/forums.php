@@ -2,7 +2,7 @@
 require '../_.php';
 $Page = new Page();
 
-$forumId = (int)(isset($_GET['forumId']) ? $_GET['forumId'] : 0);
+$forumId = (int)getGet('forumId');
 
 $forums = Forums::getForumAndSubforums($forumId);
 

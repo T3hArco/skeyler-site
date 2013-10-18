@@ -5,8 +5,8 @@ global $User, $Config, $pageId;
 
 $Page = new Page();
 
-$threadId = (int)(isset($_GET['threadId']) ? $_GET['threadId'] : 0);
-$postId = (int)(isset($_GET['postId']) ? $_GET['postId'] : 0);
+$threadId = (int)getGet('threadId');
+$postId = (int)getGet('postId');
 
 if($postId && !$threadId) {
   $post = Posts::load($postId);

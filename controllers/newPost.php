@@ -2,7 +2,7 @@
 require '../_.php';
 $Page = new Page();
 
-$threadId = (int)(isset($_GET['threadId']) ? $_GET['threadId'] : 0);
+$threadId = (int)getGet('threadId');
 
 $thread = Threads::load($threadId);
 
@@ -31,7 +31,7 @@ $local['breadcrumbs'] = array(
 
 // they submitted the form
 
-$content = isset($_POST['content']) ? $_POST['content'] : '';
+$content = getPost('content');
 
 $isSubmit = isset($_POST['submit']);
 if ($isSubmit) {

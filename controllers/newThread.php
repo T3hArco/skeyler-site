@@ -3,7 +3,7 @@ require '../_.php';
 $Page = new Page();
 
 
-$forumId = (int)(isset($_GET['forumId']) ? $_GET['forumId'] : 0);
+$forumId = (int)getGet('forumId');
 
 
 if (!$forumId) {
@@ -31,8 +31,8 @@ $local['breadcrumbs'] = array(
 
 // they submitted the form
 
-$content = isset($_POST['content']) ? $_POST['content'] : '';
-$title = isset($_POST['title']) ? $_POST['title'] : '';
+$content = getPost('content');
+$title = getPost('title');
 
 $isSubmit = isset($_POST['submit']);
 if ($isSubmit) {

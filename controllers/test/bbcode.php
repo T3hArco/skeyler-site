@@ -1,7 +1,7 @@
 <?php
 require '../../_.php';
 
-$bbcode = isset($_POST['bbcode']) ? $_POST['bbcode'] : '';
+$bbcode = getPost('bbcode');
 
 
 $parsedCode = BBCode::parse($bbcode);

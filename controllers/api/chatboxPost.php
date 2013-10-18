@@ -9,7 +9,7 @@ if(!$isLoggedIn) {
   exit;
 }
 
-$content = isset($_POST['content']) ? $_POST['content'] : '';
+$content = getPost('content');
 if(strlen($content) == 0) {
   Notice::error('Message too short.');
   exit;
