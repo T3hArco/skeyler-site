@@ -143,6 +143,7 @@ class User
 
   public static function writeModOptions($type)
   {
+    global $local;
     $lis = array();
     switch ($type) {
       case 'forum':
@@ -153,8 +154,16 @@ class User
         break;
       case 'thread':
         if (self::can(User::RANK_ADMIN)) {
-          $lis[] = 'Close Thread';
-          $lis[] = 'Sticky Thread';
+          if(!$local['thread']['isClosed']) {
+            $lis[] = 'Close Thread';
+          } else {
+            $lis[] = 'Open Thread';
+          }
+          if(!$local['thread']['isSticky']) {
+            $lis[] = 'Sticky Thread';
+          } else {
+            $lis[] = 'UnSticky Thread';
+          }
           $lis[] = 'Move Thread';
           $lis[] = 'Delete Thread';
         }

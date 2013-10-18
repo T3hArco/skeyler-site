@@ -212,7 +212,7 @@ $(function () {
     $that.closest('.modDropdown').find('.mod').show();
     $that.show();
     $(window).off('click.hideMod, touchstart.hideMod').on('click.hideMod, touchstart.hideMod', function (e) {
-      if($(e.target).closest('.mod').length) {
+      if ($(e.target).closest('.mod').length) {
         return true;
       }
       $('.mod').hide();
@@ -230,17 +230,53 @@ $(function () {
     var postData = {};
     var modType = $el.data('modType');
 
-    switch(modType) {
+    switch (modType) {
       case 'closeThread':
-        postData = {};
+        postData = {
+          threadId: threadData.threadId
+        };
+        break;
+      case 'openThread':
+        postData = {
+          threadId: threadData.threadId
+        };
+        break;
+      case 'stickyThread':
+        postData = {
+          threadId: threadData.threadId
+        };
+        break;
+      case 'unstickyThread':
+        postData = {
+          threadId: threadData.threadId
+        };
+        break;
+      case 'moveThread':
+        // TODO
+        alert('incomplete')
+        postData = {
+          threadId: threadData.threadId
+        };
+        break;
+      case 'deleteThread':
+        postData = {
+          threadId: threadData.threadId
+        };
         break;
       default:
         return;
     }
-    $.post('/mod/' + modType + '.php', postData, function(data){
+
+
+    $.post('/mod/' + modType + '.php', postData, function (data) {
       var data = JSON.parse(data);
       handleNotices(data);
+
+      // make the dropdowns go away
+      $(window).click();
     });
+
+    return false;
   });
 
   $('.mod-post a').on('click', function () {
@@ -253,8 +289,14 @@ $(function () {
 var $chatbox, $chats, chatbox;
 
 function handleNotices(data) {
-  //TODO
-  // this is dumb. make it better
+  if (data.notices) {
+    for (var noticeType in data.notices) {
+      for (var i in data.notices[noticeType]) {
+        alert(data.notices[noticeType][i]);
+      }
+    }
+  }
+  return !!data.success;
 }
 
 function ent(str) {

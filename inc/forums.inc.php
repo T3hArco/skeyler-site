@@ -39,6 +39,7 @@ class Forums
   LEFT JOIN forum_parents AS fp
     ON fp.forumId = f.id
   WHERE (fp.parentId = :forumId OR f.id = :forumId) AND f.visibleRank <= :rank
+  ORDER BY `order`
   ;
 ';
 

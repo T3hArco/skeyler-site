@@ -139,7 +139,7 @@
     $DB->q($query, $binds);
   }
 
-  public static function reopen($threadId)
+  public static function open($threadId)
   {
     global $DB;
     $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId';
@@ -167,6 +167,18 @@
       'threadId' => $threadId,
     );
     $DB->q($query, $binds);
+  }
+
+  public static function move($threadId, $destinationForumId)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+      'forumId' => $destinationForumId,
+    );
+    $DB->q($query, $binds);
+    // recount threads/posts for both forums
   }
 
 
