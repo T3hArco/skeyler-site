@@ -129,5 +129,45 @@
     return $threadId;
   }
 
+  public static function close($threadId)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET isClosed = 1 WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+    );
+    $DB->q($query, $binds);
+  }
+
+  public static function reopen($threadId)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+    );
+    $DB->q($query, $binds);
+  }
+
+  public static function sticky($threadId)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET isSticky = 1 WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+    );
+    $DB->q($query, $binds);
+  }
+
+  public static function unsticky($threadId)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET isSticky = 0 WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+    );
+    $DB->q($query, $binds);
+  }
+
 
 }

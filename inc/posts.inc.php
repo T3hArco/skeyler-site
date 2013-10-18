@@ -49,13 +49,14 @@ class Posts
   {
     global $DB, $User, $now;
     $query = '
-      INSERT INTO posts (userId, timestamp, content, ip, threadId)
-      VALUES(:userId, :now, :content, :ip, :threadId);
+      INSERT INTO posts (userId, timestamp, content, contentParsed, ip, threadId)
+      VALUES(:userId, :now, :content, :contentParsed, :ip, :threadId);
     ';
     $binds = array(
       'userId' => $User['id'],
       'now' => $now,
       'content' => $content,
+      'contentParsed' => BBCode::parse($content),
       'ip' => ip2long($_SERVER['REMOTE_ADDR']),
       'threadId' => $threadId,
     );

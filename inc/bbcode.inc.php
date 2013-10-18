@@ -24,7 +24,7 @@ class BBCode
 
     return preg_replace_callback($pattern, function ($matches) {
       $tag = self::$basicReplacements[$matches[1]];
-      return '<' . $tag . '>' . $matches[2] . '</' . $tag . '>';
+      return '<' . $tag . '>' . self::parseBasic($matches[2]) . '</' . $tag . '>';
     }, $str);
   }
 

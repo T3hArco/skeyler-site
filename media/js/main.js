@@ -211,12 +211,12 @@ $(function () {
     $that = $(this);
     $that.closest('.modDropdown').find('.mod').show();
     $that.show();
-    $(window).off('click.hideMod').on('click.hideMod', function (e) {
+    $(window).off('click.hideMod, touchstart.hideMod').on('click.hideMod, touchstart.hideMod', function (e) {
       if($(e.target).closest('.mod').length) {
         return true;
       }
       $('.mod').hide();
-      $(window).off('click.hideMod');
+      $(window).off('click.hideMod, touchstart.hideMod');
       return false;
     });
 
@@ -225,6 +225,22 @@ $(function () {
 
   $('.mod-thread a').on('click', function () {
     var threadData = $('.posts').data();
+    $el = $(this).closest('li');
+
+    var postData = {};
+    var modType = $el.data('modType');
+
+    switch(modType) {
+      case 'closeThread':
+        postData = {};
+        break;
+      default:
+        return;
+    }
+    $.post('/mod/' + modType + '.php', postData, function(data){
+      var data = JSON.parse(data);
+      handleNotices(data);
+    });
   });
 
   $('.mod-post a').on('click', function () {
@@ -236,6 +252,10 @@ $(function () {
 
 var $chatbox, $chats, chatbox;
 
+function handleNotices(data) {
+  //TODO
+  // this is dumb. make it better
+}
 
 function ent(str) {
   return (str || '').toString().replace(/[<>'"&]/g, function (a) {
