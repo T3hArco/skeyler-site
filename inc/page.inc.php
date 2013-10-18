@@ -47,6 +47,8 @@ class Page
     if (!$isJson) {
       $local['title'] = $this->title;
       include ROOT . '/views/common/header.php';
+    } else {
+      header('Content-type: application/json');
     }
 
     $this->echoedHeader = 'done';
@@ -70,7 +72,7 @@ class Page
     if (!$isJson) {
       include ROOT . '/views/common/footer.php';
     } else {
-      echo json_encode($local);
+      echo json_encode($local, JSON_PRETTY_PRINT);
     }
     $this->echoedFooter = 'done';
     exit;

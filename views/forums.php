@@ -68,7 +68,7 @@
     <?php foreach ($local['threads'] as $thread) : ?>
       <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?><?php echo($thread['isSticky'] ? ' sticky' : ''); ?><?php echo($thread['isClosed'] ? ' closed' : ''); ?>">
         <td class="title">
-          <a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a>
+          <span><a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></span>
           <?php if (isset($local['lastReadThreadPostCounts'][$thread['id']]) && $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount']) : ?>
             <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['threadsPerPage']); ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['threadsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>
               )</a>

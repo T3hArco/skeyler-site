@@ -229,6 +229,28 @@ $(function () {
 
     var postData = {};
     var modType = $el.data('modType');
+    var sendNow = true;
+
+    var callback = function (data) {
+
+      var cb = noop();
+
+      // if successful, we want to redirect/refresh
+      if (data.success) {
+        cb = function () {
+          document.location = document.location;
+        }
+      }
+
+      handleNotices(data, cb);
+
+      // make the dropdowns go away
+      $(window).click();
+    };
+
+    var send = function () {
+      $.post('/mod/' + modType + '.php', postData, callback);
+    };
 
     switch (modType) {
       case 'closeThread':
@@ -252,11 +274,46 @@ $(function () {
         };
         break;
       case 'moveThread':
-        // TODO
-        alert('incomplete')
-        postData = {
-          threadId: threadData.threadId
-        };
+        sendNow = false;
+        $.getJSON('/api/getForumList.php', function (data) {
+
+          var $popup = $('<div>').addClass('popup');
+          var $select = $('<select>');
+          var forums = data.forumList;
+          var depth = -1;
+
+          function loopSelect(forum) {
+            depth += 1;
+            for (var forumId in forum['subforums']) {
+              var $option = $('<option>')
+                  .val(forumId)
+                  .text(strRepeat('--', depth) + forum['subforums'][forumId].name)
+                  .appendTo($select)
+                ;
+              loopSelect(forum['subforums'][forumId]);
+            }
+            depth -= 1;
+          }
+
+          loopSelect(forums);
+
+          var $submit = $('<button>').on('click', function () {
+            postData = {
+              threadId: threadData.threadId,
+              forumId: $select.val()
+            };
+            send();
+            $popup.remove();
+          });
+
+          $popup
+            .append($select, $submit)
+            .appendTo($('body'))
+          ;
+
+
+        });
+
         break;
       case 'deleteThread':
         postData = {
@@ -267,14 +324,9 @@ $(function () {
         return;
     }
 
-
-    $.post('/mod/' + modType + '.php', postData, function (data) {
-      var data = JSON.parse(data);
-      handleNotices(data);
-
-      // make the dropdowns go away
-      $(window).click();
-    });
+    if (sendNow) {
+      send();
+    }
 
     return false;
   });
@@ -288,14 +340,23 @@ $(function () {
 
 var $chatbox, $chats, chatbox;
 
-function handleNotices(data) {
+function noop() {
+  return function () {
+  };
+}
+
+function handleNotices(data, callback) {
+  callback = callback || noop;
   if (data.notices) {
     for (var noticeType in data.notices) {
       for (var i in data.notices[noticeType]) {
+        // make this note do an alert.
+        // todo: make it popup something i guess
         alert(data.notices[noticeType][i]);
       }
     }
   }
+  callback();
   return !!data.success;
 }
 
@@ -339,6 +400,10 @@ function padLeft(str, length, paddingChar) {
     str = paddingChar + str;
   }
   return str;
+}
+
+function strRepeat(str, count) {
+  return new Array(count + 1).join(str) || '';
 }
 
 function updateChatbox() {
@@ -443,4 +508,6 @@ function visChange() {
   }
   chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
 }
+
+
 

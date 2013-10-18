@@ -5,7 +5,7 @@ require '_mod.php';
 validateRank(User::RANK_ADMIN);
 
 $threadId = (int)getPost('threadId');
-$forumId = (int)getPost('destinationForumId');
+$forumId = (int)getPost('forumId');
 
 $thread = Threads::load($threadId);
 
@@ -16,7 +16,7 @@ if(!$thread) {
 
 $forum = Forums::load($forumId);
 
-if(!$forum) {
+if(!$forum || !$forumId) {
   Notice::error('Could not find the forum you want to move the thread to!!!');
   exit;
 }

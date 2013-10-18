@@ -33,6 +33,7 @@ $data['users'] = $users;
 $data['highestId'] = $chatIds ? max($chatIds) : 0;
 $data['lowestId'] = $chatIds ? min($chatIds) : 0;
 $data['maxCount'] = $max;
+$data['success'] = true;
 
 view($data);
 

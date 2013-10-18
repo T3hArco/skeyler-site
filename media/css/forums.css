@@ -175,7 +175,7 @@ table.threads tr .title {
   font-size: 1.25em;
 }
 /* line 160, ../scss/forums.scss */
-table.threads tr .title a {
+table.threads tr .title span {
   max-width: 275px;
   display: inline-block;
 }
@@ -192,7 +192,7 @@ table.threads tr.sticky {
   background-color: #f2ecb6;
 }
 /* line 177, ../scss/forums.scss */
-table.threads tr.sticky .title:before {
+table.threads tr.sticky .title a:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;

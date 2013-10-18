@@ -50,6 +50,53 @@ class Forums
     return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
+  public static function getAllVisibleForumsGrouped()
+  {
+    global $User, $DB;
+    $query = 'SELECT f.*, fp.parentId
+      FROM forums AS f
+        LEFT JOIN forum_parents AS fp
+        ON f.id = fp.forumId
+      WHERE f.visibleRank <= :rank
+      ORDER BY f.`order`
+    ';
+    $binds = array(
+      'rank' => $User['rank'],
+    );
+    $rows = $DB->q($query, $binds)->fetchAll();
+
+    $forums = populateIds($rows);
+
+    $parents = array();
+    foreach ($forums as $forum) {
+      if ($forum['parentId'] == '') {
+        $forum['parentId'] = '_';
+      }
+      if (!isset($parents[$forum['parentId']])) {
+        $parents[$forum['parentId']] = array();
+      }
+      $parents[$forum['parentId']][] = $forum;
+    }
+
+    $out = $parents['_'][0];
+
+    function fillSubforums(&$forum, &$parents)
+    {
+      $forum['subforums'] = array();
+      if(!isset($parents[$forum['id']])) {
+        return;
+      }
+      foreach ($parents[$forum['id']] as $subforum) {
+        $forum['subforums'][$subforum['id']] = $subforum;
+        fillSubforums($forum['subforums'][$subforum['id']], $parents);
+      }
+    }
+
+    fillSubforums($out, $parents);
+
+    return $out;
+  }
+
   public static function updateLastSeen($forumId)
   {
     global $DB, $User, $now;
