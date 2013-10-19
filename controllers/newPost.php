@@ -49,8 +49,9 @@ if ($isSubmit) {
 
 }
 
-$Page->header('Create Thread');
+$Page->header('Reply to Thread');
 $data['content'] = $content;
+$data['thread'] = $thread;
 
 
 view($data);

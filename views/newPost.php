@@ -1,6 +1,6 @@
 <?php global $User; ?>
-<h2>Create Post</h2>
-
+<h2><a href="/thread.php?threadId=<?php echo $local['thread']['id']; ?>"><?php echo ent($local['thread']['title']); ?></a></h2>
+<h2>Reply to Thread</h2>
 <form method="post" class="createPost">
   <label>
     <strong>Content:</strong><br/>
@@ -10,7 +10,7 @@
   <!--<input type="submit" value="Preview"/>-->
   <input type="submit" name="submit" value="Post!"/>
 </form>
-<h3>Preview:</h3>
+<h3>Reply Preview:</h3>
 
 <div class="posts">
   <div class="post">

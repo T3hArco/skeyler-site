@@ -1,5 +1,5 @@
 <?php global $User; ?>
-<h2>Create Thread</h2>
+<h2>Create New Thread</h2>
 
 <form method="post" class="createThread">
   <label>
@@ -15,7 +15,7 @@
   <input type="submit" name="submit" value="Post New Thread!"/>
 </form>
 
-<h3>Preview:</h3>
+<h3>New Thread Preview:</h3>
 <h2 id="parsedTitle">Your title could be here!</h2>
 <div class="posts">
   <div class="post">

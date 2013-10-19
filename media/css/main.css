@@ -86,8 +86,12 @@ h2 {
   padding: 0;
   margin: 0;
 }
+/* line 68, ../scss/main.scss */
+h2 a {
+  color: #767676;
+}
 
-/* line 69, ../scss/main.scss */
+/* line 73, ../scss/main.scss */
 ul.pageNav {
   display: inline-block;
   background: #3d628c;
@@ -103,37 +107,37 @@ ul.pageNav {
   margin: 0;
   padding: 0;
 }
-/* line 80, ../scss/main.scss */
+/* line 84, ../scss/main.scss */
 ul.pageNav.right {
   float: right;
 }
-/* line 84, ../scss/main.scss */
+/* line 88, ../scss/main.scss */
 ul.pageNav li {
   display: inline-block;
 }
-/* line 87, ../scss/main.scss */
+/* line 91, ../scss/main.scss */
 ul.pageNav li a {
   display: inline-block;
   background: #fff;
 }
-/* line 92, ../scss/main.scss */
+/* line 96, ../scss/main.scss */
 ul.pageNav li a, ul.pageNav li span {
   padding: 0.25em 0.5em;
 }
-/* line 96, ../scss/main.scss */
+/* line 100, ../scss/main.scss */
 ul.pageNav li.firstPage a:before {
   content: '<< ';
 }
-/* line 99, ../scss/main.scss */
+/* line 103, ../scss/main.scss */
 ul.pageNav li.lastPage a:after {
   content: ' >>';
 }
-/* line 103, ../scss/main.scss */
+/* line 107, ../scss/main.scss */
 ul.pageNav li.curPage a {
   background: #3d628c;
   color: #d5d5d5;
 }
-/* line 108, ../scss/main.scss */
+/* line 112, ../scss/main.scss */
 ul.pageNav li:last-child a {
   -webkit-border-radius: 0 0.125em 0 0;
   -moz-border-radius: 0 0.125em 0 0;
@@ -141,7 +145,7 @@ ul.pageNav li:last-child a {
   -o-border-radius: 0 0.125em 0 0;
   border-radius: 0 0.125em 0 0;
 }
-/* line 113, ../scss/main.scss */
+/* line 117, ../scss/main.scss */
 ul.pageNav.bottom {
   -webkit-border-radius: 0 0 0.25em 0.25em;
   -moz-border-radius: 0 0 0.25em 0.25em;
@@ -151,7 +155,7 @@ ul.pageNav.bottom {
   border: 1px solid #3d628c;
   border-top: none;
 }
-/* line 118, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 ul.pageNav.bottom li:last-child a {
   -webkit-border-radius: 0 0 0.125em 0;
   -moz-border-radius: 0 0 0.125em 0;
@@ -160,49 +164,49 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.125em 0;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-vip:before {
   content: url("../images/tags/vip.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-mod:before {
   content: url("../images/tags/mod.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-admin:before {
   content: url("../images/tags/admin.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-dev:before {
   content: url("../images/tags/dev.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-super:before {
   content: url("../images/tags/super.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .tag-owner:before {
   content: url("../images/tags/owner.png") " ";
   display: inline-block;
   white-space: pre;
 }
 
-/* line 136, ../scss/main.scss */
+/* line 140, ../scss/main.scss */
 #chatbox .chats {
   font-size: 0.75em;
   border: 1px solid #d8d8d8;
@@ -218,12 +222,12 @@ ul.pageNav.bottom li:last-child a {
   overflow-x: hidden;
   background: #fff;
 }
-/* line 149, ../scss/main.scss */
+/* line 153, ../scss/main.scss */
 #chatbox .chat a.userLink:before {
   line-height: 1.0;
   vertical-align: middle;
 }
-/* line 154, ../scss/main.scss */
+/* line 158, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -238,7 +242,7 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.5em 0.5em;
 }
 
-/* line 165, ../scss/main.scss */
+/* line 169, ../scss/main.scss */
 .missing42 {
   width: 42px;
   height: 42px;
@@ -246,19 +250,19 @@ ul.pageNav.bottom li:last-child a {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
 
-/* line 172, ../scss/main.scss */
+/* line 176, ../scss/main.scss */
 .modDropdown {
   display: inline-block;
   position: relative;
 }
-/* line 176, ../scss/main.scss */
+/* line 180, ../scss/main.scss */
 .modDropdown .star {
   width: 16px;
   height: 16px;
   display: inline-block;
   background: #a00;
 }
-/* line 188, ../scss/main.scss */
+/* line 192, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -272,25 +276,25 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 202, ../scss/main.scss */
+/* line 206, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 207, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
 
 @-moz-keyframes evilPulse {
-  /* line 215, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 219, ../scss/main.scss */
+  /* line 223, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -298,13 +302,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes evilPulse {
-  /* line 215, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 219, ../scss/main.scss */
+  /* line 223, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -312,13 +316,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes evilPulse {
-  /* line 215, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 219, ../scss/main.scss */
+  /* line 223, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -326,13 +330,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes evilPulse {
-  /* line 215, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 219, ../scss/main.scss */
+  /* line 223, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -340,13 +344,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes evilPulse {
-  /* line 215, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 219, ../scss/main.scss */
+  /* line 223, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -354,13 +358,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-moz-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   from {
     -moz-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 233, ../scss/main.scss */
   to {
     -moz-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -368,13 +372,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   from {
     -webkit-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 233, ../scss/main.scss */
   to {
     -webkit-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -382,13 +386,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   from {
     -o-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 233, ../scss/main.scss */
   to {
     -o-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -396,13 +400,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   from {
     -ms-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 233, ../scss/main.scss */
   to {
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -410,12 +414,12 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   from {
     transform: rotate(5deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 233, ../scss/main.scss */
   to {
     transform: rotate(-5deg);
   }
