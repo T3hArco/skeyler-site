@@ -66,27 +66,29 @@
 }
 /* line 55, ../scss/forums.scss */
 .table.subforums .row .cell.forumInfo .forumName, .table.subforums .row .cell.forumInfo .description {
-  display: block;
+  display: inline-block;
   line-height: 1.0;
+  float: left;
 }
-/* line 60, ../scss/forums.scss */
+/* line 61, ../scss/forums.scss */
 .table.subforums .row .cell.forumInfo .forumName {
   font-size: 14pt;
   font-weight: bold;
   color: #fff;
 }
-/* line 66, ../scss/forums.scss */
+/* line 68, ../scss/forums.scss */
 .table.subforums .row .cell.forumInfo .description {
   font-size: 0.85em;
+  clear: left;
 }
-/* line 71, ../scss/forums.scss */
+/* line 74, ../scss/forums.scss */
 .table.subforums .row .cell.postCount {
   color: #94a9c0;
   line-height: 32px;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 79, ../scss/forums.scss */
+/* line 82, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo {
   text-align: left;
   display: inline-block;
@@ -102,7 +104,7 @@
   min-width: 200px;
   min-height: 46px;
 }
-/* line 90, ../scss/forums.scss */
+/* line 93, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .avatar {
   vertical-align: top;
   width: 42px;
@@ -114,49 +116,49 @@
   border-radius: 0.25em;
   vertical-align: middle;
 }
-/* line 98, ../scss/forums.scss */
+/* line 101, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .subPostInfo {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 103, ../scss/forums.scss */
+/* line 106, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .timestamp, .table.subforums .row .cell.lastPostInfo .userLink, .table.subforums .row .cell.lastPostInfo .viewLink {
   display: block;
   font-size: 0.65em;
 }
-/* line 108, ../scss/forums.scss */
+/* line 111, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .timestamp {
   color: #929292;
 }
-/* line 111, ../scss/forums.scss */
+/* line 114, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .userLink {
   color: #4b4b4b;
   font-weight: bold;
 }
-/* line 115, ../scss/forums.scss */
+/* line 118, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .viewLink {
   color: #385464;
 }
-/* line 124, ../scss/forums.scss */
+/* line 127, ../scss/forums.scss */
 .table.subforums .row.forumNew {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX////////////////////////////////7/fpnvTj///93xE2w3Zir25F1w0t0wkiv3Jat25NOxqYUAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=") no-repeat 8px center #3d628c;
 }
-/* line 128, ../scss/forums.scss */
+/* line 131, ../scss/forums.scss */
 .table.subforums .row.forumSeen {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC") no-repeat 8px center #3d628c;
 }
 
-/* line 135, ../scss/forums.scss */
+/* line 138, ../scss/forums.scss */
 table.threads {
   width: 100%;
   border-collapse: collapse;
   position: relative;
 }
-/* line 140, ../scss/forums.scss */
+/* line 143, ../scss/forums.scss */
 table.threads .pageNav {
   float: right;
 }
-/* line 144, ../scss/forums.scss */
+/* line 147, ../scss/forums.scss */
 table.threads tr {
   color: #515151;
   height: 25px;
@@ -164,62 +166,62 @@ table.threads tr {
   font-size: 0.75em;
   border-top: 7px solid #fff;
 }
-/* line 151, ../scss/forums.scss */
+/* line 154, ../scss/forums.scss */
 table.threads tr td {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-/* line 156, ../scss/forums.scss */
+/* line 159, ../scss/forums.scss */
 table.threads tr .title {
   padding-left: 32px;
   font-size: 1.25em;
 }
-/* line 160, ../scss/forums.scss */
+/* line 163, ../scss/forums.scss */
 table.threads tr .title span {
   max-width: 275px;
   display: inline-block;
 }
-/* line 166, ../scss/forums.scss */
+/* line 169, ../scss/forums.scss */
 table.threads tr.threadNew .title {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAATlBMVEX///////////////////////////////////////////+Ozmv///+NzWlqvjxpvjtnvTh2w0yOzmyLzWiNzmq74aaKzGWc1H2a03uKzGYLR4gOAAAAC3RSTlPe4bb9plNK4N+5uFc0eh4AAABZSURBVHhepczJDoUgEETRamZsnKf3/v9HNbBoA3HlXZ5UCs4ESME4KJ2eaQVK85A7CxGQxil3FMEtQ5GlEX4V+embzSry+zNzv+0i0hehSghdJR1s9JB8tBcwDgvd/QYRIgAAAABJRU5ErkJggg==") no-repeat 4px center;
 }
-/* line 170, ../scss/forums.scss */
+/* line 173, ../scss/forums.scss */
 table.threads tr.threadSeen .title {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC") no-repeat 4px center;
 }
-/* line 174, ../scss/forums.scss */
+/* line 177, ../scss/forums.scss */
 table.threads tr.sticky {
   background-color: #f2ecb6;
 }
-/* line 177, ../scss/forums.scss */
+/* line 180, ../scss/forums.scss */
 table.threads tr.sticky .title a:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 184, ../scss/forums.scss */
+/* line 187, ../scss/forums.scss */
 table.threads tr a {
   color: #515151;
 }
-/* line 188, ../scss/forums.scss */
+/* line 191, ../scss/forums.scss */
 table.threads tr a.userLink {
   color: #385464;
 }
-/* line 196, ../scss/forums.scss */
+/* line 199, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
 }
-/* line 200, ../scss/forums.scss */
+/* line 203, ../scss/forums.scss */
 table.threads thead th {
   color: #494949;
   padding: 0;
 }
-/* line 205, ../scss/forums.scss */
+/* line 208, ../scss/forums.scss */
 table.threads thead th.pageNav {
   vertical-align: bottom;
   font-weight: normal;
 }
-/* line 212, ../scss/forums.scss */
+/* line 215, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 1px;

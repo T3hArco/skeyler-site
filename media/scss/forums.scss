@@ -53,18 +53,21 @@
         text-align: left;
 
         .forumName, .description {
-          display: block;
+          display: inline-block;
           line-height: 1.0;
+          float: left;
         }
 
         .forumName {
           font-size: 14pt;
           font-weight: bold;
           color: #fff;
+
         }
 
         .description {
           font-size: 0.85em;
+          clear: left;
         }
       }
 

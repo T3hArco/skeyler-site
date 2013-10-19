@@ -256,13 +256,13 @@ ul.pageNav.bottom li:last-child a {
   width: 16px;
   height: 16px;
   display: inline-block;
-  background: red;
+  background: #a00;
 }
-/* line 183, ../scss/main.scss */
+/* line 188, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
-  z-index: 99;
+  z-index: 999;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -272,13 +272,151 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 197, ../scss/main.scss */
+/* line 202, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 202, ../scss/main.scss */
+/* line 207, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
+}
+
+@-moz-keyframes evilPulse {
+  /* line 215, ../scss/main.scss */
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em #cc0000;
+  }
+
+  /* line 219, ../scss/main.scss */
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em #880000;
+  }
+}
+
+@-webkit-keyframes evilPulse {
+  /* line 215, ../scss/main.scss */
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em #cc0000;
+  }
+
+  /* line 219, ../scss/main.scss */
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em #880000;
+  }
+}
+
+@-o-keyframes evilPulse {
+  /* line 215, ../scss/main.scss */
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em #cc0000;
+  }
+
+  /* line 219, ../scss/main.scss */
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em #880000;
+  }
+}
+
+@-ms-keyframes evilPulse {
+  /* line 215, ../scss/main.scss */
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em #cc0000;
+  }
+
+  /* line 219, ../scss/main.scss */
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em #880000;
+  }
+}
+
+@keyframes evilPulse {
+  /* line 215, ../scss/main.scss */
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em #cc0000;
+  }
+
+  /* line 219, ../scss/main.scss */
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em #880000;
+  }
+}
+
+@-moz-keyframes evilRotate {
+  /* line 226, ../scss/main.scss */
+  from {
+    -moz-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 229, ../scss/main.scss */
+  to {
+    -moz-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+
+@-webkit-keyframes evilRotate {
+  /* line 226, ../scss/main.scss */
+  from {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 229, ../scss/main.scss */
+  to {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+
+@-o-keyframes evilRotate {
+  /* line 226, ../scss/main.scss */
+  from {
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 229, ../scss/main.scss */
+  to {
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+
+@-ms-keyframes evilRotate {
+  /* line 226, ../scss/main.scss */
+  from {
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  /* line 229, ../scss/main.scss */
+  to {
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes evilRotate {
+  /* line 226, ../scss/main.scss */
+  from {
+    transform: rotate(5deg);
+  }
+
+  /* line 229, ../scss/main.scss */
+  to {
+    transform: rotate(-5deg);
+  }
 }

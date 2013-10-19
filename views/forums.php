@@ -1,10 +1,11 @@
 <?php global $now, $Config, $pageId; ?>
   <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
+<?php if ($local['forumId']) : ?>
   <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
     topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
     , <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
     post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?></span>
-
+<?php endif; ?>
 
 <?php if (count($local['forums']) > 1) : ?>
   <div class="table subforums">
@@ -88,6 +89,6 @@
     <?php endforeach; ?>
     </tbody>
   </table>
-<?php else : ?>
+<?php elseif($local['forumId']) : ?>
   <p>There are no threads on this forum.</p>
 <?php endif; ?>

@@ -177,13 +177,18 @@ $tags: (vip, mod, admin, dev, super, owner);
     width: 16px;
     height: 16px;
     display: inline-block;
-    background: red;
+    background: #a00;
+    //@include animation-name(evilPulse, evilRotate);
+    //@include animation-duration(3s, 1s);
+    //@include animation-iteration-count(infinite);
+    //@include animation-direction(alternate);
+
   }
 
   ul {
     display: none;
     position: absolute;
-    z-index:999;
+    z-index: 999;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -197,11 +202,32 @@ $tags: (vip, mod, admin, dev, super, owner);
       a {
         display: block;
         white-space: pre;
-        padding:0 4px;
+        padding: 0 4px;
       }
       & ~ li {
-        border-top:1px solid #000;
+        border-top: 1px solid #000;
       }
     }
   }
 }
+
+@include keyframes(evilPulse) {
+  from {
+    background-color: #c00;
+    box-shadow: 0 0 1em rgba(#c00, 1);
+  }
+  to {
+    background-color: #822;
+    box-shadow: 0 0 1em rgba(#800, 1);
+  }
+}
+
+@include keyframes(evilRotate) {
+  from {
+    @include transform(rotate(5deg));
+  }
+  to {
+    @include transform(rotate(-5deg));
+  }
+}
+

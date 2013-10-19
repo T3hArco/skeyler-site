@@ -132,13 +132,32 @@ $(function () {
       }
     }
 
-    $('#parsedContent').html(bbcode.parse($(this).val()));
+    var parsedContent = bbcode.parse($(this).val());
+
+    if (parsedContent.length == 0) {
+      parsedContent = '<em>[Type some text in the textarea and it will update down here as a preview.]</em>';
+    }
+
+    $('#parsedContent').html(parsedContent);
 
   });
 
   if ($('#parsedContent').length && $('#postContent').length) {
-    $('#parsedContent').html(bbcode.parse($('#postContent').val()));
+
+    var parsedContent = bbcode.parse($('#postContent').val());
+    if (parsedContent.length == 0) {
+      parsedContent = '<em>[Type some text in the textarea and it will update down here as a preview.]</em>';
+    }
+    $('#parsedContent').html(parsedContent);
   }
+
+  $('#postTitle').on('keyup', function(){
+    var title = $(this).val();
+    if(title.length == 0) {
+      title = 'Your title could be here!';
+    }
+    $('#parsedTitle').text(title);
+  });
 
   ////// END BBCode
 
