@@ -15,7 +15,7 @@
 <div class="posts">
   <div class="post">
     <div class="userInfo">
-      <span class="postTime">In the near future</span>
+      <span class="postTime"><?php echo randArr(array('In the near future', 'The Year 2000', 'Jan 1st, 2070 BC', 'Dec 21, 2012', 'Tomorrow')); ?></span>
       <img src="<?php echo User::writeAvatar($User['avatarUrl'], 'full'); ?>" class="avatar"/>
       <?php echo User::writeUserLink($User, array('hideTag' => true)); ?>
       <span class="postCount"><?php echo($User['postCount']); ?> posts</span>

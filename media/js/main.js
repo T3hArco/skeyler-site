@@ -151,9 +151,9 @@ $(function () {
     $('#parsedContent').html(parsedContent);
   }
 
-  $('#postTitle').on('keyup', function(){
+  $('#postTitle').on('keyup', function () {
     var title = $(this).val();
-    if(title.length == 0) {
+    if (title.length == 0) {
       title = 'Your title could be here!';
     }
     $('#parsedTitle').text(title);
@@ -267,8 +267,13 @@ $(function () {
       $(window).click();
     };
 
-    var send = function () {
-      $.post('/mod/' + modType + '.php', postData, callback);
+    var send = function (cb) {
+      cb = cb || noop;
+      var cb2 = function (data) {
+        callback(data);
+        cb();
+      };
+      $.post('/mod/' + modType + '.php', postData, cb2);
     };
 
     switch (modType) {
@@ -297,6 +302,7 @@ $(function () {
         $.getJSON('/api/getForumList.php', function (data) {
 
           var $popup = $('<div>').addClass('popup');
+          var $popupContainer = $('<div>').addClass('popupContainer');
           var $select = $('<select>');
           var forums = data.forumList;
           var depth = -1;
@@ -316,17 +322,25 @@ $(function () {
 
           loopSelect(forums);
 
-          var $submit = $('<button>').on('click', function () {
+          var $submit = $('<button>').text('Move Thread!').on('click', function () {
             postData = {
               threadId: threadData.threadId,
               forumId: $select.val()
             };
-            send();
-            $popup.remove();
+            send(function () {
+              $popupContainer.remove();
+            });
+
           });
 
+          $h4 = $('<h4>').html('It is my expert diagnosis that this thread needs to be moved.<br />But where to?');
+
           $popup
-            .append($select, $submit)
+            .append($h4, $select, $submit)
+          ;
+
+          $popupContainer
+            .append($popup)
             .appendTo($('body'))
           ;
 

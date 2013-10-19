@@ -345,11 +345,17 @@ function spaceToCamel($str)
   }, strtolower($str));
 }
 
-function getGet($var) {
+function getGet($var)
+{
   return isset($_GET[$var]) ? $_GET[$var] : '';
 }
-function getPost($var) {
+
+function getPost($var)
+{
   return isset($_POST[$var]) ? $_POST[$var] : '';
 }
 
-
+function randArr($arr)
+{
+  return $arr[rand(0, count($arr) - 1)];
+}
