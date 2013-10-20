@@ -46,7 +46,7 @@
 
     .cell {
       display: inline-block;
-      padding: 8px 0;
+      padding: 4px 0;
 
       &.forumInfo {
         float: left;
@@ -62,19 +62,48 @@
           font-size: 14pt;
           font-weight: bold;
           color: #fff;
-
         }
 
         .description {
           font-size: 0.85em;
           clear: left;
+          margin:4px 0 0 0;
+        }
+
+        ul.subforums {
+          display: inline-block;
+          list-style: none;
+          float: left;
+          clear: left;
+          padding: 0;
+          margin: 4px 0 0 0;
+          line-height: 1.0;
+          font-size:0.8em;
+
+          li {
+            display: inline-block;
+
+            a {
+              display: inline-block;
+              padding: 0.1em 0.5em;
+              background: #2c4b6d;
+              //border: 1px solid rgba(#fff, 0.25);
+              box-shadow:0 0 0.25em rgba(#fff, 0.25);
+              @include border-radius(0.25em);
+              color: #fff;
+
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
         }
       }
 
       &.postCount {
         //color: #bababa;
         color: #94a9c0;
-        line-height: 32px;
+        line-height: 52px;
         vertical-align: top;
         margin: 0 1em 0 0;
       }
@@ -85,15 +114,15 @@
         float: right;
         background: #fff;
         @include border-radius(0.25em);
-        margin: 1px;
+        margin: 2px;
         padding: 2px;
         min-width: 200px;
-        min-height: 46px;
+        min-height: 56px;
 
         .avatar {
           vertical-align: top;
-          width: 42px;
-          height: 42px;
+          width: 52px;
+          height: 52px;
           @include border-radius(0.25em);
           vertical-align: middle;
         }

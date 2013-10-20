@@ -19,6 +19,11 @@
           <div class="cell forumInfo">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
+            <ul class="subforums">
+              <li><a href="#">Subforum</a></li>
+              <li><a href="#">Subforum</a></li>
+              <li><a href="#">Subforum</a></li>
+            </ul>
           </div>
           <div class="cell postCount">
             <?php echo $forum['threadCount']; ?>
@@ -36,7 +41,7 @@
                 <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>" class="viewLink">(view)</a>
               </div>
             <?php else : ?>
-              <div class="missing42 avatar"></div>
+              <div class="missing52 avatar"></div>
 
               <div class="subPostInfo">
                 <span class="timestamp">Never</span>

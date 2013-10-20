@@ -187,7 +187,7 @@ function getJson($url)
 }
 
 
-function view($variables)
+function view($variables, $viewUrl = null)
 {
   global $controllerName, $local, $isJson;
 
@@ -200,7 +200,13 @@ function view($variables)
     exit;
   }
 
-  $includePath = realpath(ROOT . '/views/' . $controllerName);
+  if (is_null($viewUrl)) {
+    $includePath = realpath(ROOT . '/views/' . $controllerName);
+  } else {
+    $includePath = $viewUrl;
+  }
+
+
   if ($includePath && strpos($includePath, realpath(ROOT . '/views/')) === 0) {
     Notice::writeNotices();
     include $includePath;

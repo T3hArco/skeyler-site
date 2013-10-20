@@ -83,7 +83,7 @@ class Forums
     function fillSubforums(&$forum, &$parents)
     {
       $forum['subforums'] = array();
-      if(!isset($parents[$forum['id']])) {
+      if (!isset($parents[$forum['id']])) {
         return;
       }
       foreach ($parents[$forum['id']] as $subforum) {
@@ -136,6 +136,52 @@ class Forums
       'userId' => $User['id'],
     );
     return populateIds($DB->q($query, $binds)->fetchAll(), 'forumId');
+
+  }
+
+  // recounts the threads and posts in a forum
+  public static function recountCounts($forumId)
+  {
+    global $DB;
+
+    $query = '
+      SELECT COUNT(*) AS threadCount
+      FROM threads
+      WHERE forumId = :forumId
+    ';
+
+    $binds = array(
+      'forumId' => $forumId,
+    );
+    $row = $DB->q($query, $binds)->fetch();
+    $threadCount = $row['threadCount'];
+
+    $query = '
+      SELECT COUNT(*) AS postCount
+      FROM posts AS p
+      LEFT JOIN threads AS t ON p.threadId = t.id
+      WHERE t.forumId = :forumId
+    ';
+
+    $binds = array(
+      'forumId' => $forumId,
+    );
+    $row = $DB->q($query, $binds)->fetch();
+    $postCount = $row['postCount'];
+
+    $query = '
+    UPDATE forums
+    SET postCount = :postCount,
+      threadCount = :threadCount
+    WHERE id = :forumId
+    LIMIT 1;';
+    $binds = array(
+      'threadCount' => $threadCount,
+      'postCount' => $postCount,
+      'forumId' => $forumId,
+    );
+
+    $DB->q($query, $binds);
 
   }
 
