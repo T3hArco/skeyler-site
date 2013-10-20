@@ -95,7 +95,7 @@ function populateIds($data, $idField = 'id')
  * @param string $fieldName
  * @param bool $unique
  */
-function eachField($data, $fieldName, $unique = true)
+function eachField($data, $fieldName = 'id', $unique = true)
 {
   $out = array();
   foreach ($data as $row) {

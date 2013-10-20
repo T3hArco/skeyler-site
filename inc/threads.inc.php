@@ -218,4 +218,45 @@
 
   }
 
+  public static function getBlogPosts($pageId)
+  {
+    global $DB, $Config;
+    $query = '
+      SELECT *
+      FROM threads
+      WHERE forumId = 1
+      ORDER BY id DESC
+      LIMIT ' . ($pageId - 1) * $Config['blogPostsPerPage'] . ', ' . $Config['blogPostsPerPage'] . '
+      ';
+    $threads = $DB->q($query)->fetchAll();
+
+    $out['threads'] = $threads;
+
+    $threadIds = eachField($threads);
+    $posts = array();
+
+    if (count($threadIds) > 0) {
+      $whereIn = DB::whereIn($threadIds);
+      $query = '
+        SELECT MIN(id) AS postId
+        FROM posts
+        WHERE threadId IN(' . $whereIn . ')
+        GROUP BY threadId
+        ;
+      ';
+      $postIds = eachField($DB->q($query)->fetchAll(), 'postId');
+
+      $posts = populateIds(Posts::loadIds($postIds), 'threadId');
+
+    }
+
+    $out['posts'] = $posts;
+
+    $userIds = eachField($posts, 'userId');
+    $out['users'] = User::loadIds($userIds);
+
+
+    return $out;
+  }
+
 }
