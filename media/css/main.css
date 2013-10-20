@@ -139,6 +139,7 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/vip.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
 /* line 102, ../scss/main.scss */
@@ -146,6 +147,7 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/mod.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
 /* line 102, ../scss/main.scss */
@@ -153,6 +155,7 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/admin.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
 /* line 102, ../scss/main.scss */
@@ -160,6 +163,7 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/dev.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
 /* line 102, ../scss/main.scss */
@@ -167,6 +171,7 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/super.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
 /* line 102, ../scss/main.scss */
@@ -174,9 +179,10 @@ ul.pageNav.bottom li:last-child a {
   content: url("../images/tags/owner.png") " ";
   display: inline-block;
   white-space: pre;
+  vertical-align: middle;
 }
 
-/* line 111, ../scss/main.scss */
+/* line 112, ../scss/main.scss */
 #chatbox .chats {
   font-size: 0.75em;
   border: 1px solid #d8d8d8;
@@ -192,12 +198,12 @@ ul.pageNav.bottom li:last-child a {
   overflow-x: hidden;
   background: #fff;
 }
-/* line 124, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 #chatbox .chat a.userLink:before {
   line-height: 1.0;
   vertical-align: middle;
 }
-/* line 129, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -212,7 +218,7 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.5em 0.5em;
 }
 
-/* line 140, ../scss/main.scss */
+/* line 141, ../scss/main.scss */
 .missing42 {
   width: 42px;
   height: 42px;
@@ -220,7 +226,7 @@ ul.pageNav.bottom li:last-child a {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
 
-/* line 146, ../scss/main.scss */
+/* line 147, ../scss/main.scss */
 .missing52 {
   width: 42px;
   height: 42px;
@@ -228,19 +234,39 @@ ul.pageNav.bottom li:last-child a {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0AQMAAAD/tomoAAAABlBMVEX4APgAAAAfdBzzAAAAKUlEQVR4Xt3PQQkAAAjAwIEBjGR1IxlAUEvoQxjce6DlUrHmZAlXfvtpTQiymQ2xdWAAAAAASUVORK5CYII=") no-repeat;
 }
 
-/* line 153, ../scss/main.scss */
+/* line 154, ../scss/main.scss */
 .modDropdown {
   display: inline-block;
   position: relative;
 }
-/* line 157, ../scss/main.scss */
+/* line 158, ../scss/main.scss */
 .modDropdown .star {
   width: 16px;
   height: 16px;
   display: inline-block;
   background: #a00;
+  -webkit-animation-name: evilPulse, evilRotate;
+  -moz-animation-name: evilPulse, evilRotate;
+  -ms-animation-name: evilPulse, evilRotate;
+  -o-animation-name: evilPulse, evilRotate;
+  animation-name: evilPulse, evilRotate;
+  -webkit-animation-duration: 3s, 1s;
+  -moz-animation-duration: 3s, 1s;
+  -ms-animation-duration: 3s, 1s;
+  -o-animation-duration: 3s, 1s;
+  animation-duration: 3s, 1s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  -ms-animation-direction: alternate;
+  -o-animation-direction: alternate;
+  animation-direction: alternate;
 }
-/* line 169, ../scss/main.scss */
+/* line 170, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -254,25 +280,25 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 183, ../scss/main.scss */
+/* line 184, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 188, ../scss/main.scss */
+/* line 189, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
 
 @-moz-keyframes evilPulse {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -280,13 +306,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes evilPulse {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -294,13 +320,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes evilPulse {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -308,13 +334,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes evilPulse {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -322,13 +348,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes evilPulse {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   from {
     background-color: #c00;
     box-shadow: 0 0 1em #cc0000;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   to {
     background-color: #822;
     box-shadow: 0 0 1em #880000;
@@ -336,13 +362,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-moz-keyframes evilRotate {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   from {
     -moz-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 210, ../scss/main.scss */
+  /* line 211, ../scss/main.scss */
   to {
     -moz-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -350,13 +376,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes evilRotate {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   from {
     -webkit-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 210, ../scss/main.scss */
+  /* line 211, ../scss/main.scss */
   to {
     -webkit-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -364,13 +390,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes evilRotate {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   from {
     -o-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 210, ../scss/main.scss */
+  /* line 211, ../scss/main.scss */
   to {
     -o-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -378,13 +404,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes evilRotate {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   from {
     -ms-transform: rotate(5deg);
     transform: rotate(5deg);
   }
 
-  /* line 210, ../scss/main.scss */
+  /* line 211, ../scss/main.scss */
   to {
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -392,18 +418,18 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes evilRotate {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   from {
     transform: rotate(5deg);
   }
 
-  /* line 210, ../scss/main.scss */
+  /* line 211, ../scss/main.scss */
   to {
     transform: rotate(-5deg);
   }
 }
 
-/* line 215, ../scss/main.scss */
+/* line 216, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -416,7 +442,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 227, ../scss/main.scss */
+/* line 228, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;

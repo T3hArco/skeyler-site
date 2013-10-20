@@ -35,7 +35,7 @@ if($local['thread']['isSticky']) {
            --><div class="postContent">
         <?php echo $post['contentParsed'];//BBCode::parse($post['content']); ?>
         <?php if($post['lastEditTimestamp']) : ?>
-          Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']]); ?>
+          <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
         <?php endif; ?>
       </div>
       <div class="postOptions">

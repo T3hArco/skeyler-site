@@ -109,8 +109,9 @@
   width: 722px;
   padding: 12px 54px 12px 12px;
   vertical-align: top;
+  margin: 0 0 1em 0;
 }
-/* line 93, ../scss/threads.scss */
+/* line 94, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -128,23 +129,32 @@
   margin: 0;
   position: relative;
 }
-/* line 102, ../scss/threads.scss */
+/* line 103, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 109, ../scss/threads.scss */
+/* line 110, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 116, ../scss/threads.scss */
+/* line 117, ../scss/threads.scss */
 .postContent blockquote a.postLink {
   font-size: 1em;
   margin: 0 0 10px -16px;
   display: inline-block;
+}
+/* line 124, ../scss/threads.scss */
+.postContent .editInfo {
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  left: 154px;
+  font-style: italic;
+  color: #999;
 }

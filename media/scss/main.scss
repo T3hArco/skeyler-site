@@ -103,6 +103,7 @@ $tags: (vip, mod, admin, dev, super, owner);
     content: url('../images/tags/#{$tag}.png') ' ';
     display: inline-block;
     white-space: pre;
+    vertical-align: middle;
     // todo add background images instead of content text
   }
 }
@@ -159,10 +160,10 @@ $tags: (vip, mod, admin, dev, super, owner);
     height: 16px;
     display: inline-block;
     background: #a00;
-    //@include animation-name(evilPulse, evilRotate);
-    //@include animation-duration(3s, 1s);
-    //@include animation-iteration-count(infinite);
-    //@include animation-direction(alternate);
+    @include animation-name(evilPulse, evilRotate);
+    @include animation-duration(3s, 1s);
+    @include animation-iteration-count(infinite);
+    @include animation-direction(alternate);
 
   }
 

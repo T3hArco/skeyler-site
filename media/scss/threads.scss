@@ -17,9 +17,9 @@
     position: absolute;
     right: 864px;
     display: inline-block;
-    padding:0 1px 0 0;
-    font-size:1.5em;
-    top:0;
+    padding: 0 1px 0 0;
+    font-size: 1.5em;
+    top: 0;
     line-height: 1.0;
   }
 }
@@ -89,6 +89,7 @@
   width: 866px - 142px - 2px;
   padding: 12px 54px 12px 12px;
   vertical-align: top;
+  margin: 0 0 1em 0;
 
   blockquote {
     padding: 7px 23px;
@@ -118,6 +119,15 @@
       margin: 0 0 10px -16px;
       display: inline-block;
     }
+  }
+
+  .editInfo {
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    left: 154px;
+    font-style: italic;
+    color: #999;
   }
 
 }
