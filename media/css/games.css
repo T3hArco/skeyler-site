@@ -1,0 +1,140 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 3, ../scss/games.scss */
+ul.sideNav {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  line-height: 1.0;
+}
+/* line 10, ../scss/games.scss */
+ul.sideNav li {
+  display: block;
+  margin-bottom: 7px;
+  white-space: pre;
+  position: relative;
+  text-align: right;
+  left: -32px;
+}
+/* line 18, ../scss/games.scss */
+ul.sideNav li a {
+  color: #fff;
+  padding: 12px 16px 12px 28px;
+  background: #b6b6b6;
+  display: block;
+  -webkit-border-radius: 0 0.25em 0.25em 0;
+  -moz-border-radius: 0 0.25em 0.25em 0;
+  -ms-border-radius: 0 0.25em 0.25em 0;
+  -o-border-radius: 0 0.25em 0.25em 0;
+  border-radius: 0 0.25em 0.25em 0;
+}
+/* line 26, ../scss/games.scss */
+ul.sideNav li:after {
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAMAAACKYC6uAAAAQlBMVEV3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3fFi+K/AAAAFXRSTlMA/oQSuzjld/kMtPou3273Bqoo2WFVngX1AAAANklEQVR4Xl3INQIAMQwEsXEYjuH/X03tVSnC/B2ISQJykYDaJOjDfMC2S8BxSnDd5gOeVwK+BbaUBlMzu1Y4AAAAAElFTkSuQmCC");
+}
+/* line 34, ../scss/games.scss */
+ul.sideNav li.selected a {
+  background: #404041;
+}
+/* line 38, ../scss/games.scss */
+ul.sideNav li.selected:after {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAMAAACKYC6uAAAAQlBMVEUSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhMSEhNEUPO6AAAAFXRSTlMA/oQSuzjld/kMtPou3273Bqoo2WFVngX1AAAANklEQVR4Xl3INQIAMQwEsXEYjuH/X03tVSnC/B2ISQJykYDaJOjDfMC2S8BxSnDd5gOeVwK+BbaUBlMzu1Y4AAAAAElFTkSuQmCC");
+}
+
+/* line 45, ../scss/games.scss */
+.webGame {
+  margin: 0 16px 0 128px;
+}
+/* line 48, ../scss/games.scss */
+.webGame h2 {
+  background: #414142;
+  color: #fff;
+  padding: 0.8em 1em;
+  font-size: 1em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+/* line 56, ../scss/games.scss */
+.webGame h3 {
+  font-size: 1em;
+  font-weight: bold;
+}
+/* line 61, ../scss/games.scss */
+.webGame p {
+  font-size: 0.7em;
+  color: #9e9e9e;
+  margin: 0;
+}
+/* line 67, ../scss/games.scss */
+.webGame .magicBox {
+  display: inline-block;
+  padding: 48px 0 0 0;
+  width: 66px;
+  background: url(../images/magicBoxOpen.png) center 8px no-repeat;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.75em;
+  border: none;
+  vertical-align: top;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 80, ../scss/games.scss */
+.webGame .magicBox:hover {
+  color: #333;
+  -webkit-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75));
+  -moz-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75));
+}
+/* line 85, ../scss/games.scss */
+.webGame .magicBox.userLink {
+  font-size: 0.6em;
+}
+/* line 89, ../scss/games.scss */
+.webGame .magicBox.empty {
+  background: url(../images/magicBoxEmpty.png) center 27px no-repeat;
+}
+/* line 95, ../scss/games.scss */
+.webGame a.magicBox {
+  color: #428bca;
+  text-decoration: none;
+}
+/* line 99, ../scss/games.scss */
+.webGame a.magicBox:hover {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+/* line 104, ../scss/games.scss */
+.webGame .magicBoxRow {
+  text-align: justify;
+  margin: 0;
+  line-height: 1.0;
+  height: 66px;
+  overflow: hidden;
+}
+/* line 111, ../scss/games.scss */
+.webGame .magicBoxRow ~ .magicBoxRow {
+  border-top: 1px solid #ccc;
+}
+/* line 116, ../scss/games.scss */
+.webGame .magicBoxRow:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  line-height: 0.1;
+  height: 1px;
+  overflow: hidden;
+}
