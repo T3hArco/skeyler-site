@@ -10,7 +10,6 @@ $(function () {
     // if the post is on the current page, scroll to it
     if ($('.post-' + postId).length) {
       var offsetTop = $('.post-' + postId).offset().top || 0;
-      console.log(offsetTop)
       $('html, body').animate({scrollTop: offsetTop}, 250);
       return false;
     }
@@ -26,9 +25,9 @@ $(function () {
     var username = $post.find('.userLink:eq(0)').text();
 
     // remove nested quotes because they dont work and we dont want pyramids of quotes
-    bbcode = bbcode.replace(/\[quote="[^"]+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
+    bbcode = bbcode.replace(/\[quote=".+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
 
-    var quoteText = '[quote="' + ent(username) + '" postid="' + postId + '"]' + bbcode + '[/quote]\n';
+    var quoteText = '[quote="' + username + '" postid="' + postId + '"]' + bbcode + '[/quote]\n';
 
     var $postContent = $('#postContent');
     var oldText = $postContent.val();
