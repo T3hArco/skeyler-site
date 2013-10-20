@@ -50,6 +50,32 @@ class Forums
     return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
+  public static function getSubforumsFromForumList($forumIds)
+  {
+    global $DB, $User;
+
+    if (count($forumIds) == 0) {
+      return array();
+    }
+
+    $whereIn = DB::whereIn($forumIds);
+
+    $query = '
+      SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId, fp.parentId
+      FROM forums AS f
+      LEFT JOIN forum_parents AS fp
+        ON fp.forumId = f.id
+      WHERE fp.parentId IN(' . $whereIn . ') AND f.visibleRank <= :rank
+      ORDER BY `order`
+      ;
+    ';
+
+    $binds = array(
+      'rank' => $User['rank'],
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll());
+  }
+
   public static function getAllVisibleForumsGrouped()
   {
     global $User, $DB;

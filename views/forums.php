@@ -16,14 +16,16 @@
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
         <div class="row forum<?php echo(!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?>">
-          <div class="cell forumInfo">
+          <div class="cell forumInfo<?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : ''?>">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
-            <ul class="subforums">
-              <li><a href="#">Subforum</a></li>
-              <li><a href="#">Subforum</a></li>
-              <li><a href="#">Subforum</a></li>
-            </ul>
+            <?php if(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) : ?>
+              <ul class="subforums">
+                <?php foreach($local['subforums'][$forum['id']] as $sub) : ?>
+                <li><a href="/forum.php?forumId=<?php echo $sub['id']; ?>"><?php echo ent($sub['name']); ?></a></li>
+                <?php endforeach; ?>
+              </ul>
+            <?php endif; ?>
           </div>
           <div class="cell postCount">
             <?php echo $forum['threadCount']; ?>

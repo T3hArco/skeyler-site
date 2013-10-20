@@ -44,13 +44,22 @@ $userIds = array_merge($userIds, eachField($allThreads, 'lastPostUserId'));
 
 $users = User::loadIds($userIds);
 
+$subforumsTemp = Forums::getSubforumsFromForumList(eachField($forums, 'id'));
+$subforums = array();
+foreach ($subforumsTemp as $forum) {
+  if (!isset($subforums[$forum['parentId']])) {
+    $subforums[$forum['parentId']] = array();
+  }
+  $subforums[$forum['parentId']][] = $forum;
+}
+
 $data['forums'] = $forums;
 $data['forumId'] = $forumId;
 $data['users'] = $users;
 $data['threads'] = $threads;
 $data['lastReadForumTimestamps'] = $lastReadForumTimestamps;
 $data['lastReadThreadPostCounts'] = $lastReadThreadPostCounts;
-
+$data['subforums'] = $subforums;
 
 $Page->header($forums[$forumId]['name']);
 view($data);
