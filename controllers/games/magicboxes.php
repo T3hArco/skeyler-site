@@ -19,7 +19,7 @@ $userIds = array_unique($boxes);
 
 $user = User::loadIds($userIds);
 
-
+$data['canUseBox'] = true;
 $data['boxes'] = $boxes;
 $data['users'] = $user;
 

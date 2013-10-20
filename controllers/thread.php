@@ -8,9 +8,9 @@ $Page = new Page();
 $threadId = (int)getGet('threadId');
 $postId = (int)getGet('postId');
 
-if($postId && !$threadId) {
+if ($postId && !$threadId) {
   $post = Posts::load($postId);
-  if($post) {
+  if ($post) {
     $threadId = $post['threadId'];
     $postCount = Posts::getPostCountForPostIdByThread($post);
     $pageId = floor(($postCount - 1) / $Config['postsPerPage']) + 1;
@@ -51,7 +51,7 @@ if (!$posts) {
   exit;
 }
 
-$userIds = array_unique(eachField($posts, 'userId'));
+$userIds = array_unique(array_merge(eachField($posts, 'userId'), eachField($posts, 'lastEditUserId')));
 $users = User::loadIds($userIds);
 
 $postsSeen = max(0, min($pageId * $Config['postsPerPage'], count($posts) + (($pageId - 1) * $Config['postsPerPage'])));

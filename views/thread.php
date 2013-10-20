@@ -34,10 +34,13 @@ if($local['thread']['isSticky']) {
       </div><!--
            --><div class="postContent">
         <?php echo $post['contentParsed'];//BBCode::parse($post['content']); ?>
+        <?php if($post['lastEditTimestamp']) : ?>
+          Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']]); ?>
+        <?php endif; ?>
       </div>
       <div class="postOptions">
         <?php if ($post['userId'] == $User['id']) : ?>
-          <a href="#" class="editLink"></a>
+          <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="editLink"></a>
         <?php //else : ?>
           <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>

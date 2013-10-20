@@ -7,7 +7,7 @@ class User
   const RANK_MOD = 10;
   const RANK_ADMIN = 50;
   const RANK_DEV = 70;
-  const RANK_SUPER = 99;
+  const RANK_SUPER = 90;
   const RANK_OWNER = 100;
 
 

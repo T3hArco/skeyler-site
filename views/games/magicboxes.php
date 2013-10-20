@@ -20,10 +20,13 @@
       <div class="magicBoxRow">
         <?php for ($j = 1; $j <= 10; $j++) : ?>
           <?php if ($local['boxes'][$i * 10 + $j] == 0) : ?>
-            <input type="submit" class="magicBox titletip" value="<?php echo($i * 10 + $j); ?>" title="What could be inside?!"/>
-            <!--<span class="magicBox"><?php echo($i * 10 + $j); ?></span>-->
+            <?php if ($local['canUseBox']) : ?>
+              <input type="submit" class="magicBox titletip" value="<?php echo($i * 10 + $j); ?>" title="What could be inside?!"/>
+            <?php else : ?>
+              <span class="magicBox titletip" title="You must wait 24 hours before you can open another magic box."><?php echo($i * 10 + $j); ?></span>
+            <?php endif; ?>
           <?php else : ?>
-            <a href="/users.php?userId=<?php echo $local['boxes'][$i * 10 + $j]; ?>" class="magicBox userLink empty"><?php echo $local['users'][$local['boxes'][$i * 10 + $j]]['name']; ?></a>
+            <a href="/users.php?userId=<?php echo $local['boxes'][$i * 10 + $j]; ?>" class="magicBox userLink empty"><?php echo ent($local['users'][$local['boxes'][$i * 10 + $j]]['name']); ?></a>
           <?php endif; ?>
         <?php endfor; ?>
       </div>

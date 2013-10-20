@@ -366,6 +366,14 @@ $(function () {
 
   $('.mod-post a').on('click', function () {
     var postData = $(this).closest('.post').data();
+    $el = $(this).closest('li');
+    var modType = $el.data('modType');
+
+    switch (modType) {
+      case 'editPost':
+        document.location = '/editPost.php?postId=' + postData.postId;
+        break;
+    }
   });
 
 

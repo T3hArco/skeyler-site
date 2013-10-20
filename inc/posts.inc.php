@@ -94,5 +94,27 @@ class Posts
 
   }
 
+  public static function editPost($content, $postId)
+  {
+    global $DB, $User, $now;
+    $query = '
+      UPDATE posts
+      SET content = :content,
+        contentParsed = :contentParsed,
+        lastEditTimestamp = :now,
+        lastEditUserId = :userId
+      WHERE id = :postId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'userId' => $User['id'],
+      'now' => $now,
+      'content' => $content,
+      'contentParsed' => BBCode::parse($content),
+      'postId' => $postId,
+    );
+    $DB->q($query, $binds);
+  }
+
 
 }
