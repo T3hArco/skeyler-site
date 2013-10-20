@@ -16,13 +16,13 @@
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
         <div class="row forum<?php echo(!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?>">
-          <div class="cell forumInfo<?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : ''?>">
+          <div class="cell forumInfo<?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : '' ?>">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
-            <?php if(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) : ?>
+            <?php if (isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) : ?>
               <ul class="subforums">
-                <?php foreach($local['subforums'][$forum['id']] as $sub) : ?>
-                <li><a href="/forum.php?forumId=<?php echo $sub['id']; ?>"><?php echo ent($sub['name']); ?></a></li>
+                <?php foreach ($local['subforums'][$forum['id']] as $sub) : ?>
+                  <li><a href="/forum.php?forumId=<?php echo $sub['id']; ?>"><?php echo ent($sub['name']); ?></a></li>
                 <?php endforeach; ?>
               </ul>
             <?php endif; ?>
@@ -88,14 +88,19 @@
         <td><?php echo $thread['postCount']; ?></td>
         <td><?php echo $thread['views']; ?></td>
         <td colspan="2">
-          <?php echo writeDate($thread['lastPostTimestamp']); ?> by
-          <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
-          <a href="#">(view)</a></td>
+          <?php if ($thread['lastPostUserId']) : ?>
+            <?php echo writeDate($thread['lastPostTimestamp']); ?> by
+            <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
+            <a href="#">(view)</a></td>
+          <?php else : ?>
+            Never by nobody
+        <?php
+        endif; ?>
       </tr>
 
     <?php endforeach; ?>
     </tbody>
   </table>
-<?php elseif($local['forumId']) : ?>
+<?php elseif ($local['forumId']) : ?>
   <p>There are no threads on this forum.</p>
 <?php endif; ?>

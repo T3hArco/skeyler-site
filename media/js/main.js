@@ -365,15 +365,57 @@ $(function () {
   });
 
   $('.mod-post a').on('click', function () {
-    var postData = $(this).closest('.post').data();
+    var post_data = $(this).closest('.post').data();
     $el = $(this).closest('li');
     var modType = $el.data('modType');
+    var sendNow = true;
+    var postData = {};
+    var $post = $(this).closest('.post');
+
+
+    var callback = function (data) {
+      var cb = noop();
+      // if successful, we want to redirect/refresh
+      if (data.success) {
+      }
+      handleNotices(data, cb);
+      // make the dropdowns go away
+      $(window).click();
+    };
+
+    var send = function (cb) {
+      cb = cb || noop;
+      var cb2 = function (data) {
+        callback(data);
+        cb();
+      };
+      $.post('/mod/' + modType + '.php', postData, cb2);
+    };
+
+    var sendCallback = noop();
 
     switch (modType) {
       case 'editPost':
-        document.location = '/editPost.php?postId=' + postData.postId;
+        sendNow = false;
+        document.location = '/editPost.php?postId=' + post_data.postId;
         break;
+      case 'deletePost':
+        postData = {
+          postId: post_data.postId
+        };
+        sendCallback = function () {
+          $post.css('opacity', 0.5);
+        };
+        break;
+      default:
+        return;
     }
+
+    if (sendNow) {
+      send(sendCallback);
+    }
+
+    return false;
   });
 
 

@@ -116,5 +116,44 @@ class Posts
     $DB->q($query, $binds);
   }
 
+  public static function delete($post)
+  {
+    global $DB;
+    $thread = Threads::load($post['threadId']);
+
+    // move post to new location
+    $query = '
+      UPDATE posts SET threadId = -1
+      WHERE id = :postId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'postId' => $post['id'],
+    );
+    $DB->q($query, $binds);
+
+    // update thread post count
+    $query = '
+      UPDATE threads SET postCount = postCount - 1
+      WHERE id = :threadId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'threadId' => $thread['id'],
+    );
+    $DB->q($query, $binds);
+
+    // update forum post count
+    $query = '
+      UPDATE forums SET postCount = postCount - 1
+      WHERE id = :forumId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'forumId' => $thread['forumId'],
+    );
+    $DB->q($query, $binds);
+
+  }
 
 }
