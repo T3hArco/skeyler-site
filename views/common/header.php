@@ -42,7 +42,7 @@
   <ul class="subNav"><!--
     --><li class="selected"><a href="/forums.php">Forums</a></li><!--
     --><li><a href="#">Users</a></li><!--
-    --><li><a href="#">Games</a></li><!--
+    --><li><a href="/games/magicboxes.php">Games</a></li><!--
     --><li><a href="#">Staff Roster</a></li><!--
     --><li><a href="#">Chatbox</a></li><!--
   --></ul><!--

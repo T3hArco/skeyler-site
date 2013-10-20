@@ -194,7 +194,7 @@ $(function () {
       $(this).find('#chatboxPost').val('');
 
       $.post('/api/chatboxPost.php', {content: content}, function (json) {
-        data = JSON.parse(json);
+        data = json;
         $chats.find('.chat-message').remove();
         if (data.success) {
           $div = $('<div>')
