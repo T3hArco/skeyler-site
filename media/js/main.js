@@ -23,7 +23,7 @@ $(function () {
     var $post = $(this).closest('.post');
     var bbcode = $post.data('bbcode') || '';
     var postId = $post.data('postId');
-    var username = $post.find('.userLink').text();
+    var username = $post.find('.userLink:eq(0)').text();
 
     // remove nested quotes because they dont work and we dont want pyramids of quotes
     bbcode = bbcode.replace(/\[quote="[^"]+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
