@@ -108,18 +108,28 @@
 
   }
 
-  public static function insertThread($title, $content, $forumId)
+  public static function insertThread($title, $content, $forumId, $options = array())
   {
     global $DB, $User, $now;
+
+    if (!isset($options['isSticky'])) {
+      $options['isSticky'] = 0;
+    }
+    if (!isset($options['isClosed'])) {
+      $options['isClosed'] = 0;
+    }
+
     $query = '
-      INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp)
-      VALUES(:userId, :title, :forumId, :userId, :now);
+      INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp, isSticky, isClosed)
+      VALUES(:userId, :title, :forumId, :userId, :now, :isSticky, :isClosed);
     ';
     $binds = array(
       'userId' => $User['id'],
       'title' => $title,
       'forumId' => $forumId,
       'now' => $now,
+      'isSticky' => $options['isSticky'],
+      'isClosed' => $options['isClosed'],
     );
     $DB->q($query, $binds);
     $threadId = $DB->lastInsertId();
@@ -181,5 +191,31 @@
     // recount threads/posts for both forums
   }
 
+  public static function recountAll()
+  {
+    global $DB;
+    $query = '
+      SELECT threadId, COUNT(id) AS postCount
+      FROM posts
+      GROUP BY threadId
+    ';
+    $counts = $DB->q($query)->fetchAll();
+
+    foreach ($counts as $count) {
+      $query = '
+        UPDATE threads
+        SET postCount = :postCount
+        WHERE id = :threadId
+        LIMIT 1;
+      ';
+      $binds = array(
+        'threadId' => $count['threadId'],
+        'postCount' => $count['postCount'],
+      );
+      var_dump($query, $binds);
+      $DB->q($query, $binds);
+    }
+
+  }
 
 }

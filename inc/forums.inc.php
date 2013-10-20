@@ -76,6 +76,20 @@ class Forums
     return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
+  public static function getAllVisibleForums()
+  {
+    global $User, $DB;
+    $query = 'SELECT *
+      FROM forums AS f
+      WHERE visibleRank <= :rank
+      ORDER BY `order`
+    ';
+    $binds = array(
+      'rank' => $User['rank'],
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll());
+  }
+
   public static function getAllVisibleForumsGrouped()
   {
     global $User, $DB;

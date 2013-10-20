@@ -47,8 +47,19 @@ if ($isSubmit) {
     $hasErrors = true;
   }
 
+  $options = array();
+
+  if (User::can(User::RANK_ADMIN)) {
+    if (getPost('isSticky')) {
+      $options['isSticky'] = 1;
+    }
+    if (getPost('isClosed')) {
+      $options['isClosed'] = 1;
+    }
+  }
+
   if (!$hasErrors) {
-    $threadId = Threads::insertThread($title, $content, $forumId);
+    $threadId = Threads::insertThread($title, $content, $forumId, $options);
     redirect('/thread.php?threadId=' . $threadId);
   }
 

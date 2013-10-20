@@ -143,6 +143,14 @@ class Posts
     );
     $DB->q($query, $binds);
 
+    // update deleted thread post count
+    $query = '
+      UPDATE threads SET postCount = postCount + 1
+      WHERE id = -1
+      LIMIT 1;
+    ';
+    $DB->q($query);
+
     // update forum post count
     $query = '
       UPDATE forums SET postCount = postCount - 1
@@ -153,6 +161,14 @@ class Posts
       'forumId' => $thread['forumId'],
     );
     $DB->q($query, $binds);
+
+    // update deleted forum post count
+    $query = '
+      UPDATE forums SET postCount = postCount + 1
+      WHERE id = -1
+      LIMIT 1;
+    ';
+    $DB->q($query);
 
   }
 

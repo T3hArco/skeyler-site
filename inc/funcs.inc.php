@@ -203,7 +203,7 @@ function view($variables, $viewUrl = null)
   if (is_null($viewUrl)) {
     $includePath = realpath(ROOT . '/views/' . $controllerName);
   } else {
-    $includePath = $viewUrl;
+    $includePath = realpath(ROOT . '/views/' . $viewUrl);
   }
 
 

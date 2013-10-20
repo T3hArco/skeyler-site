@@ -12,6 +12,10 @@
   </label>
   <br/>
   <!--<input type="submit" value="Preview"/>-->
+  <?php if(User::can(User::RANK_ADMIN)) : ?>
+    <label><input type="checkbox" name="isSticky"> Sticky</label>
+    <label><input type="checkbox" name="isClosed"> Closed</label>
+  <?php endif; ?>
   <input type="submit" name="submit" value="Post New Thread!"/>
 </form>
 
