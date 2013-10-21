@@ -5,10 +5,7 @@
 
   .blogPost {
     padding: 1em 0;
-
-    & ~ .blogPost {
-      border-top: 2px solid #ddd;
-    }
+    border-bottom: 2px solid #ddd;
 
     h3 {
       display: inline-block;
