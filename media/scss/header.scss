@@ -9,17 +9,22 @@ h1 {
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
 
+  background: #406c99;
+  padding: 25px 75px;
+
   strong {
     font-size: 1.5em;
     font-weight: normal;
-    color: #404041;
+    color: #fff;
     letter-spacing: 8px;
+    z-index:1;
+    position:relative;
 
-    &:before {
+    &:after {
       text-transform: uppercase;
       content: 'Skeyler';
       position: absolute;
-      @include transform(scaleY(0.4) skewX(-20deg) translateX(-6px) translateY(-6px));
+      @include transform(scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px));
       @include transform-origin(50%, 100%);
       line-height: 1.0;
       pointer-events: none;
@@ -29,6 +34,7 @@ h1 {
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
       //color: #D1D2D4;
       z-index: -1;
+      left:0;
     }
 
   }
@@ -41,6 +47,8 @@ h1 {
     font-style: italic;
     color: #808284;
     vertical-align: top;
+
+    display: none;
 
     em {
       color: $orange;
@@ -68,19 +76,21 @@ ul.topNav {
 
   li {
     display: inline-block;
+    font-weight: bold;
 
     a {
       display: inline-block;
-      padding: 0.5em 1em;
-      color: #646464;
+      padding: 0 1em;
+      color: #fff;
       text-decoration: none;
       font-family: Arial;
-      @include border-radius(0.5em);
+      //@include border-radius(0.5em);
+      line-height: 38px;
     }
 
     &.selected a {
-      background: #42474a;
-      color: #f2f2f2;
+      background: #84a0bc;
+      //color: #f2f2f2;
     }
   }
 }
