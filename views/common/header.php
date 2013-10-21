@@ -29,7 +29,7 @@
   <div class="header">
     <h1><strong>Skeyler</strong> <span>Gaming <em>Community</em></span></h1>
     <ul class="topNav">
-      <li><a href="#">News</a></li>
+      <li><a href="/blog.php">News</a></li>
       <li class="selected"><a href="/forums.php">Forums</a></li>
       <li><a href="#">Servers</a></li>
       <li><a href="#">Stats</a></li>
