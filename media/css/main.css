@@ -257,28 +257,31 @@ ul.pageNav.bottom li:last-child a {
   height: 16px;
   display: inline-block;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIwSURBVDjLlZLNS5RRFMafe9/3vjPOjI1jaKKEVH40tGgRBWEibfoPQoKkVdtoEQQF4T/QqkVtWrSTFrVsF1FgJbWpIAh1k2PNh+PrfL4f95zTQk0HHKkDD/cc7vP8uHCuEhF0q/KnmXNgGR248PZFN4/GISXMC8L89DBPV0Dp4/SsazJjrtfb9/vdxfn/BgjzY5M8Aq8nBya+V3h93vtnQHFxat4kszntJAAAxus1YvnZQV5V/jyTEZarwnwFLGeFZdT0ZFOJdD84qoCDOpQ7grZfRNj020JSEOKvwvxGiF+q0tL0N5PuO+Mk0nC0B0BDsYCCImyzAIktBBloMwKJLSgKYcMAcdhC2KpVlIig+H5qxcv0n0xmj4Gbq+BwC2wtJLbgHUlMEFJwUpMIGpto16u+kJzSACAk+WCzvNbe+AVljkOYIcQQou3TbvdOJo+g4aNdqzaF+PT43HJVA8DQpcVIiPPtaqlEUQzlDELsTpgYwgTAQIjQqlUCtpQfn1spdmxh+PJSQyw9CrbKgM7tvcISQAxlBhC3GuCYXk3cWP25m3M7dk88qbWBRDVApaATOSjPBdXXwYEP5QyCgvjE/kwHgInHtHYBnYA2owhrPiiuw0sOw3EZFEagIB7qChDiYaUcNIoFtP1KxCTPhWiDw7WbXk9vKpnOgsI4exjg6Mbq96YQPxm79uPOvqvbXx4O3KrF6w8osv2df17kr5YXJq7vnw/S0v3k7Ie7xtud/wAaRnP+Cw8iKQAAAABJRU5ErkJggg== ") no-repeat;
-  -webkit-animation-name: evilPulse, evilRotate;
-  -moz-animation-name: evilPulse, evilRotate;
-  -ms-animation-name: evilPulse, evilRotate;
-  -o-animation-name: evilPulse, evilRotate;
-  animation-name: evilPulse, evilRotate;
-  -webkit-animation-duration: 3s, 1s;
-  -moz-animation-duration: 3s, 1s;
-  -ms-animation-duration: 3s, 1s;
-  -o-animation-duration: 3s, 1s;
-  animation-duration: 3s, 1s;
+}
+/* line 185, ../scss/main.scss */
+.modDropdown:hover .star {
+  -webkit-animation-name: spin;
+  -moz-animation-name: spin;
+  -ms-animation-name: spin;
+  -o-animation-name: spin;
+  animation-name: spin;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -ms-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -ms-animation-iteration-count: infinite;
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  -moz-animation-direction: alternate;
-  -ms-animation-direction: alternate;
-  -o-animation-direction: alternate;
-  animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
-/* line 186, ../scss/main.scss */
+/* line 192, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -292,13 +295,13 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 200, ../scss/main.scss */
+/* line 206, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 205, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
@@ -309,13 +312,13 @@ ul.pageNav.bottom li:last-child a {
 @-ms-keyframes evilPulse {}
 @keyframes evilPulse {}
 @-moz-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 232, ../scss/main.scss */
   from {
     -moz-transform: rotate(10deg);
     transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 235, ../scss/main.scss */
   to {
     -moz-transform: rotate(-10deg);
     transform: rotate(-10deg);
@@ -323,13 +326,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 232, ../scss/main.scss */
   from {
     -webkit-transform: rotate(10deg);
     transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 235, ../scss/main.scss */
   to {
     -webkit-transform: rotate(-10deg);
     transform: rotate(-10deg);
@@ -337,13 +340,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 232, ../scss/main.scss */
   from {
     -o-transform: rotate(10deg);
     transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 235, ../scss/main.scss */
   to {
     -o-transform: rotate(-10deg);
     transform: rotate(-10deg);
@@ -351,13 +354,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 232, ../scss/main.scss */
   from {
     -ms-transform: rotate(10deg);
     transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 235, ../scss/main.scss */
   to {
     -ms-transform: rotate(-10deg);
     transform: rotate(-10deg);
@@ -365,18 +368,86 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes evilRotate {
-  /* line 226, ../scss/main.scss */
+  /* line 232, ../scss/main.scss */
   from {
     transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/main.scss */
+  /* line 235, ../scss/main.scss */
   to {
     transform: rotate(-10deg);
   }
 }
 
-/* line 234, ../scss/main.scss */
+@-moz-keyframes spin {
+  /* line 241, ../scss/main.scss */
+  from {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 244, ../scss/main.scss */
+  to {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  /* line 241, ../scss/main.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 244, ../scss/main.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spin {
+  /* line 241, ../scss/main.scss */
+  from {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 244, ../scss/main.scss */
+  to {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes spin {
+  /* line 241, ../scss/main.scss */
+  from {
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 244, ../scss/main.scss */
+  to {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  /* line 241, ../scss/main.scss */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* line 244, ../scss/main.scss */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* line 249, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -389,7 +460,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 246, ../scss/main.scss */
+/* line 261, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;

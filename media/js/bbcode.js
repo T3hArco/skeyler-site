@@ -1,4 +1,6 @@
 /*
+ Copyright Scott Graham (obst) 2013 - 2070
+
  This parses bbcode into html, while entitying all the stuff that shouldn't be html.
  Usage: bbcode.parse('content') where 'content' is the text you want to convert from bbcode to html
 

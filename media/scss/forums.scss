@@ -209,19 +209,23 @@ table.threads {
     }
 
     &.closed .title span:before {
-      content: '';
-      position: absolute;
-      // top:7px;
-      // firefox sux!!!!
-      left: 23px;
-      display: inline-block;
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=') no-repeat 0 bottom;
-      height: 14px;
-      width: 8px;
+      //content: '';
+      //position: absolute;
+      //// top:7px;
+      //// firefox sux!!!!
+      //left: 23px;
+      //display: inline-block;
+      //background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=') no-repeat 0 bottom;
+      //height: 14px;
+      //width: 8px;
+    }
+
+    &.closed .title:after {
+      content:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=');
     }
 
     &.closed {
-      opacity: 0.6;
+      //opacity: 0.6;
 
       .title span a:before {
         content: 'Locked: ';
@@ -232,7 +236,7 @@ table.threads {
 
     &.sticky {
       background-color: #f2ecb6;
-      opacity: 1.0;
+      //opacity: 1.0;
 
       .title span a:before {
         content: 'Sticky: ';
