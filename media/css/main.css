@@ -31,7 +31,7 @@ body {
 #container:before {
   content: '';
   display: block;
-  background: #406c99;
+  background: #3d658f;
   height: 38px;
   position: absolute;
   top: 0;
