@@ -258,7 +258,7 @@ ul.pageNav.bottom li:last-child a {
   display: inline-block;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIwSURBVDjLlZLNS5RRFMafe9/3vjPOjI1jaKKEVH40tGgRBWEibfoPQoKkVdtoEQQF4T/QqkVtWrSTFrVsF1FgJbWpIAh1k2PNh+PrfL4f95zTQk0HHKkDD/cc7vP8uHCuEhF0q/KnmXNgGR248PZFN4/GISXMC8L89DBPV0Dp4/SsazJjrtfb9/vdxfn/BgjzY5M8Aq8nBya+V3h93vtnQHFxat4kszntJAAAxus1YvnZQV5V/jyTEZarwnwFLGeFZdT0ZFOJdD84qoCDOpQ7grZfRNj020JSEOKvwvxGiF+q0tL0N5PuO+Mk0nC0B0BDsYCCImyzAIktBBloMwKJLSgKYcMAcdhC2KpVlIig+H5qxcv0n0xmj4Gbq+BwC2wtJLbgHUlMEFJwUpMIGpto16u+kJzSACAk+WCzvNbe+AVljkOYIcQQou3TbvdOJo+g4aNdqzaF+PT43HJVA8DQpcVIiPPtaqlEUQzlDELsTpgYwgTAQIjQqlUCtpQfn1spdmxh+PJSQyw9CrbKgM7tvcISQAxlBhC3GuCYXk3cWP25m3M7dk88qbWBRDVApaATOSjPBdXXwYEP5QyCgvjE/kwHgInHtHYBnYA2owhrPiiuw0sOw3EZFEagIB7qChDiYaUcNIoFtP1KxCTPhWiDw7WbXk9vKpnOgsI4exjg6Mbq96YQPxm79uPOvqvbXx4O3KrF6w8osv2df17kr5YXJq7vnw/S0v3k7Ie7xtud/wAaRnP+Cw8iKQAAAABJRU5ErkJggg== ") no-repeat;
 }
-/* line 185, ../scss/main.scss */
+/* line 181, ../scss/main.scss */
 .modDropdown:hover .star {
   -webkit-animation-name: spin;
   -moz-animation-name: spin;
@@ -281,7 +281,7 @@ ul.pageNav.bottom li:last-child a {
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 192, ../scss/main.scss */
+/* line 189, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -295,98 +295,25 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 206, ../scss/main.scss */
+/* line 203, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 211, ../scss/main.scss */
+/* line 208, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
 
-@-moz-keyframes evilPulse {}
-@-webkit-keyframes evilPulse {}
-@-o-keyframes evilPulse {}
-@-ms-keyframes evilPulse {}
-@keyframes evilPulse {}
-@-moz-keyframes evilRotate {
-  /* line 232, ../scss/main.scss */
-  from {
-    -moz-transform: rotate(10deg);
-    transform: rotate(10deg);
-  }
-
-  /* line 235, ../scss/main.scss */
-  to {
-    -moz-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-}
-
-@-webkit-keyframes evilRotate {
-  /* line 232, ../scss/main.scss */
-  from {
-    -webkit-transform: rotate(10deg);
-    transform: rotate(10deg);
-  }
-
-  /* line 235, ../scss/main.scss */
-  to {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-}
-
-@-o-keyframes evilRotate {
-  /* line 232, ../scss/main.scss */
-  from {
-    -o-transform: rotate(10deg);
-    transform: rotate(10deg);
-  }
-
-  /* line 235, ../scss/main.scss */
-  to {
-    -o-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-}
-
-@-ms-keyframes evilRotate {
-  /* line 232, ../scss/main.scss */
-  from {
-    -ms-transform: rotate(10deg);
-    transform: rotate(10deg);
-  }
-
-  /* line 235, ../scss/main.scss */
-  to {
-    -ms-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-  }
-}
-
-@keyframes evilRotate {
-  /* line 232, ../scss/main.scss */
-  from {
-    transform: rotate(10deg);
-  }
-
-  /* line 235, ../scss/main.scss */
-  to {
-    transform: rotate(-10deg);
-  }
-}
-
 @-moz-keyframes spin {
-  /* line 241, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 244, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -394,13 +321,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes spin {
-  /* line 241, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 244, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -408,13 +335,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes spin {
-  /* line 241, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 244, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -422,13 +349,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes spin {
-  /* line 241, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 244, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -436,18 +363,18 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes spin {
-  /* line 241, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 244, ../scss/main.scss */
+  /* line 219, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 249, ../scss/main.scss */
+/* line 224, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -460,7 +387,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 261, ../scss/main.scss */
+/* line 236, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;
