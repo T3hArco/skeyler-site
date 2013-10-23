@@ -227,49 +227,49 @@ table.threads tr.threadNew .title {
 table.threads tr.threadSeen .title {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC") no-repeat 4px center;
 }
-/* line 223, ../scss/forums.scss */
+/* line 211, ../scss/forums.scss */
 table.threads tr.closed .title span a:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=");
 }
-/* line 230, ../scss/forums.scss */
+/* line 218, ../scss/forums.scss */
 table.threads tr.closed .title span a:before {
   content: 'Locked: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 237, ../scss/forums.scss */
+/* line 225, ../scss/forums.scss */
 table.threads tr.sticky {
   background-color: #f2ecb6;
 }
-/* line 241, ../scss/forums.scss */
+/* line 229, ../scss/forums.scss */
 table.threads tr.sticky .title span a:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 248, ../scss/forums.scss */
+/* line 236, ../scss/forums.scss */
 table.threads tr a {
   color: #515151;
 }
-/* line 252, ../scss/forums.scss */
+/* line 240, ../scss/forums.scss */
 table.threads tr a.userLink {
   color: #385464;
 }
-/* line 260, ../scss/forums.scss */
+/* line 248, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
 }
-/* line 264, ../scss/forums.scss */
+/* line 252, ../scss/forums.scss */
 table.threads thead th {
   color: #494949;
   padding: 0;
 }
-/* line 269, ../scss/forums.scss */
+/* line 257, ../scss/forums.scss */
 table.threads thead th.pageNav {
   vertical-align: bottom;
   font-weight: normal;
 }
-/* line 276, ../scss/forums.scss */
+/* line 264, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 1px;

@@ -7,7 +7,6 @@ body {
   @include background(radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) #c3c3c3);
   padding: 0;
 
-
 }
 
 #container {
@@ -21,10 +20,10 @@ body {
     background: #3d658f;
     height: 38px;
     position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    z-index:-1;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
   }
 }
 
@@ -146,8 +145,30 @@ $tags: (vip, mod, admin, dev, super, owner);
     padding: 4px 10px;
     //@include background-image(linear-gradient(#d8d8d8, #fefefe 80%));
     @include box-shadow(inset 0px 5px 10px rgba(0, 0, 0, 0.125));
-
     @include border-radius(0 0 0.5em 0.5em);
+  }
+}
+
+.dimensions {
+  position: absolute;
+  display: inline-block;
+  background: rgba(#000, 0.5);
+  color: #fff;
+  margin: 2px 0 0 2px;
+  padding: 0.5em;
+  font-size: 0.8em;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.tinyImage {
+  border: 2px solid #a54;
+  cursor: pointer;
+
+  &.expanded {
+    max-width: none;
   }
 }
 

@@ -84,7 +84,6 @@ $(function () {
 
     if (ctrl) {
       var caret = $(this).caret();
-      console.log(caret)
       var modifiedCaretStart = caret.start;
       var modifiedCaretEnd = caret.end;
 
@@ -416,6 +415,41 @@ $(function () {
 
     return false;
   });
+
+
+  $('.postContent img').one('load',function () {
+      var $that = $(this);
+      var img = $(this).get(0);
+
+      function onload() {
+        var imageMaxWidth = 656;
+
+        if (img.naturalWidth > imageMaxWidth) {
+          $that
+            .addClass('tinyImage')
+            .attr('data-width', img.naturalWidth)
+            .attr('data-height', img.naturalHeight)
+            .on('click', function () {
+              $(this).toggleClass('expanded');
+            })
+          ;
+          $('<a>')
+            .attr('href', $that.attr('src'))
+            .attr('target', '_blank')
+            .addClass('dimensions')
+            .text(img.naturalWidth + ' x ' + img.naturalHeight)
+            .insertBefore($that)
+          ;
+        }
+      }
+
+      setTimeout(onload, 100);
+
+    }
+  ).each(function () {
+      if(this.complete) $(this).load();
+    }
+  );
 
 
 });

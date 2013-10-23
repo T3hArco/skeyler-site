@@ -151,6 +151,10 @@
   display: inline-block;
 }
 /* line 125, ../scss/threads.scss */
+.postContent img {
+  max-width: 100%;
+}
+/* line 129, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
