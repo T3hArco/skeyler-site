@@ -74,6 +74,7 @@ $(function () {
 
 
   // handles keyboard shortcuts on keyup
+  // TODO: verify there are no race conditions here
   $('#postContent').on('keyup', function (e) {
     var newContents = $(this).val();
 
