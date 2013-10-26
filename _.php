@@ -41,6 +41,7 @@ $startTime = microtime(true);
 $now = time();
 
 //loads base classes
+require 'inc/cache.inc.php';
 require 'inc/notice.inc.php';
 require 'inc/db.inc.php';
 require 'inc/funcs.inc.php';

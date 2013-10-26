@@ -5,7 +5,7 @@ $green: #b9d44d;
 
 .server {
   padding: 3px;
-  margin: 1em 0;
+  margin: 1em 0 2em 0;
   background: #fff;
   @include box-shadow(0 0 0.5em rgba(#000, 0.25));
 
@@ -54,9 +54,10 @@ $green: #b9d44d;
       color: #fff;
       background: $blue;
       font-family: 'Arvil Sans', Arial;
-      font-size: 1.5em;
-      padding: 0.25em 2em;
+      font-size: 1.7em;
+      padding: 0.125em 1em;
       @include border-radius(0.25em);
+      letter-spacing: 1px;
 
       &:hover {
         text-decoration: none;

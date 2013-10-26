@@ -45,6 +45,11 @@ class Page
     $this->echoedHeader = 'echoing';
 
     if (!$isJson) {
+      $newsItems = Cache::load('news');
+      foreach($newsItems as $news) {
+        Notice::message($news);
+      }
+
       $local['title'] = $this->title;
       include ROOT . '/views/common/header.php';
     } else {

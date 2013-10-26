@@ -1,5 +1,8 @@
 <?php
-$isJson = true;
+if(!isset($isJson)) {
+  $isJson = true;
+}
+
 require '../../_.php';
 
 $Page = new Page();
