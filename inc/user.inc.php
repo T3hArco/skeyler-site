@@ -218,5 +218,19 @@ class User
     return populateIds($DB->q($query, $binds)->fetchAll());
   }
 
+  public static function getStaff()
+  {
+    global $DB;
+
+    $query = '
+      SELECT * FROM users
+      WHERE rank >= :minRank
+      ORDER BY rank DESC, id ASC
+    ';
+    $binds = array(
+      'minRank' => User::RANK_MOD,
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll());
+  }
 
 }

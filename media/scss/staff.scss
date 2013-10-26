@@ -1,0 +1,86 @@
+@import "base";
+
+.staffRoster {
+  background: #f2f0f0;
+  @include box-shadow(0 0 1em rgba(#000, 0.25));
+  margin: 1em 0 0 0;
+
+  .user {
+    height: 94px;
+    border: 4px solid #fff;
+
+    & ~ .user {
+      border-top: none;
+      height: 90px;
+    }
+
+    a.steamLink {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .avatar {
+      height: 86px;
+      width: 86px;
+      border-right: 4px solid #fff;
+      vertical-align: top;
+    }
+
+    .viewProfile {
+      display: inline-block;
+      width: 150px;
+      line-height: 86px;
+      text-align: center;
+      float: right;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABlBMVEXw7/Hz8/b4ZqnEAAAAGklEQVR4XgXAgRAAAAwCwEcIYSjDC7sT51UGBGIBCXVzp3AAAAAASUVORK5CYII=');
+      border-left: 4px solid #fff;
+      color: #9c9c9c;
+      font-family: 'Arvil Sans', Arial;
+      font-size: 1.6em;
+      letter-spacing: 1px;
+      @include transition-duration(0.2s);
+
+      &:hover {
+        text-decoration: none;
+        background: #3c648e;
+        color: #fff;
+      }
+    }
+
+    .info {
+      display: inline-block;
+      color: #626363;
+      width: 600px;
+      padding: 5px 9px;
+
+      h3 {
+        margin: 0 0 2px 0;
+        font-family: 'Arvil Sans', Arial;
+        letter-spacing: 1px;
+        font-size: 2em;
+
+        a {
+          color: #3c648e;
+          font-size: 1.1em;
+          vertical-align: middle;
+        }
+
+        .job {
+          &:before {
+            content: ' |  ';
+            color: #ccc;
+            font-weight: normal;
+            white-space: pre;
+          }
+        }
+      }
+
+      p {
+        color: #9b9b9b;
+      }
+    }
+  }
+
+}
+
