@@ -166,6 +166,7 @@ class User
           }
           $lis[] = 'Move Thread';
           $lis[] = 'Delete Thread';
+          $lis[] = 'Rename Thread';
         }
         break;
       case 'post':

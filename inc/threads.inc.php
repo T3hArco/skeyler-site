@@ -179,6 +179,17 @@
     $DB->q($query, $binds);
   }
 
+  public static function rename($threadId, $title)
+  {
+    global $DB;
+    $query = 'UPDATE threads SET title = :title WHERE id = :threadId';
+    $binds = array(
+      'threadId' => $threadId,
+      'title' => $title,
+    );
+    $DB->q($query, $binds);
+  }
+
   public static function move($threadId, $destinationForumId)
   {
     global $DB;

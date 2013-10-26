@@ -220,6 +220,11 @@ $tags: (vip, mod, admin, dev, super, owner);
     background: #eee;
     border: 1px solid #000;
 
+    &.mod-thread {
+      left: 0;
+      right: auto;
+    }
+
     li {
       a {
         display: block;

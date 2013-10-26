@@ -320,25 +320,30 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 224, ../scss/main.scss */
+/* line 223, ../scss/main.scss */
+.modDropdown ul.mod-thread {
+  left: 0;
+  right: auto;
+}
+/* line 229, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 229, ../scss/main.scss */
+/* line 234, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
 
 @-moz-keyframes spin {
-  /* line 237, ../scss/main.scss */
+  /* line 242, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 240, ../scss/main.scss */
+  /* line 245, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -346,13 +351,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes spin {
-  /* line 237, ../scss/main.scss */
+  /* line 242, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 240, ../scss/main.scss */
+  /* line 245, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -360,13 +365,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes spin {
-  /* line 237, ../scss/main.scss */
+  /* line 242, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 240, ../scss/main.scss */
+  /* line 245, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -374,13 +379,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes spin {
-  /* line 237, ../scss/main.scss */
+  /* line 242, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 240, ../scss/main.scss */
+  /* line 245, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -388,18 +393,18 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes spin {
-  /* line 237, ../scss/main.scss */
+  /* line 242, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 240, ../scss/main.scss */
+  /* line 245, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 245, ../scss/main.scss */
+/* line 250, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -412,7 +417,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 257, ../scss/main.scss */
+/* line 262, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;

@@ -352,6 +352,38 @@ $(function () {
           threadId: threadData.threadId
         };
         break;
+      case 'renameThread':
+        sendNow = false;
+
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val($('.threadTitle').text());
+
+        var $submit = $('<button>').text('Edit Thread Title!').on('click', function () {
+          postData = {
+            threadId: threadData.threadId,
+            title: $input.val()
+          };
+          send(function () {
+            $popupContainer.remove();
+          });
+
+        });
+
+        $h4 = $('<h4>').html('It is my expert diagnosis that this thread needs to be renamed.<br />But what to?');
+
+        $popup
+          .append($h4, $input, $submit)
+        ;
+
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+
+
+        break;
       default:
         return;
     }
@@ -448,7 +480,7 @@ $(function () {
 
     }
   ).each(function () {
-      if(this.complete) $(this).load();
+      if (this.complete) $(this).load();
     }
   );
 
