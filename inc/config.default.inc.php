@@ -17,6 +17,7 @@ $Config = array(
   'postsPerPage' => 20,
   'threadsPerPage' => 10,
   'blogPostsPerPage' => 10,
+  'usersPerPage' => 10,
 );
 
 

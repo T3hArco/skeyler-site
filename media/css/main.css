@@ -428,3 +428,12 @@ ul.pageNav.bottom li:last-child a {
   top: 100px;
   background: #eee;
 }
+
+/* line 273, ../scss/main.scss */
+table {
+  width: 100%;
+}
+/* line 276, ../scss/main.scss */
+table td {
+  text-align: center;
+}

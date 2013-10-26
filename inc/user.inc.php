@@ -154,12 +154,12 @@ class User
         break;
       case 'thread':
         if (self::can(User::RANK_ADMIN)) {
-          if(!$local['thread']['isClosed']) {
+          if (!$local['thread']['isClosed']) {
             $lis[] = 'Close Thread';
           } else {
             $lis[] = 'Open Thread';
           }
-          if(!$local['thread']['isSticky']) {
+          if (!$local['thread']['isSticky']) {
             $lis[] = 'Sticky Thread';
           } else {
             $lis[] = 'UnSticky Thread';
@@ -202,5 +202,21 @@ class User
 
     return $out;
   }
+
+  public static function searchUsers($search)
+  {
+    global $DB, $Config, $pageId;
+
+    $query = '
+      SELECT * FROM users
+      WHERE name LIKE :likeSearch
+      LIMIT ' . ($Config['usersPerPage'] * ($pageId - 1)) . ', ' . $Config['usersPerPage'] . ';
+    ';
+    $binds = array(
+      'likeSearch' => '%' . $search . '%',
+    );
+    return populateIds($DB->q($query, $binds)->fetchAll());
+  }
+
 
 }

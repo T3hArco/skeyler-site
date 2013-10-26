@@ -1,8 +1,5 @@
 <?php
-$isJson = true;
-require '../../_.php';
-$Page = new Page();
-$Page->header();
+require '_api.php';
 
 if(!$isLoggedIn) {
   Notice::error('You are not logged in.');

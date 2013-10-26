@@ -1,8 +1,5 @@
 <?php
-$isJson = true;
-require '../../_.php';
-$Page = new Page();
-$Page->header();
+require '_api.php';
 
 $max = 20;
 $id = (int)getGet('id');
