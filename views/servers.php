@@ -13,7 +13,8 @@
       </div>
     </div>
     <div class="details">
-      <a href="#" class="joinServer">Join Server</a>
+      <a href="steam://connect/<?php echo $server['ip']; ?>:<?php echo $server['port']; ?>" class="joinServer">Join
+        Server</a>
       <dl>
         <dt>Gamemode</dt>
         <dd><?php echo ent($server['gamemode']); ?></dd>
