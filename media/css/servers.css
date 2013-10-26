@@ -1,0 +1,105 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 6, ../scss/servers.scss */
+.server {
+  padding: 3px;
+  margin: 1em 0;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
+}
+/* line 12, ../scss/servers.scss */
+.server .name {
+  background: #3d658f;
+  padding: 1em;
+  color: #fff;
+}
+/* line 17, ../scss/servers.scss */
+.server .name h3 {
+  font-family: 'Arvil Sans', Arial;
+  letter-spacing: 1px;
+}
+/* line 22, ../scss/servers.scss */
+.server .name .playerCount {
+  float: right;
+}
+/* line 27, ../scss/servers.scss */
+.server h3 {
+  margin: 0;
+  font-size: 2.1em;
+}
+/* line 32, ../scss/servers.scss */
+.server .percent {
+  height: 12px;
+  background: #eee;
+  margin: 3px 0;
+  padding: 0;
+}
+/* line 38, ../scss/servers.scss */
+.server .percent .playerPercent {
+  background: #b9d44d;
+  display: inline-block;
+  height: 12px;
+  margin: 0;
+  vertical-align: top;
+}
+/* line 47, ../scss/servers.scss */
+.server .details {
+  background: #f3f1f1;
+  padding: 0.25em 0.25em 0.25em 0.5em;
+}
+/* line 51, ../scss/servers.scss */
+.server .details .joinServer {
+  text-decoration: none;
+  float: right;
+  color: #fff;
+  background: #3d658f;
+  font-family: 'Arvil Sans', Arial;
+  font-size: 1.5em;
+  padding: 0.25em 2em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+/* line 61, ../scss/servers.scss */
+.server .details .joinServer:hover {
+  text-decoration: none;
+  background: #5b8ec8;
+}
+/* line 67, ../scss/servers.scss */
+.server .details dl {
+  font-size: 0.8em;
+  margin: 0;
+}
+/* line 71, ../scss/servers.scss */
+.server .details dl dt {
+  font-weight: normal;
+  color: #888;
+  display: inline-block;
+  min-width: 100px;
+  float: left;
+  clear: left;
+  padding: 0.25em 0;
+}
+/* line 81, ../scss/servers.scss */
+.server .details dl dd {
+  display: inline-block;
+  padding: 0.25em 0;
+  float: left;
+}
+/* line 87, ../scss/servers.scss */
+.server .details dl:after {
+  content: '';
+  display: block;
+  clear: both;
+  width: 100%;
+  background: green;
+}
