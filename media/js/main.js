@@ -382,7 +382,6 @@ $(function () {
         ;
 
 
-
         break;
       default:
         return;
@@ -484,6 +483,67 @@ $(function () {
     }
   );
 
+  // edit staff roster
+  $('.staffRoster .user .info h3 .job').on('dblclick', function () {
+    var $popup = $('<div>').addClass('popup');
+    var $popupContainer = $('<div>').addClass('popupContainer');
+    var $input = $('<input>').val($(this).text());
+    var userId = $(this).closest('.user').data('userId');
+
+    var $submit = $('<button>').text('Edit User Title!').on('click', function () {
+      postData = {
+        userId: userId,
+        title: $input.val()
+      };
+      $.post('/mod/editStaffInfo.php', postData, function (data) {
+        $popupContainer.remove();
+        handleNotices(data, function (a) {
+          document.location = document.location;
+        });
+
+      });
+    });
+
+    $h4 = $('<h4>').html('Changing your job title?');
+    $popup
+      .append($h4, $input, $submit)
+    ;
+    $popupContainer
+      .append($popup)
+      .appendTo($('body'))
+    ;
+  });
+
+  $('.staffRoster .user .info p').on('dblclick', function () {
+    var $popup = $('<div>').addClass('popup');
+    var $popupContainer = $('<div>').addClass('popupContainer');
+    var $input = $('<input>').val($(this).text());
+    var userId = $(this).closest('.user').data('userId');
+
+    var $submit = $('<button>').text('Edit User Title!').on('click', function () {
+      postData = {
+        userId: userId,
+        description: $input.val()
+      };
+      $.post('/mod/editStaffInfo.php', postData, function (data) {
+        $popupContainer.remove();
+        handleNotices(data, function (a) {
+          document.location = document.location;
+        });
+
+      });
+    });
+
+    $h4 = $('<h4>').html('Changing your job description?');
+    $popup
+      .append($h4, $input, $submit)
+    ;
+    $popupContainer
+      .append($popup)
+      .appendTo($('body'))
+    ;
+  });
+
 
 });
 
@@ -505,7 +565,9 @@ function handleNotices(data, callback) {
       }
     }
   }
-  callback();
+  if(!!data.success) {
+    callback();
+  }
   return !!data.success;
 }
 
