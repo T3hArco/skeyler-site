@@ -11,6 +11,10 @@
   //@include background-image(linear-gradient(left, #e7e7e7, #e7e7e7 142px,#f2f2f2 143px, #ffffff));
   border-bottom: 1px solid #ddd;
   position: relative;
+  //overflow: visible;
+  //overflow-y: hidden;
+  //overflow-x: visible;
+  //// wtf is up with overflow-y:hidden
 
   &:target:before {
     content: '\25b6';
@@ -49,6 +53,20 @@
   display: inline-block;
   background: #e7e7e7;
   padding: 0 12px 4px 6px;
+  position: relative;
+
+  // hack to get the userinfo to go a bit taller
+  // doesn't work because overflow-x/y spec is dumb
+  //&:after {
+  //  content: '';
+  //  display: block;
+  //  height: 1000%;
+  //  background: #e7e7e7;
+  //  width: 142px;
+  //  position: absolute;
+  //  top: 100%;
+  //  left: 0;
+  //}
 
   .postTime {
     font-size: 0.75em;
@@ -57,8 +75,8 @@
   }
 
   .avatar {
-    width: 115px;
-    height: 115px;
+    width: 128px;
+    height: 128px;
     border: 3px solid #93abbd;
     display: inline-block;
     @include border-radius(0.5em);
