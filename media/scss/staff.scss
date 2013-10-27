@@ -51,7 +51,7 @@
     .info {
       display: inline-block;
       color: #626363;
-      width: 622px;
+      width: 654px - $contentPadding * 2;
       padding: 5px 9px 0 9px;
       min-height: 86px;
       border-left: 4px solid #fff;

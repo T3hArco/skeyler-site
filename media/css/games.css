@@ -81,7 +81,7 @@ ul.sideNav li.selected:after {
 .webGame .magicBox {
   display: inline-block;
   padding: 48px 0 0 0;
-  width: 66px;
+  width: 64px;
   background: url(../images/magicBoxOpen.png) center 8px no-repeat;
   text-align: center;
   color: #aaa;

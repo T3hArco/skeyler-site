@@ -11,15 +11,15 @@ h1 {
 
   background: #3d658f;
   padding: 25px 75px;
-  @include border-radius(0 0 0.25em 0.25em);
+  @include border-radius(0 0 0.11em 0.11em);
 
   strong {
     font-size: 1.5em;
     font-weight: normal;
     color: #fff;
     letter-spacing: 8px;
-    z-index:1;
-    position:relative;
+    z-index: 1;
+    position: relative;
 
     &:after {
       text-transform: uppercase;
@@ -35,7 +35,7 @@ h1 {
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
       //color: #D1D2D4;
       z-index: -1;
-      left:0;
+      left: 0;
     }
 
   }
@@ -86,7 +86,7 @@ ul.topNav {
       text-decoration: none;
       font-family: Arial;
       //@include border-radius(0.5em);
-      line-height: 38px;
+      line-height: 46px;
     }
 
     &.selected a {
@@ -138,7 +138,7 @@ ul.breadcrumbs {
   display: inline-block;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0.5em 0;
 
   li {
     display: inline-block;

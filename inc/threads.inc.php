@@ -30,8 +30,15 @@
 
   public static function loadFromForum($forumId)
   {
-    global $DB;
-    $query = 'SELECT * FROM threads WHERE forumId = :forumId ORDER BY isSticky DESC, lastPostTimestamp DESC;';
+    global $DB, $pageId, $Config;
+    $query = '
+    SELECT *
+    FROM threads
+    WHERE forumId = :forumId
+    ORDER BY isSticky DESC, lastPostTimestamp DESC
+    LIMIT ' . ($Config['threadsPerPage'] * ($pageId - 1)) . ', ' . $Config['threadsPerPage'] . '
+
+    ;';
     $binds = array(
       'forumId' => $forumId,
     );

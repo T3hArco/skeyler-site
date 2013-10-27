@@ -1,8 +1,7 @@
 @import "base";
 
 .table {
-  width: 866px;
-  //WHY??
+  width: 896px - $contentPadding * 2;
   border: none;
   margin: 0;
   display: block;
@@ -22,7 +21,7 @@
     text-align: right;
 
     &.head {
-      border-bottom: 1px solid #494949;
+      border-bottom: 1px solid #d8d8d8;
       background: transparent;
       padding: 0;
       color: #494949;
@@ -209,7 +208,7 @@ table.threads {
     }
 
     &.closed .title span a:after {
-      content:" " url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=');
+      content: " " url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=');
     }
 
     &.closed {
@@ -244,6 +243,8 @@ table.threads {
   }
 
   thead {
+    //border: 1px solid #d8d8d8;
+    // fake border down there
 
     tr {
       background: transparent;
@@ -267,8 +268,9 @@ table.threads {
       display: block;
       position: absolute;
       left: 0;
-      width: 866px;
+      width: 866px + 32px - $contentPadding * 2;
       background: $subforumBg;
+      background: #d8d8d8;
       @include transform(translateY(-1px));
     }
   }

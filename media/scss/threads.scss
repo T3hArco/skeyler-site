@@ -87,7 +87,7 @@
 
 .postContent {
   display: inline-block;
-  width: 866px - 142px - 2px;
+  width: 866px - 142px - 2px + 32px - $contentPadding * 2;
   padding: 12px 54px 12px 12px;
   vertical-align: top;
   margin: 0 0 1em 0;
