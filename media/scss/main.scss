@@ -282,3 +282,9 @@ table {
     //text-align: center;
   }
 }
+
+a[target="_blank"]:after {
+  // todo: swap with better image
+  content: " " url('../images/bgWhite.png');
+  white-space: pre;
+}

@@ -166,7 +166,7 @@ $(function () {
     $chatbox = $('#chatbox');
     $chats = $chatbox.find('.chats');
     chatbox = {
-      isEnabled: false,
+      isEnabled: true,
       displayedCount: 0,
       lowestId: 0,
       highestId: 0,

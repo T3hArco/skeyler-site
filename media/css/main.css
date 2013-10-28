@@ -438,3 +438,9 @@ ul.pageNav.bottom li:last-child a {
 table {
   width: 100%;
 }
+
+/* line 286, ../scss/main.scss */
+a[target="_blank"]:after {
+  content: " " url("../images/bgWhite.png");
+  white-space: pre;
+}
