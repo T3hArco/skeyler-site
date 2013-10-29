@@ -77,7 +77,7 @@ class Page
     if (!$isJson) {
       include ROOT . '/views/common/footer.php';
     } else {
-      echo json_encode($local, JSON_PRETTY_PRINT);
+      echo json_encode($local);
     }
     $this->echoedFooter = 'done';
     exit;

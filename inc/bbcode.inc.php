@@ -23,8 +23,8 @@ class BBCode
     $pattern = '#\[(' . implode('|', $validReplacements) . ')\]((?:.|\n|\r)*?)\[\/\1\]#i';
 
     return preg_replace_callback($pattern, function ($matches) {
-      $tag = self::$basicReplacements[$matches[1]];
-      return '<' . $tag . '>' . self::parseBasic($matches[2]) . '</' . $tag . '>';
+      $tag = BBCode::$basicReplacements[$matches[1]];
+      return '<' . $tag . '>' . BBCode::parseBasic($matches[2]) . '</' . $tag . '>';
     }, $str);
   }
 

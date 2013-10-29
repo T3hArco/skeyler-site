@@ -22,7 +22,7 @@
             <?php if (isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) : ?>
               <ul class="subforums">
                 <?php foreach ($local['subforums'][$forum['id']] as $sub) : ?>
-                  <li><a href="/forum.php?forumId=<?php echo $sub['id']; ?>"><?php echo ent($sub['name']); ?></a></li>
+                  <li><a href="/forums.php?forumId=<?php echo $sub['id']; ?>"><?php echo ent($sub['name']); ?></a></li>
                 <?php endforeach; ?>
               </ul>
             <?php endif; ?>
