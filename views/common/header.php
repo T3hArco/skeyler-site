@@ -33,8 +33,8 @@
     <ul class="topNav">
       <li><a href="/blog.php">News</a></li>
       <li class="selected"><a href="/forums.php">Forums</a></li>
-      <li><a href="#">Servers</a></li>
-      <li><a href="#">Stats</a></li>
+      <li><a href="/servers.php">Servers</a></li>
+      <li><a href="/stats.php">Stats</a></li>
     </ul>
   </div>
 

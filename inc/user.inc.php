@@ -72,7 +72,7 @@ class User
 
     $query = '
       INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
-        VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, avatarUrl)
+        VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, :avatarUrl)
       ON DUPLICATE KEY UPDATE
         name = :name,
         avatarUrl = :avatarUrl,
@@ -118,6 +118,11 @@ class User
   public static function writeRankTag($user)
   {
     global $Config;
+
+    if (self::getRankStr($user['rank']) == self::RANK_REGULAR) {
+      return '';
+    }
+
     return '<img src="' . $Config['mediaServer'] . 'images/tags/' . self::getRankStr($user['rank']) . '.png" class="rankTag" />';
   }
 

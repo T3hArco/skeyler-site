@@ -13,6 +13,7 @@
     background: $subforumBg;
     //color: #949495;
     color: #94a9c0;
+    color: #ccc;
     min-height: 32px;
     padding: 0 0 0 48px;
     @include border-radius(0.25em);
@@ -47,13 +48,13 @@
       display: inline-block;
       padding: 4px 0;
 
+      &.noSubforums {
+        margin-top: 8px;
+      }
+
       &.forumInfo {
         float: left;
         text-align: left;
-
-        &.noSubforums {
-          margin-top: 8px;
-        }
 
         .forumName, .description {
           display: inline-block;
@@ -105,7 +106,7 @@
 
       &.postCount {
         //color: #bababa;
-        color: #94a9c0;
+        color: #aaa;
         line-height: 52px;
         vertical-align: top;
         margin: 0 1em 0 0;
@@ -157,12 +158,30 @@
   }
 
   .row.forumNew {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX////////////////////////////////7/fpnvTj///93xE2w3Zir25F1w0t0wkiv3Jat25NOxqYUAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px center $subforumBg;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX////////////////////////////////7/fpnvTj///93xE2w3Zir25F1w0t0wkiv3Jat25NOxqYUAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px 6px $subforumBg;
   }
 
   .row.forumSeen {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC') no-repeat 8px center $subforumBg;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC') no-repeat 8px 6px $subforumBg;
+  }
 
+  .row.noSubforums {
+    background-position: 8px 13px;
+  }
+
+  .row:hover {
+    background-color: #6d90ba;
+    background-color: #5c7da0;
+    //color: #222;
+    //
+    //.cell.postCount {
+    //  //color: #222;
+    //}
+  }
+
+  .row.head:hover {
+    background-color: transparent;
+    color: #494949;
   }
 
 }
@@ -182,6 +201,10 @@ table.threads {
     background-color: #e5e5e5;
     font-size: 0.75em;
     border-top: 7px solid #fff;
+
+    &:hover {
+      background-color: #f2f3f6;
+    }
 
     td {
       padding-top: 4px;
@@ -224,6 +247,10 @@ table.threads {
     &.sticky {
       background-color: #f2ecb6;
       //opacity: 1.0;
+
+      &:hover {
+        background-color: #fffad9;
+      }
 
       .title span a:before {
         content: 'Sticky: ';
