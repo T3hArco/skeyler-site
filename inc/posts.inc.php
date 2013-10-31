@@ -121,6 +121,34 @@ class Posts
     global $DB;
     $thread = Threads::load($post['threadId']);
 
+
+
+    // find how deep into the thread the post is
+    $query = '
+      SELECT COUNT(*) AS postCount
+      FROM posts
+      WHERE threadId = :threadId
+      AND id <= :postId;
+    ';
+    $binds = array(
+      'threadId' => $post['threadId'],
+      'postId' => $post['id'],
+    );
+    $postCount = $DB->q($query, $binds)->fetch();
+    $postCount = $postCount['postCount'];
+
+    $query = '
+      UPDATE thread_seen
+      SET postsSeen = postsSeen - 1
+      WHERE threadId = :threadId
+        AND postsSeen >= :postCount
+    ';
+    $binds = array(
+      'threadId' => $post['threadId'],
+      'postCount' => $postCount,
+    );
+    $DB->q($query, $binds);
+
     // move post to new location
     $query = '
       UPDATE posts SET threadId = -1

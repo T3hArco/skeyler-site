@@ -18,6 +18,7 @@ $Config = array(
   'threadsPerPage' => 10,
   'blogPostsPerPage' => 10,
   'usersPerPage' => 10,
+  'chatboxEnabled' => true,
 );
 
 

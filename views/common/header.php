@@ -23,6 +23,9 @@
 
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/jquery.caret.1.02.js"></script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/bbcode.js"></script>
+  <script>
+    var isChatboxEnabled = <?php echo ($Config['chatboxEnabled'] ? 'true' : 'false'); ?>;
+  </script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/main.js"></script>
 
 </head>
