@@ -64,7 +64,7 @@
           <a href="/user.php?userId=<?php echo $User['id']; ?>"><img src="<?php echo User::writeAvatar($User['avatarUrl']); ?>" class="avatar small"/><?php echo ent($User['name']); ?>
           </a></li>
         <li><a href="/user.php?userId=<?php echo $User['id']; ?>">Profile</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout.php">Logout</a></li>
       <?php else : ?>
         <li>Hello, Guest!</li>
         <li><a href="/login.php">Login</a></li>

@@ -44,6 +44,15 @@ class User
     return populateIds($DB->q($query)->fetchAll());
   }
 
+  public static function loadBySteam64($steam64) {
+    global $DB;
+    $query = 'SELECT * FROM users WHERE steamId64 = :steamId64';
+    $binds = array(
+      'steamId64',
+    );
+    return $DB->q($query, $binds)->fetchAll();
+  }
+
   /**
    * @param $user
    * @param $rankLevel
@@ -70,15 +79,33 @@ class User
     }
     $user = $users[0];
 
-    $query = '
-      INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
-        VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, :avatarUrl)
-      ON DUPLICATE KEY UPDATE
-        name = :name,
-        avatarUrl = :avatarUrl,
-        lastLoginTimestamp = :lastLoginTimestamp,
-        lastLoginIp = :lastLoginIp
-    ';
+    // in order to prevent auto-increment from reserving id's and making huge gaps
+    // in the db, we need to only insert on dupe key update when we don't have
+    // data on a user.
+    $existingUser = $query = User::loadBySteam64($user['steamid']);
+
+    if($existingUser && count($existingUser) == 1) {
+      $query = '
+        UPDATE users
+        SET
+          name = :name,
+          avatarUrl = :avatarUrl,
+          lastLoginTimestamp = :lastLoginTimestamp,
+          lastLoginIp = :lastLoginIp
+        WHERE id = :userId
+        LIMIT 1;
+      ';
+    } else {
+      $query = '
+        INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
+          VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, :avatarUrl)
+        ON DUPLICATE KEY UPDATE
+          name = :name,
+          avatarUrl = :avatarUrl,
+          lastLoginTimestamp = :lastLoginTimestamp,
+          lastLoginIp = :lastLoginIp
+      ';
+    }
 
     $binds = array(
       'steamId64' => $user['steamid'],

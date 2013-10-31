@@ -145,6 +145,7 @@ class Forums
       VALUES(:forumId, :userId, :now)
       ON DUPLICATE KEY UPDATE timestamp = :now
     ';
+    // who cares about primary keys here? but might want to make it bigint?
     $binds = array(
       'forumId' => $forumId,
       'userId' => $User['id'],

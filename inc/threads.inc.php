@@ -55,6 +55,7 @@
       ON DUPLICATE KEY UPDATE
         postsSeen = GREATEST(postsSeen, :postsSeen)
     ';
+    // who cares about on big primary keys here
     $binds = array(
       'forumId' => $threadId,
       'userId' => $User['id'],
