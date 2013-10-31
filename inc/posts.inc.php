@@ -48,6 +48,9 @@ class Posts
   public static function insertPost($content, $threadId, $forumId, $isNewThread = false)
   {
     global $DB, $User, $now;
+
+    $DB->beginTransaction();
+
     $query = '
       INSERT INTO posts (userId, timestamp, content, contentParsed, ip, threadId)
       VALUES(:userId, :now, :content, :contentParsed, :ip, :threadId);
@@ -90,6 +93,8 @@ class Posts
 
     $DB->q($query, $binds);
 
+    $DB->commit();
+
     return $lastPostId;
 
   }
@@ -121,7 +126,7 @@ class Posts
     global $DB;
     $thread = Threads::load($post['threadId']);
 
-
+    $DB->beginTransaction();
 
     // find how deep into the thread the post is
     $query = '
@@ -197,6 +202,8 @@ class Posts
       LIMIT 1;
     ';
     $DB->q($query);
+
+    $DB->commit();
 
   }
 

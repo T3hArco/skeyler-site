@@ -49,6 +49,9 @@
   public static function updateLastSeen($threadId, $postsSeen)
   {
     global $DB, $User;
+
+    $DB->beginTransaction();
+
     $query = '
       INSERT INTO thread_seen (threadId, userId, postsSeen)
         VALUES(:forumId, :userId, :postsSeen)
@@ -70,6 +73,8 @@
     );
 
     $DB->q($query, $binds);
+
+    $DB->commit();
   }
 
 
@@ -127,6 +132,8 @@
       $options['isClosed'] = 0;
     }
 
+    $DB->beginTransaction();
+
     $query = '
       INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp, isSticky, isClosed)
       VALUES(:userId, :title, :forumId, :userId, :now, :isSticky, :isClosed);
@@ -143,6 +150,8 @@
     $threadId = $DB->lastInsertId();
 
     Posts::insertPost($content, $threadId, $forumId, true);
+
+    $DB->commit();
 
     return $threadId;
   }
@@ -201,6 +210,11 @@
   public static function move($threadId, $destinationForumId)
   {
     global $DB;
+
+    $thread = Threads::load($threadId);
+
+    $DB->beginTransaction();
+
     $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
@@ -208,6 +222,15 @@
     );
     $DB->q($query, $binds);
     // recount threads/posts for both forums
+
+    Forums::recountCounts($thread['forumId']);
+    Forums::recountCounts($destinationForumId);
+
+    $DB->commit();
+  }
+
+  public static function delete($threadId) {
+    self::move($threadId, -1);
   }
 
   public static function recountAll()
