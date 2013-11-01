@@ -288,3 +288,13 @@ a[target="_blank"]:after {
   content: " " url('../images/bgWhite.png');
   white-space: pre;
 }
+
+.login {
+  width: 154px;
+  height: 23px;
+  background: url(../images/steam_signin.png) no-repeat;
+  display: inline-block;
+  border: none;
+  font-size: 1px;
+  color: transparent;
+}

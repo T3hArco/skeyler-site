@@ -69,7 +69,8 @@
         <li><a href="/user.php?userId=<?php echo $User['id']; ?>">Profile</a></li>
         <li><a href="/logout.php">Logout</a></li>
       <?php else : ?>
-        <li>Hello, Guest!</li>
-        <li><a href="/login.php">Login</a></li>
+        <form action="/login.php?login" method="post">
+          <button class="login">Login through Steam</button>
+        </form>
       <?php endif; ?>
     </ul>

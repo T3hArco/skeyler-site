@@ -16,6 +16,10 @@ $local['breadcrumbs'] = array(
   $forums[$forumId]['name'] => '/forums.php?forumId=' . $forumId,
 );
 
+if ($forumId == 0) {
+  array_pop($local['breadcrumbs']);
+}
+
 // marks the forum as seen at the current time by the current user
 Forums::updateLastSeen($forumId);
 
