@@ -8,8 +8,7 @@ class Page
   /**
    *
    */
-  public function __construct()
-  {
+  public function __construct() {
     register_shutdown_function(array($this, 'footer'));
   }
 
@@ -18,8 +17,7 @@ class Page
    *
    * @param string $type = enum('header','footer')
    */
-  public function echoed($type)
-  {
+  public function echoed($type) {
     switch ($type) {
       case 'header':
         return ($this->echoedHeader == 'done');
@@ -33,8 +31,7 @@ class Page
   /**
    * Echoes the header
    */
-  public function header($title = '', $classes = array())
-  {
+  public function header($title = '', $classes = array()) {
     global $local, $isJson;
     if ($this->echoedHeader != 'waiting') { //echo'ing or already echo'd
       return false;
@@ -46,8 +43,10 @@ class Page
 
     if (!$isJson) {
       $newsItems = Cache::load('news');
-      foreach($newsItems as $news) {
-        Notice::message($news);
+      if ($newsItems) {
+        foreach ($newsItems as $news) {
+          Notice::message($news);
+        }
       }
 
       $local['title'] = $this->title;
@@ -63,8 +62,7 @@ class Page
   /**
    * Echoes the footer
    */
-  public function footer()
-  {
+  public function footer() {
     global $startTime, $local, $isJson;
     $this->header();
     if ($this->echoedFooter != 'waiting') { //echo'ing or already echo'd
