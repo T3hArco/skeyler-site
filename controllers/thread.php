@@ -7,6 +7,7 @@ $Page = new Page();
 
 $threadId = (int)getGet('threadId');
 $postId = (int)getGet('postId');
+$lastPost = isset($_GET['lastPost']);
 
 if ($postId && !$threadId) {
   $post = Posts::load($postId);
@@ -20,6 +21,13 @@ if ($postId && !$threadId) {
 }
 
 $thread = Threads::load($threadId);
+
+if($lastPost) {
+  $postCount = $thread['postCount'];
+  $pageId = floor(($postCount - 1) / $Config['postsPerPage']) + 1;
+  $postNum = (($postCount - 1) % $Config['postsPerPage']) + 1;
+  redirect('/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
+}
 
 if (!$thread) {
   Notice::error('Thread does not exist.');

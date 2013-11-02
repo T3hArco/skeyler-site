@@ -91,7 +91,7 @@
           <?php if ($thread['lastPostUserId']) : ?>
             <?php echo writeDate($thread['lastPostTimestamp']); ?> by
             <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
-            <a href="#">(view)</a></td>
+            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&lastPost">(view)</a></td>
           <?php else : ?>
             Never by nobody
         <?php
