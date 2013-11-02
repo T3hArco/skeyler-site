@@ -2,15 +2,13 @@
 class Posts
 {
 
-  public static function load($id)
-  {
+  public static function load($id) {
     global $DB;
     $query = 'SELECT * FROM posts WHERE id = ?;';
     return $DB->q($query, $id)->fetch();
   }
 
-  public static function loadIds($postIds)
-  {
+  public static function loadIds($postIds) {
     global $DB;
     $postIds = (array)$postIds;
     if (count($postIds) == 0) {
@@ -30,8 +28,7 @@ class Posts
   }
 
   // returns the post # in the thread
-  public static function getPostCountForPostIdByThread($post)
-  {
+  public static function getPostCountForPostIdByThread($post) {
     global $DB;
     $query = 'SELECT COUNT(*) AS postCount FROM posts WHERE id <= :postId AND threadId = :threadId LIMIT 1;';
     $binds = array(
@@ -45,11 +42,14 @@ class Posts
     return $row['postCount'];
   }
 
-  public static function insertPost($content, $threadId, $forumId, $isNewThread = false)
-  {
+  public static function insertPost($content, $threadId, $forumId, $isNewThread = false) {
     global $DB, $User, $now;
 
-    $DB->beginTransaction();
+
+    $inTransaction = $DB->inTransaction();
+    if (!$inTransaction) {
+      $DB->beginTransaction();
+    }
 
     $query = '
       INSERT INTO posts (userId, timestamp, content, contentParsed, ip, threadId)
@@ -93,14 +93,14 @@ class Posts
 
     $DB->q($query, $binds);
 
-    $DB->commit();
-
+    if (!$inTransaction) {
+      $DB->commit();
+    }
     return $lastPostId;
 
   }
 
-  public static function editPost($content, $postId)
-  {
+  public static function editPost($content, $postId) {
     global $DB, $User, $now;
     $query = '
       UPDATE posts
@@ -121,12 +121,14 @@ class Posts
     $DB->q($query, $binds);
   }
 
-  public static function delete($post)
-  {
+  public static function delete($post) {
     global $DB;
     $thread = Threads::load($post['threadId']);
 
-    $DB->beginTransaction();
+    $inTransaction = $DB->inTransaction();
+    if (!$inTransaction) {
+      $DB->beginTransaction();
+    }
 
     // find how deep into the thread the post is
     $query = '
@@ -203,8 +205,9 @@ class Posts
     ';
     $DB->q($query);
 
-    $DB->commit();
-
+    if (!$inTransaction) {
+      $DB->commit();
+    }
   }
 
 }

@@ -2,8 +2,7 @@
   <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
 <?php if ($local['forumId']) : ?>
   <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
-    topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>
-    , <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
+    topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>, <?php echo $local['forums'][$local['forumId']]['postCount']; ?>
     post<?php echo singPlur($local['forums'][$local['forumId']]['postCount']); ?></span>
 <?php endif; ?>
 
@@ -29,8 +28,7 @@
           </div>
           <div class="cell postCount">
             <?php echo $forum['threadCount']; ?>
-            topic<?php echo singPlur($forum['threadCount']); ?>
-            , <?php echo $forum['postCount']; ?>
+            topic<?php echo singPlur($forum['threadCount']); ?>, <?php echo $forum['postCount']; ?>
             post<?php echo singPlur($forum['postCount']); ?>
           </div>
           <div class="cell lastPostInfo">
@@ -89,13 +87,14 @@
         <td><?php echo $thread['views']; ?></td>
         <td colspan="2">
           <?php if ($thread['lastPostUserId']) : ?>
-            <?php echo writeDate($thread['lastPostTimestamp']); ?> by
-            <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
-            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;lastPost">(view)</a></td>
-          <?php else : ?>
-            Never by nobody
+          <?php echo writeDate($thread['lastPostTimestamp']); ?> by
+          <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
+          <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;lastPost">(view)</a></td>
+        <?php else : ?>
+          Never by nobody
         <?php
-        endif; ?>
+        endif;
+        ?>
       </tr>
 
     <?php endforeach; ?>

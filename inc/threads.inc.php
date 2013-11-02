@@ -1,15 +1,13 @@
 <?php class Threads
 {
 
-  public static function load($id)
-  {
+  public static function load($id) {
     global $DB;
     $query = 'SELECT * FROM threads WHERE id = ?;';
     return $DB->q($query, $id)->fetch();
   }
 
-  public static function loadIds($threadIds)
-  {
+  public static function loadIds($threadIds) {
     global $DB;
     $threadIds = (array)$threadIds;
     if (count($threadIds) == 0) {
@@ -28,8 +26,7 @@
     return populateIds($DB->q($query)->fetchAll());
   }
 
-  public static function loadFromForum($forumId)
-  {
+  public static function loadFromForum($forumId) {
     global $DB, $pageId, $Config;
     $query = '
     SELECT *
@@ -46,12 +43,13 @@
   }
 
 
-  public static function updateLastSeen($threadId, $postsSeen)
-  {
+  public static function updateLastSeen($threadId, $postsSeen) {
     global $DB, $User;
 
-    $DB->beginTransaction();
-
+    $inTransaction = $DB->inTransaction();
+    if (!$inTransaction) {
+      $DB->beginTransaction();
+    }
     $query = '
       INSERT INTO thread_seen (threadId, userId, postsSeen)
         VALUES(:forumId, :userId, :postsSeen)
@@ -74,12 +72,13 @@
 
     $DB->q($query, $binds);
 
-    $DB->commit();
+    if (!$inTransaction) {
+      $DB->commit();
+    }
   }
 
 
-  public static function getLastReads($threadIds)
-  {
+  public static function getLastReads($threadIds) {
     global $User, $DB;
 
     if (count($threadIds) == 0) {
@@ -102,8 +101,7 @@
 
   }
 
-  public static function getPosts($threadId, $pageNum)
-  {
+  public static function getPosts($threadId, $pageNum) {
     global $Config, $DB;
 
     $query = '
@@ -121,8 +119,7 @@
 
   }
 
-  public static function insertThread($title, $content, $forumId, $options = array())
-  {
+  public static function insertThread($title, $content, $forumId, $options = array()) {
     global $DB, $User, $now;
 
     if (!isset($options['isSticky'])) {
@@ -132,7 +129,10 @@
       $options['isClosed'] = 0;
     }
 
-    $DB->beginTransaction();
+    $inTransaction = $DB->inTransaction();
+    if (!$inTransaction) {
+      $DB->beginTransaction();
+    }
 
     $query = '
       INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp, isSticky, isClosed)
@@ -151,13 +151,14 @@
 
     Posts::insertPost($content, $threadId, $forumId, true);
 
-    $DB->commit();
+    if (!$inTransaction) {
+      $DB->commit();
+    }
 
     return $threadId;
   }
 
-  public static function close($threadId)
-  {
+  public static function close($threadId) {
     global $DB;
     $query = 'UPDATE threads SET isClosed = 1 WHERE id = :threadId';
     $binds = array(
@@ -166,8 +167,7 @@
     $DB->q($query, $binds);
   }
 
-  public static function open($threadId)
-  {
+  public static function open($threadId) {
     global $DB;
     $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId';
     $binds = array(
@@ -176,8 +176,7 @@
     $DB->q($query, $binds);
   }
 
-  public static function sticky($threadId)
-  {
+  public static function sticky($threadId) {
     global $DB;
     $query = 'UPDATE threads SET isSticky = 1 WHERE id = :threadId';
     $binds = array(
@@ -186,8 +185,7 @@
     $DB->q($query, $binds);
   }
 
-  public static function unsticky($threadId)
-  {
+  public static function unsticky($threadId) {
     global $DB;
     $query = 'UPDATE threads SET isSticky = 0 WHERE id = :threadId';
     $binds = array(
@@ -196,8 +194,7 @@
     $DB->q($query, $binds);
   }
 
-  public static function rename($threadId, $title)
-  {
+  public static function rename($threadId, $title) {
     global $DB;
     $query = 'UPDATE threads SET title = :title WHERE id = :threadId';
     $binds = array(
@@ -207,13 +204,15 @@
     $DB->q($query, $binds);
   }
 
-  public static function move($threadId, $destinationForumId)
-  {
+  public static function move($threadId, $destinationForumId) {
     global $DB;
 
     $thread = Threads::load($threadId);
 
-    $DB->beginTransaction();
+    $inTransaction = $DB->inTransaction();
+    if (!$inTransaction) {
+      $DB->beginTransaction();
+    }
 
     $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId';
     $binds = array(
@@ -226,15 +225,16 @@
     Forums::recountCounts($thread['forumId']);
     Forums::recountCounts($destinationForumId);
 
-    $DB->commit();
+    if (!$inTransaction) {
+      $DB->commit();
+    }
   }
 
   public static function delete($threadId) {
     self::move($threadId, -1);
   }
 
-  public static function recountAll()
-  {
+  public static function recountAll() {
     global $DB;
     $query = '
       SELECT threadId, COUNT(id) AS postCount
@@ -260,8 +260,7 @@
 
   }
 
-  public static function getBlogPosts($pageId)
-  {
+  public static function getBlogPosts($pageId) {
     global $DB, $Config;
     $query = '
       SELECT *
