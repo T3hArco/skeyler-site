@@ -40,7 +40,7 @@
               <div class="subPostInfo">
                 <span class="timestamp"><?php echo writeTimeLength($now - $forum['lastPostTimestamp']); ?> ago</span>
                 <a href="/user.php?userId=<?php echo $local['users'][$forum['lastPostUserId']]['id']; ?>" class="userLink"><?php echo ent($local['users'][$forum['lastPostUserId']]['name']); ?></a>
-                <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>" class="viewLink">(view)</a>
+                <a href="/thread.php?threadId=<?php echo $forum['lastPostThreadId']; ?>&amp;lastPost" class="viewLink">(view)</a>
               </div>
             <?php else : ?>
               <div class="missing52 avatar"></div>
@@ -91,7 +91,7 @@
           <?php if ($thread['lastPostUserId']) : ?>
             <?php echo writeDate($thread['lastPostTimestamp']); ?> by
             <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
-            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&lastPost">(view)</a></td>
+            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;lastPost">(view)</a></td>
           <?php else : ?>
             Never by nobody
         <?php
