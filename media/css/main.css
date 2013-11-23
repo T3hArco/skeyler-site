@@ -226,7 +226,15 @@ ul.pageNav.bottom li:last-child a {
   line-height: 1.0;
   vertical-align: middle;
 }
-/* line 148, ../scss/main.scss */
+/* line 149, ../scss/main.scss */
+#chatbox .chat-date {
+  font-style: italic;
+}
+/* line 153, ../scss/main.scss */
+#chatbox .chat ~ .chat-date {
+  margin-top: 1em;
+}
+/* line 157, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -241,7 +249,7 @@ ul.pageNav.bottom li:last-child a {
   border-radius: 0 0 0.5em 0.5em;
 }
 
-/* line 158, ../scss/main.scss */
+/* line 167, ../scss/main.scss */
 .dimensions {
   position: absolute;
   display: inline-block;
@@ -251,22 +259,22 @@ ul.pageNav.bottom li:last-child a {
   padding: 0.5em;
   font-size: 0.8em;
 }
-/* line 167, ../scss/main.scss */
+/* line 176, ../scss/main.scss */
 .dimensions:hover {
   color: #fff;
 }
 
-/* line 172, ../scss/main.scss */
+/* line 181, ../scss/main.scss */
 .tinyImage {
   border: 2px solid #a54;
   cursor: pointer;
 }
-/* line 176, ../scss/main.scss */
+/* line 185, ../scss/main.scss */
 .tinyImage.expanded {
   max-width: none;
 }
 
-/* line 181, ../scss/main.scss */
+/* line 190, ../scss/main.scss */
 .missing42 {
   width: 42px;
   height: 42px;
@@ -274,7 +282,7 @@ ul.pageNav.bottom li:last-child a {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
 
-/* line 188, ../scss/main.scss */
+/* line 197, ../scss/main.scss */
 .missing52 {
   width: 42px;
   height: 42px;
@@ -282,19 +290,19 @@ ul.pageNav.bottom li:last-child a {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0AQMAAAD/tomoAAAABlBMVEX4APgAAAAfdBzzAAAAKUlEQVR4Xt3PQQkAAAjAwIEBjGR1IxlAUEvoQxjce6DlUrHmZAlXfvtpTQiymQ2xdWAAAAAASUVORK5CYII=") no-repeat;
 }
 
-/* line 195, ../scss/main.scss */
+/* line 204, ../scss/main.scss */
 .modDropdown {
   display: inline-block;
   position: relative;
 }
-/* line 199, ../scss/main.scss */
+/* line 208, ../scss/main.scss */
 .modDropdown .star {
   width: 16px;
   height: 16px;
   display: inline-block;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIwSURBVDjLlZLNS5RRFMafe9/3vjPOjI1jaKKEVH40tGgRBWEibfoPQoKkVdtoEQQF4T/QqkVtWrSTFrVsF1FgJbWpIAh1k2PNh+PrfL4f95zTQk0HHKkDD/cc7vP8uHCuEhF0q/KnmXNgGR248PZFN4/GISXMC8L89DBPV0Dp4/SsazJjrtfb9/vdxfn/BgjzY5M8Aq8nBya+V3h93vtnQHFxat4kszntJAAAxus1YvnZQV5V/jyTEZarwnwFLGeFZdT0ZFOJdD84qoCDOpQ7grZfRNj020JSEOKvwvxGiF+q0tL0N5PuO+Mk0nC0B0BDsYCCImyzAIktBBloMwKJLSgKYcMAcdhC2KpVlIig+H5qxcv0n0xmj4Gbq+BwC2wtJLbgHUlMEFJwUpMIGpto16u+kJzSACAk+WCzvNbe+AVljkOYIcQQou3TbvdOJo+g4aNdqzaF+PT43HJVA8DQpcVIiPPtaqlEUQzlDELsTpgYwgTAQIjQqlUCtpQfn1spdmxh+PJSQyw9CrbKgM7tvcISQAxlBhC3GuCYXk3cWP25m3M7dk88qbWBRDVApaATOSjPBdXXwYEP5QyCgvjE/kwHgInHtHYBnYA2owhrPiiuw0sOw3EZFEagIB7qChDiYaUcNIoFtP1KxCTPhWiDw7WbXk9vKpnOgsI4exjg6Mbq96YQPxm79uPOvqvbXx4O3KrF6w8osv2df17kr5YXJq7vnw/S0v3k7Ie7xtud/wAaRnP+Cw8iKQAAAABJRU5ErkJggg== ") no-repeat;
 }
-/* line 208, ../scss/main.scss */
+/* line 217, ../scss/main.scss */
 .modDropdown:hover .star {
   -webkit-animation-name: spin;
   -moz-animation-name: spin;
@@ -317,7 +325,7 @@ ul.pageNav.bottom li:last-child a {
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 216, ../scss/main.scss */
+/* line 225, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -331,30 +339,30 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
   border: 1px solid #000;
 }
-/* line 229, ../scss/main.scss */
+/* line 238, ../scss/main.scss */
 .modDropdown ul.mod-thread {
   left: 0;
   right: auto;
 }
-/* line 235, ../scss/main.scss */
+/* line 244, ../scss/main.scss */
 .modDropdown ul li a {
   display: block;
   white-space: pre;
   padding: 0 4px;
 }
-/* line 240, ../scss/main.scss */
+/* line 249, ../scss/main.scss */
 .modDropdown ul li ~ li {
   border-top: 1px solid #000;
 }
 
 @-moz-keyframes spin {
-  /* line 248, ../scss/main.scss */
+  /* line 257, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 251, ../scss/main.scss */
+  /* line 260, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -362,13 +370,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes spin {
-  /* line 248, ../scss/main.scss */
+  /* line 257, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 251, ../scss/main.scss */
+  /* line 260, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -376,13 +384,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes spin {
-  /* line 248, ../scss/main.scss */
+  /* line 257, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 251, ../scss/main.scss */
+  /* line 260, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -390,13 +398,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes spin {
-  /* line 248, ../scss/main.scss */
+  /* line 257, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 251, ../scss/main.scss */
+  /* line 260, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -404,18 +412,18 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes spin {
-  /* line 248, ../scss/main.scss */
+  /* line 257, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 251, ../scss/main.scss */
+  /* line 260, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 256, ../scss/main.scss */
+/* line 265, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -428,7 +436,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 268, ../scss/main.scss */
+/* line 277, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;
@@ -440,18 +448,18 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
 }
 
-/* line 279, ../scss/main.scss */
+/* line 288, ../scss/main.scss */
 table {
   width: 100%;
 }
 
-/* line 287, ../scss/main.scss */
+/* line 296, ../scss/main.scss */
 a[target="_blank"]:after {
   content: " " url("../images/bgWhite.png");
   white-space: pre;
 }
 
-/* line 293, ../scss/main.scss */
+/* line 302, ../scss/main.scss */
 .login {
   width: 154px;
   height: 23px;

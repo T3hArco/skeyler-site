@@ -565,7 +565,7 @@ function handleNotices(data, callback) {
       }
     }
   }
-  if(!!data.success) {
+  if (!!data.success) {
     callback();
   }
   return !!data.success;
@@ -596,10 +596,14 @@ function writeDate(timestamp, type) {
     case 'small':
       return padLeft(hours, 2) + ':' + padLeft(date.getMinutes(), 2) + amPm;
       break;
+    case 'date':
+      return writeDate.days[date.getDay()] + ', ' + writeDate.months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
     default:
       return date.toString();
   }
 }
+writeDate.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+writeDate.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function padLeft(str, length, paddingChar) {
   str = str.toString();
@@ -630,6 +634,22 @@ function updateChatbox() {
         continue;
       }
       addedNew = i;
+      // if it's a new day, add the date
+      var prevDate = $('.chat-' + (i - 1)).data('timestamp') || 0;
+      var newDate = data.chats[i].timestamp;
+
+      var prevDateStr = writeDate(prevDate, 'date');
+      var newDateStr = writeDate(newDate, 'date');
+
+      if (prevDateStr != newDateStr) {
+        $date = $('<div>')
+          .addClass('chat-date')
+          .text(newDateStr)
+        ;
+        $chats.append($date);
+      }
+
+      // add the new message
       $div = $('<div>')
         .data('chatId', i)
         .addClass('chat chat-' + i)
@@ -641,6 +661,7 @@ function updateChatbox() {
             .text(data.users[data.chats[i].userId].name),
           $('<span>').text(': ' + data.chats[i].content)
         )
+        .data('timestamp', data.chats[i].timestamp)
       ;
       $chats.append($div);
     }
@@ -648,8 +669,9 @@ function updateChatbox() {
       chatbox.highestId = data.highestId;
     }
     var chatCount = $chats.find('.chat').length;
-    for (var i = 0; i < chatCount - chatbox.maxCount; i++) {
+    for (var i = 0; i < chatCount - chatbox.maxCount - 1; i++) {
       $chats.find('.chat:eq(0)').remove();
+      $chats.find('.chat-date + .chat-date').prev().remove();
     }
 
     if ($chats.find('.chat-fake').length > 0) {

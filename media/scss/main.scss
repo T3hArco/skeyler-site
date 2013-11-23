@@ -145,6 +145,15 @@ $tags: (vip, mod, admin, dev, super, owner);
       vertical-align: middle;
     }
   }
+
+  .chat-date {
+    font-style: italic;
+  }
+
+  .chat ~ .chat-date {
+    margin-top: 1em;
+  }
+
   input {
     width: 100%;
     border: 1px solid #d8d8d8;
