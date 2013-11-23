@@ -8,6 +8,7 @@
 .post {
   background: #f2f2f2;
   @include background-image(linear-gradient(left, #f2f2f2, #ffffff));
+  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC') repeat-y #f2f2f2;
   //@include background-image(linear-gradient(left, #e7e7e7, #e7e7e7 142px,#f2f2f2 143px, #ffffff));
   border-bottom: 1px solid #ddd;
   position: relative;
@@ -154,9 +155,6 @@
   }
 
 }
-
-
-
 
 
 
