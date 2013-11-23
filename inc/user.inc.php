@@ -146,7 +146,7 @@ class User
   {
     global $Config;
 
-    if (self::getRankStr($user['rank']) == self::RANK_REGULAR) {
+    if ($user['rank'] == self::RANK_REGULAR) {
       return '';
     }
 
