@@ -76,8 +76,7 @@
         <td class="title">
           <span><a href="/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></span>
           <?php if (isset($local['lastReadThreadPostCounts'][$thread['id']]) && $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount']) : ?>
-            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['threadsPerPage']); ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['threadsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>
-              )</a>
+            <a href="/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['postsPerPage']) + 1; ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['postsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>)</a>
           <?php endif; ?>
         </td>
         <td>

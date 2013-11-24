@@ -100,9 +100,8 @@ bbcode.parseQuote = function (str) {
 bbcode.parseList = function (str) {
   return str.replace(/\[list\]((?:.|\n|\r)*?)\[\/list\]/gi, function (z, contents) {
     var out = '<ul>';
-    // I apologize for this. (?!) doesn't work the way I thought it did, so I'm doing it this simpler way. it's valid, but it's (imo) bad programming
-    out += contents.replace(/(\[\*\])/gi, function (y, listItem) {
-      return '<li>';
+    out += contents.replace(/\[\*\]([^\n]*?\n)/gi, function (y, contents) {
+      return '<li>' + contents + '</li>';
     });
     out += '</ul>';
     return out;

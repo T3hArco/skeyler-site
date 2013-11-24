@@ -2,15 +2,15 @@
 <?php
 
 $classes = array();
-if($local['thread']['isClosed']) {
+if ($local['thread']['isClosed']) {
   $classes[] = 'closed';
 }
-if($local['thread']['isSticky']) {
+if ($local['thread']['isSticky']) {
   $classes[] = 'sticky';
 }
 
 ?>
-<h2<?php echo ($classes ? ' class="' . implode(' ', $classes) . '"' : '')?>><?php echo ent($local['thread']['title']); ?></h2>
+<h2<?php echo($classes ? ' class="' . implode(' ', $classes) . '"' : ''); ?>><?php echo ent($local['thread']['title']); ?></h2>
 <?php echo User::writeModOptions('thread'); ?>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'top right'); ?>
 <br class="clr"/>
@@ -32,16 +32,16 @@ if($local['thread']['isSticky']) {
           <?php endif; ?>
         <?php endif; ?>
       </div><!--
-           --><div class="postContent">
-        <?php echo $post['contentParsed'];//BBCode::parse($post['content']); ?>
-        <?php if($post['lastEditTimestamp']) : ?>
+   --><div class="postContent">
+        <?php echo $post['contentParsed']; ?>
+        <?php if ($post['lastEditTimestamp']) : ?>
           <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
         <?php endif; ?>
       </div>
       <div class="postOptions">
         <?php if ($post['userId'] == $User['id']) : ?>
           <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="editLink"></a>
-        <?php //else : ?>
+          <?php //else : ?>
           <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>
         <a href="#" class="quoteLink"></a>
