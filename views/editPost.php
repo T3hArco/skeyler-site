@@ -11,6 +11,11 @@
   <br/>
   <!--<input type="submit" value="Preview"/>-->
   <input type="submit" name="submit" value="Post!"/>
+
+  <div class="draftWrapper">
+    <span class="saveDraft"></span>
+    <a class="loadDraft" href="#"></a>
+  </div>
 </form>
 <h3>Edited Post Preview:</h3>
 
@@ -28,8 +33,10 @@
           <span class="ip"><?php echo ent($_SERVER['REMOTE_ADDR']); ?></span>
         <?php endif; ?>
       <?php endif; ?>
-    </div><!--
- --><div id="parsedContent" class="postContent"></div>
+    </div>
+    <!--
+     -->
+    <div id="parsedContent" class="postContent"></div>
   </div>
 </div>
 

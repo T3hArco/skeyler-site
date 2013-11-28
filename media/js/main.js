@@ -76,6 +76,10 @@ $(function () {
   // handles keyboard shortcuts on keyup
   // TODO: verify there are no race conditions here
   $('#postContent').on('keyup', function (e) {
+    if (!e) {
+      e = {};
+    }
+
     var newContents = $(this).val();
 
     var ctrl = e.metaKey || e.ctrlKey;
@@ -138,6 +142,9 @@ $(function () {
     }
 
     $('#parsedContent').html(parsedContent);
+    if (!_.isEmpty(e)) {
+      Draft.save($(this).val());
+    }
 
   });
 
@@ -544,6 +551,23 @@ $(function () {
     ;
   });
 
+  // handles drafts
+  if (localStorage['post-new-draft']) {
+    localStorage['post-old-draft'] = localStorage['post-new-draft'];
+    localStorage['post-old-timestamp'] = localStorage['post-new-timestamp'];
+    localStorage['post-new-draft'] = '';
+    localStorage['post-new-timestamp'] = 0;
+  }
+
+  if (localStorage['post-old-draft'] && $('#postContent').val() != localStorage['post-old-draft']) {
+    $('.loadDraft').text('Load Draft from ' + writeDate(localStorage['post-old-timestamp'] || 0, 'short'));
+  }
+
+  $('.loadDraft').on('click', function () {
+    Draft.load();
+    return false;
+  });
+
 
 });
 
@@ -598,12 +622,15 @@ function writeDate(timestamp, type) {
       break;
     case 'date':
       return writeDate.days[date.getDay()] + ', ' + writeDate.months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    case 'short':
+      return writeDate.monthsShort[date.getMonth()] + ' ' + date.getDate() + ' @ ' + hours + ':' + padLeft(date.getMinutes(), 2) + ':' + padLeft(date.getSeconds(), 2) + amPm;
     default:
       return date.toString();
   }
 }
 writeDate.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 writeDate.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+writeDate.monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 function padLeft(str, length, paddingChar) {
   str = str.toString();
@@ -695,6 +722,36 @@ function updateChatbox() {
     chatbox.interval = setTimeout(updateChatbox, chatbox.timeout);
   });
 }
+
+var Draft = {
+  save: function (content) {
+    var now = Math.floor(new Date() / 1000);
+    localStorage['post-new-draft'] = content;
+    localStorage['post-new-timestamp'] = now;
+    $('.saveDraft').text('Draft saved at: ' + writeDate(now, 'short'));
+  },
+  load: function () {
+    var now = Math.floor(new Date() / 1000);
+    var oldDraft = localStorage['post-old-draft'];
+    var newDraft = localStorage['post-new-draft'] || '';
+    var oldTimestamp = localStorage['post-old-timestamp'];
+    var newTimestamp = localStorage['post-new-timestamp'];
+
+    if (newDraft) {
+      localStorage['post-old-draft'] = newDraft;
+      localStorage['post-new-draft'] = oldDraft;
+      localStorage['post-old-timestamp'] = newTimestamp || now;
+      localStorage['post-new-timestamp'] = oldTimestamp || now;
+
+      if (localStorage['post-old-draft'] != localStorage['post-new-draft']) {
+        $('.loadDraft').text('Load Draft from ' + writeDate(localStorage['post-old-timestamp'] || 0, 'short'));
+      } else {
+        $('.loadDraft').text('');
+      }
+    }
+    $('#postContent').val(oldDraft).trigger('keyup', {});
+  }
+};
 
 function getHiddenProp() {
   var prefixes = ['webkit', 'moz', 'ms', 'o'];

@@ -8,6 +8,11 @@
   <br/>
   <!--<input type="submit" value="Preview"/>-->
   <input type="submit" name="submit" value="Post!"/>
+
+  <div class="draftWrapper">
+    <span class="saveDraft"></span>
+    <a class="loadDraft" href="#"></a>
+  </div>
 </form>
 <h3>Reply Preview:</h3>
 

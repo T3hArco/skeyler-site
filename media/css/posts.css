@@ -3,11 +3,29 @@
   max-width: 100%;
 }
 
-/* line 9, ../scss/posts.scss */
+/* line 8, ../scss/posts.scss */
+.draftWrapper {
+  display: inline-block;
+  margin: 0 0 0 5em;
+  vertical-align: top;
+}
+/* line 13, ../scss/posts.scss */
+.draftWrapper .saveDraft {
+  font-size: 0.75em;
+  float: left;
+}
+/* line 18, ../scss/posts.scss */
+.draftWrapper .loadDraft {
+  font-size: 0.75em;
+  float: left;
+  clear: left;
+}
+
+/* line 27, ../scss/posts.scss */
 .createThread label {
   display: block;
 }
-/* line 13, ../scss/posts.scss */
+/* line 31, ../scss/posts.scss */
 .createThread #postTitle {
   width: 621px;
 }

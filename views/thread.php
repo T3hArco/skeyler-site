@@ -58,4 +58,10 @@ if ($local['thread']['isSticky']) {
   <br/>
   <input type="submit" value="Preview"/>
   <input type="submit" name="submit" value="Post!"/>
+
+  <div class="draftWrapper">
+    <span class="saveDraft"></span>
+    <a class="loadDraft" href="#"></a>
+  </div>
+
 </form>

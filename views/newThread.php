@@ -12,11 +12,16 @@
   </label>
   <br/>
   <!--<input type="submit" value="Preview"/>-->
-  <?php if(User::can(User::RANK_ADMIN)) : ?>
+  <?php if (User::can(User::RANK_ADMIN)) : ?>
     <label><input type="checkbox" name="isSticky"> Sticky</label>
     <label><input type="checkbox" name="isClosed"> Closed</label>
   <?php endif; ?>
   <input type="submit" name="submit" value="Post New Thread!"/>
+
+  <div class="draftWrapper">
+    <span class="saveDraft"></span>
+    <a class="loadDraft" href="#"></a>
+  </div>
 </form>
 
 <h3>New Thread Preview:</h3>

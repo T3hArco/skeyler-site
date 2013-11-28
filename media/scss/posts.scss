@@ -5,6 +5,24 @@
   max-width: 100%;
 }
 
+.draftWrapper {
+  display: inline-block;
+  margin: 0 0 0 5em;
+  vertical-align: top;
+
+  .saveDraft {
+    font-size: 0.75em;
+    float: left;
+  }
+
+  .loadDraft {
+    font-size: 0.75em;
+    float: left;
+    clear: left;
+  }
+
+}
+
 .createThread {
   label {
     display: block;
