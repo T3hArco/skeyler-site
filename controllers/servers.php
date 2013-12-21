@@ -1,6 +1,6 @@
 <?php
 require '../_.php';
-$Page = new Page();
+$Page = new Page('servers');
 
 
 $servers = array(

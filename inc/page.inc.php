@@ -4,11 +4,13 @@ class Page
   public $title = '';
   protected $echoedHeader = 'waiting';
   protected $echoedFooter = 'waiting';
+  protected $navigationItem;
 
   /**
    *
    */
-  public function __construct() {
+  public function __construct($navigationItem) {
+    $this->navigationItem = $navigationItem;
     register_shutdown_function(array($this, 'footer'));
   }
 
@@ -48,7 +50,8 @@ class Page
           Notice::message($news);
         }
       }
-
+      
+      $local['navigationItem'] = $this->navigationItem;
       $local['title'] = $this->title;
       include ROOT . '/views/common/header.php';
     } else {

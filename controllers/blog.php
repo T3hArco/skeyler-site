@@ -1,6 +1,6 @@
 <?php
 require '../_.php';
-$Page = new Page();
+$Page = new Page('news');
 $Page->header('Blog');
 
 $info = Threads::getBlogPosts($pageId);

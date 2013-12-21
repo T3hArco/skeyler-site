@@ -3,7 +3,7 @@ require '../_.php';
 
 global $User, $Config, $pageId;
 
-$Page = new Page();
+$Page = new Page('forums');
 
 $threadId = (int)getGet('threadId');
 $postId = (int)getGet('postId');

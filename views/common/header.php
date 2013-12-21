@@ -34,20 +34,20 @@
   <div class="header">
     <h1><strong>Skeyler</strong> <span>Gaming <em>Community</em></span></h1>
     <ul class="topNav">
-      <li><a href="/blog.php">News</a></li>
-      <li class="selected"><a href="/forums.php">Forums</a></li>
-      <li><a href="/servers.php">Servers</a></li>
-      <li><a href="/stats.php">Stats</a></li>
+      <li <?php echo ($local['navigationItem'] == 'news' ? 'class = "selected"' : ''); ?>><a href="/blog.php">News</a></li>
+      <li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums.php">Forums</a></li>
+      <li <?php echo ($local['navigationItem'] == 'servers' ? 'class = "selected"' : ''); ?>><a href="/servers.php">Servers</a></li>
+      <li <?php echo ($local['navigationItem'] == 'stats' ? 'class = "selected"' : ''); ?>><a href="/stats.php">Stats</a></li>
     </ul>
   </div>
 
   <?php Notice::writeNotices(); ?>
   <ul class="subNav"><!--
-    --><li class="selected"><a href="/forums.php">Forums</a></li><!--
-    --><li><a href="#">Users</a></li><!--
-    --><li><a href="/games/magicboxes.php">Games</a></li><!--
-    --><li><a href="#">Staff Roster</a></li><!--
-    --><li><a href="#">Chatbox</a></li><!--
+    --><li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums.php">Forums</a></li><!--
+    --><li <?php echo ($local['navigationItem'] == 'users' ? 'class = "selected"' : ''); ?>><a href="#">Users</a></li><!--
+    --><li <?php echo ($local['navigationItem'] == 'games' ? 'class = "selected"' : ''); ?>><a href="/games/magicboxes.php">Games</a></li><!--
+    --><li <?php echo ($local['navigationItem'] == 'staff' ? 'class = "selected"' : ''); ?>><a href="#">Staff Roster</a></li><!--
+    --><li <?php echo ($local['navigationItem'] == 'chatbox' ? 'class = "selected"' : ''); ?>><a href="#">Chatbox</a></li><!--
   --></ul><!--
 --><div class="content">
 
