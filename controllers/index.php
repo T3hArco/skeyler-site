@@ -1,7 +1,7 @@
 <?php
 require '../_.php';
 
-$Page = new Page();
+$Page = new Page("chatbox");
 
 Notice::message('test message');
 
