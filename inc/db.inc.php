@@ -28,7 +28,6 @@ class DB
         //        $Page->json['status'] = 'failed';
         Notice::error('Database connection failed. Oh no!');
       }
-      var_dump($e);
       exit;
     }
     return true;
