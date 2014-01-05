@@ -42,13 +42,15 @@
   </div>
 
   <?php Notice::writeNotices(); ?>
+  <?php if($local['navigationItem'] == 'forums') : ?>
   <ul class="subNav"><!--
-    --><li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums.php">Forums</a></li><!--
-    --><li <?php echo ($local['navigationItem'] == 'users' ? 'class = "selected"' : ''); ?>><a href="#">Users</a></li><!--
-    --><li <?php echo ($local['navigationItem'] == 'games' ? 'class = "selected"' : ''); ?>><a href="/games/magicboxes.php">Games</a></li><!--
-    --><li <?php echo ($local['navigationItem'] == 'staff' ? 'class = "selected"' : ''); ?>><a href="#">Staff Roster</a></li><!--
-    --><li <?php echo ($local['navigationItem'] == 'chatbox' ? 'class = "selected"' : ''); ?>><a href="#">Chatbox</a></li><!--
+    --><li <?php echo ($local['navigationSubItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums.php">Forums</a></li><!--
+    --><li <?php echo ($local['navigationSubItem'] == 'users' ? 'class = "selected"' : ''); ?>><a href="#">Users</a></li><!--
+    --><li <?php echo ($local['navigationSubItem'] == 'games' ? 'class = "selected"' : ''); ?>><a href="/games/magicboxes.php">Games</a></li><!--
+    --><li <?php echo ($local['navigationSubItem'] == 'staff' ? 'class = "selected"' : ''); ?>><a href="#">Staff Roster</a></li><!--
+    --><li <?php echo ($local['navigationSubItem'] == 'chatbox' ? 'class = "selected"' : ''); ?>><a href="#">Chatbox</a></li><!--
   --></ul><!--
+  --><?php endif; ?><!--
 --><div class="content">
 
     <?php if(isset($local['breadcrumbs'])) : ?>

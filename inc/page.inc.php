@@ -5,12 +5,17 @@ class Page
   protected $echoedHeader = 'waiting';
   protected $echoedFooter = 'waiting';
   protected $navigationItem;
+  protected $navigationSubItem;
 
   /**
    *
    */
-  public function __construct($navigationItem = '') {
+  public function __construct($navigationItem = '', $navigationSubItem = '') {
     $this->navigationItem = $navigationItem;
+    if (!$navigationSubItem) {
+      $navigationSubItem = $navigationItem;
+    }
+    $this->navigationSubItem = $navigationSubItem;
     register_shutdown_function(array($this, 'footer'));
   }
 
@@ -50,11 +55,13 @@ class Page
           Notice::message($news);
         }
       }
-      
+
       $local['navigationItem'] = $this->navigationItem;
+      $local['navigationSubItem'] = $this->navigationSubItem;
       $local['title'] = $this->title;
       include ROOT . '/views/common/header.php';
-    } else {
+    }
+    else {
       header('Content-type: application/json');
     }
 
@@ -77,7 +84,8 @@ class Page
 
     if (!$isJson) {
       include ROOT . '/views/common/footer.php';
-    } else {
+    }
+    else {
       echo json_encode($local);
     }
     $this->echoedFooter = 'done';

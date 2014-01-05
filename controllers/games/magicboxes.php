@@ -1,6 +1,6 @@
 <?php
 require '../../_.php';
-$Page = new Page('games');
+$Page = new Page('forums', 'games');
 $Page->header('Magic Boxes');
 
 $data = array();
