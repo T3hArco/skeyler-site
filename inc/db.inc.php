@@ -66,7 +66,7 @@ class DB
     $errorInfo = $prep->errorInfo();
     if ($errorInfo[1]) {
       if ($Config['displayErrors']) {
-        trigger_error('DB error: ' . var_export([$errorInfo, $query, $args], 1), E_USER_ERROR);
+        trigger_error('DB error: ' . var_export(array($errorInfo, $query, $args), 1), E_USER_ERROR);
       }
       else {
         trigger_error('DB error: ' . var_export($errorInfo, 1), E_USER_ERROR);
