@@ -8,7 +8,7 @@
 .post {
   background: #f2f2f2;
   @include background-image(linear-gradient(left, #f2f2f2, #ffffff));
-  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC') repeat-y #f2f2f2;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC') repeat-y #f2f2f2;
   //@include background-image(linear-gradient(left, #e7e7e7, #e7e7e7 142px,#f2f2f2 143px, #ffffff));
   border-bottom: 1px solid #ddd;
   position: relative;
@@ -29,16 +29,43 @@
   }
 }
 
-.editLink, .quoteLink {
+.editLink, .quoteLink, .modDropdown {
   width: 16px;
   height: 16px;
   display: inline-block;
 }
 
 .postOptions {
+  $bgColor: #fff;
+  $bgMaxAlpha: 0.8;
+  $fadeWidth: 20px;
+  $height: 16px;
+
   position: absolute;
   top: 12px;
   right: 12px;
+  background: rgba($bgColor, $bgMaxAlpha);
+  line-height: 1;
+  height: $height;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: $height;
+    width: $fadeWidth;
+    top: 0;
+  }
+
+  &:before {
+    @include background-image(linear-gradient(left, rgba($bgColor, 0), rgba($bgColor, $bgMaxAlpha)));
+    left: -1 * $fadeWidth;
+  }
+
+  &:after {
+    @include background-image(linear-gradient(left, rgba($bgColor, $bgMaxAlpha), rgba($bgColor, 0)));
+    right: -1 * $fadeWidth;
+  }
+
 }
 
 .editLink {
@@ -110,6 +137,7 @@
   padding: 12px 54px 12px 12px;
   vertical-align: top;
   margin: 0 0 1em 0;
+  overflow-x: auto;
 
   blockquote {
     padding: 7px 23px;
