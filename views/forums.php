@@ -14,8 +14,8 @@
     </div>
     <?php foreach ($local['forums'] as $forum) : ?>
       <?php if ($forum['id'] != $local['forumId']) : ?>
-        <div class="row forum<?php echo(!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?><?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : '' ?>">
-          <div class="cell forumInfo<?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : '' ?>">
+        <div class="row forum<?php echo(!isset($local['lastReadForumTimestamps'][$forum['id']]) || $local['lastReadForumTimestamps'][$forum['id']]['timestamp'] <= $forum['lastPostTimestamp'] ? 'New' : 'Seen'); ?><?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : '' ?>"><!--
+          --><div class="cell forumInfo<?php echo !(isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) ? ' noSubforums' : '' ?>">
             <a href="/forums.php?forumId=<?php echo $forum['id']; ?>" class="forumName"><?php echo $forum['name']; ?></a>
             <span class="description"><?php echo $forum['description']; ?></span>
             <?php if (isset($local['subforums'][$forum['id']]) && count($local['subforums'][$forum['id']]) != 0) : ?>
@@ -25,13 +25,13 @@
                 <?php endforeach; ?>
               </ul>
             <?php endif; ?>
-          </div>
-          <div class="cell postCount">
+          </div><!--
+          --><div class="cell postCount">
             <?php echo $forum['threadCount']; ?>
             topic<?php echo singPlur($forum['threadCount']); ?>, <?php echo $forum['postCount']; ?>
             post<?php echo singPlur($forum['postCount']); ?>
-          </div>
-          <div class="cell lastPostInfo">
+          </div><!--
+          --><div class="cell lastPostInfo">
             <?php if ($forum['lastPostUserId']) : ?>
               <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>
 
@@ -49,9 +49,9 @@
                 <a class="viewLink"></a>
               </div>
             <?php endif; ?>
-          </div>
+          </div><!--
 
-        </div>
+        --></div>
       <?php endif; ?>
     <?php endforeach; ?>
   </div>
