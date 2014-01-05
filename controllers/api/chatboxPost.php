@@ -18,7 +18,7 @@ $binds = array(
   'now' => $now,
   'content' => $content,
 );
-$DB->q($query, $binds);
+DB::q($query, $binds);
 
 $data['timestamp'] = $now;
 $data['rankStr'] = User::getRankStr($User['rank']);

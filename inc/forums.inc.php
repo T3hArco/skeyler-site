@@ -5,14 +5,12 @@ class Forums
 
   public static function load($id)
   {
-    global $DB;
     $query = 'SELECT * FROM forums WHERE id = ?;';
-    return $DB->q($query, $id)->fetch();
+    return DB::q($query, $id)->fetch();
   }
 
   public static function loadIds($forumIds)
   {
-    global $DB;
     $forumIds = (array)$forumIds;
     if (count($forumIds) == 0) {
       return array();
@@ -27,12 +25,12 @@ class Forums
       ;
     ';
 
-    return populateIds($DB->q($query)->fetchAll());
+    return populateIds(DB::q($query)->fetchAll());
   }
 
   public static function getForumAndSubforums($forumId)
   {
-    global $DB, $User;
+    global $User;
     $query = '
   SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId
   FROM forums AS f
@@ -47,12 +45,12 @@ class Forums
       'forumId' => $forumId,
       'rank' => $User['rank'],
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
   public static function getSubforumsFromForumList($forumIds)
   {
-    global $DB, $User;
+    global $User;
 
     if (count($forumIds) == 0) {
       return array();
@@ -73,12 +71,12 @@ class Forums
     $binds = array(
       'rank' => $User['rank'],
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
   public static function getAllVisibleForums()
   {
-    global $User, $DB;
+    global $User;
     $query = 'SELECT *
       FROM forums AS f
       WHERE visibleRank <= :rank
@@ -87,12 +85,12 @@ class Forums
     $binds = array(
       'rank' => $User['rank'],
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
   public static function getAllVisibleForumsGrouped()
   {
-    global $User, $DB;
+    global $User;
     $query = 'SELECT f.*, fp.parentId
       FROM forums AS f
         LEFT JOIN forum_parents AS fp
@@ -103,7 +101,7 @@ class Forums
     $binds = array(
       'rank' => $User['rank'],
     );
-    $rows = $DB->q($query, $binds)->fetchAll();
+    $rows = DB::q($query, $binds)->fetchAll();
 
     $forums = populateIds($rows);
 
@@ -139,7 +137,7 @@ class Forums
 
   public static function updateLastSeen($forumId)
   {
-    global $DB, $User, $now;
+    global $User, $now;
     $query = '
       INSERT INTO forum_seen (forumId, userId, timestamp)
       VALUES(:forumId, :userId, :now)
@@ -152,13 +150,13 @@ class Forums
       'now' => $now,
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
 
   public static function getLastSeen($forumIds)
   {
-    global $User, $DB;
+    global $User;
 
     if (count($forumIds) == 0) {
       return array();
@@ -176,14 +174,13 @@ class Forums
     $binds = array(
       'userId' => $User['id'],
     );
-    return populateIds($DB->q($query, $binds)->fetchAll(), 'forumId');
+    return populateIds(DB::q($query, $binds)->fetchAll(), 'forumId');
 
   }
 
   // recounts the threads and posts in a forum
   public static function recountCounts($forumId)
   {
-    global $DB;
 
     $query = '
       SELECT COUNT(*) AS threadCount
@@ -194,7 +191,7 @@ class Forums
     $binds = array(
       'forumId' => $forumId,
     );
-    $row = $DB->q($query, $binds)->fetch();
+    $row = DB::q($query, $binds)->fetch();
     $threadCount = $row['threadCount'];
 
     $query = '
@@ -207,7 +204,7 @@ class Forums
     $binds = array(
       'forumId' => $forumId,
     );
-    $row = $DB->q($query, $binds)->fetch();
+    $row = DB::q($query, $binds)->fetch();
     $postCount = $row['postCount'];
 
     $query = '
@@ -222,7 +219,7 @@ class Forums
       'forumId' => $forumId,
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
   }
 

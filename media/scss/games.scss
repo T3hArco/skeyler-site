@@ -13,7 +13,7 @@ ul.sideNav {
     white-space: pre;
     position: relative;
     text-align: right;
-    left: -32px;
+    left: -1 * $contentPadding - 16px;
 
     a {
       color: #fff;

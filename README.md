@@ -20,8 +20,22 @@ The footer is automatically included when everything exits
 
 inc/funcs.inc.php has custom functions
 
-to access the db, use $DB. If it's inside a class, first you have to "global $DB;"
-to fetch rows:  "$rows = $DB->q($query)->fetchAll();"
+to fetch rows:  "$rows = DB::q($query)->fetchAll();"
+if you want to pass arguments, use: "$rows = DB::q($query, $binds)->fetchAll();"
+where $binds is an array of values to replace the question marks in the query or an associative array to replace :keys
+
+example:
+$query = 'SELECT * FROM tbl WHERE id = ?;';
+$binds = [5];
+$rows = DB::q($query, $binds)->fetchAll();
+
+example 2:
+$query = 'SELECT * FROM tbl WHERE a = :asdf AND b = :poop;';
+$binds = array(
+  'asdf' => 3456,
+  'poop' => 'butts',
+);
+$rows = DB::q($query, $binds)->fetchAll();
 
 in the controllers, run the "view($variables);" function to pass variables to the view
 

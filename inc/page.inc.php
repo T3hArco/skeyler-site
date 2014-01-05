@@ -9,7 +9,7 @@ class Page
   /**
    *
    */
-  public function __construct($navigationItem) {
+  public function __construct($navigationItem = '') {
     $this->navigationItem = $navigationItem;
     register_shutdown_function(array($this, 'footer'));
   }

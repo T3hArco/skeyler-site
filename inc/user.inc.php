@@ -19,14 +19,12 @@ class User
    */
   public static function load($id)
   {
-    global $DB;
     $query = 'SELECT * FROM users WHERE id = ?;';
-    return $DB->q($query, $id)->fetch();
+    return DB::q($query, $id)->fetch();
   }
 
   public static function loadIds($userIds)
   {
-    global $DB;
     $userIds = (array)$userIds;
     if (count($userIds) == 0) {
       return array();
@@ -41,16 +39,15 @@ class User
       ;
     ';
 
-    return populateIds($DB->q($query)->fetchAll());
+    return populateIds(DB::q($query)->fetchAll());
   }
 
   public static function loadBySteam64($steam64) {
-    global $DB;
     $query = 'SELECT * FROM users WHERE steamId64 = :steamId64';
     $binds = array(
       'steamId64',
     );
-    return $DB->q($query, $binds)->fetchAll();
+    return DB::q($query, $binds)->fetchAll();
   }
 
   /**
@@ -71,7 +68,7 @@ class User
 
   public static function login($steamId64)
   {
-    global $DB, $now;
+    global  $now;
 
     $users = Steam::getUserProfile($steamId64);
     if (count($users) == 0) {
@@ -117,8 +114,8 @@ class User
       'avatarUrl' => $user['avatar'],
     );
 
-    $DB->q($query, $binds)->fetch();
-    return $DB->lastInsertId();
+    DB::q($query, $binds)->fetch();
+    return DB::lastInsertId();
 
   }
 
@@ -237,7 +234,7 @@ class User
 
   public static function searchUsers($search)
   {
-    global $DB, $Config, $pageId;
+    global  $Config, $pageId;
 
     $query = '
       SELECT * FROM users
@@ -247,12 +244,11 @@ class User
     $binds = array(
       'likeSearch' => '%' . $search . '%',
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
   public static function getStaff()
   {
-    global $DB;
 
     $query = '
       SELECT * FROM users
@@ -262,7 +258,7 @@ class User
     $binds = array(
       'minRank' => User::RANK_MOD,
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
 }

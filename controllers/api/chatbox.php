@@ -9,7 +9,7 @@ $binds = array(
   'id' => $id,
 );
 
-$chats = populateIds($DB->q($query, $binds)->fetchAll());
+$chats = populateIds(DB::q($query, $binds)->fetchAll());
 $chatIds = eachField($chats, 'id');
 
 $userIds = eachField($chats, 'userId');
@@ -18,7 +18,7 @@ $users = array();
 if (count($userIds)) {
   $whereIn = DB::whereIn($userIds);
   $query = 'SELECT id, name, rank FROM users WHERE id IN(' . $whereIn . ');';
-  $users = populateIds($DB->q($query)->fetchAll());
+  $users = populateIds(DB::q($query)->fetchAll());
 }
 
 foreach ($users as $userId => $user) {

@@ -2,14 +2,12 @@
 {
 
   public static function load($id) {
-    global $DB;
     $query = 'SELECT * FROM threads WHERE id = ?;';
-    return $DB->q($query, $id)->fetch();
+    return DB::q($query, $id)->fetch();
   }
 
   public static function loadIds($threadIds) {
-    global $DB;
-    $threadIds = (array)$threadIds;
+    $threadIds = (array) $threadIds;
     if (count($threadIds) == 0) {
       return array();
     }
@@ -23,11 +21,11 @@
       ;
     ';
 
-    return populateIds($DB->q($query)->fetchAll());
+    return populateIds(DB::q($query)->fetchAll());
   }
 
   public static function loadFromForum($forumId) {
-    global $DB, $pageId, $Config;
+    global $pageId, $Config;
     $query = '
     SELECT *
     FROM threads
@@ -39,17 +37,15 @@
     $binds = array(
       'forumId' => $forumId,
     );
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
 
   public static function updateLastSeen($threadId, $postsSeen) {
-    global $DB, $User;
+    global $User;
 
-    $inTransaction = $DB->inTransaction();
-    if (!$inTransaction) {
-      $DB->beginTransaction();
-    }
+    DB::beginTransaction();
+
     $query = '
       INSERT INTO thread_seen (threadId, userId, postsSeen)
         VALUES(:forumId, :userId, :postsSeen)
@@ -63,23 +59,21 @@
       'postsSeen' => $postsSeen,
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     $query = 'UPDATE threads SET views = views + 1 WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
-    if (!$inTransaction) {
-      $DB->commit();
-    }
+    DB::commit();
   }
 
 
   public static function getLastReads($threadIds) {
-    global $User, $DB;
+    global $User;
 
     if (count($threadIds) == 0) {
       return array();
@@ -97,12 +91,12 @@
     $binds = array(
       'userId' => $User['id'],
     );
-    return populateIds($DB->q($query, $binds)->fetchAll(), 'threadId');
+    return populateIds(DB::q($query, $binds)->fetchAll(), 'threadId');
 
   }
 
   public static function getPosts($threadId, $pageNum) {
-    global $Config, $DB;
+    global $Config;
 
     $query = '
     SELECT *
@@ -115,12 +109,12 @@
       'threadId' => $threadId,
     );
 
-    return populateIds($DB->q($query, $binds)->fetchAll());
+    return populateIds(DB::q($query, $binds)->fetchAll());
 
   }
 
   public static function insertThread($title, $content, $forumId, $options = array()) {
-    global $DB, $User, $now;
+    global $User, $now;
 
     if (!isset($options['isSticky'])) {
       $options['isSticky'] = 0;
@@ -129,10 +123,7 @@
       $options['isClosed'] = 0;
     }
 
-    $inTransaction = $DB->inTransaction();
-    if (!$inTransaction) {
-      $DB->beginTransaction();
-    }
+    DB::beginTransaction();
 
     $query = '
       INSERT INTO threads (userId, title, forumId, lastPostUserId, lastPostTimestamp, isSticky, isClosed)
@@ -146,88 +137,76 @@
       'isSticky' => $options['isSticky'],
       'isClosed' => $options['isClosed'],
     );
-    $DB->q($query, $binds);
-    $threadId = $DB->lastInsertId();
+    DB::q($query, $binds);
+    $threadId = DB::lastInsertId();
 
     Posts::insertPost($content, $threadId, $forumId, true);
 
-    if (!$inTransaction) {
-      $DB->commit();
-    }
+    DB::commit();
 
     return $threadId;
   }
 
   public static function close($threadId) {
-    global $DB;
     $query = 'UPDATE threads SET isClosed = 1 WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function open($threadId) {
-    global $DB;
     $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function sticky($threadId) {
-    global $DB;
     $query = 'UPDATE threads SET isSticky = 1 WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function unsticky($threadId) {
-    global $DB;
     $query = 'UPDATE threads SET isSticky = 0 WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function rename($threadId, $title) {
-    global $DB;
     $query = 'UPDATE threads SET title = :title WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
       'title' => $title,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function move($threadId, $destinationForumId) {
-    global $DB;
 
     $thread = Threads::load($threadId);
 
-    $inTransaction = $DB->inTransaction();
-    if (!$inTransaction) {
-      $DB->beginTransaction();
-    }
+    DB::beginTransaction();
 
     $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId';
     $binds = array(
       'threadId' => $threadId,
       'forumId' => $destinationForumId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
     // recount threads/posts for both forums
 
     Forums::recountCounts($thread['forumId']);
     Forums::recountCounts($destinationForumId);
 
-    if (!$inTransaction) {
-      $DB->commit();
-    }
+    DB::commit();
+
   }
 
   public static function delete($threadId) {
@@ -235,13 +214,12 @@
   }
 
   public static function recountAll() {
-    global $DB;
     $query = '
       SELECT threadId, COUNT(id) AS postCount
       FROM posts
       GROUP BY threadId
     ';
-    $counts = $DB->q($query)->fetchAll();
+    $counts = DB::q($query)->fetchAll();
 
     foreach ($counts as $count) {
       $query = '
@@ -255,13 +233,13 @@
         'postCount' => $count['postCount'],
       );
       var_dump($query, $binds);
-      $DB->q($query, $binds);
+      DB::q($query, $binds);
     }
 
   }
 
   public static function getBlogPosts($pageId) {
-    global $DB, $Config;
+    global $Config;
     $query = '
       SELECT *
       FROM threads
@@ -269,7 +247,7 @@
       ORDER BY id DESC
       LIMIT ' . ($pageId - 1) * $Config['blogPostsPerPage'] . ', ' . $Config['blogPostsPerPage'] . '
       ';
-    $threads = $DB->q($query)->fetchAll();
+    $threads = DB::q($query)->fetchAll();
 
     $out['threads'] = $threads;
 
@@ -285,7 +263,7 @@
         GROUP BY threadId
         ;
       ';
-      $postIds = eachField($DB->q($query)->fetchAll(), 'postId');
+      $postIds = eachField(DB::q($query)->fetchAll(), 'postId');
 
       $posts = populateIds(Posts::loadIds($postIds), 'threadId');
 

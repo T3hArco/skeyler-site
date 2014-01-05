@@ -3,13 +3,11 @@ class Posts
 {
 
   public static function load($id) {
-    global $DB;
     $query = 'SELECT * FROM posts WHERE id = ?;';
-    return $DB->q($query, $id)->fetch();
+    return DB::q($query, $id)->fetch();
   }
 
   public static function loadIds($postIds) {
-    global $DB;
     $postIds = (array)$postIds;
     if (count($postIds) == 0) {
       return array();
@@ -24,18 +22,17 @@ class Posts
       ;
     ';
 
-    return populateIds($DB->q($query)->fetchAll());
+    return populateIds(DB::q($query)->fetchAll());
   }
 
   // returns the post # in the thread
   public static function getPostCountForPostIdByThread($post) {
-    global $DB;
     $query = 'SELECT COUNT(*) AS postCount FROM posts WHERE id <= :postId AND threadId = :threadId LIMIT 1;';
     $binds = array(
       'postId' => $post['id'],
       'threadId' => $post['threadId'],
     );
-    $row = $DB->q($query, $binds)->fetch();
+    $row = DB::q($query, $binds)->fetch();
     if (!$row) {
       return 0;
     }
@@ -43,13 +40,10 @@ class Posts
   }
 
   public static function insertPost($content, $threadId, $forumId, $isNewThread = false) {
-    global $DB, $User, $now;
+    global $User, $now;
 
 
-    $inTransaction = $DB->inTransaction();
-    if (!$inTransaction) {
-      $DB->beginTransaction();
-    }
+      DB::beginTransaction();
 
     $query = '
       INSERT INTO posts (userId, timestamp, content, contentParsed, ip, threadId)
@@ -64,9 +58,9 @@ class Posts
       'threadId' => $threadId,
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
-    $lastPostId = $DB->lastInsertId();
+    $lastPostId = DB::lastInsertId();
 
     $query = 'UPDATE threads SET postCount = postCount + 1, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now WHERE id = :threadId';
     $binds = array(
@@ -74,7 +68,7 @@ class Posts
       'lastPostUserId' => $User['id'],
       'now' => $now,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
     $binds = array(
@@ -84,24 +78,22 @@ class Posts
       'threadId' => $threadId,
       'forumId' => $forumId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     $query = 'UPDATE users SET postCount = postCount + 1 WHERE id = :userId';
     $binds = array(
       'userId' => $User['id'],
     );
 
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
-    if (!$inTransaction) {
-      $DB->commit();
-    }
+    DB::commit();
     return $lastPostId;
 
   }
 
   public static function editPost($content, $postId) {
-    global $DB, $User, $now;
+    global $User, $now;
     $query = '
       UPDATE posts
       SET content = :content,
@@ -118,17 +110,13 @@ class Posts
       'contentParsed' => BBCode::parse($content),
       'postId' => $postId,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
   }
 
   public static function delete($post) {
-    global $DB;
     $thread = Threads::load($post['threadId']);
 
-    $inTransaction = $DB->inTransaction();
-    if (!$inTransaction) {
-      $DB->beginTransaction();
-    }
+    DB::beginTransaction();
 
     // find how deep into the thread the post is
     $query = '
@@ -141,7 +129,7 @@ class Posts
       'threadId' => $post['threadId'],
       'postId' => $post['id'],
     );
-    $postCount = $DB->q($query, $binds)->fetch();
+    $postCount =DB::q($query, $binds)->fetch();
     $postCount = $postCount['postCount'];
 
     $query = '
@@ -154,7 +142,7 @@ class Posts
       'threadId' => $post['threadId'],
       'postCount' => $postCount,
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     // move post to new location
     $query = '
@@ -165,7 +153,7 @@ class Posts
     $binds = array(
       'postId' => $post['id'],
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     // update thread post count
     $query = '
@@ -176,7 +164,7 @@ class Posts
     $binds = array(
       'threadId' => $thread['id'],
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     // update deleted thread post count
     $query = '
@@ -184,7 +172,7 @@ class Posts
       WHERE id = -1
       LIMIT 1;
     ';
-    $DB->q($query);
+    DB::q($query);
 
     // update forum post count
     $query = '
@@ -195,7 +183,7 @@ class Posts
     $binds = array(
       'forumId' => $thread['forumId'],
     );
-    $DB->q($query, $binds);
+    DB::q($query, $binds);
 
     // update deleted forum post count
     $query = '
@@ -203,11 +191,9 @@ class Posts
       WHERE id = -1
       LIMIT 1;
     ';
-    $DB->q($query);
+    DB::q($query);
 
-    if (!$inTransaction) {
-      $DB->commit();
-    }
+    DB::commit();
   }
 
 }
