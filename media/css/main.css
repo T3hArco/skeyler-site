@@ -449,17 +449,28 @@ ul.pageNav.bottom li:last-child a {
 }
 
 /* line 288, ../scss/main.scss */
+.popupCloseLink {
+  font-size: 0.75em;
+}
+/* line 291, ../scss/main.scss */
+.popupCloseLink:before {
+  margin-top: 2em;
+  content: '\a';
+  display: block;
+}
+
+/* line 298, ../scss/main.scss */
 table {
   width: 100%;
 }
 
-/* line 296, ../scss/main.scss */
+/* line 306, ../scss/main.scss */
 a[target="_blank"]:after {
   content: " " url("../images/bgWhite.png");
   white-space: pre;
 }
 
-/* line 302, ../scss/main.scss */
+/* line 312, ../scss/main.scss */
 .login {
   width: 154px;
   height: 23px;
@@ -470,7 +481,7 @@ a[target="_blank"]:after {
   color: transparent;
 }
 
-/* line 312, ../scss/main.scss */
+/* line 322, ../scss/main.scss */
 .curse {
   font-weight: bold;
   -webkit-filter: blur(2px);

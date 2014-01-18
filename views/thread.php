@@ -1,7 +1,7 @@
 <?php global $Config, $pageId, $User; ?>
 <?php
 
-$classes = array();
+$classes = array('threadTitle');
 if ($local['thread']['isClosed']) {
   $classes[] = 'closed';
 }
@@ -10,7 +10,7 @@ if ($local['thread']['isSticky']) {
 }
 
 ?>
-<h2<?php echo($classes ? ' class="' . implode(' ', $classes) . '"' : ''); ?>><?php echo ent($local['thread']['title']); ?></h2>
+<h2 class="<?php echo implode(' ', $classes); ?>"><?php echo ent($local['thread']['title']); ?></h2>
 <?php echo User::writeModOptions('thread'); ?>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'top right'); ?>
 <br class="clr"/>

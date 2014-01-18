@@ -364,7 +364,10 @@ $(function () {
 
         var $popup = $('<div>').addClass('popup');
         var $popupContainer = $('<div>').addClass('popupContainer');
-        var $input = $('<input>').val($('.threadTitle').text());
+        var $input = $('<input>')
+            .val($('.threadTitle').text())
+            .attr('placeholder', $('.threadTitle').text())
+          ;
 
         var $submit = $('<button>').text('Edit Thread Title!').on('click', function () {
           postData = {
@@ -379,8 +382,18 @@ $(function () {
 
         $h4 = $('<h4>').html('It is my expert diagnosis that this thread needs to be renamed.<br />But what to?');
 
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
         $popup
-          .append($h4, $input, $submit)
+          .append($h4, $input, $submit, $cancel)
         ;
 
         $popupContainer

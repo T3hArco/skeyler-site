@@ -285,6 +285,16 @@ $tags: (vip, mod, admin, dev, super, owner);
   background: #eee;
 }
 
+.popupCloseLink {
+  font-size: 0.75em;
+
+  &:before {
+    margin-top: 2em;
+    content: '\a';
+    display: block;
+  }
+}
+
 table {
   width: 100%;
 
@@ -310,7 +320,7 @@ a[target="_blank"]:after {
 }
 
 .curse {
-  font-weight:bold;
+  font-weight: bold;
   @include filter(blur(2px));
   //color:transparent;
   //text-shadow:0 0 0.5em #ccc, 0 0 0.5em #ccc;
