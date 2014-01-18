@@ -18,6 +18,9 @@
       &:hover {
         text-decoration: none;
       }
+      &:after {
+        display: none;
+      }
     }
 
     .avatar {

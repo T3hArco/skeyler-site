@@ -1,6 +1,6 @@
 <?php
 require '../_.php';
-$Page = new Page('staff');
+$Page = new Page('forums', 'staff');
 
 $users = User::getStaff();
 

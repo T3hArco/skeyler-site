@@ -49,7 +49,7 @@ try {
 
       // redirect to index so the user doesn't have their openid info in the url
       // (some people will paste this link into websites and then googlebot will log in as them)
-      header('Location: ' . $Config['server']);
+      header('Location: ' . $Config['server'] . '/forums.php');
       exit;
     }
   }

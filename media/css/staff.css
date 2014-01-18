@@ -27,13 +27,17 @@
 .staffRoster .user a.steamLink:hover {
   text-decoration: none;
 }
-/* line 23, ../scss/staff.scss */
+/* line 21, ../scss/staff.scss */
+.staffRoster .user a.steamLink:after {
+  display: none;
+}
+/* line 26, ../scss/staff.scss */
 .staffRoster .user .avatar {
   min-height: 86px;
   width: 86px;
   vertical-align: top;
 }
-/* line 30, ../scss/staff.scss */
+/* line 33, ../scss/staff.scss */
 .staffRoster .user .viewProfile {
   display: inline-block;
   width: 150px;
@@ -50,13 +54,13 @@
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 44, ../scss/staff.scss */
+/* line 47, ../scss/staff.scss */
 .staffRoster .user .viewProfile:hover {
   text-decoration: none;
   background: #3c648e;
   color: #fff;
 }
-/* line 51, ../scss/staff.scss */
+/* line 54, ../scss/staff.scss */
 .staffRoster .user .info {
   display: inline-block;
   color: #626363;
@@ -66,27 +70,27 @@
   border-left: 4px solid #fff;
   border-right: 4px solid #fff;
 }
-/* line 60, ../scss/staff.scss */
+/* line 63, ../scss/staff.scss */
 .staffRoster .user .info h3 {
   margin: 0 0 2px 0;
   font-family: 'Arvil Sans', Arial;
   letter-spacing: 1px;
   font-size: 2em;
 }
-/* line 66, ../scss/staff.scss */
+/* line 69, ../scss/staff.scss */
 .staffRoster .user .info h3 a {
   color: #3c648e;
   font-size: 1.1em;
   vertical-align: middle;
 }
-/* line 73, ../scss/staff.scss */
+/* line 76, ../scss/staff.scss */
 .staffRoster .user .info h3 .job:before {
   content: ' |  ';
   color: #ccc;
   font-weight: normal;
   white-space: pre;
 }
-/* line 82, ../scss/staff.scss */
+/* line 85, ../scss/staff.scss */
 .staffRoster .user .info p {
   color: #9b9b9b;
   margin: 0;

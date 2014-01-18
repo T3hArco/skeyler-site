@@ -1,12 +1,15 @@
 <?php
 
 require '../_.php';
-$Page = new Page();
+
 
 setcookie('userId', 'butt', $now - 60 * 60 * 24 * 365);
 setcookie('authKey', 'poop', $now - 60 * 60 * 24 * 365);
 
 session_destroy();
+
+$isLoggedIn = false;
+$Page = new Page();
 
 Notice::success('NOOO! COME BACK!');
 

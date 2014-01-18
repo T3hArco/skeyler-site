@@ -1,5 +1,9 @@
 @import "base";
 
+.newThreadLink {
+  float: right;
+}
+
 .table {
   width: 896px - $contentPadding * 2;
   border: none;

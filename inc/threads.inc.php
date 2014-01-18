@@ -44,6 +44,10 @@
   public static function updateLastSeen($threadId, $postsSeen) {
     global $User;
 
+    if(!$User['id']) {
+      return false;
+    }
+
     DB::beginTransaction();
 
     $query = '
