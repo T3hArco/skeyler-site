@@ -581,7 +581,7 @@ $(function () {
     return false;
   });
 
-  var wordsOfCurse = ['poopy', 'shit'];
+  var wordsOfCurse = ['poopy'];
 
   //replace the very very bad words!!!!
   function grabTextNodes(parentEl) {

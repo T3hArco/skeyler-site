@@ -115,7 +115,8 @@
       &.lastPostInfo {
         text-align: left;
         display: inline-block;
-        float: right;
+        //float: right;
+        // apparently a float here breaks randomly in chrome. weird rounding error?
         background: #fff;
         @include border-radius(0.25em);
         margin: 2px;

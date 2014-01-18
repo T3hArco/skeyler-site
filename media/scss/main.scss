@@ -304,8 +304,7 @@ table {
 }
 
 a[target="_blank"]:after {
-  // todo: swap with better image
-  content: " " url('../images/bgWhite.png');
+  content: " " url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAAD1BMVEX///////////////////+Rd1MVAAAABHRSTlMAaeRqY+AomwAAADNJREFUeF4lxIEJACAMBLErdACRjuIAX/n9Z7IghEDYhlwkcGe7Z+Xac4cLnVKjkOCzLR6tNQaTLNDT1wAAAABJRU5ErkJggg==');
   white-space: pre;
 }
 
