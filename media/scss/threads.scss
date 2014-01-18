@@ -1,5 +1,19 @@
 @import 'base';
 
+h2 {
+  &:before, &:after {
+    font-size: 0.75em;
+    font-family: Consolas, Courier;
+  }
+  &.sticky:before {
+    content: 'STICKY: ';
+
+  }
+  &.closed:after {
+    content: ' (CLOSED)';
+  }
+}
+
 .posts {
   border: 1px solid #ddd;
   border-bottom: none;

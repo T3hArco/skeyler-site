@@ -269,6 +269,10 @@ table.threads {
 
   }
 
+  thead tr:hover {
+    background: initial;
+  }
+
   thead {
     //border: 1px solid #d8d8d8;
     // fake border down there

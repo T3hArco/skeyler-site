@@ -278,21 +278,25 @@ table.threads tr a {
 table.threads tr a.userLink {
   color: #385464;
 }
-/* line 276, ../scss/forums.scss */
+/* line 272, ../scss/forums.scss */
+table.threads thead tr:hover {
+  background: initial;
+}
+/* line 280, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
 }
-/* line 280, ../scss/forums.scss */
+/* line 284, ../scss/forums.scss */
 table.threads thead th {
   color: #494949;
   padding: 0;
 }
-/* line 285, ../scss/forums.scss */
+/* line 289, ../scss/forums.scss */
 table.threads thead th.pageNav {
   vertical-align: bottom;
   font-weight: normal;
 }
-/* line 292, ../scss/forums.scss */
+/* line 296, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 1px;
