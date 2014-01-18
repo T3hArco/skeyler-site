@@ -308,3 +308,11 @@ a[target="_blank"]:after {
   font-size: 1px;
   color: transparent;
 }
+
+.curse {
+  font-weight:bold;
+  @include filter(blur(2px));
+  //color:transparent;
+  //text-shadow:0 0 0.5em #ccc, 0 0 0.5em #ccc;
+
+}

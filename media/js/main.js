@@ -568,8 +568,51 @@ $(function () {
     return false;
   });
 
+  var wordsOfCurse = ['poopy', 'shit'];
+
+  //replace the very very bad words!!!!
+  function grabTextNodes(parentEl) {
+    var textNodes = [];
+
+    function grabInner(node) {
+      if (node.nodeType == 3) {
+        if (!node.nodeValue.match(/^\s*$/)) {
+          textNodes.push(node);
+        }
+      }
+      else {
+        var childNodes = node.childNodes;
+        var len = childNodes.length;
+        for (var a = 0; a < len; a += 1) {
+          grabInner(childNodes[a]);
+        }
+      }
+    }
+
+    grabInner(parentEl);
+    return textNodes;
+  }
+
+  var textNodes = grabTextNodes($('.posts').get(0));
+
+  var regex = new RegExp('(' + wordsOfCurse.join('|') + ')', 'gi');
+
+  for (var nodeIndex = 0; nodeIndex < textNodes.length; nodeIndex += 1) {
+    var textNode = textNodes[nodeIndex];
+
+    var replacementNode = document.createElement('span');
+    if (!regex.test(textNode.data)) {
+      continue;
+    }
+    replacementNode.innerHTML = textNode.data.replace(regex, '<span class="curse" title="This word is very very bad and has been censored for your protection">$1</span>');
+    textNode.parentNode.insertBefore(replacementNode, textNode);
+    textNode.parentNode.removeChild(textNode);
+  }
+
 
 });
+
+///////////////// end of jquery onload
 
 var $chatbox, $chats, chatbox;
 

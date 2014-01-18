@@ -469,3 +469,11 @@ a[target="_blank"]:after {
   font-size: 1px;
   color: transparent;
 }
+
+/* line 312, ../scss/main.scss */
+.curse {
+  font-weight: bold;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  filter: blur(2px);
+}
