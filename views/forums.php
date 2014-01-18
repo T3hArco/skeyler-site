@@ -26,12 +26,12 @@
               </ul>
             <?php endif; ?>
           </div><!--
-          --><div class="cell postCount">
+                    --><div class="cell postCount">
             <?php echo $forum['threadCount']; ?>
             topic<?php echo singPlur($forum['threadCount']); ?>, <?php echo $forum['postCount']; ?>
             post<?php echo singPlur($forum['postCount']); ?>
           </div><!--
-          --><div class="cell lastPostInfo">
+                    --><div class="cell lastPostInfo">
             <?php if ($forum['lastPostUserId']) : ?>
               <img src="<?php echo User::writeAvatar($local['users'][$forum['lastPostUserId']]['avatarUrl'], 'medium'); ?>" class="avatar"/>
 
@@ -51,13 +51,16 @@
             <?php endif; ?>
           </div><!--
 
-        --></div>
+                  --></div>
       <?php endif; ?>
     <?php endforeach; ?>
   </div>
 <?php endif; ?>
 
 <?php if (count($local['threads']) > 0) : ?>
+  <?php if (User::can($local['forums'][$local['forumId']]['createThreadRank'])) : ?>
+    <a href="/newThread.php?forumId=<?php echo $local['forumId']; ?>" class="newThreadLink">New Thread</a>
+  <?php endif; ?>
   <table class="threads">
     <thead>
     <tr>
