@@ -45,7 +45,7 @@ class User
   public static function loadBySteam64($steam64) {
     $query = 'SELECT * FROM users WHERE steamId64 = :steamId64';
     $binds = array(
-      'steamId64',
+      'steamId64' => $steam64,
     );
     return DB::q($query, $binds)->fetchAll();
   }
@@ -70,6 +70,8 @@ class User
   {
     global  $now;
 
+    DB::beginTransaction();
+
     $users = Steam::getUserProfile($steamId64);
     if (count($users) == 0) {
       throw new ErrorException('Steam could not find user');
@@ -79,7 +81,7 @@ class User
     // in order to prevent auto-increment from reserving id's and making huge gaps
     // in the db, we need to only insert on dupe key update when we don't have
     // data on a user.
-    $existingUser = $query = User::loadBySteam64($user['steamid']);
+    $existingUser = User::loadBySteam64($steamId64);
 
     if($existingUser && count($existingUser) == 1) {
       $query = '
@@ -92,6 +94,20 @@ class User
         WHERE id = :userId
         LIMIT 1;
       ';
+      $binds = array(
+        'userId' => $existingUser[0]['id'],
+        'name' => $user['personaname'],
+        'avatarUrl' => $user['avatar'],
+        'lastLoginIp' => '',
+        'lastLoginTimestamp' => $now,
+      );
+
+      DB::q($query, $binds)->fetch();
+
+      DB::commit();
+
+      return $existingUser[0]['id'];
+
     } else {
       $query = '
         INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
@@ -102,21 +118,23 @@ class User
           lastLoginTimestamp = :lastLoginTimestamp,
           lastLoginIp = :lastLoginIp
       ';
+      $binds = array(
+        'steamId64' => $user['steamid'],
+        'steamId' => Steam::steam64ToSTEAM($user['steamid']),
+        'name' => $user['personaname'],
+        'lastLoginIp' => '',
+        'lastLoginTimestamp' => $now,
+        'authKey' => randomStr(64),
+        'avatarUrl' => $user['avatar'],
+      );
+      DB::q($query, $binds)->fetch();
+
+      $lastInsertId = DB::lastInsertId();
+
+      DB::commit();
+
+      return $lastInsertId;
     }
-
-    $binds = array(
-      'steamId64' => $user['steamid'],
-      'steamId' => Steam::steam64ToSTEAM($user['steamid']),
-      'name' => $user['personaname'],
-      'lastLoginIp' => '',
-      'lastLoginTimestamp' => $now,
-      'authKey' => randomStr(64),
-      'avatarUrl' => $user['avatar'],
-    );
-
-    DB::q($query, $binds)->fetch();
-    return DB::lastInsertId();
-
   }
 
 
