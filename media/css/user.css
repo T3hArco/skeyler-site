@@ -1,0 +1,63 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 3, ../scss/user.scss */
+.quickstats {
+  display: inline-block;
+  float: left;
+}
+/* line 8, ../scss/user.scss */
+.quickstats dl {
+  display: block;
+  width: 234px;
+  background: #eee;
+  padding: 0 8px;
+}
+/* line 15, ../scss/user.scss */
+.quickstats dt, .quickstats dd {
+  display: inline-block;
+  max-width: 125px;
+  width: 50%;
+  padding: 0.5em 0;
+}
+/* line 22, ../scss/user.scss */
+.quickstats dd {
+  text-align: right;
+  font-size: 0.8em;
+}
+/* line 26, ../scss/user.scss */
+.quickstats dd a:after {
+  display: none;
+}
+
+/* line 32, ../scss/user.scss */
+.statsDetailed {
+  float: left;
+}
+/* line 36, ../scss/user.scss */
+.statsDetailed ul.tabs {
+  display: inline-block;
+  list-style: none;
+  margin: 0 0 0.5em 0;
+}
+/* line 41, ../scss/user.scss */
+.statsDetailed ul.tabs li {
+  display: inline-block;
+}
+/* line 44, ../scss/user.scss */
+.statsDetailed ul.tabs li a {
+  padding: 0.25em;
+  border: 1px solid black;
+}
+/* line 51, ../scss/user.scss */
+.statsDetailed .tabItem {
+  display: none;
+}
+/* line 54, ../scss/user.scss */
+.statsDetailed .tabItem.selected {
+  display: block;
+}

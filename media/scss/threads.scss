@@ -1,6 +1,6 @@
 @import 'base';
 
-h2 {
+h2.threadTitle {
   &:before, &:after {
     font-size: 0.75em;
     font-family: Consolas, Courier;

@@ -6,16 +6,16 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* line 4, ../scss/threads.scss */
-h2:before, h2:after {
+h2.threadTitle:before, h2.threadTitle:after {
   font-size: 0.75em;
   font-family: Consolas, Courier;
 }
 /* line 8, ../scss/threads.scss */
-h2.sticky:before {
+h2.threadTitle.sticky:before {
   content: 'STICKY: ';
 }
 /* line 12, ../scss/threads.scss */
-h2.closed:after {
+h2.threadTitle.closed:after {
   content: ' (CLOSED)';
 }
 

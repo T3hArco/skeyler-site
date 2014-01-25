@@ -366,7 +366,7 @@ $(function () {
         break;
       case 'deleteThread':
         var z = confirm('Are you sure you want to delete this thread? It will be moved to the deleted forum.');
-        if(!z) {
+        if (!z) {
           return false;
         }
         postData = {
@@ -578,6 +578,25 @@ $(function () {
     ;
   });
 
+  // handles clicking tabs
+  $('.tabs li a').on('click', function () {
+    var $tabs = $(this).closest('.tabs').parent().find('.tabItem');
+
+    $tabs.removeClass('selected');
+    var tabId = $(this).data('tab');
+
+    $tabs.each(function () {
+      if ($(this).data('tab') == tabId) {
+        $(this).addClass('selected');
+        return false;
+      }
+    });
+
+    return false;
+
+  });
+
+
   // handles drafts
   if (localStorage['post-new-draft']) {
     localStorage['post-old-draft'] = localStorage['post-new-draft'];
@@ -594,6 +613,10 @@ $(function () {
     Draft.load();
     return false;
   });
+
+
+  /////// WTF EVERYTHING BELOW THIS LINE IN JQUERY IS BUSTED
+
 
   var wordsOfCurse = ['poopy'];
 
