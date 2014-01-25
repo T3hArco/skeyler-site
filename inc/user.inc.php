@@ -42,6 +42,15 @@ class User
     return populateIds(DB::q($query)->fetchAll());
   }
 
+  // dupes of the previous 2 functions bc I like this naming better
+  public static function getId($userId) {
+    return self::load($userId);
+  }
+
+  public static function getIds($userIds) {
+    return self::loadIds($userIds);
+  }
+
   public static function loadBySteam64($steam64) {
     $query = 'SELECT * FROM users WHERE steamId64 = :steamId64';
     $binds = array(

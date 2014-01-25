@@ -20,7 +20,7 @@ if ($local['thread']['isSticky']) {
     <?php $i++; ?>
     <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
       <div class="userInfo">
-        <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
+        <span class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></span>
         <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
         <?php echo User::writeUserLink($local['users'][$post['userId']], array('hideTag' => true)); ?>
         <span class="postCount"><?php echo($local['users'][$post['userId']]['postCount']); ?> posts</span>

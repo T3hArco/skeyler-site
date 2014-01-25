@@ -341,8 +341,18 @@ $(function () {
 
           $h4 = $('<h4>').html('It is my expert diagnosis that this thread needs to be moved.<br />But where to?');
 
+          var $cancel = $('<a>')
+              .attr('href', '#')
+              .text('Close! Undo! Undo! I changed my mind!')
+              .addClass('popupCloseLink')
+              .on('click', function () {
+                $popupContainer.remove();
+                return false;
+              })
+            ;
+
           $popup
-            .append($h4, $select, $submit)
+            .append($h4, $select, $submit, $cancel)
           ;
 
           $popupContainer
@@ -355,6 +365,10 @@ $(function () {
 
         break;
       case 'deleteThread':
+        var z = confirm('Are you sure you want to delete this thread? It will be moved to the deleted forum.');
+        if(!z) {
+          return false;
+        }
         postData = {
           threadId: threadData.threadId
         };

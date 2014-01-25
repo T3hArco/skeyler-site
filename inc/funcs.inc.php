@@ -6,14 +6,12 @@
  *
  * @param string $str
  */
-function ent($str)
-{
+function ent($str) {
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
 // shorthand for reversing ent()
-function unent($str)
-{
+function unent($str) {
   return htmlspecialchars_decode($str);
 }
 
@@ -25,8 +23,7 @@ function unent($str)
  * @param bool $dontExit whether to kill execution after the redir
  * @todo Make this cross-site safe
  */
-function redirect($page, $dontExit = false)
-{
+function redirect($page, $dontExit = false) {
   header('Location: ' . $page);
   if (!$dontExit) {
     exit;
@@ -41,8 +38,7 @@ function redirect($page, $dontExit = false)
  * @param string $alphabet = the list of chars to use
  * @return The random string
  */
-function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789')
-{
+function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789') {
   $str = '';
   $alphaLength = strlen($alphabet) - 1;
   for ($a = 0; $a < $length; $a++) {
@@ -58,8 +54,7 @@ function randomStr($length = 32, $alphabet = 'abcdefghijklmnopqrstuwxyzABCDEFGHI
  *
  * @param string $str
  */
-function sha2($str)
-{
+function sha2($str) {
   return hash('sha256', $str);
 }
 
@@ -78,8 +73,7 @@ function sha2($str)
  *   7 => array('id'=>7, name='george'),
  * );
  */
-function populateIds($data, $idField = 'id')
-{
+function populateIds($data, $idField = 'id') {
   $out = array();
   foreach ($data as $row) {
     $out[$row[$idField]] = $row;
@@ -95,8 +89,7 @@ function populateIds($data, $idField = 'id')
  * @param string $fieldName
  * @param bool $unique
  */
-function eachField($data, $fieldName = 'id', $unique = true)
-{
+function eachField($data, $fieldName = 'id', $unique = true) {
   $out = array();
   foreach ($data as $row) {
     $out[] = $row[$fieldName];
@@ -115,8 +108,7 @@ function eachField($data, $fieldName = 'id', $unique = true)
  * @param $prefix = the str to add before each item
  * @param $suffix = the str to append after each item
  */
-function presuf($arr, $prefix = '', $suffix = '')
-{
+function presuf($arr, $prefix = '', $suffix = '') {
   foreach ($arr as &$str) {
     $str = $prefix . $str . $suffix;
     unset($str);
@@ -132,8 +124,7 @@ function presuf($arr, $prefix = '', $suffix = '')
  * @param string $sing = what to output on singular
  * @param string $plur = what to output on plural
  */
-function singPlur($count, $sing = '', $plur = 's')
-{
+function singPlur($count, $sing = '', $plur = 's') {
   return ($count == 1 ? $sing : $plur);
 }
 
@@ -144,8 +135,7 @@ function singPlur($count, $sing = '', $plur = 's')
  * @param string $url
  * @return string output
  */
-function curlGet($url)
-{
+function curlGet($url) {
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
   curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
@@ -161,8 +151,7 @@ function curlGet($url)
  * @param array $postData = array of post data
  * @return string output
  */
-function curlPost($url, $postData)
-{
+function curlPost($url, $postData) {
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
   curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
@@ -180,15 +169,13 @@ function curlPost($url, $postData)
  * @param string $url
  * @return array data
  */
-function getJson($url)
-{
+function getJson($url) {
   $content = curlGet($url);
   return json_decode($content, true);
 }
 
 
-function view($variables, $viewUrl = null)
-{
+function view($variables, $viewUrl = null) {
   global $controllerName, $local, $isJson;
 
   foreach ($variables as $key => $val) {
@@ -202,7 +189,8 @@ function view($variables, $viewUrl = null)
 
   if (is_null($viewUrl)) {
     $includePath = realpath(ROOT . '/views/' . $controllerName);
-  } else {
+  }
+  else {
     $includePath = realpath(ROOT . '/views/' . $viewUrl);
   }
 
@@ -210,7 +198,8 @@ function view($variables, $viewUrl = null)
   if ($includePath && strpos($includePath, realpath(ROOT . '/views/')) === 0) {
     Notice::writeNotices();
     include $includePath;
-  } else {
+  }
+  else {
     // exploit attempt or missing view file
     throw new ErrorException('Failed to include view');
   }
@@ -222,52 +211,89 @@ function view($variables, $viewUrl = null)
  *
  * @param int length - amount of seconds
  */
-function writeTimeLength($length)
-{
+function writeTimeLength($length, $outType = 'verbose') {
   if ($length < 0 || !$length) {
     $length = 0;
   }
-  $lengthDisplay = '';
+
+  // i dont like this. think of a better way
+  if ($outType == 'short') {
+
+    $timeStrings = array(
+      'd' => 60 * 60 * 24,
+      'h' => 60 * 60,
+      'm' => 60,
+    );
+    $vals = [];
+
+    foreach($timeStrings as $val) {
+
+      if($length >= $val) {
+        $vals[] = floor($length / $val);
+        $length %= $val;
+      }
+    }
+
+    $outStrs = array_slice(array_keys($timeStrings), count($timeStrings) - count($vals));
+
+    $out = [];
+
+
+    foreach($vals as $i => $v) {
+      $out []= str_pad($v, 2, 0, STR_PAD_LEFT) . $outStrs[$i];
+    }
+
+    return implode(' ', $out);
+  }
+
   $amount = 0;
 
   if ($length < 60) {
     $amount = $length;
     $lengthDisplay = $length . ' second' . singPlur($amount);
-  } else if ($length < 60 * 60) {
-    $amount = round($length / 60);
-    $lengthDisplay = $amount . ' minute' . singPlur($amount);
-  } else if ($length < 60 * 60 * 25) {
-    $amount = round($length / 60 / 60);
-    $lengthDisplay = $amount . ' hour' . singPlur($amount);
-  } else if ($length < 60 * 60 * 24 * 50) {
-    $amount = round($length / 60 / 60 / 24);
-    $lengthDisplay = $amount . ' day' . singPlur($amount);
-  } else {
-    $amount = round($length / 60 / 60 / 24 / (365 / 12) * 10) / 10;
-    $lengthDisplay = $amount . ' month' . singPlur($amount);
+  }
+  else {
+    if ($length < 60 * 60) {
+      $amount = round($length / 60);
+      $lengthDisplay = $amount . ' minute' . singPlur($amount);
+    }
+    else {
+      if ($length < 60 * 60 * 25) {
+        $amount = round($length / 60 / 60);
+        $lengthDisplay = $amount . ' hour' . singPlur($amount);
+      }
+      else {
+        if ($length < 60 * 60 * 24 * 50) {
+          $amount = round($length / 60 / 60 / 24);
+          $lengthDisplay = $amount . ' day' . singPlur($amount);
+        }
+        else {
+          $amount = round($length / 60 / 60 / 24 / (365 / 12) * 10) / 10;
+          $lengthDisplay = $amount . ' month' . singPlur($amount);
+        }
+      }
+    }
   }
   return $lengthDisplay;
 }
 
-function writeDate($timestamp)
-{
+function writeDate($timestamp) {
   return date('M d, Y g:ia', $timestamp);
 }
 
-function writeDateEng($timestamp)
-{
+function writeDateEng($timestamp) {
   global $now;
 
   // if > 2 days old, show the full date
   if ($now - $timestamp > 60 * 60 * 24 * 2) {
     return writeDate($timestamp);
-  } else {
+  }
+  else {
     return writeTimeLength($now - $timestamp) . ' ago';
   }
 }
 
-function queryToAssoc($query)
-{
+function queryToAssoc($query) {
   if ($query[0] == '?') {
     $query = substr($query, 1);
   }
@@ -281,8 +307,7 @@ function queryToAssoc($query)
 }
 
 
-function writePageNav($curPageId = null, $totalPages, $href = null, $queryString = null, $classes = array())
-{
+function writePageNav($curPageId = null, $totalPages, $href = null, $queryString = null, $classes = array()) {
   if (is_null($curPageId)) {
     global $pageId;
     $curPageId = $pageId;
@@ -300,7 +325,7 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
 
   $queryAssoc = queryToAssoc($queryString);
 
-  $out = '<ul class="pageNav ' . implode(' ', (array)$classes) . '">';
+  $out = '<ul class="pageNav ' . implode(' ', (array) $classes) . '">';
   $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
 
   if ($curPageId > 1) {
@@ -317,7 +342,8 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
   for ($i = $minPageId; $i <= $maxPageId; $i++) {
     if ($i == $curPageId) {
       $out .= '<li class="curPage"><span>' . $i . '</span></li>';
-    } else {
+    }
+    else {
       $out .= '<li class=""><a href="' . writeHrefPageId($href, $queryAssoc, $i) . '">' . $i . '</a></li>';
     }
   }
@@ -334,8 +360,7 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
 }
 
 // writes an href with a passed pageId and query associative
-function writeHrefPageId($href, $queryAssoc, $newPageId)
-{
+function writeHrefPageId($href, $queryAssoc, $newPageId) {
   if (!is_array($queryAssoc)) {
     $queryAssoc = queryToAssoc($queryAssoc);
   }
@@ -343,25 +368,21 @@ function writeHrefPageId($href, $queryAssoc, $newPageId)
   return $href . '?' . http_build_query($queryAssoc);
 }
 
-function spaceToCamel($str)
-{
+function spaceToCamel($str) {
   $pattern = '#\s+([a-z])#i';
   return preg_replace_callback($pattern, function ($matches) {
     return strtoupper($matches[1]);
   }, strtolower($str));
 }
 
-function getGet($var)
-{
+function getGet($var) {
   return isset($_GET[$var]) ? $_GET[$var] : '';
 }
 
-function getPost($var)
-{
+function getPost($var) {
   return isset($_POST[$var]) ? $_POST[$var] : '';
 }
 
-function randArr($arr)
-{
+function randArr($arr) {
   return $arr[rand(0, count($arr) - 1)];
 }
