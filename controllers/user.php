@@ -8,7 +8,7 @@ $userId = (int) getGet('userId');
 $user = User::getId($userId);
 $Page->header($user['name'] . '\'s profile');
 
-var_dump($user);
+//var_dump($user);
 
 $data = array(
   'user' => $user,
