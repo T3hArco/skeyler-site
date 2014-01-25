@@ -17,15 +17,13 @@ class User
    * @param int $id
    * @return array steamUser
    */
-  public static function load($id)
-  {
+  public static function load($id) {
     $query = 'SELECT * FROM users WHERE id = ?;';
     return DB::q($query, $id)->fetch();
   }
 
-  public static function loadIds($userIds)
-  {
-    $userIds = (array)$userIds;
+  public static function loadIds($userIds) {
+    $userIds = (array) $userIds;
     if (count($userIds) == 0) {
       return array();
     }
@@ -64,8 +62,7 @@ class User
    * @param $rankLevel
    * @return bool
    */
-  public static function can($rankLevel, $user = null)
-  {
+  public static function can($rankLevel, $user = null) {
     // if only rank is defined
     if (!$user) {
       global $User;
@@ -75,9 +72,8 @@ class User
   }
 
 
-  public static function login($steamId64)
-  {
-    global  $now;
+  public static function login($steamId64) {
+    global $now;
 
     DB::beginTransaction();
 
@@ -92,7 +88,7 @@ class User
     // data on a user.
     $existingUser = User::loadBySteam64($steamId64);
 
-    if($existingUser && count($existingUser) == 1) {
+    if ($existingUser && count($existingUser) == 1) {
       $query = '
         UPDATE users
         SET
@@ -117,7 +113,8 @@ class User
 
       return $existingUser[0]['id'];
 
-    } else {
+    }
+    else {
       $query = '
         INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
           VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, :avatarUrl)
@@ -147,8 +144,7 @@ class User
   }
 
 
-  public static function writeAvatar($url, $type = '')
-  {
+  public static function writeAvatar($url, $type = '') {
     // full, medium
     if ($type) {
       $url = substr($url, 0, -4) . '_' . $type . '.jpg';
@@ -156,8 +152,7 @@ class User
     return $url;
   }
 
-  public static function writeUserLink($user, $options = array())
-  {
+  public static function writeUserLink($user, $options = array()) {
     if (!isset($options['hideTag'])) {
       $options['hideTag'] = false;
     }
@@ -166,8 +161,7 @@ class User
   }
 
   // normally you won't use this func. use writeUserLink instead!
-  public static function writeRankTag($user)
-  {
+  public static function writeRankTag($user) {
     global $Config;
 
     if ($user['rank'] == self::RANK_REGULAR) {
@@ -177,28 +171,32 @@ class User
     return '<img src="' . $Config['mediaServer'] . 'images/tags/' . self::getRankStr($user['rank']) . '.png" class="rankTag" />';
   }
 
-  public static function getRankStr($rank)
-  {
+  public static function getRankStr($rank) {
     if ($rank >= self::RANK_OWNER) {
       return 'owner';
-    } elseif ($rank >= self::RANK_SUPER) {
+    }
+    elseif ($rank >= self::RANK_SUPER) {
       return 'super';
-    } elseif ($rank >= self::RANK_DEV) {
+    }
+    elseif ($rank >= self::RANK_DEV) {
       return 'dev';
-    } elseif ($rank >= self::RANK_ADMIN) {
+    }
+    elseif ($rank >= self::RANK_ADMIN) {
       return 'admin';
-    } elseif ($rank >= self::RANK_MOD) {
+    }
+    elseif ($rank >= self::RANK_MOD) {
       return 'mod';
-    } elseif ($rank >= self::RANK_VIP) {
+    }
+    elseif ($rank >= self::RANK_VIP) {
       return 'vip';
-    } elseif ($rank >= self::RANK_REGULAR) {
+    }
+    elseif ($rank >= self::RANK_REGULAR) {
       return 'regular';
     }
     return 'peanutbutter';
   }
 
-  public static function writeModOptions($type)
-  {
+  public static function writeModOptions($type) {
     global $local;
     $lis = array();
     switch ($type) {
@@ -212,12 +210,14 @@ class User
         if (self::can(User::RANK_ADMIN)) {
           if (!$local['thread']['isClosed']) {
             $lis[] = 'Close Thread';
-          } else {
+          }
+          else {
             $lis[] = 'Open Thread';
           }
           if (!$local['thread']['isSticky']) {
             $lis[] = 'Sticky Thread';
-          } else {
+          }
+          else {
             $lis[] = 'UnSticky Thread';
           }
           $lis[] = 'Move Thread';
@@ -259,9 +259,8 @@ class User
     return $out;
   }
 
-  public static function searchUsers($search)
-  {
-    global  $Config, $pageId;
+  public static function searchUsers($search) {
+    global $Config, $pageId;
 
     $query = '
       SELECT * FROM users
@@ -274,8 +273,7 @@ class User
     return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
-  public static function getStaff()
-  {
+  public static function getStaff() {
 
     $query = '
       SELECT * FROM users
@@ -286,6 +284,24 @@ class User
       'minRank' => User::RANK_MOD,
     );
     return populateIds(DB::q($query, $binds)->fetchAll());
+  }
+
+  // gets all the user's posts along with the rank required to view the post
+  public static function getPostsByUser($userId) {
+    $query = '
+      SELECT p.id, p.timestamp, p.content, p.threadId, t.title, f.id AS forumId, f.name AS forumName, f.visibleRank
+      FROM posts AS p
+      LEFT JOIN threads AS t ON p.threadId = t.id
+      LEFT JOIN forums AS f ON t.forumId = f.id
+      WHERE p.userId = :userId
+      ORDER BY p.timestamp DESC
+      LIMIT 100
+      ;
+    ';
+    $binds = array(
+      'userId' => $userId,
+    );
+    return DB::q($query, $binds)->fetchAll();
   }
 
 }

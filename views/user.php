@@ -25,7 +25,7 @@ $user = $local['user'];
       <h3>Forum Stats</h3>
       <dl>
         <dt>Post Count</dt><!--
-                --><dd><?php echo $user['postCount']; ?></dd>
+                --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
       </dl>
     </div>
   </div>
