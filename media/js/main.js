@@ -580,12 +580,18 @@ $(function () {
 
   // handles clicking tabs
   $('.tabs li a').on('click', function () {
-    var $tabs = $(this).closest('.tabs').parent().find('.tabItem');
+    var $tabs = $(this).closest('.tabs');
+    var $tabsItems = $tabs.parent().find('.tabItem');
 
-    $tabs.removeClass('selected');
-    var tabId = $(this).data('tab');
+    $tabsItems.removeClass('selected');
+    $tabs.find('li').removeClass('selected');
 
-    $tabs.each(function () {
+    var $li = $(this).closest('li');
+    $li.addClass('selected');
+
+    var tabId = $li.data('tab');
+
+    $tabsItems.each(function () {
       if ($(this).data('tab') == tabId) {
         $(this).addClass('selected');
         return false;

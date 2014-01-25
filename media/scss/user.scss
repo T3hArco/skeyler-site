@@ -41,6 +41,10 @@
     li {
       display: inline-block;
 
+      &.selected a {
+        border-color: red;
+      }
+
       a {
         padding: 0.25em;
         border: 1px solid black;

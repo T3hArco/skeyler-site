@@ -49,15 +49,19 @@
   display: inline-block;
 }
 /* line 44, ../scss/user.scss */
+.statsDetailed ul.tabs li.selected a {
+  border-color: red;
+}
+/* line 48, ../scss/user.scss */
 .statsDetailed ul.tabs li a {
   padding: 0.25em;
   border: 1px solid black;
 }
-/* line 51, ../scss/user.scss */
+/* line 55, ../scss/user.scss */
 .statsDetailed .tabItem {
   display: none;
 }
-/* line 54, ../scss/user.scss */
+/* line 58, ../scss/user.scss */
 .statsDetailed .tabItem.selected {
   display: block;
 }
