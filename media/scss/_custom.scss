@@ -29,6 +29,7 @@ $graey: #aaa;
 }
 
 @mixin noiseBorder($url, $top: 0, $right: 0, $bottom: 2, $left: 0) {
+  border-style:solid;
   @include border-image(url(../images/noise#{$url}.png) $top $right $bottom $left repeat repeat);
   border-width: #{$top}px #{$right}px #{$bottom}px #{$left}px;
 }

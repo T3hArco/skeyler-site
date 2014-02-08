@@ -32,11 +32,12 @@ body {
 }
 
 .content {
-  @include noise(White);
+  @include noise(GreyMedium);
   border: 1px solid $borderGray;
   padding: $contentPadding;
   //@include box-shadow(0 0 1em rgba(0,0,0,0.125));
   @include border-radius(0.25em);
+  @include box-shadow(rgba(#000, 0.1) 0 0 0.25em);
 }
 
 .clr {

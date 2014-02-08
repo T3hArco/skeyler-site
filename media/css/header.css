@@ -17,6 +17,7 @@ h1 {
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
   background: url(../images/noisewhite.png) repeat left center;
+  border-style: solid;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -64,6 +65,7 @@ ul.topNav {
   width: 670px;
   background: green;
   background: url(../images/noisewhite.png) repeat left center;
+  border-style: solid;
   -moz-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
   -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
   -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
@@ -126,6 +128,7 @@ ul.topNav:after {
   height: 5px;
   width: 100%;
   background: url(../images/noisewhite.png) repeat left center;
+  border-style: solid;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
