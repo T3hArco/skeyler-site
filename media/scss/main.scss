@@ -158,7 +158,8 @@ $tags: (vip, mod, admin, dev, super, owner);
   .chat {
     a.userLink:before {
       line-height: 1.0;
-      vertical-align: middle;
+      vertical-align: bottom;
+      max-height: 15px;
     }
   }
 
