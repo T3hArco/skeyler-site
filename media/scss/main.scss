@@ -27,8 +27,24 @@ body {
 }
 
 .alert {
-  padding: 0.5em 1em;
   margin-bottom: 1em;
+  padding: 12px 15px;
+  border: none;
+  @include border-radius(0);
+}
+
+.alert-success {
+  @include noise(Green);
+  color: #fff;
+
+  &:before {
+    @include noise(Notice, no-repeat);
+    content: '';
+    display: inline-block;
+    width: 34px;
+    height: 17px;
+    vertical-align: text-bottom;
+  }
 }
 
 .content {
