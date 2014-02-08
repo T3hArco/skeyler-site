@@ -17,19 +17,41 @@ $orange: #67bd38;
 $blue: #25bfff;
 $graey: #aaa;
 
-//$whiteBg: url(../images/noiseWhite.png);
-//$blueBg: url(../images/noiseBlue.png);
-//$blueLightBg: url(../images/noiseBlueLight.png);
-//$greyBg: url(../images/noiseGrey.png);
-//$greyDarkBg: url(../images/noiseGreyDark.png);
-//$greyMediumBg: url(../images/noiseGreyMedium.png);
+@function noiseToColor($color) {
+  @if $color == Black {
+    @return #3b3b3b;
+  }
+  @if $color == Blue {
+    @return #25bfff;
+  }
+  @if $color == BlueDark {
+    @return #5b8ec8;
+  }
+  @if $color == Green {
+    @return #a6d95d;
+  }
+  @if $color == Grey {
+    @return #e9e9e9;
+  }
+  @if $color == GreyDark {
+    @return #e0e0e0;
+  }
+  @if $color == GreyMedium {
+    @return #f3f3f3;
+  }
+  @if $color == White {
+    @return #fff;
+  }
+  @return null
+}
 
 @mixin noise($url, $repeat: repeat) {
-  background: url(../images/noise#{$url}.png) $repeat left center;
+  background: url(../images/noise#{$url}.png) $repeat left center noiseToColor($url);
 }
 
 @mixin noiseBorder($url, $top: 0, $right: 0, $bottom: 2, $left: 0) {
-  border-style:solid;
+  border-style: solid;
+  border-color: noiseToColor($url);
   @include border-image(url(../images/noise#{$url}.png) $top $right $bottom $left repeat repeat);
   border-width: #{$top}px #{$right}px #{$bottom}px #{$left}px;
 }

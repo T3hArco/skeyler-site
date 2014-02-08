@@ -16,7 +16,7 @@
 }
 /* line 12, ../scss/servers.scss */
 .server .name {
-  background: url(../images/noiseblack.png) repeat left center;
+  background: url(../images/noiseblack.png) repeat left center #3b3b3b;
   padding: 1em;
   color: #fff;
 }
@@ -37,13 +37,13 @@
 /* line 33, ../scss/servers.scss */
 .server .percent {
   height: 4px;
-  background: url(../images/noiseGrey.png) repeat left center;
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   margin: 3px 0;
   padding: 0;
 }
 /* line 41, ../scss/servers.scss */
 .server .percent .playerPercent {
-  background: url(../images/noisegreen.png) repeat left center;
+  background: url(../images/noisegreen.png) repeat left center #a6d95d;
   display: inline-block;
   height: 4px;
   margin: 0;
@@ -51,7 +51,7 @@
 }
 /* line 51, ../scss/servers.scss */
 .server .details {
-  background: url(../images/noisewhite.png) repeat left center;
+  background: url(../images/noisewhite.png) repeat left center white;
   padding: 0.25em 0.25em 0.25em 0.5em;
 }
 /* line 56, ../scss/servers.scss */
@@ -63,12 +63,12 @@
   font-size: 1.7em;
   padding: 0.125em 1em;
   letter-spacing: 1px;
-  background: url(../images/noiseblue.png) repeat left center;
+  background: url(../images/noiseblue.png) repeat left center #25bfff;
 }
 /* line 68, ../scss/servers.scss */
 .server .details .joinServer:hover {
   text-decoration: none;
-  background: url(../images/noiseBlueDark.png) repeat left center;
+  background: url(../images/noiseBlueDark.png) repeat left center #5b8ec8;
 }
 /* line 75, ../scss/servers.scss */
 .server .details dl {
