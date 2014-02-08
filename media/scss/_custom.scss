@@ -2,6 +2,7 @@
 // put color variables and stuff like that here
 
 $contentPadding: 30px;
+$mainWidth: 900px;
 
 $borderGrey: #dfdfdf;
 $borderGray: $borderGrey;
@@ -12,6 +13,25 @@ $subforumBg: #3d628c;
 // $orange: #F7931D;
 $orange: #67bd38;
 ;
+
+$blue: #25bfff;
+$graey: #aaa;
+
+//$whiteBg: url(../images/noiseWhite.png);
+//$blueBg: url(../images/noiseBlue.png);
+//$blueLightBg: url(../images/noiseBlueLight.png);
+//$greyBg: url(../images/noiseGrey.png);
+//$greyDarkBg: url(../images/noiseGreyDark.png);
+//$greyMediumBg: url(../images/noiseGreyMedium.png);
+
+@mixin noise($url) {
+  background: url(../images/noise#{$url}.png);
+}
+
+@mixin noiseBorder($url, $top, $right, $bottom, $left) {
+  @include border-image(url(../images/noise#{$url}.png) $top $right $bottom $left repeat repeat);
+  border-width: #{$top}px #{$right}px #{$bottom}px #{$left}px;
+}
 
 // animations
 @mixin keyframes($name) {

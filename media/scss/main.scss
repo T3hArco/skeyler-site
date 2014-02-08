@@ -2,23 +2,22 @@
 
 body {
   text-align: center;
-  @include background(radial-gradient(#fff, #c3c3c3));
-  // way better w/r/t banding:
-  @include background(radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) #c3c3c3);
+  @include noise(Grey);
   padding: 0;
-
 }
 
 #container {
-  width: 900px;
+  width: $mainWidth;
   margin: 0 auto;
   text-align: left;
 
   &:before {
     content: '';
     display: block;
-    background: #3d658f;
-    height: 46px;
+    @include noise(White);
+    //border-width:0 0 2px 0;
+    @include noiseBorder(GreyDark, 0, 0, 2, 0);
+    height: 7px;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,11 +32,11 @@ body {
 }
 
 .content {
-  background: #fff;
+  @include noise(White);
   border: 1px solid $borderGray;
   padding: $contentPadding;
   //@include box-shadow(0 0 1em rgba(0,0,0,0.125));
-  @include border-radius(0 0.5em 0 0);
+  @include border-radius(0.25em);
 }
 
 .clr {

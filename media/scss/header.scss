@@ -1,43 +1,29 @@
 @import "base";
 
-h1 {
-  vertical-align: top;
-  padding: 0 0 0 80px;
+$headerHeight: 120px;
+
+.header {
   margin: 0 0 32px 0;
+}
+
+h1 {
+  //vertical-align: top;
+  margin: 0;
   //background: url(../images/logo.png) left 8px no-repeat;
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
 
-  background: #3d658f;
-  padding: 25px 75px;
-  @include border-radius(0 0 0.11em 0.11em);
+  @include noise(White);
+  @include noiseBorder(GreyDark, 0, 0, 2, 0);
+  padding: 25px 20px;
+  height: $headerHeight;
 
   strong {
     font-size: 1.5em;
     font-weight: normal;
-    color: #fff;
+    color: $blue;
     letter-spacing: 8px;
-    z-index: 1;
-    position: relative;
-
-    &:after {
-      text-transform: uppercase;
-      content: 'Skeyler';
-      position: absolute;
-      @include transform(scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px));
-      @include transform-origin(50%, 100%);
-      line-height: 1.0;
-      pointer-events: none;
-      // a pathetic attempt to get IE to not allow you to select :before text
-      color: rgba(0, 0, 0, 0.3);
-      color: rgba(0, 0, 0, 0.2);
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-      //color: #D1D2D4;
-      z-index: -1;
-      left: 0;
-    }
-
   }
 
   span {
@@ -48,8 +34,6 @@ h1 {
     font-style: italic;
     color: #808284;
     vertical-align: top;
-
-    display: none;
 
     em {
       color: $orange;
@@ -69,11 +53,21 @@ h1 {
 }
 
 ul.topNav {
+
+  $liHeight: 46px;
+  font-family: 'Arvil Sans', Arial;
+  font-size: 1.5em;
+
   display: inline-block;
   padding: 0;
-  margin: 0;
+  margin: ($headerHeight - $liHeight - 8px) 0 0 0;
   list-style: none;
+  width: $mainWidth - 230px;
+  background: green;
+  @include noise(White);
+  @include noiseBorder(Blue, 0, 0, 3, 0);
   float: right;
+  position: relative;
 
   li {
     display: inline-block;
@@ -82,120 +76,145 @@ ul.topNav {
     a {
       display: inline-block;
       padding: 0 1em;
-      color: #fff;
+      color: #000;
       text-decoration: none;
-      font-family: Arial;
       //@include border-radius(0.5em);
-      line-height: 46px;
+      line-height: $liHeight;
     }
 
     &.selected a {
-      background: #84a0bc;
-      //color: #f2f2f2;
-    }
-  }
-}
-
-ul.subNav {
-  list-style: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-
-  li {
-    display: inline-block;
-    font-size: 0.75em;
-    line-height: 1.0;
-    @include background(linear-gradient(#fff, #eee));
-    border: 1px solid $borderGray;
-    border-bottom: 0px;
-    @include border-radius(0.5em 0.5em 0 0);
-
-    a {
-      display: inline-block;
-      color: #6f6f6f;
-
-      padding: 6px 16px 6px 16px;
-      text-decoration: none;
-    }
-
-    &.selected {
+      @include noise(Blue);
+      color: #fff;
       position: relative;
-      top: 1px;
-      background: #fff;
 
-      a {
-        padding-top: 10px;
-        position: relative;
-        top: -1px;
-
+      &:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 58px 32px 0;
+        border-color: transparent rgba(#fff, 0.2) transparent transparent;
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
   }
-}
 
-ul.breadcrumbs {
-  display: inline-block;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 0.5em 0;
-
-  li {
-    display: inline-block;
-    font-size: 0.85em;
-
-    a {
-      color: #767676;
-    }
-  }
-
-  li ~ li:before {
-    content: ' > ';
+  &:after {
+    content: '';
+    height: 5px;
+    width: 100%;
+    @include noise(White);
+    @include noiseBorder(GreyDark, 0, 0, 2, 0);
+    //background:green;
+    //border-bottom:2px solid red;
+    position: absolute;
+    bottom: -8px;
+    display: block;
   }
 }
 
-ul.welcome {
-  float: right;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  font-size: 0.85em;
-
-  li {
-    display: inline-block;
-
-    a {
-      color: #545d63;
-      margin: 0 0.25em;
-      font-weight: bold;
-    }
-  }
-
-  li + li ~ li:before {
-    content: ' | ';
-  }
-
-  li:first-child {
-    margin-right: 1.5em;
-  }
-
-  .avatar {
-    vertical-align: middle;
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-
-  }
-
-}
-
-h2 {
-  color: #565656;
-  font-family: Arial;
-  font-size: 1.5em;
-  font-weight: bold;
-
-}
+//
+//ul.subNav {
+//  list-style: none;
+//  display: inline-block;
+//  padding: 0;
+//  margin: 0;
+//
+//  li {
+//    display: inline-block;
+//    font-size: 0.75em;
+//    line-height: 1.0;
+//    @include background(linear-gradient(#fff, #eee));
+//    border: 1px solid $borderGray;
+//    border-bottom: 0px;
+//    @include border-radius(0.5em 0.5em 0 0);
+//
+//    a {
+//      display: inline-block;
+//      color: #6f6f6f;
+//
+//      padding: 6px 16px 6px 16px;
+//      text-decoration: none;
+//    }
+//
+//    &.selected {
+//      position: relative;
+//      top: 1px;
+//      background: #fff;
+//
+//      a {
+//        padding-top: 10px;
+//        position: relative;
+//        top: -1px;
+//
+//      }
+//    }
+//  }
+//}
+//
+//ul.breadcrumbs {
+//  display: inline-block;
+//  list-style: none;
+//  padding: 0;
+//  margin: 0 0 0.5em 0;
+//
+//  li {
+//    display: inline-block;
+//    font-size: 0.85em;
+//
+//    a {
+//      color: #767676;
+//    }
+//  }
+//
+//  li ~ li:before {
+//    content: ' > ';
+//  }
+//}
+//
+//ul.welcome {
+//  float: right;
+//  display: inline-block;
+//  margin: 0;
+//  padding: 0;
+//  font-size: 0.85em;
+//
+//  li {
+//    display: inline-block;
+//
+//    a {
+//      color: #545d63;
+//      margin: 0 0.25em;
+//      font-weight: bold;
+//    }
+//  }
+//
+//  li + li ~ li:before {
+//    content: ' | ';
+//  }
+//
+//  li:first-child {
+//    margin-right: 1.5em;
+//  }
+//
+//  .avatar {
+//    vertical-align: middle;
+//    height: 16px;
+//    width: 16px;
+//    margin-right: 4px;
+//
+//  }
+//
+//}
+//
+//h2 {
+//  color: #565656;
+//  font-family: Arial;
+//  font-size: 1.5em;
+//  font-weight: bold;
+//}
 
 
 

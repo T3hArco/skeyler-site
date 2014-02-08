@@ -5,55 +5,35 @@
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
-/* line 3, ../scss/header.scss */
-h1 {
-  vertical-align: top;
-  padding: 0 0 0 80px;
+/* line 5, ../scss/header.scss */
+.header {
   margin: 0 0 32px 0;
+}
+
+/* line 9, ../scss/header.scss */
+h1 {
+  margin: 0;
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
-  background: #3d658f;
-  padding: 25px 75px;
-  -webkit-border-radius: 0 0 0.11em 0.11em;
-  -moz-border-radius: 0 0 0.11em 0.11em;
-  -ms-border-radius: 0 0 0.11em 0.11em;
-  -o-border-radius: 0 0 0.11em 0.11em;
-  border-radius: 0 0 0.11em 0.11em;
+  background: url(../images/noisewhite.png);
+  -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  border-width: 0px 0px 2px 0px;
+  padding: 25px 20px;
+  height: 120px;
 }
-/* line 16, ../scss/header.scss */
+/* line 22, ../scss/header.scss */
 h1 strong {
   font-size: 1.5em;
   font-weight: normal;
-  color: #fff;
+  color: #25bfff;
   letter-spacing: 8px;
-  z-index: 1;
-  position: relative;
 }
-/* line 24, ../scss/header.scss */
-h1 strong:after {
-  text-transform: uppercase;
-  content: 'Skeyler';
-  position: absolute;
-  -webkit-transform: scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px);
-  -moz-transform: scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px);
-  -ms-transform: scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px);
-  -o-transform: scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px);
-  transform: scaleY(0.36) skewX(-15deg) translateX(-4px) translateY(-9px);
-  -webkit-transform-origin: 50% 100%;
-  -moz-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  -o-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  line-height: 1.0;
-  pointer-events: none;
-  color: rgba(0, 0, 0, 0.3);
-  color: rgba(0, 0, 0, 0.2);
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  z-index: -1;
-  left: 0;
-}
-/* line 43, ../scss/header.scss */
+/* line 29, ../scss/header.scss */
 h1 span {
   line-height: 1;
   font-size: .4em;
@@ -62,15 +42,14 @@ h1 span {
   font-style: italic;
   color: #808284;
   vertical-align: top;
-  display: none;
 }
-/* line 54, ../scss/header.scss */
+/* line 38, ../scss/header.scss */
 h1 span em {
   color: #67bd38;
   font-weight: bold;
   vertical-align: top;
 }
-/* line 61, ../scss/header.scss */
+/* line 45, ../scss/header.scss */
 h1 span:before {
   content: '\a';
   display: block;
@@ -79,137 +58,70 @@ h1 span:before {
   font-size: 1px;
 }
 
-/* line 71, ../scss/header.scss */
+/* line 55, ../scss/header.scss */
 ul.topNav {
+  font-family: 'Arvil Sans', Arial;
+  font-size: 1.5em;
   display: inline-block;
   padding: 0;
-  margin: 0;
+  margin: 66px 0 0 0;
   list-style: none;
+  width: 670px;
+  background: green;
+  background: url(../images/noisewhite.png);
+  -moz-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  -o-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  border-width: 0px 0px 3px 0px;
   float: right;
+  position: relative;
 }
-/* line 78, ../scss/header.scss */
+/* line 72, ../scss/header.scss */
 ul.topNav li {
   display: inline-block;
   font-weight: bold;
 }
-/* line 82, ../scss/header.scss */
+/* line 76, ../scss/header.scss */
 ul.topNav li a {
   display: inline-block;
   padding: 0 1em;
-  color: #fff;
+  color: #000;
   text-decoration: none;
-  font-family: Arial;
   line-height: 46px;
 }
-/* line 92, ../scss/header.scss */
+/* line 85, ../scss/header.scss */
 ul.topNav li.selected a {
-  background: #84a0bc;
-}
-
-/* line 99, ../scss/header.scss */
-ul.subNav {
-  list-style: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-/* line 105, ../scss/header.scss */
-ul.subNav li {
-  display: inline-block;
-  font-size: 0.75em;
-  line-height: 1.0;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
-  background: -webkit-linear-gradient(#ffffff, #eeeeee);
-  background: -moz-linear-gradient(#ffffff, #eeeeee);
-  background: -o-linear-gradient(#ffffff, #eeeeee);
-  background: linear-gradient(#ffffff, #eeeeee);
-  border: 1px solid #dfdfdf;
-  border-bottom: 0px;
-  -webkit-border-radius: 0.5em 0.5em 0 0;
-  -moz-border-radius: 0.5em 0.5em 0 0;
-  -ms-border-radius: 0.5em 0.5em 0 0;
-  -o-border-radius: 0.5em 0.5em 0 0;
-  border-radius: 0.5em 0.5em 0 0;
-}
-/* line 114, ../scss/header.scss */
-ul.subNav li a {
-  display: inline-block;
-  color: #6f6f6f;
-  padding: 6px 16px 6px 16px;
-  text-decoration: none;
-}
-/* line 122, ../scss/header.scss */
-ul.subNav li.selected {
+  background: url(../images/noiseblue.png);
+  color: #fff;
   position: relative;
-  top: 1px;
-  background: #fff;
 }
-/* line 127, ../scss/header.scss */
-ul.subNav li.selected a {
-  padding-top: 10px;
-  position: relative;
-  top: -1px;
+/* line 90, ../scss/header.scss */
+ul.topNav li.selected a:after {
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 58px 32px 0;
+  border-color: transparent rgba(255, 255, 255, 0.2) transparent transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-
-/* line 137, ../scss/header.scss */
-ul.breadcrumbs {
-  display: inline-block;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 0.5em 0;
-}
-/* line 143, ../scss/header.scss */
-ul.breadcrumbs li {
-  display: inline-block;
-  font-size: 0.85em;
-}
-/* line 147, ../scss/header.scss */
-ul.breadcrumbs li a {
-  color: #767676;
-}
-/* line 152, ../scss/header.scss */
-ul.breadcrumbs li ~ li:before {
-  content: ' > ';
-}
-
-/* line 157, ../scss/header.scss */
-ul.welcome {
-  float: right;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  font-size: 0.85em;
-}
-/* line 164, ../scss/header.scss */
-ul.welcome li {
-  display: inline-block;
-}
-/* line 167, ../scss/header.scss */
-ul.welcome li a {
-  color: #545d63;
-  margin: 0 0.25em;
-  font-weight: bold;
-}
-/* line 174, ../scss/header.scss */
-ul.welcome li + li ~ li:before {
-  content: ' | ';
-}
-/* line 178, ../scss/header.scss */
-ul.welcome li:first-child {
-  margin-right: 1.5em;
-}
-/* line 182, ../scss/header.scss */
-ul.welcome .avatar {
-  vertical-align: middle;
-  height: 16px;
-  width: 16px;
-  margin-right: 4px;
-}
-
-/* line 192, ../scss/header.scss */
-h2 {
-  color: #565656;
-  font-family: Arial;
-  font-size: 1.5em;
-  font-weight: bold;
+/* line 104, ../scss/header.scss */
+ul.topNav:after {
+  content: '';
+  height: 5px;
+  width: 100%;
+  background: url(../images/noisewhite.png);
+  -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
+  border-width: 0px 0px 2px 0px;
+  position: absolute;
+  bottom: -8px;
+  display: block;
 }

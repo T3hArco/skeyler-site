@@ -64,16 +64,16 @@
         <?php endforeach; ?>
       </ul>
     <?php endif; ?>
-    <ul class="welcome">
-      <?php if($isLoggedIn) : ?>
-        <li>Welcome back,
-          <a href="/user.php?userId=<?php echo $User['id']; ?>"><img src="<?php echo User::writeAvatar($User['avatarUrl']); ?>" class="avatar small"/><?php echo ent($User['name']); ?>
-          </a></li>
-        <li><a href="/user.php?userId=<?php echo $User['id']; ?>">Profile</a></li>
-        <li><a href="/logout.php">Logout</a></li>
-      <?php else : ?>
-        <form action="/login.php?login" method="post">
-          <button class="login">Login through Steam</button>
-        </form>
-      <?php endif; ?>
-    </ul>
+<!--    <ul class="welcome">-->
+<!--      --><?php //if($isLoggedIn) : ?>
+<!--        <li>Welcome back,-->
+<!--          <a href="/user.php?userId=--><?php //echo $User['id']; ?><!--"><img src="--><?php //echo User::writeAvatar($User['avatarUrl']); ?><!--" class="avatar small"/>--><?php //echo ent($User['name']); ?>
+<!--          </a></li>-->
+<!--        <li><a href="/user.php?userId=--><?php //echo $User['id']; ?><!--">Profile</a></li>-->
+<!--        <li><a href="/logout.php">Logout</a></li>-->
+<!--      --><?php //else : ?>
+<!--        <form action="/login.php?login" method="post">-->
+<!--          <button class="login">Login through Steam</button>-->
+<!--        </form>-->
+<!--      --><?php //endif; ?>
+<!--    </ul>-->

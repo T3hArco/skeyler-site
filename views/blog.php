@@ -1,5 +1,8 @@
 <div class="blog">
-  <h2>Blog</h2>
+  <ul class="categories">
+    <li class="selected"><a href="#">Newest</a></li>
+    <li><a href="#">Popular</a></li>
+  </ul>
 
   <?php foreach ($local['threads'] as $thread) : ?>
     <div class="blogPost">
