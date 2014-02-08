@@ -8,8 +8,14 @@
 /* line 3, ../scss/blog.scss */
 .blog {
   padding: 0;
+  -moz-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-width: 0px 0px 2px 0px;
 }
-/* line 6, ../scss/blog.scss */
+/* line 7, ../scss/blog.scss */
 .blog ul.categories {
   list-style: none;
   display: inline-block;
@@ -18,50 +24,50 @@
   padding: 0;
   margin: 0;
 }
-/* line 14, ../scss/blog.scss */
+/* line 15, ../scss/blog.scss */
 .blog ul.categories li {
   display: inline-block;
   margin: 0 1em 0 0;
 }
-/* line 18, ../scss/blog.scss */
+/* line 19, ../scss/blog.scss */
 .blog ul.categories li a {
   color: #aaaaaa;
 }
-/* line 22, ../scss/blog.scss */
+/* line 23, ../scss/blog.scss */
 .blog ul.categories li.selected a {
   color: #25bfff;
 }
-/* line 28, ../scss/blog.scss */
+/* line 29, ../scss/blog.scss */
 .blog .blogPost {
   padding: 1.5em 0;
-  -moz-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
-  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
-  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
-  -o-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
-  border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
-  border-width: 0px 0px 2px 0px;
+  -moz-border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
+  -o-border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
+  border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
+  border-width: 2px 0px 0px 0px;
 }
-/* line 33, ../scss/blog.scss */
+/* line 34, ../scss/blog.scss */
 .blog .blogPost img {
   max-width: 100%;
 }
-/* line 37, ../scss/blog.scss */
+/* line 38, ../scss/blog.scss */
 .blog .blogPost h3 {
   display: inline-block;
   float: left;
   padding: 0;
   margin: 0;
 }
-/* line 43, ../scss/blog.scss */
+/* line 44, ../scss/blog.scss */
 .blog .blogPost h3 a {
   color: #555;
   font-weight: bold;
 }
-/* line 49, ../scss/blog.scss */
+/* line 50, ../scss/blog.scss */
 .blog .blogPost a {
   color: #25bfff;
 }
-/* line 53, ../scss/blog.scss */
+/* line 54, ../scss/blog.scss */
 .blog .blogPost .postDetails {
   color: #aaaaaa;
   display: block;
@@ -74,7 +80,7 @@
   border-width: 2px 0px 0px 0px;
   padding: 7px 10px;
 }
-/* line 60, ../scss/blog.scss */
+/* line 61, ../scss/blog.scss */
 .blog .blogPost .postDetails .user-link:before {
   background: url(../images/noiseUser.png) no-repeat left center;
   content: '';
@@ -82,7 +88,7 @@
   width: 20px;
   display: inline-block;
 }
-/* line 68, ../scss/blog.scss */
+/* line 69, ../scss/blog.scss */
 .blog .blogPost .postDetails .timestamp {
   color: #aaaaaa;
   background: url(../images/noiseClock.png) no-repeat left center;
@@ -91,7 +97,7 @@
   margin: 0 0 0 20px;
   font-weight: bold;
 }
-/* line 77, ../scss/blog.scss */
+/* line 78, ../scss/blog.scss */
 .blog .blogPost .postDetails .comments {
   color: #aaaaaa;
   float: right;
@@ -103,12 +109,12 @@
   background: url(../images/noiseComment.png) no-repeat left center;
   font-weight: bold;
 }
-/* line 90, ../scss/blog.scss */
+/* line 91, ../scss/blog.scss */
 .blog .blogPost p {
   clear: both;
   padding-top: 1em;
 }
-/* line 95, ../scss/blog.scss */
+/* line 96, ../scss/blog.scss */
 .blog .blogPost:after {
   content: '';
   display: block;
