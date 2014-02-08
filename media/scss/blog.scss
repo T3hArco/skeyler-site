@@ -26,8 +26,9 @@
   }
 
   .blogPost {
-    padding: 1em 0;
-    border-bottom: 2px solid #ddd;
+    padding: 1.5em 0;
+    //border-bottom: 2px solid #ddd;
+    @include noiseBorder(Divider, 0, 0, 2, 0);
 
     img {
       max-width: 100%;
@@ -45,26 +46,50 @@
       }
     }
 
+    a {
+      color: $blue;
+    }
+
     .postDetails {
-      float: right;
+      color: $graey;
+      display: block;
+      @include noise(Grey);
+      @include noiseBorder(GreyDark, 2, 0, 0, 0);
+      padding: 7px 10px;
+
+      .user-link:before {
+        @include noise(User, no-repeat);
+        content: '';
+        height: 11px;
+        width: 20px;
+        display: inline-block;
+      }
+
+      .timestamp {
+        color: $graey;
+        @include noise(Clock, no-repeat);
+        display: inline-block;
+        padding: 0 0 0 22px;
+        margin: 0 0 0 20px;
+        font-weight: bold;
+      }
+
+      .comments {
+        color: $graey;
+        float: right;
+        clear: both;
+        display: inline-block;
+        padding: 0 0 0 22px;
+        min-height: 14px;
+        vertical-align: middle;
+        @include noise(Comment, no-repeat);
+        font-weight: bold;
+      }
     }
 
     p {
       clear: both;
       padding-top: 1em;
-    }
-
-    .comments {
-      float: right;
-      clear: both;
-      color: #000;
-      display: inline-block;
-      padding: 0 0 0 20px;
-      min-height: 14px;
-      vertical-align: middle;
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAMAAAAR8Wy4AAAArlBMVEX///9KSkpfX19gYGBbW1vExMRMTEzKysr7+/tNTU1eXl7BwcGUlJSPj4+ampr39/eqqqq3t7e7u7u4uLhZWVmWlparq6uVlZVdXV2cnJzLy8v6+vpcXFytra22trZISEjAwMCsrKxLS0vHx8fq6uqKior4+PhkZGS8vLxQUFDf399oaGhaWlphYWHc3Nz19fX8/Pz5+fl4eHhmZmbt7e2Ojo5JSUn29vZ3d3fe3t4rLPjbAAAAcklEQVR4XoXMRQ7EMABD0R8o8zAzM8P9LzaqlEWzmre0bON3Qz0wdNjMSBu1aGJEG5kQ5FSMAsZDKuoCMbUas/+B/UEhcFtW4NLuON6JRc8rzddLVrFS293+oKSUR/U8A5fr7a4f/ZJvls4rxvL+fDH4AapMCi42DzypAAAAAElFTkSuQmCC
-') left center no-repeat;
-      // todo:change this to transparent
     }
 
     &:after {

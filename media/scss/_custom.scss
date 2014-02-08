@@ -24,11 +24,11 @@ $graey: #aaa;
 //$greyDarkBg: url(../images/noiseGreyDark.png);
 //$greyMediumBg: url(../images/noiseGreyMedium.png);
 
-@mixin noise($url) {
-  background: url(../images/noise#{$url}.png);
+@mixin noise($url, $repeat: repeat) {
+  background: url(../images/noise#{$url}.png) $repeat left center;
 }
 
-@mixin noiseBorder($url, $top, $right, $bottom, $left) {
+@mixin noiseBorder($url, $top: 0, $right: 0, $bottom: 2, $left: 0) {
   @include border-image(url(../images/noise#{$url}.png) $top $right $bottom $left repeat repeat);
   border-width: #{$top}px #{$right}px #{$bottom}px #{$left}px;
 }

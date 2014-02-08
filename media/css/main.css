@@ -8,7 +8,7 @@
 /* line 3, ../scss/main.scss */
 body {
   text-align: center;
-  background: url(../images/noiseGrey.png);
+  background: url(../images/noiseGrey.png) repeat left center;
   padding: 0;
 }
 
@@ -22,7 +22,7 @@ body {
 #container:before {
   content: '';
   display: block;
-  background: url(../images/noisewhite.png);
+  background: url(../images/noisewhite.png) repeat left center;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -45,7 +45,7 @@ body {
 
 /* line 34, ../scss/main.scss */
 .content {
-  background: url(../images/noisewhite.png);
+  background: url(../images/noisewhite.png) repeat left center;
   border: 1px solid #dfdfdf;
   padding: 30px;
   -webkit-border-radius: 0.25em;

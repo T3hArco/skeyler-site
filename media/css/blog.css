@@ -33,46 +33,82 @@
 }
 /* line 28, ../scss/blog.scss */
 .blog .blogPost {
-  padding: 1em 0;
-  border-bottom: 2px solid #ddd;
+  padding: 1.5em 0;
+  -moz-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-width: 0px 0px 2px 0px;
 }
-/* line 32, ../scss/blog.scss */
+/* line 33, ../scss/blog.scss */
 .blog .blogPost img {
   max-width: 100%;
 }
-/* line 36, ../scss/blog.scss */
+/* line 37, ../scss/blog.scss */
 .blog .blogPost h3 {
   display: inline-block;
   float: left;
   padding: 0;
   margin: 0;
 }
-/* line 42, ../scss/blog.scss */
+/* line 43, ../scss/blog.scss */
 .blog .blogPost h3 a {
   color: #555;
   font-weight: bold;
 }
-/* line 48, ../scss/blog.scss */
-.blog .blogPost .postDetails {
-  float: right;
+/* line 49, ../scss/blog.scss */
+.blog .blogPost a {
+  color: #25bfff;
 }
-/* line 52, ../scss/blog.scss */
+/* line 53, ../scss/blog.scss */
+.blog .blogPost .postDetails {
+  color: #aaaaaa;
+  display: block;
+  background: url(../images/noiseGrey.png) repeat left center;
+  -moz-border-image: url(../images/noiseGreyDark.png) 2 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 0 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 2 0 0 0 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 2 0 0 0 repeat repeat;
+  border-width: 2px 0px 0px 0px;
+  padding: 7px 10px;
+}
+/* line 60, ../scss/blog.scss */
+.blog .blogPost .postDetails .user-link:before {
+  background: url(../images/noiseUser.png) no-repeat left center;
+  content: '';
+  height: 11px;
+  width: 20px;
+  display: inline-block;
+}
+/* line 68, ../scss/blog.scss */
+.blog .blogPost .postDetails .timestamp {
+  color: #aaaaaa;
+  background: url(../images/noiseClock.png) no-repeat left center;
+  display: inline-block;
+  padding: 0 0 0 22px;
+  margin: 0 0 0 20px;
+  font-weight: bold;
+}
+/* line 77, ../scss/blog.scss */
+.blog .blogPost .postDetails .comments {
+  color: #aaaaaa;
+  float: right;
+  clear: both;
+  display: inline-block;
+  padding: 0 0 0 22px;
+  min-height: 14px;
+  vertical-align: middle;
+  background: url(../images/noiseComment.png) no-repeat left center;
+  font-weight: bold;
+}
+/* line 90, ../scss/blog.scss */
 .blog .blogPost p {
   clear: both;
   padding-top: 1em;
 }
-/* line 57, ../scss/blog.scss */
-.blog .blogPost .comments {
-  float: right;
-  clear: both;
-  color: #000;
-  display: inline-block;
-  padding: 0 0 0 20px;
-  min-height: 14px;
-  vertical-align: middle;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAMAAAAR8Wy4AAAArlBMVEX///9KSkpfX19gYGBbW1vExMRMTEzKysr7+/tNTU1eXl7BwcGUlJSPj4+ampr39/eqqqq3t7e7u7u4uLhZWVmWlparq6uVlZVdXV2cnJzLy8v6+vpcXFytra22trZISEjAwMCsrKxLS0vHx8fq6uqKior4+PhkZGS8vLxQUFDf399oaGhaWlphYWHc3Nz19fX8/Pz5+fl4eHhmZmbt7e2Ojo5JSUn29vZ3d3fe3t4rLPjbAAAAcklEQVR4XoXMRQ7EMABD0R8o8zAzM8P9LzaqlEWzmre0bON3Qz0wdNjMSBu1aGJEG5kQ5FSMAsZDKuoCMbUas/+B/UEhcFtW4NLuON6JRc8rzddLVrFS293+oKSUR/U8A5fr7a4f/ZJvls4rxvL+fDH4AapMCi42DzypAAAAAElFTkSuQmCC ") left center no-repeat;
-}
-/* line 70, ../scss/blog.scss */
+/* line 95, ../scss/blog.scss */
 .blog .blogPost:after {
   content: '';
   display: block;

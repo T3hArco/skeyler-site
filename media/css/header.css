@@ -16,7 +16,7 @@ h1 {
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
-  background: url(../images/noisewhite.png);
+  background: url(../images/noisewhite.png) repeat left center;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -36,20 +36,15 @@ h1 strong {
 /* line 29, ../scss/header.scss */
 h1 span {
   line-height: 1;
-  font-size: .4em;
-  letter-spacing: 1px;
-  font-family: Univers, Arial;
-  font-style: italic;
-  color: #808284;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  font-family: 'Arvil Sans', Arial;
+  color: #636363;
   vertical-align: top;
+  text-align: center;
+  display: block;
 }
-/* line 38, ../scss/header.scss */
-h1 span em {
-  color: #67bd38;
-  font-weight: bold;
-  vertical-align: top;
-}
-/* line 45, ../scss/header.scss */
+/* line 48, ../scss/header.scss */
 h1 span:before {
   content: '\a';
   display: block;
@@ -58,7 +53,7 @@ h1 span:before {
   font-size: 1px;
 }
 
-/* line 55, ../scss/header.scss */
+/* line 58, ../scss/header.scss */
 ul.topNav {
   font-family: 'Arvil Sans', Arial;
   font-size: 1.5em;
@@ -68,7 +63,7 @@ ul.topNav {
   list-style: none;
   width: 670px;
   background: green;
-  background: url(../images/noisewhite.png);
+  background: url(../images/noisewhite.png) repeat left center;
   -moz-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
   -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
   -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
@@ -78,12 +73,12 @@ ul.topNav {
   float: right;
   position: relative;
 }
-/* line 72, ../scss/header.scss */
+/* line 75, ../scss/header.scss */
 ul.topNav li {
   display: inline-block;
   font-weight: bold;
 }
-/* line 76, ../scss/header.scss */
+/* line 79, ../scss/header.scss */
 ul.topNav li a {
   display: inline-block;
   padding: 0 1em;
@@ -91,13 +86,13 @@ ul.topNav li a {
   text-decoration: none;
   line-height: 46px;
 }
-/* line 85, ../scss/header.scss */
+/* line 88, ../scss/header.scss */
 ul.topNav li.selected a {
-  background: url(../images/noiseblue.png);
+  background: url(../images/noiseblue.png) repeat left center;
   color: #fff;
   position: relative;
 }
-/* line 90, ../scss/header.scss */
+/* line 93, ../scss/header.scss */
 ul.topNav li.selected a:after {
   content: '';
   width: 0px;
@@ -109,12 +104,12 @@ ul.topNav li.selected a:after {
   top: 0;
   right: 0;
 }
-/* line 104, ../scss/header.scss */
+/* line 107, ../scss/header.scss */
 ul.topNav:after {
   content: '';
   height: 5px;
   width: 100%;
-  background: url(../images/noisewhite.png);
+  background: url(../images/noisewhite.png) repeat left center;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -124,4 +119,15 @@ ul.topNav:after {
   position: absolute;
   bottom: -8px;
   display: block;
+}
+/* line 120, ../scss/header.scss */
+ul.topNav:before {
+  content: '';
+  height: 3px;
+  width: 4px;
+  background: url(../images/noisewhite.png) repeat left center;
+  bottom: -3px;
+  right: 0;
+  position: absolute;
+  display: inline-block;
 }
