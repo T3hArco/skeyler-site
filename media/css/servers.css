@@ -16,71 +16,66 @@
 }
 /* line 12, ../scss/servers.scss */
 .server .name {
-  background: #3d658f;
+  background: url(../images/noiseblack.png) repeat left center;
   padding: 1em;
   color: #fff;
 }
-/* line 17, ../scss/servers.scss */
+/* line 18, ../scss/servers.scss */
 .server .name h3 {
   font-family: 'Arvil Sans', Arial;
   letter-spacing: 1px;
 }
-/* line 22, ../scss/servers.scss */
+/* line 23, ../scss/servers.scss */
 .server .name .playerCount {
   float: right;
 }
-/* line 27, ../scss/servers.scss */
+/* line 28, ../scss/servers.scss */
 .server h3 {
   margin: 0;
   font-size: 2.1em;
 }
-/* line 32, ../scss/servers.scss */
+/* line 33, ../scss/servers.scss */
 .server .percent {
-  height: 12px;
-  background: #eee;
+  height: 4px;
+  background: url(../images/noiseGrey.png) repeat left center;
   margin: 3px 0;
   padding: 0;
 }
-/* line 38, ../scss/servers.scss */
+/* line 41, ../scss/servers.scss */
 .server .percent .playerPercent {
-  background: #b9d44d;
+  background: url(../images/noisegreen.png) repeat left center;
   display: inline-block;
-  height: 12px;
+  height: 4px;
   margin: 0;
   vertical-align: top;
 }
-/* line 47, ../scss/servers.scss */
+/* line 51, ../scss/servers.scss */
 .server .details {
-  background: #f3f1f1;
+  background: url(../images/noisewhite.png) repeat left center;
   padding: 0.25em 0.25em 0.25em 0.5em;
 }
-/* line 51, ../scss/servers.scss */
+/* line 56, ../scss/servers.scss */
 .server .details .joinServer {
   text-decoration: none;
   float: right;
   color: #fff;
-  background: #3d658f;
   font-family: 'Arvil Sans', Arial;
   font-size: 1.7em;
   padding: 0.125em 1em;
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  -ms-border-radius: 0.25em;
-  -o-border-radius: 0.25em;
-  border-radius: 0.25em;
   letter-spacing: 1px;
-}
-/* line 62, ../scss/servers.scss */
-.server .details .joinServer:hover {
-  text-decoration: none;
-  background: #5b8ec8;
+  background: url(../images/noiseblue.png) repeat left center;
 }
 /* line 68, ../scss/servers.scss */
+.server .details .joinServer:hover {
+  text-decoration: none;
+  background: url(../images/noiseBlueDark.png) repeat left center;
+}
+/* line 75, ../scss/servers.scss */
 .server .details dl {
   font-size: 0.8em;
   margin: 0;
 }
-/* line 72, ../scss/servers.scss */
+/* line 79, ../scss/servers.scss */
 .server .details dl dt {
   font-weight: normal;
   color: #888;
@@ -90,13 +85,13 @@
   clear: left;
   padding: 0.25em 0;
 }
-/* line 82, ../scss/servers.scss */
+/* line 89, ../scss/servers.scss */
 .server .details dl dd {
   display: inline-block;
   padding: 0.25em 0;
   float: left;
 }
-/* line 88, ../scss/servers.scss */
+/* line 95, ../scss/servers.scss */
 .server .details dl:after {
   content: '';
   display: block;

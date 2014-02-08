@@ -63,7 +63,6 @@ ul.topNav {
   margin: 66px 0 0 0;
   list-style: none;
   width: 670px;
-  background: green;
   background: url(../images/noisewhite.png) repeat left center;
   border-style: solid;
   -moz-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
@@ -75,11 +74,11 @@ ul.topNav {
   float: right;
   position: relative;
 }
-/* line 75, ../scss/header.scss */
+/* line 74, ../scss/header.scss */
 ul.topNav li {
   display: inline-block;
 }
-/* line 79, ../scss/header.scss */
+/* line 78, ../scss/header.scss */
 ul.topNav li a {
   display: inline-block;
   padding: 0 1em;
@@ -87,13 +86,13 @@ ul.topNav li a {
   text-decoration: none;
   line-height: 46px;
 }
-/* line 87, ../scss/header.scss */
+/* line 86, ../scss/header.scss */
 ul.topNav li a:hover {
   background: url(../images/noiseGrey.png) repeat left center;
   color: #222;
   position: relative;
 }
-/* line 92, ../scss/header.scss */
+/* line 91, ../scss/header.scss */
 ul.topNav li a:hover:before {
   content: '';
   background: rgba(0, 0, 0, 0.1);
@@ -104,13 +103,13 @@ ul.topNav li a:hover:before {
   height: 1px;
   width: 100%;
 }
-/* line 129, ../scss/header.scss */
+/* line 128, ../scss/header.scss */
 ul.topNav li.selected a {
   background: url(../images/noiseblue.png) repeat left center;
   color: #fff;
   position: relative;
 }
-/* line 134, ../scss/header.scss */
+/* line 133, ../scss/header.scss */
 ul.topNav li.selected a:after {
   content: '';
   width: 0px;
@@ -122,7 +121,7 @@ ul.topNav li.selected a:after {
   top: 0;
   right: 0;
 }
-/* line 148, ../scss/header.scss */
+/* line 147, ../scss/header.scss */
 ul.topNav:after {
   content: '';
   height: 5px;
@@ -139,7 +138,7 @@ ul.topNav:after {
   bottom: -8px;
   display: block;
 }
-/* line 161, ../scss/header.scss */
+/* line 160, ../scss/header.scss */
 ul.topNav:before {
   content: '';
   height: 3px;

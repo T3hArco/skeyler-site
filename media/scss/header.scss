@@ -66,7 +66,6 @@ ul.topNav {
   margin: ($headerHeight - $liHeight - 8px) 0 0 0;
   list-style: none;
   width: $mainWidth - 230px;
-  background: green;
   @include noise(White);
   @include noiseBorder(Blue, 0, 0, 3, 0);
   float: right;

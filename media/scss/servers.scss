@@ -10,7 +10,8 @@ $green: #b9d44d;
   @include box-shadow(0 0 0.5em rgba(#000, 0.25));
 
   .name {
-    background: $blue;
+    //background: $blue;
+    @include noise(Black);
     padding: 1em;
     color: #fff;
 
@@ -30,38 +31,44 @@ $green: #b9d44d;
   }
 
   .percent {
-    height: 12px;
-    background: #eee;
+    height: 4px;
+    //background: #eee;
+    //@include noise(Green);
+    @include noise(Grey);
     margin: 3px 0;
     padding: 0;
 
     .playerPercent {
-      background: $green;
+      //background: $green;
+      @include noise(Green);
       display: inline-block;
-      height: 12px;
+      height: 4px;
       margin: 0;
       vertical-align: top;
     }
   }
 
   .details {
-    background: #f3f1f1;
+    //background: #f3f1f1;
+    @include noise(White);
     padding: 0.25em 0.25em 0.25em 0.5em;
 
     .joinServer {
       text-decoration: none;
       float: right;
       color: #fff;
-      background: $blue;
+      //background: $blue;
       font-family: 'Arvil Sans', Arial;
       font-size: 1.7em;
       padding: 0.125em 1em;
-      @include border-radius(0.25em);
+      //@include border-radius(0.25em);
       letter-spacing: 1px;
+      @include noise(blue);
 
       &:hover {
         text-decoration: none;
-        background:#5b8ec8;
+        //background:#5b8ec8;
+        @include noise(BlueDark);
       }
     }
 
