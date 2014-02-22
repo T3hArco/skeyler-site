@@ -15,38 +15,64 @@ h2.threadTitle {
 }
 
 .posts {
-  border: 1px solid #ddd;
-  border-bottom: none;
+  margin: 0 (-1 * $contentPadding);
+  @include noise(OffWhite);
+  @include noiseBorder(Divider, 0, 0, 2, 0);
 }
 
 .post {
-  background: #f2f2f2;
-  @include background-image(linear-gradient(left, #f2f2f2, #ffffff));
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC') repeat-y #f2f2f2;
-  //@include background-image(linear-gradient(left, #e7e7e7, #e7e7e7 142px,#f2f2f2 143px, #ffffff));
-  border-bottom: 1px solid #ddd;
+  @include noiseBorder(GreyDark, 0, 0, 0, 5);
+
+  &.seen {
+    //@include noiseBorder(GreyMedium, 0, 0, 0, 5);
+    //@include noise(GreyMedium);
+    @include noiseBorder(GreyDark, 0, 0, 0, 5);
+  }
+
+  &.myPost {
+    @include noiseBorder(Blue, 0, 0, 0, 5);
+  }
+
+  padding: 36px 0 0 0;
   position: relative;
+
+  //background: #f2f2f2;
+  //@include background-image(linear-gradient(left, #f2f2f2, #ffffff));
+  //background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC') repeat-y #f2f2f2;
+  ////@include background-image(linear-gradient(left, #e7e7e7, #e7e7e7 142px,#f2f2f2 143px, #ffffff));
+  //border-bottom: 1px solid #ddd;
+  //position: relative;
   //overflow: visible;
   //overflow-y: hidden;
   //overflow-x: visible;
   //// wtf is up with overflow-y:hidden
 
-  &:target:before {
-    content: '\25b6';
+  //&:target:before {
+  //  content: '\25b6';
+  //  position: absolute;
+  //  right: 864px;
+  //  display: inline-block;
+  //  padding: 0 1px 0 0;
+  //  font-size: 1.5em;
+  //  top: 0;
+  //  line-height: 1.0;
+  //}
+  &:before {
+    content: '';
+    display: block;
+    height: 2px;
+    width:100%;
+    @include noise(Divider);
     position: absolute;
-    right: 864px;
-    display: inline-block;
-    padding: 0 1px 0 0;
-    font-size: 1.5em;
     top: 0;
-    line-height: 1.0;
   }
 }
 
 .editLink, .quoteLink, .modDropdown {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
+  @include noise(Grey);
 }
 
 .postOptions {
@@ -91,11 +117,12 @@ h2.threadTitle {
 }
 
 .userInfo {
-  width: 142px;
+  width: 192px;
   display: inline-block;
-  background: #e7e7e7;
-  padding: 0 12px 4px 6px;
-  position: relative;
+  padding: 0 32px;
+  //position: relative;
+  text-align: right;
+  //background: rgba(0, 0, 0, 0.1);
 
   // hack to get the userinfo to go a bit taller
   // doesn't work because overflow-x/y spec is dumb
@@ -119,9 +146,8 @@ h2.threadTitle {
   .avatar {
     width: 128px;
     height: 128px;
-    border: 3px solid #93abbd;
+    border: 2px solid #d1d1d1;
     display: inline-block;
-    @include border-radius(0.5em);
   }
 
   a.userLink {
@@ -147,11 +173,14 @@ h2.threadTitle {
 
 .postContent {
   display: inline-block;
-  width: 866px - 142px - 2px + 32px - $contentPadding * 2;
-  padding: 12px 54px 12px 12px;
+  width: (866px - 142px - 2px - 5px - 16px - 32px);
+  //width: 701px;
+  padding: 0;
   vertical-align: top;
   margin: 0 0 1em 0;
   overflow-x: auto;
+  font-family: Helvetica;
+  color: #333;
 
   blockquote {
     padding: 7px 23px;

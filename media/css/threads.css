@@ -21,42 +21,72 @@ h2.threadTitle.closed:after {
 
 /* line 17, ../scss/threads.scss */
 .posts {
-  border: 1px solid #ddd;
-  border-bottom: none;
+  margin: 0 -30px;
+  background: url(../images/noiseOffWhite.png) repeat left center #f9f9f9;
+  border-style: solid;
+  -moz-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+  border-width: 0px 0px 2px 0px;
 }
 
-/* line 22, ../scss/threads.scss */
+/* line 23, ../scss/threads.scss */
 .post {
-  background: #f2f2f2;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #f2f2f2), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(left, #f2f2f2, #ffffff);
-  background-image: -moz-linear-gradient(left, #f2f2f2, #ffffff);
-  background-image: -o-linear-gradient(left, #f2f2f2, #ffffff);
-  background-image: linear-gradient(left, #f2f2f2, #ffffff);
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0QAAAABCAIAAABxBvk7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADtJREFUeNpifP78OcMoGAqAl5eXGGWMjIz///+nKUlTbw5d9w/1kB/1xbAP/9H0M5ryR/PvcM2/AAEGAM6kAR2PYOJ3AAAAAElFTkSuQmCC") repeat-y #f2f2f2;
-  border-bottom: 1px solid #ddd;
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  border-width: 0px 0px 0px 5px;
+  padding: 36px 0 0 0;
   position: relative;
 }
-/* line 34, ../scss/threads.scss */
-.post:target:before {
-  content: '\25b6';
+/* line 26, ../scss/threads.scss */
+.post.seen {
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
+  border-width: 0px 0px 0px 5px;
+}
+/* line 32, ../scss/threads.scss */
+.post.myPost {
+  border-style: solid;
+  border-color: #25bfff;
+  -moz-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  -o-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  border-width: 0px 0px 0px 5px;
+}
+/* line 60, ../scss/threads.scss */
+.post:before {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: url(../images/noiseDivider.png) repeat left center;
   position: absolute;
-  right: 864px;
-  display: inline-block;
-  padding: 0 1px 0 0;
-  font-size: 1.5em;
   top: 0;
-  line-height: 1.0;
 }
 
-/* line 46, ../scss/threads.scss */
+/* line 71, ../scss/threads.scss */
 .editLink, .quoteLink, .modDropdown {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
 }
 
-/* line 52, ../scss/threads.scss */
+/* line 78, ../scss/threads.scss */
 .postOptions {
   position: absolute;
   top: 12px;
@@ -65,7 +95,7 @@ h2.threadTitle.closed:after {
   line-height: 1;
   height: 16px;
 }
-/* line 65, ../scss/threads.scss */
+/* line 91, ../scss/threads.scss */
 .postOptions:before, .postOptions:after {
   content: '';
   position: absolute;
@@ -73,7 +103,7 @@ h2.threadTitle.closed:after {
   width: 20px;
   top: 0;
 }
-/* line 73, ../scss/threads.scss */
+/* line 99, ../scss/threads.scss */
 .postOptions:before {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.8)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
@@ -82,7 +112,7 @@ h2.threadTitle.closed:after {
   background-image: linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
   left: -20px;
 }
-/* line 78, ../scss/threads.scss */
+/* line 104, ../scss/threads.scss */
 .postOptions:after {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0.8)), color-stop(100%, rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
@@ -92,73 +122,69 @@ h2.threadTitle.closed:after {
   right: -20px;
 }
 
-/* line 85, ../scss/threads.scss */
+/* line 111, ../scss/threads.scss */
 .editLink {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAAz1BMVEX///+enp6bm5udnZ2enp6cnJyZmZmWlpabm5uUlJSSkpKPj4+NjY2YmJiRkZGOjo6JiYmWlpaUlJSFhYWRsOONq92EhISCgoKNr+OHqeCIiIiFhYWDg4OBgYGDpd97od9ijdV1nd1Tg9Vnk9tNf9NZh9VRg9VJfdFDedHS0tK1tbWwx+y1yu2jvumjr8TV1dWtxOuyyOypwep8od67u7umpqbW1tawx+t8od2VpbzLy8vJycnGxsacuOalv+l0m9ygoKDAwMDm5ubh4eGysrJz4W5QAAAAKXRSTlMAYvnoG+SSq1Tvr6aQVdr1/QLF6IH55GJ1/q9fVRd1+fz3jO+EW/Dzh8/FlyoAAABkSURBVHheLcZTGsQwAAbAvzbWNlNibd7/TP2aZJ4GlCCJKhhZ+RGNXw++hmnZ9M7/6Hofv2qtfiU3cm8AaLaSdH94tztAt3c6X/qD4QgYT8IonoKaZXmxm7MvHs/XEsxqvdnyli1iCX1kORL9AAAAAElFTkSuQmCC") no-repeat 3px 2px;
 }
 
-/* line 89, ../scss/threads.scss */
+/* line 115, ../scss/threads.scss */
 .quoteLink {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAALCAMAAAB4W0xQAAAAz1BMVEX///9Yh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7j///9Yh7jp8v6duNXb6v39/v7X6P3g7f7i7v7h7v7d6/60yd/l8P57oMfk7/7a6f3U5v3R5P3f7P7c6/3Z6f3W5/3T5v3Q5P3R5Px9osjo8f7Q4/3m8P7j7/7v8/ipwdqJqs3n7vXc6v3d7P5slcCZttTw9v7V5v37/P3e7P7m8f6ME4c2AAAAGnRSTlMA/EskpdsMsRIeBjb5ujkJ09z3fY30cSLeZOPCph4AAAB8SURBVHhePc1VDsMwAANQdx0zg5MUh8zMcP8zrVG3vT9Llg0ko1kRypkAEocnQ51YGnHDvst3339ZZ/YySF253u7ci+U8eIzo2PXc9sAZjoKoy3I8mc7miyVXeT1lk/Q2Mpgq6CNDCEXuVdHEV+mkyhX8VG+1Ov4azRZCH1XuDgzVkcabAAAAAElFTkSuQmCC") no-repeat 1px 3px;
 }
 
-/* line 93, ../scss/threads.scss */
+/* line 119, ../scss/threads.scss */
 .userInfo {
-  width: 142px;
+  width: 192px;
   display: inline-block;
-  background: #e7e7e7;
-  padding: 0 12px 4px 6px;
-  position: relative;
+  padding: 0 32px;
+  text-align: right;
 }
-/* line 113, ../scss/threads.scss */
+/* line 140, ../scss/threads.scss */
 .userInfo .postTime {
   font-size: 0.75em;
   color: #676565;
   font-style: italic;
 }
-/* line 119, ../scss/threads.scss */
+/* line 146, ../scss/threads.scss */
 .userInfo .avatar {
   width: 128px;
   height: 128px;
-  border: 3px solid #93abbd;
+  border: 2px solid #d1d1d1;
   display: inline-block;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  border-radius: 0.5em;
 }
-/* line 127, ../scss/threads.scss */
+/* line 153, ../scss/threads.scss */
 .userInfo a.userLink {
   color: #404346;
   font-weight: bold;
   display: block;
 }
-/* line 133, ../scss/threads.scss */
+/* line 159, ../scss/threads.scss */
 .userInfo .postCount {
   display: block;
 }
-/* line 137, ../scss/threads.scss */
+/* line 163, ../scss/threads.scss */
 .userInfo .rankTag {
   display: block;
 }
-/* line 141, ../scss/threads.scss */
+/* line 167, ../scss/threads.scss */
 .userInfo .ip, .userInfo .steamId {
   display: block;
   color: #afafaf;
   font-size: 0.75em;
 }
 
-/* line 148, ../scss/threads.scss */
+/* line 174, ../scss/threads.scss */
 .postContent {
   display: inline-block;
-  width: 694px;
-  padding: 12px 54px 12px 12px;
+  width: 669px;
+  padding: 0;
   vertical-align: top;
   margin: 0 0 1em 0;
   overflow-x: auto;
+  font-family: Helvetica;
+  color: #333;
 }
-/* line 156, ../scss/threads.scss */
+/* line 185, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -176,31 +202,31 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 165, ../scss/threads.scss */
+/* line 194, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 172, ../scss/threads.scss */
+/* line 201, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 179, ../scss/threads.scss */
+/* line 208, ../scss/threads.scss */
 .postContent blockquote a.postLink {
   font-size: 1em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 186, ../scss/threads.scss */
+/* line 215, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 190, ../scss/threads.scss */
+/* line 219, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;

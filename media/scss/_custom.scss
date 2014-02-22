@@ -39,6 +39,9 @@ $graey: #aaa;
   @if $color == GreyMedium {
     @return #f3f3f3;
   }
+  @if $color == OffWhite {
+    @return #f9f9f9;
+  }
   @if $color == White {
     @return #fff;
   }

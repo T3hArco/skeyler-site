@@ -1,31 +1,38 @@
-/* line 4, ../scss/posts.scss */
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 6, ../scss/posts.scss */
 #postContent {
   max-width: 100%;
 }
 
-/* line 8, ../scss/posts.scss */
+/* line 10, ../scss/posts.scss */
 .draftWrapper {
   display: inline-block;
   margin: 0 0 0 5em;
   vertical-align: top;
 }
-/* line 13, ../scss/posts.scss */
+/* line 15, ../scss/posts.scss */
 .draftWrapper .saveDraft {
   font-size: 0.75em;
   float: left;
 }
-/* line 18, ../scss/posts.scss */
+/* line 20, ../scss/posts.scss */
 .draftWrapper .loadDraft {
   font-size: 0.75em;
   float: left;
   clear: left;
 }
 
-/* line 27, ../scss/posts.scss */
+/* line 29, ../scss/posts.scss */
 .createThread label {
   display: block;
 }
-/* line 31, ../scss/posts.scss */
+/* line 33, ../scss/posts.scss */
 .createThread #postTitle {
   width: 621px;
 }
