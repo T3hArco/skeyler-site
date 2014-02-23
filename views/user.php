@@ -16,16 +16,23 @@ $user = $local['user'];
       <h3>Server Stats</h3>
       <dl>
         <dt>Playtime</dt><!--
-                --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
-
+     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+        <dt>Last Seen</dt><!--
+     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+        <dt>Last Scene</dt><!--
+     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
         <dt>Steam Profile</dt><!--
-                --><dd><a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>" target="_blank">View Profile Page</a></dd>
+     --><dd><a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>" target="_blank">View Profile Page</a></dd>
       </dl>
 
       <h3>Forum Stats</h3>
       <dl>
         <dt>Post Count</dt><!--
-                --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+     --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+        <dt>Forum Rank</dt><!--
+     --><dd><?php echo $user['postCount']; ?></dd>
+        <dt>Doubloons</dt><!--
+     --><dd><?php echo $user['postCount']; ?></dd>
       </dl>
     </div>
   </div>
