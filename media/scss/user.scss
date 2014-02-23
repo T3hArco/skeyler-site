@@ -1,27 +1,74 @@
 @import 'base';
 
+.profile {
+  h2 {
+    color: #555;
+  }
+}
+
 .quickstats {
   display: inline-block;
   float: left;
-  $width: 250px;
+  $width: 188px;
+  $padding: 8px;
+  padding: 0 $contentPadding 0 0;
+  @include noiseBorder(Divider, 0, 2, 0, 0);
+  width: $width + $contentPadding;
+
+  .membership {
+    display: block;
+    color: #999;
+    font-size: 0.8em;
+  }
+
+  .avatar {
+    width: 188px;
+    height: 188px;
+    border: 2px solid #d1d1d1;
+  }
+
+  .steamId {
+    display: block;
+    text-align: right;
+    color: #999;
+    font-size: 0.8em;
+  }
+
+  h3 {
+    @include noiseBorder(Grey, 0, 0, 2, 0);
+    text-align: right;
+  }
 
   dl {
-    $padding: 8px;
     display: block;
-    width: $width - 2 * $padding;
+    width: $width;
     background: #eee;
-    padding: 0 $padding;
+    margin: 0;
+    padding: 0;
   }
+
   dt, dd {
     display: inline-block;
+    padding: 0.25em $padding;
+    vertical-align: top;
     max-width: $width / 2;
     width: 50%;
+    white-space: nowrap;
+    overflow: visible;
 
-    padding: 0.5em 0;
+    &:nth-of-type(even) {
+      @include noise(Grey);
+    }
+  }
+
+  dt {
+    letter-spacing: -1px;
   }
   dd {
     text-align: right;
-    font-size: 0.8em;
+    //font-size: 0.8em;
+    //line-height: 1.78571428625; // regular line height * 0.8^-1
+    //padding: 0.65em $padding;
 
     a:after {
       display: none;
@@ -30,25 +77,43 @@
 }
 
 .statsDetailed {
+  $width: 500px;
+  $padding: 8px;
   //display: block;
   float: left;
+  padding: 0 0 0 $contentPadding;
+  width: $width + $contentPadding;
 
   ul.tabs {
     display: inline-block;
     list-style: none;
     margin: 0 0 0.5em 0;
+    padding: 0 1em 1em 1em;
+    @include noiseBorder(Grey, 0, 0, 2, 0);
+    font-family: 'Arvil Sans', Arial;
+    font-size: 1.5em;
+    width: $width;
 
     li {
       display: inline-block;
 
-      &.selected a {
-        border-color: red;
+      a {
+        padding: 0 0.25em;
+        //border: 1px solid black;
+        color: #555;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          border-bottom-color: #555;
+          text-decoration: none;
+        }
       }
 
-      a {
-        padding: 0.25em;
-        border: 1px solid black;
+      &.selected a {
+        color: $blue;
+        border-bottom: 2px solid $blue;
       }
+
     }
   }
 
@@ -57,6 +122,56 @@
 
     &.selected {
       display: block;
+    }
+  }
+
+  h2 {
+    @include noise(BlackLight);
+    color: #fff;
+    margin: 1em 0 0 0;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  dl, .stats {
+    display: block;
+    width: $width;
+    @include noise(Grey);
+    margin: 0;
+    padding: 0;
+    @include noiseBorder(BlackLight, 0, 1, 1, 1);
+  }
+
+  .stats {
+    padding: 0.5em;
+  }
+
+  dt, dd {
+    display: inline-block;
+    padding: 0.25em $padding;
+    vertical-align: top;
+    max-width: $width / 2;
+    width: 50%;
+    white-space: nowrap;
+    overflow: visible;
+
+    &:nth-of-type(even) {
+      @include noise(GreyDark);
+    }
+  }
+
+  dt {
+    letter-spacing: -1px;
+  }
+  dd {
+    text-align: right;
+    //font-size: 0.8em;
+    //line-height: 1.78571428625; // regular line height * 0.8^-1
+    //padding: 0.65em $padding;
+
+    a:after {
+      display: none;
     }
   }
 

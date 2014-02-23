@@ -72,39 +72,35 @@ h2.threadTitle {
   width: 32px;
   height: 32px;
   display: inline-block;
-  @include noise(Grey);
+  @include noise(GreyDark);
 }
 
 .postOptions {
-  $bgColor: #fff;
-  $bgMaxAlpha: 0.8;
-  $fadeWidth: 20px;
-  $height: 16px;
-
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba($bgColor, $bgMaxAlpha);
+  //background: rgba($bgColor, $bgMaxAlpha);
   line-height: 1;
-  height: $height;
+  width: 32px;
 
-  &:before, &:after {
-    content: '';
-    position: absolute;
-    height: $height;
-    width: $fadeWidth;
-    top: 0;
-  }
+  //&:before, &:after {
+  //  content: '';
+  //  position: absolute;
+  //  height: $height;
+  //  width: $fadeWidth;
+  //  top: 0;
+  //}
+  //&:before {
+  //  @include background-image(linear-gradient(left, rgba($bgColor, 0), rgba($bgColor, $bgMaxAlpha)));
+  //  left: -1 * $fadeWidth;
+  //}
+  //
+  //&:after {
+  //  @include background-image(linear-gradient(left, rgba($bgColor, $bgMaxAlpha), rgba($bgColor, 0)));
+  //  right: -1 * $fadeWidth;
+  //}
 
-  &:before {
-    @include background-image(linear-gradient(left, rgba($bgColor, 0), rgba($bgColor, $bgMaxAlpha)));
-    left: -1 * $fadeWidth;
-  }
 
-  &:after {
-    @include background-image(linear-gradient(left, rgba($bgColor, $bgMaxAlpha), rgba($bgColor, 0)));
-    right: -1 * $fadeWidth;
-  }
 
 }
 
@@ -220,7 +216,7 @@ h2.threadTitle {
     position: absolute;
     bottom: 0px;
     display: block;
-    left: 154px;
+    left: 191px;
     font-style: italic;
     color: #999;
   }

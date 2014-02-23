@@ -232,8 +232,9 @@ $(function () {
 
 
   // show/hide the mod stuff
-  $('.modDropdown .star').on('click', function () {
+  $('.modDropdown .modButton').on('click', function () {
     $that = $(this);
+    $that.addClass('active');
     $that.closest('.modDropdown').find('.mod').show();
     $that.show();
     $(window).off('click.hideMod, touchstart.hideMod').on('click.hideMod, touchstart.hideMod', function (e) {
@@ -241,6 +242,7 @@ $(function () {
         return true;
       }
       $('.mod').hide();
+      $('.modButton').removeClass('active');
       $(window).off('click.hideMod, touchstart.hideMod');
       return false;
     });

@@ -40,11 +40,12 @@ if ($local['thread']['isSticky']) {
       </div>
       <div class="postOptions">
         <?php if ($post['userId'] == $User['id']) : ?>
-          <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="editLink"></a>
+          <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
           <?php //else : ?>
           <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>
-        <a href="#" class="quoteLink"></a>
+        <a href="#" class="sprite quote"></a>
+        <a href="/user.php?userId=<?php echo $User['id']; ?>" class="sprite userProfile" target="_blank"></a>
       </div>
     </div>
   <?php endforeach; ?>

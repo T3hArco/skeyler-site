@@ -1,0 +1,59 @@
+@import "base";
+
+$disable-magic-sprite-selectors: true;
+
+/* MAIN SPRITES */
+
+$main-layout: smart;
+$main-sprite-base-class: "DELETE_ME_MAIN_SPRITES";
+// use this because it makes the minifier delete it
+$main-default-size: 32px;
+
+@import "../images/sprites/main/*.png";
+
+@mixin spr($name) {
+  @include main-sprite($name);
+
+//$map: sprite-map("../images/sprites/main/*.png");
+  $width: image-width(sprite-file($main-sprites, $name));
+  $height: image-height(sprite-file($main-sprites, $name));
+  @if($width != $main-default-size) {
+    width: $width;
+    left: ($main-default-size - $width) / 2;
+  }
+  @if($height != $main-default-size) {
+    height: $height;
+    top: ($main-default-size - $height) / 2;
+  }
+}
+
+.sprite {
+  line-height: 1.0;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+
+  $fileMain: sprite-url($main-sprites);
+
+  &:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: $fileMain sprite-position($main-sprites, __missing) no-repeat transparent;
+  }
+
+  @each $i in (
+    arrowDown, arrowUp, banUser, edit, modButton, reportUser, userProfile
+  ) {
+    &.#{$i}:before {
+      @include spr($i);
+    }
+  }
+}

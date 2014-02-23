@@ -83,7 +83,7 @@ h2.threadTitle.closed:after {
   width: 32px;
   height: 32px;
   display: inline-block;
-  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
+  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
 
 /* line 78, ../scss/threads.scss */
@@ -91,89 +91,62 @@ h2.threadTitle.closed:after {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(255, 255, 255, 0.8);
   line-height: 1;
-  height: 16px;
-}
-/* line 91, ../scss/threads.scss */
-.postOptions:before, .postOptions:after {
-  content: '';
-  position: absolute;
-  height: 16px;
-  width: 20px;
-  top: 0;
-}
-/* line 99, ../scss/threads.scss */
-.postOptions:before {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.8)));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  left: -20px;
-}
-/* line 104, ../scss/threads.scss */
-.postOptions:after {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0.8)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  right: -20px;
+  width: 32px;
 }
 
-/* line 111, ../scss/threads.scss */
+/* line 107, ../scss/threads.scss */
 .editLink {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAAz1BMVEX///+enp6bm5udnZ2enp6cnJyZmZmWlpabm5uUlJSSkpKPj4+NjY2YmJiRkZGOjo6JiYmWlpaUlJSFhYWRsOONq92EhISCgoKNr+OHqeCIiIiFhYWDg4OBgYGDpd97od9ijdV1nd1Tg9Vnk9tNf9NZh9VRg9VJfdFDedHS0tK1tbWwx+y1yu2jvumjr8TV1dWtxOuyyOypwep8od67u7umpqbW1tawx+t8od2VpbzLy8vJycnGxsacuOalv+l0m9ygoKDAwMDm5ubh4eGysrJz4W5QAAAAKXRSTlMAYvnoG+SSq1Tvr6aQVdr1/QLF6IH55GJ1/q9fVRd1+fz3jO+EW/Dzh8/FlyoAAABkSURBVHheLcZTGsQwAAbAvzbWNlNibd7/TP2aZJ4GlCCJKhhZ+RGNXw++hmnZ9M7/6Hofv2qtfiU3cm8AaLaSdH94tztAt3c6X/qD4QgYT8IonoKaZXmxm7MvHs/XEsxqvdnyli1iCX1kORL9AAAAAElFTkSuQmCC") no-repeat 3px 2px;
 }
 
-/* line 115, ../scss/threads.scss */
+/* line 111, ../scss/threads.scss */
 .quoteLink {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAALCAMAAAB4W0xQAAAAz1BMVEX///9Yh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7hYh7j///9Yh7jp8v6duNXb6v39/v7X6P3g7f7i7v7h7v7d6/60yd/l8P57oMfk7/7a6f3U5v3R5P3f7P7c6/3Z6f3W5/3T5v3Q5P3R5Px9osjo8f7Q4/3m8P7j7/7v8/ipwdqJqs3n7vXc6v3d7P5slcCZttTw9v7V5v37/P3e7P7m8f6ME4c2AAAAGnRSTlMA/EskpdsMsRIeBjb5ujkJ09z3fY30cSLeZOPCph4AAAB8SURBVHhePc1VDsMwAANQdx0zg5MUh8zMcP8zrVG3vT9Llg0ko1kRypkAEocnQ51YGnHDvst3339ZZ/YySF253u7ci+U8eIzo2PXc9sAZjoKoy3I8mc7miyVXeT1lk/Q2Mpgq6CNDCEXuVdHEV+mkyhX8VG+1Ov4azRZCH1XuDgzVkcabAAAAAElFTkSuQmCC") no-repeat 1px 3px;
 }
 
-/* line 119, ../scss/threads.scss */
+/* line 115, ../scss/threads.scss */
 .userInfo {
   width: 192px;
   display: inline-block;
   padding: 0 32px;
   text-align: right;
 }
-/* line 140, ../scss/threads.scss */
+/* line 136, ../scss/threads.scss */
 .userInfo .postTime {
   font-size: 0.75em;
   color: #676565;
   font-style: italic;
 }
-/* line 146, ../scss/threads.scss */
+/* line 142, ../scss/threads.scss */
 .userInfo .avatar {
   width: 128px;
   height: 128px;
   border: 2px solid #d1d1d1;
   display: inline-block;
 }
-/* line 153, ../scss/threads.scss */
+/* line 149, ../scss/threads.scss */
 .userInfo a.userLink {
   color: #404346;
   font-weight: bold;
   display: block;
 }
-/* line 159, ../scss/threads.scss */
+/* line 155, ../scss/threads.scss */
 .userInfo .postCount {
   display: block;
 }
-/* line 163, ../scss/threads.scss */
+/* line 159, ../scss/threads.scss */
 .userInfo .rankTag {
   display: block;
 }
-/* line 167, ../scss/threads.scss */
+/* line 163, ../scss/threads.scss */
 .userInfo .ip, .userInfo .steamId {
   display: block;
   color: #afafaf;
   font-size: 0.75em;
 }
 
-/* line 174, ../scss/threads.scss */
+/* line 170, ../scss/threads.scss */
 .postContent {
   display: inline-block;
   width: 669px;
@@ -184,7 +157,7 @@ h2.threadTitle.closed:after {
   font-family: Helvetica;
   color: #333;
 }
-/* line 185, ../scss/threads.scss */
+/* line 181, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -202,36 +175,36 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 194, ../scss/threads.scss */
+/* line 190, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 201, ../scss/threads.scss */
+/* line 197, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 208, ../scss/threads.scss */
+/* line 204, ../scss/threads.scss */
 .postContent blockquote a.postLink {
   font-size: 1em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 215, ../scss/threads.scss */
+/* line 211, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 219, ../scss/threads.scss */
+/* line 215, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
   display: block;
-  left: 154px;
+  left: 191px;
   font-style: italic;
   color: #999;
 }

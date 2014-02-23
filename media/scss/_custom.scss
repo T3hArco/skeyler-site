@@ -21,6 +21,9 @@ $graey: #aaa;
   @if $color == Black {
     @return #3b3b3b;
   }
+  @if $color == BlackLight {
+    @return #636363;
+  }
   @if $color == Blue {
     @return #25bfff;
   }

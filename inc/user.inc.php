@@ -167,8 +167,8 @@ class User
     if ($user['rank'] == self::RANK_REGULAR) {
       return '';
     }
-
-    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . self::getRankStr($user['rank']) . '.png" class="rankTag" />';
+    $rankStr = self::getRankStr($user['rank']);
+    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
   }
 
   public static function getRankStr($rank) {
@@ -197,7 +197,7 @@ class User
   }
 
   public static function writeModOptions($type) {
-    global $local;
+    global $local, $User;
     $lis = array();
     switch ($type) {
       case 'forum':
@@ -250,9 +250,9 @@ class User
       return '';
     }
 
-    $out = '<div class="modDropdown"><a href="#" class="star"></a><ul class="mod mod-' . $type . '">';
+    $out = '<div class="modDropdown"><a href="#" class="sprite modButton"></a><ul class="mod mod-' . $type . '"><li class="userActions">User Actions</li>';
     foreach ($lis as $li) {
-      $out .= '<li class="mod-' . spaceToCamel($li) . '" data-mod-type="' . spaceToCamel($li) . '"><a href="#">' . $li . '</a></li>';
+      $out .= '<li class="mod-' . spaceToCamel($li) . '" data-mod-type="' . spaceToCamel($li) . '"><a href="#"><span class="sprite mod-' . spaceToCamel($li) . '"></span> ' . $li . '</a></li>';
     }
     $out .= '</ul></div>';
 

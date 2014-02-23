@@ -6,33 +6,37 @@ $user = $local['user'];
   <h2><?php echo $user['name']; ?>'s Profile</h2>
 
   <div class="quickstats">
-    <div class="username"><?php echo User::writeRankTag($user); ?> <?php echo ent($user['name']); ?></div>
-    <img src="<?php echo User::writeAvatar($user['avatarUrl'], 'full'); ?>" alt="<?php echo ent($user['name']); ?>\'s avatar!!!!"/>
+    <span class="membership">Member since <?php echo date('F, Y', $user['registerTimestamp']); ?></span>
+    <!--    <div class="username">--><?php //echo User::writeRankTag($user); ?><!-- --><?php //echo ent($user['name']); ?><!--</div>-->
+    <img src="<?php echo User::writeAvatar($user['avatarUrl'], 'full'); ?>" alt="<?php echo ent($user['name']); ?>\'s avatar!!!!" class="avatar"/>
     <br/>
-    <?php echo ent($user['steamId']); ?>
-    <div class="gold">WoW Gold: <?php echo $user['money']; ?></div>
+    <?php if (User::can(User::RANK_MOD)) : ?>
+      <span class="steamId">STEAM_<?php echo ent($user['steamId']); ?></span>
+    <?php endif; ?>
 
     <div class="serverStats">
       <h3>Server Stats</h3>
       <dl>
         <dt>Playtime</dt><!--
-     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+             --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
         <dt>Last Seen</dt><!--
-     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+             --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
         <dt>Last Scene</dt><!--
-     --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+             --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
         <dt>Steam Profile</dt><!--
-     --><dd><a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>" target="_blank">View Profile Page</a></dd>
+             --><dd><a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>" target="_blank">View Profile</a></dd>
       </dl>
 
       <h3>Forum Stats</h3>
       <dl>
         <dt>Post Count</dt><!--
-     --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+             --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
         <dt>Forum Rank</dt><!--
-     --><dd><?php echo $user['postCount']; ?></dd>
+             --><dd><?php echo User::writeRankTag($user); ?></dd>
+        <dt>Doubloons Tossed</dt><!--
+             --><dd>99999</dd>
         <dt>Doubloons</dt><!--
-     --><dd><?php echo $user['postCount']; ?></dd>
+             --><dd><?php echo $user['money']; ?></dd>
       </dl>
     </div>
   </div>
@@ -49,9 +53,19 @@ $user = $local['user'];
     </ul>
 
     <div class="tabItem selected" data-tab="sa">
-      <h2>Sassilization</h2>
+      <h2>Achievements</h2>
+      <div class="stats">
       HERE ARE YOUR STATS AND ACHIEVEMENTSSS!!
       YOU DONT HAVE ANY
+    </div>
+
+    <h2>Statistics</h2>
+    <dl><!--
+      --><dt class="globalRank">Global Rank</dt><!--
+      --><dd>10</dd><!--
+      --><dt class="victories">Victories</dt><!--
+      --><dd>884</dd><!--
+    --></dl>
     </div>
     <div class="tabItem" data-tab="bh">
       <h2>Bunny Hop</h2>
