@@ -8,8 +8,8 @@
 }
 
 h2.threadTitle {
-  float:left;
-  clear:both;
+  float: left;
+  clear: both;
 
   &:before, &:after {
     font-size: 0.75em;
@@ -22,8 +22,6 @@ h2.threadTitle {
   &.closed:after {
     content: ' (CLOSED)';
   }
-
-
 
 }
 
@@ -196,6 +194,10 @@ h2.threadTitle {
   overflow-x: auto;
   font-family: Helvetica;
   color: #333;
+
+  &.expanded {
+    overflow-x: initial;
+  }
 
   blockquote {
     padding: 7px 23px;

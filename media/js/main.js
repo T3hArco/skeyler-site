@@ -498,7 +498,17 @@ $(function () {
             .attr('data-width', img.naturalWidth)
             .attr('data-height', img.naturalHeight)
             .on('click', function () {
+              var $postContent = $(this).closest('.postContent');
+              if($postContent.length == 0) {
+                $(this).toggleClass('expanded');
+                return;
+              }
               $(this).toggleClass('expanded');
+              if($postContent.find('.tinyImage.expanded').length == 0) {
+                $postContent.removeClass('expanded');
+              } else {
+                $postContent.addClass('expanded');
+              }
             })
           ;
           $('<a>')
