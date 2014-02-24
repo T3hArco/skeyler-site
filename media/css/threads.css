@@ -174,11 +174,7 @@ h2.threadTitle.closed:after {
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ededed), color-stop(100%, #f7f7f7));
-  background-image: -webkit-linear-gradient(left, #ededed, #f7f7f7);
-  background-image: -moz-linear-gradient(left, #ededed, #f7f7f7);
-  background-image: -o-linear-gradient(left, #ededed, #f7f7f7);
-  background-image: linear-gradient(left, #ededed, #f7f7f7);
+  background: url(../images/noiseGreyMedium.png) repeat left center #f3f3f3;
   font-size: 0.9em;
   margin: 0;
   position: relative;

@@ -195,7 +195,7 @@ h2.threadTitle {
     padding: 7px 23px;
     border: 1px solid #ddd;
     //@include border-radius(0.5em);
-    @include background-image(linear-gradient(left, #ededed, #f7f7f7));
+    @include noise(GreyMedium);
     font-size: 0.9em;
     margin: 0;
     position: relative;

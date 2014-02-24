@@ -76,13 +76,9 @@ h2 {
 
 ul.pageNav {
   display: inline-block;
-  background: $subforumBg;
-  color: #d5d5d5;
-  @include border-radius(0.25em 0.25em 0 0);
-  border: 1px solid $subforumBg;
-  border-bottom: none;
+  color: #7d7d7d;
   list-style: none;
-  margin: 0;
+  margin: 0 0 1em 0;
   padding: 0;
 
   &.right {
@@ -91,19 +87,24 @@ ul.pageNav {
 
   li {
     display: inline-block;
+    padding: 0 0.5em 0 0;
+    font-size: 0.8em;
 
     a {
-      display: inline-block;
-      background: #fff;
+
+      color: #7d7d7d;
 
       &:hover {
-        background: #e5e5e5;
+        @include noise(Blue);
         text-decoration: none;
+        color: #fff;
       }
     }
 
     a, span {
-      padding: 0.25em 0.5em;
+      display: inline-block;
+      padding: 0.5em 0.75em;
+      @include border-radius(0.5em);
     }
 
     &.firstPage a:before {
@@ -113,13 +114,8 @@ ul.pageNav {
       content: ' >>';
     }
 
-    &.curPage a {
-      background: $subforumBg;
-      color: #d5d5d5;
-    }
-
-    &:last-child a {
-      @include border-radius(0 0.125em 0 0);
+    &.curPage span {
+      @include noise(GreyDark);
     }
   }
 
@@ -144,6 +140,33 @@ $tags: (vip, mod, admin, dev, super, owner);
     vertical-align: middle;
     height: 16px;
     // todo add background images instead of content text
+  }
+}
+
+.breadcrumbs {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 1em 0 0;
+
+    a {
+      color: $blue;
+      display: inline-block;
+    }
+    & ~ li:before {
+      content: '>';
+      color: #555;
+      display: inline-block;
+      padding: 0 0.5em 0 0;
+      font-family: 'Arvil Sans', Arial;
+      font-size: 2em;
+      line-height: 0;
+      vertical-align: middle;
+    }
   }
 }
 

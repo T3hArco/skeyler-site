@@ -326,7 +326,7 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
   $queryAssoc = queryToAssoc($queryString);
 
   $out = '<ul class="pageNav ' . implode(' ', (array) $classes) . '">';
-  $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
+//  $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
 
   if ($curPageId > 1) {
     $out .= '<li class="firstPage"><a href="' . writeHrefPageId($href, $queryAssoc, 1) . '">First</a></li>';
