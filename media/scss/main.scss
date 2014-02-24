@@ -68,6 +68,16 @@ a {
 h2 {
   padding: 0;
   margin: 0 0 0.5em 0;
+  clear: both;
+  display: inline;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 1px;
+    line-height: 0;
+    width: 100%;
+  }
 
   a {
     color: #767676;
@@ -78,11 +88,18 @@ ul.pageNav {
   display: inline-block;
   color: #7d7d7d;
   list-style: none;
-  margin: 0 0 1em 0;
+  margin: 1em 0;
   padding: 0;
+  font-weight: bold;
 
   &.right {
     float: right;
+    position: relative;
+    left: 18px;
+
+    li {
+      padding: 0 0 0 0.5em;
+    }
   }
 
   li {
@@ -116,16 +133,6 @@ ul.pageNav {
 
     &.curPage span {
       @include noise(GreyDark);
-    }
-  }
-
-  &.bottom {
-    @include border-radius(0 0 0.25em 0.25em);
-    border: 1px solid $subforumBg;
-    border-top: none;
-
-    li:last-child a {
-      @include border-radius(0 0 0.125em 0);
     }
   }
 

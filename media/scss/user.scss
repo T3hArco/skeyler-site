@@ -1,5 +1,9 @@
 @import 'base';
 
+
+$widthQuickStats: 188px;
+
+
 .profile {
   h2 {
     color: #555;
@@ -14,11 +18,10 @@
 .quickstats {
   display: inline-block;
   float: left;
-  $width: 188px;
   $padding: 8px;
   padding: 0 $contentPadding 0 0;
   @include noiseBorder(Divider, 0, 2, 0, 0);
-  width: $width + $contentPadding;
+  width: $widthQuickStats + $contentPadding;
 
   .membership {
     display: block;
@@ -46,7 +49,7 @@
 
   dl {
     display: block;
-    width: $width;
+    width: $widthQuickStats;
     background: #eee;
     margin: 0;
     padding: 0;
@@ -56,7 +59,7 @@
     display: inline-block;
     padding: 0.25em $padding;
     vertical-align: top;
-    max-width: $width / 2;
+    max-width: $widthQuickStats / 2;
     width: 50%;
     white-space: nowrap;
     overflow: visible;
@@ -82,7 +85,8 @@
 }
 
 .statsDetailed {
-  $width: 500px;
+  $width: $mainWidth - $widthQuickStats - (2 * $contentPadding) - 2px - ($contentPadding * 2);
+  // main - quickstats - side paddings - inside border - inside paddings
   $padding: 8px;
   //display: block;
   float: left;
