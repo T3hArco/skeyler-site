@@ -3,6 +3,11 @@ $user = $local['user'];
 
 ?>
 <div class="profile">
+
+  <?php if(User::can(User::RANK_MOD)) : ?>
+    <?php echo User::writeModOptions('user'); ?>
+  <?php endif; ?>
+
   <h2><?php echo $user['name']; ?>'s Profile</h2>
 
   <div class="quickstats">

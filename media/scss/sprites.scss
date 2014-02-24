@@ -50,10 +50,31 @@ $main-default-size: 32px;
   }
 
   @each $i in (
-    arrowDown, arrowUp, banUser, edit, modButton, reportUser, userProfile
+    banUser, edit, modButton, reportUser, userProfile
   ) {
     &.#{$i}:before {
       @include spr($i);
     }
   }
+
+
+  // %foo: hovers, actives, extras
+  @each $i in (
+    arrowDown, arrowUp, banUser
+  ) {
+    &%#{$i} {
+      @include spr($i);
+    }
+  }
+
+ &.mod-promoteUser:before {@extend %arrowUp; }
+ &.mod-demoteUser:before {@extend %arrowDown; }
+ &.mod-banUser:before {@extend %banUser; }
+
+
+
+
+
+
+
 }

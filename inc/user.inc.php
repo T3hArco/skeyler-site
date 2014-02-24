@@ -235,11 +235,12 @@ class User
         }
         break;
       case 'user':
+        if (self::can(User::RANK_SUPER)) {
+          $lis[] = 'Promote User';
+          $lis[] = 'Demote User';
+        }
         if (self::can(User::RANK_MOD)) {
           $lis[] = 'Ban User';
-        }
-        if (self::can(User::RANK_SUPER)) {
-          $lis[] = 'Change Rank';
         }
         break;
       default:

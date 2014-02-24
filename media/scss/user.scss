@@ -4,6 +4,11 @@
   h2 {
     color: #555;
   }
+
+  .modDropdown {
+    right: $contentPadding;
+    position: absolute;
+  }
 }
 
 .quickstats {
