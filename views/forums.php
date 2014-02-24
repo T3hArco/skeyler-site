@@ -1,5 +1,6 @@
 <?php global $now, $Config, $pageId; ?>
   <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
+  <br class="clr" />
 <?php if ($local['forumId']) : ?>
   <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>
     topic<?php echo singPlur($local['forums'][$local['forumId']]['threadCount']); ?>, <?php echo $local['forums'][$local['forumId']]['postCount']; ?>

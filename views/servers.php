@@ -1,4 +1,5 @@
 <h2>Skeyler Servers</h2>
+<br class="clr" />
 <?php foreach ($local['servers'] as $server) : ?>
   <div class="server">
     <div class="name">

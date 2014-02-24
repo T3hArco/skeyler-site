@@ -58,13 +58,13 @@ $user = $local['user'];
     </ul>
 
     <div class="tabItem selected" data-tab="sa">
-      <h2>Achievements</h2>
+      <h3>Achievements</h3>
       <div class="stats">
       HERE ARE YOUR STATS AND ACHIEVEMENTSSS!!
       YOU DONT HAVE ANY
     </div>
 
-    <h2>Statistics</h2>
+    <h3>Statistics</h3>
     <dl><!--
       --><dt class="globalRank">Global Rank</dt><!--
       --><dd>10</dd><!--
@@ -73,23 +73,23 @@ $user = $local['user'];
     --></dl>
     </div>
     <div class="tabItem" data-tab="bh">
-      <h2>Bunny Hop</h2>
+      <h3>Bunny Hop</h3>
       BHOOOOPPP
     </div>
     <div class="tabItem" data-tab="cl">
-      <h2>CLp</h2>
+      <h3>CLp</h3>
       poop
     </div>
     <div class="tabItem" data-tab="dr">
-      <h2>DR</h2>
+      <h3>DR</h3>
       butts
     </div>
     <div class="tabItem" data-tab="ze">
-      <h2>ZE</h2>
+      <h3>ZE</h3>
       fart
     </div>
     <div class="tabItem" data-tab="misc">
-      <h2>MISC</h2>
+      <h3>MISC</h3>
       shit
     </div>
 

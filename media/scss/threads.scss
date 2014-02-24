@@ -8,6 +8,9 @@
 }
 
 h2.threadTitle {
+  float:left;
+  clear:both;
+
   &:before, &:after {
     font-size: 0.75em;
     font-family: Consolas, Courier;
@@ -19,6 +22,9 @@ h2.threadTitle {
   &.closed:after {
     content: ' (CLOSED)';
   }
+
+
+
 }
 
 .posts {

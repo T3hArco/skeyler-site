@@ -1,12 +1,11 @@
 @import 'base';
 
-
 $widthQuickStats: 188px;
-
 
 .profile {
   h2 {
     color: #555;
+    float: none;
   }
 
   .modDropdown {
@@ -102,6 +101,19 @@ $widthQuickStats: 188px;
     font-family: 'Arvil Sans', Arial;
     font-size: 1.5em;
     width: $width;
+    text-align: justify;
+
+    height: 1.5em;
+    overflow: hidden;
+
+    // theres a better way to do this that i found but i cant remember it!!!!!1
+    &:after {
+      content: '';
+      display: inline-block;
+      height: 1px;
+      line-height: 0;
+      width: 99%;
+    }
 
     li {
       display: inline-block;
@@ -134,7 +146,7 @@ $widthQuickStats: 188px;
     }
   }
 
-  h2 {
+  h3 {
     @include noise(BlackLight);
     color: #fff;
     margin: 1em 0 0 0;
