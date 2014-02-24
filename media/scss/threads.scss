@@ -1,5 +1,12 @@
 @import 'base';
 
+.page-thread {
+  & > .modDropdown {
+    right: 12px;
+    position: absolute;
+  }
+}
+
 h2.threadTitle {
   &:before, &:after {
     font-size: 0.75em;
@@ -33,7 +40,7 @@ h2.threadTitle {
     @include noiseBorder(Blue, 0, 0, 0, 5);
   }
 
-  padding: 36px 0 0 0;
+  padding: 36px 0 16px 0;
   position: relative;
 
   //background: #f2f2f2;
@@ -77,7 +84,7 @@ h2.threadTitle {
 
 .postOptions {
   position: absolute;
-  top: 12px;
+  top: 36px;
   right: 12px;
   //background: rgba($bgColor, $bgMaxAlpha);
   line-height: 1;
@@ -115,6 +122,14 @@ h2.threadTitle {
 
 }
 
+.postOptions {
+  opacity: 0.25;
+}
+
+.post:hover .postOptions, .postOptions.active {
+  opacity: 1;
+}
+
 .userInfo {
   width: 192px;
   display: inline-block;
@@ -135,12 +150,6 @@ h2.threadTitle {
   //  top: 100%;
   //  left: 0;
   //}
-
-  .postTime {
-    font-size: 0.75em;
-    color: #676565;
-    font-style: italic;
-  }
 
   .avatar {
     width: 128px;
@@ -172,7 +181,8 @@ h2.threadTitle {
 
 .postContent {
   display: inline-block;
-  width: (866px - 142px - 2px - 5px - 16px - 32px);
+  width: (866px - 142px - 2px - 5px - 32px - 32px - 8px);
+  // main width - userInfo - border - 5px side - postOptions - padding? - 8px just because
   //width: 701px;
   padding: 0;
   vertical-align: top;
@@ -184,7 +194,7 @@ h2.threadTitle {
   blockquote {
     padding: 7px 23px;
     border: 1px solid #ddd;
-    @include border-radius(0.5em);
+    //@include border-radius(0.5em);
     @include background-image(linear-gradient(left, #ededed, #f7f7f7));
     font-size: 0.9em;
     margin: 0;
@@ -222,6 +232,16 @@ h2.threadTitle {
     left: 191px;
     font-style: italic;
     color: #999;
+  }
+
+  .postTime {
+    font-size: 0.75em;
+    color: #676565;
+    font-style: italic;
+    position: absolute;
+    bottom: 0.5em;
+    right: 1em;
+    display: block;
   }
 
 }

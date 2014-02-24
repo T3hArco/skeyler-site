@@ -290,20 +290,13 @@ $tags: (vip, mod, admin, dev, super, owner);
         line-height: 32px;
         color: #fff;
         font-weight: bold;
+        white-space: nowrap;
       }
     }
 
     &.mod-thread {
-      left: 0;
-      right: auto;
-
       a {
         padding: 0 0.5em 0 0;
-      }
-
-      .userActions {
-        padding-left: 40px;
-        font-weight: bold;
       }
     }
 

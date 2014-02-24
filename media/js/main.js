@@ -18,7 +18,7 @@ $(function () {
   });
 
   // handles clicking the quoteLink
-  $('.quoteLink').on('click', function () {
+  $('.quote').on('click', function () {
     var $post = $(this).closest('.post');
     var bbcode = $post.data('bbcode') || '';
     var postId = $post.data('postId');
@@ -234,7 +234,7 @@ $(function () {
   // show/hide the mod stuff
   $('.modDropdown .modButton').on('click', function () {
     $that = $(this);
-    $that.addClass('active');
+    $that.add($that.closest('.postOptions')).addClass('active');
     $that.closest('.modDropdown').find('.mod').show();
     $that.show();
     $(window).off('click.hideMod, touchstart.hideMod').on('click.hideMod, touchstart.hideMod', function (e) {
@@ -242,7 +242,7 @@ $(function () {
         return true;
       }
       $('.mod').hide();
-      $('.modButton').removeClass('active');
+      $('.modButton').add('.postOptions').removeClass('active');
       $(window).off('click.hideMod, touchstart.hideMod');
       return false;
     });

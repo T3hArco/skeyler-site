@@ -6,20 +6,26 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* line 4, ../scss/threads.scss */
+.page-thread > .modDropdown {
+  right: 12px;
+  position: absolute;
+}
+
+/* line 11, ../scss/threads.scss */
 h2.threadTitle:before, h2.threadTitle:after {
   font-size: 0.75em;
   font-family: Consolas, Courier;
 }
-/* line 8, ../scss/threads.scss */
+/* line 15, ../scss/threads.scss */
 h2.threadTitle.sticky:before {
   content: 'STICKY: ';
 }
-/* line 12, ../scss/threads.scss */
+/* line 19, ../scss/threads.scss */
 h2.threadTitle.closed:after {
   content: ' (CLOSED)';
 }
 
-/* line 17, ../scss/threads.scss */
+/* line 24, ../scss/threads.scss */
 .posts {
   margin: 0 -30px;
   background: url(../images/noiseOffWhite.png) repeat left center #f9f9f9;
@@ -32,7 +38,7 @@ h2.threadTitle.closed:after {
   border-width: 0px 0px 2px 0px;
 }
 
-/* line 23, ../scss/threads.scss */
+/* line 30, ../scss/threads.scss */
 .post {
   border-style: solid;
   border-color: #e0e0e0;
@@ -42,10 +48,10 @@ h2.threadTitle.closed:after {
   -o-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   border-width: 0px 0px 0px 5px;
-  padding: 36px 0 0 0;
+  padding: 36px 0 16px 0;
   position: relative;
 }
-/* line 26, ../scss/threads.scss */
+/* line 33, ../scss/threads.scss */
 .post.seen {
   border-style: solid;
   border-color: #e0e0e0;
@@ -56,7 +62,7 @@ h2.threadTitle.closed:after {
   border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   border-width: 0px 0px 0px 5px;
 }
-/* line 32, ../scss/threads.scss */
+/* line 39, ../scss/threads.scss */
 .post.myPost {
   border-style: solid;
   border-color: #25bfff;
@@ -67,7 +73,7 @@ h2.threadTitle.closed:after {
   border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
   border-width: 0px 0px 0px 5px;
 }
-/* line 60, ../scss/threads.scss */
+/* line 67, ../scss/threads.scss */
 .post:before {
   content: '';
   display: block;
@@ -78,7 +84,7 @@ h2.threadTitle.closed:after {
   top: 0;
 }
 
-/* line 71, ../scss/threads.scss */
+/* line 78, ../scss/threads.scss */
 .editLink, .quoteLink, .modDropdown {
   width: 32px;
   height: 32px;
@@ -86,73 +92,77 @@ h2.threadTitle.closed:after {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
 
-/* line 78, ../scss/threads.scss */
+/* line 85, ../scss/threads.scss */
 .postOptions {
   position: absolute;
-  top: 12px;
+  top: 36px;
   right: 12px;
   line-height: 1;
   width: 32px;
 }
-/* line 103, ../scss/threads.scss */
+/* line 110, ../scss/threads.scss */
 .postOptions > a, .postOptions > .modDropdown {
   margin: 0 0 8px 0;
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
-/* line 107, ../scss/threads.scss */
+/* line 114, ../scss/threads.scss */
 .postOptions > a:hover, .postOptions > .modDropdown:hover {
   background: url(../images/noiseBlackLight.png) repeat left center #636363;
 }
-/* line 111, ../scss/threads.scss */
+/* line 118, ../scss/threads.scss */
 .postOptions > a:active, .postOptions > .modDropdown:active {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
 }
 
-/* line 118, ../scss/threads.scss */
+/* line 125, ../scss/threads.scss */
+.postOptions {
+  opacity: 0.25;
+}
+
+/* line 129, ../scss/threads.scss */
+.post:hover .postOptions, .postOptions.active {
+  opacity: 1;
+}
+
+/* line 133, ../scss/threads.scss */
 .userInfo {
   width: 192px;
   display: inline-block;
   padding: 0 32px;
   text-align: right;
 }
-/* line 139, ../scss/threads.scss */
-.userInfo .postTime {
-  font-size: 0.75em;
-  color: #676565;
-  font-style: italic;
-}
-/* line 145, ../scss/threads.scss */
+/* line 154, ../scss/threads.scss */
 .userInfo .avatar {
   width: 128px;
   height: 128px;
   border: 2px solid #d1d1d1;
   display: inline-block;
 }
-/* line 152, ../scss/threads.scss */
+/* line 161, ../scss/threads.scss */
 .userInfo a.userLink {
   color: #404346;
   font-weight: bold;
   display: block;
 }
-/* line 158, ../scss/threads.scss */
+/* line 167, ../scss/threads.scss */
 .userInfo .postCount {
   display: block;
 }
-/* line 162, ../scss/threads.scss */
+/* line 171, ../scss/threads.scss */
 .userInfo .rankTag {
   display: block;
 }
-/* line 166, ../scss/threads.scss */
+/* line 175, ../scss/threads.scss */
 .userInfo .ip, .userInfo .steamId {
   display: block;
   color: #afafaf;
   font-size: 0.75em;
 }
 
-/* line 173, ../scss/threads.scss */
+/* line 182, ../scss/threads.scss */
 .postContent {
   display: inline-block;
-  width: 669px;
+  width: 645px;
   padding: 0;
   vertical-align: top;
   margin: 0 0 1em 0;
@@ -160,15 +170,10 @@ h2.threadTitle.closed:after {
   font-family: Helvetica;
   color: #333;
 }
-/* line 184, ../scss/threads.scss */
+/* line 194, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  border-radius: 0.5em;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ededed), color-stop(100%, #f7f7f7));
   background-image: -webkit-linear-gradient(left, #ededed, #f7f7f7);
   background-image: -moz-linear-gradient(left, #ededed, #f7f7f7);
@@ -178,31 +183,31 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 193, ../scss/threads.scss */
+/* line 203, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 200, ../scss/threads.scss */
+/* line 210, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 207, ../scss/threads.scss */
+/* line 217, ../scss/threads.scss */
 .postContent blockquote a.postLink {
   font-size: 1em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 214, ../scss/threads.scss */
+/* line 224, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 218, ../scss/threads.scss */
+/* line 228, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
@@ -210,4 +215,14 @@ h2.threadTitle.closed:after {
   left: 191px;
   font-style: italic;
   color: #999;
+}
+/* line 237, ../scss/threads.scss */
+.postContent .postTime {
+  font-size: 0.75em;
+  color: #676565;
+  font-style: italic;
+  position: absolute;
+  bottom: 0.5em;
+  right: 1em;
+  display: block;
 }

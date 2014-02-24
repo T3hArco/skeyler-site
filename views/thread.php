@@ -10,8 +10,8 @@ if ($local['thread']['isSticky']) {
 }
 
 ?>
-<h2 class="<?php echo implode(' ', $classes); ?>"><?php echo ent($local['thread']['title']); ?></h2>
 <?php echo User::writeModOptions('thread'); ?>
+<h2 class="<?php echo implode(' ', $classes); ?>"><?php echo ent($local['thread']['title']); ?></h2>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'top right'); ?>
 <br class="clr"/>
 <div class="posts" data-thread-id="<?php echo $local['thread']['id']; ?>" data-forum-id="<?php echo $local['thread']['forumId']; ?>">
@@ -20,7 +20,6 @@ if ($local['thread']['isSticky']) {
     <?php $i++; ?>
     <div class="post post-<?php echo $post['id']; ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
       <div class="userInfo">
-        <span class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></span>
         <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
         <?php echo User::writeUserLink($local['users'][$post['userId']], array('hideTag' => true)); ?>
         <span class="postCount"><?php echo($local['users'][$post['userId']]['postCount']); ?> posts</span>
@@ -37,15 +36,16 @@ if ($local['thread']['isSticky']) {
         <?php if ($post['lastEditTimestamp']) : ?>
           <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
         <?php endif; ?>
+        <span class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></span>
       </div>
       <div class="postOptions">
+        <a href="#" class="sprite quote"></a>
+        <a href="/user.php?userId=<?php echo $User['id']; ?>" class="sprite userProfile" target="_blank"></a>
         <?php if ($post['userId'] == $User['id']) : ?>
           <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
           <?php //else : ?>
           <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>
-        <a href="#" class="sprite quote"></a>
-        <a href="/user.php?userId=<?php echo $User['id']; ?>" class="sprite userProfile" target="_blank"></a>
       </div>
     </div>
   <?php endforeach; ?>

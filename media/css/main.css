@@ -368,30 +368,21 @@ ul.pageNav.bottom li:last-child a {
   line-height: 32px;
   color: #fff;
   font-weight: bold;
+  white-space: nowrap;
 }
-/* line 296, ../scss/main.scss */
-.modDropdown ul.mod-thread {
-  left: 0;
-  right: auto;
-}
-/* line 300, ../scss/main.scss */
+/* line 299, ../scss/main.scss */
 .modDropdown ul.mod-thread a {
   padding: 0 0.5em 0 0;
 }
-/* line 304, ../scss/main.scss */
-.modDropdown ul.mod-thread .userActions {
-  padding-left: 40px;
-  font-weight: bold;
-}
 
 @-moz-keyframes spin {
-  /* line 314, ../scss/main.scss */
+  /* line 308, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 317, ../scss/main.scss */
+  /* line 311, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -399,13 +390,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-webkit-keyframes spin {
-  /* line 314, ../scss/main.scss */
+  /* line 308, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 317, ../scss/main.scss */
+  /* line 311, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -413,13 +404,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-o-keyframes spin {
-  /* line 314, ../scss/main.scss */
+  /* line 308, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 317, ../scss/main.scss */
+  /* line 311, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -427,13 +418,13 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @-ms-keyframes spin {
-  /* line 314, ../scss/main.scss */
+  /* line 308, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 317, ../scss/main.scss */
+  /* line 311, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -441,18 +432,18 @@ ul.pageNav.bottom li:last-child a {
 }
 
 @keyframes spin {
-  /* line 314, ../scss/main.scss */
+  /* line 308, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 317, ../scss/main.scss */
+  /* line 311, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 322, ../scss/main.scss */
+/* line 316, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -465,7 +456,7 @@ ul.pageNav.bottom li:last-child a {
   z-index: 9998;
 }
 
-/* line 334, ../scss/main.scss */
+/* line 328, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;
@@ -477,34 +468,34 @@ ul.pageNav.bottom li:last-child a {
   background: #eee;
 }
 
-/* line 345, ../scss/main.scss */
+/* line 339, ../scss/main.scss */
 .popupCloseLink {
   font-size: 0.75em;
 }
-/* line 348, ../scss/main.scss */
+/* line 342, ../scss/main.scss */
 .popupCloseLink:before {
   margin-top: 2em;
   content: '\a';
   display: block;
 }
 
-/* line 355, ../scss/main.scss */
+/* line 349, ../scss/main.scss */
 table {
   width: 100%;
 }
 
-/* line 363, ../scss/main.scss */
+/* line 357, ../scss/main.scss */
 a[target="_blank"]:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAAD1BMVEX///////////////////+Rd1MVAAAABHRSTlMAaeRqY+AomwAAADNJREFUeF4lxIEJACAMBLErdACRjuIAX/n9Z7IghEDYhlwkcGe7Z+Xac4cLnVKjkOCzLR6tNQaTLNDT1wAAAABJRU5ErkJggg==");
   white-space: pre;
 }
 
-/* line 369, ../scss/main.scss */
+/* line 363, ../scss/main.scss */
 a.sprite[target="_blank"]:after {
   display: none;
 }
 
-/* line 373, ../scss/main.scss */
+/* line 367, ../scss/main.scss */
 .login {
   width: 154px;
   height: 23px;
@@ -515,7 +506,7 @@ a.sprite[target="_blank"]:after {
   color: transparent;
 }
 
-/* line 383, ../scss/main.scss */
+/* line 377, ../scss/main.scss */
 .curse {
   font-weight: bold;
   -webkit-filter: blur(2px);

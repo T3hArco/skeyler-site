@@ -6,9 +6,9 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* MAIN SPRITES */
-/* line 114, ../images/sprites/main/*.png */
-DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.modButton:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before {
-  background: url('../images/../images/sprites/main-s379eb72ab2.png') no-repeat;
+/* line 122, ../images/sprites/main/*.png */
+DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.modButton:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.quote:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before {
+  background: url('../images/../images/sprites/main-se0ef1a3069.png') no-repeat;
 }
 
 /* line 30, ../scss/sprites.scss */
@@ -30,11 +30,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 0;
   width: 32px;
   height: 32px;
-  background: url('../images/../images/sprites/main-s379eb72ab2.png') 0 -28px no-repeat transparent;
+  background: url('../images/../images/sprites/main-se0ef1a3069.png') 0 -84px no-repeat transparent;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.banUser:before {
-  background-position: -32px -28px;
+  background-position: -25px -28px;
   width: 14px;
   left: 9px;
   height: 13px;
@@ -50,7 +50,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.modButton:before {
-  background-position: 0 -60px;
+  background-position: 0 -52px;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.reportUser:before {
@@ -67,6 +67,14 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 9.5px;
   height: 14px;
   top: 9px;
+}
+/* line 55, ../scss/sprites.scss */
+.sprite.quote:before {
+  background-position: 0 -28px;
+  width: 25px;
+  left: 3.5px;
+  height: 24px;
+  top: 4px;
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.mod-demoteUser:before {
@@ -86,7 +94,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.mod-banUser:before {
-  background-position: -32px -28px;
+  background-position: -25px -28px;
   width: 14px;
   left: 9px;
   height: 13px;

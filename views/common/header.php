@@ -44,7 +44,7 @@
   </div>
 
   <?php Notice::writeNotices(); ?>
-  <div class="content">
+  <div class="content<?php echo ($local['pageClasses'] ? implode(' ', presuf($local['pageClasses'], ' page-')) : ''); ?>">
 
     <?php if(isset($local['breadcrumbs'])) : ?>
       <ul class="breadcrumbs">

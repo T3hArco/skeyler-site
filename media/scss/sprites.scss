@@ -50,7 +50,7 @@ $main-default-size: 32px;
   }
 
   @each $i in (
-    banUser, edit, modButton, reportUser, userProfile
+    banUser, edit, modButton, reportUser, userProfile, quote
   ) {
     &.#{$i}:before {
       @include spr($i);

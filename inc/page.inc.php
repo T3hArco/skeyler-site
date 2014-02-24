@@ -6,6 +6,7 @@ class Page
   protected $echoedFooter = 'waiting';
   protected $navigationItem;
   protected $navigationSubItem;
+  protected $pageClasses;
 
   /**
    *
@@ -16,6 +17,7 @@ class Page
       $navigationSubItem = $navigationItem;
     }
     $this->navigationSubItem = $navigationSubItem;
+    $this->pageClasses = array();
     register_shutdown_function(array($this, 'footer'));
   }
 
@@ -59,6 +61,7 @@ class Page
       $local['navigationItem'] = $this->navigationItem;
       $local['navigationSubItem'] = $this->navigationSubItem;
       $local['title'] = $this->title;
+      $local['pageClasses'] = $this->pageClasses;
       include ROOT . '/views/common/header.php';
     }
     else {
@@ -90,6 +93,16 @@ class Page
     }
     $this->echoedFooter = 'done';
     exit;
+  }
+
+  public function setClasses($classes) {
+    $classes = (array) $classes;
+    if (count($this->pageClasses) > 0) {
+      $this->pageClasses = array_merge((array) $this->pageClasses, $classes);
+    }
+    else {
+      $this->pageClasses = $classes;
+    }
   }
 
 
