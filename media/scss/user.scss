@@ -44,6 +44,7 @@ $widthQuickStats: 188px;
   h3 {
     @include noiseBorder(Grey, 0, 0, 2, 0);
     text-align: right;
+    font-weight: bold;
   }
 
   dl {
@@ -179,6 +180,19 @@ $widthQuickStats: 188px;
 
     &:nth-of-type(even) {
       @include noise(GreyDark);
+    }
+  }
+
+  dt.sprite {
+    padding-left: 30px;
+    height: auto;
+    line-height: 1.428571429;
+
+    &.globalRank:before {
+      top: 8px;
+    }
+    &.victories:before {
+      top: 5px;
     }
   }
 

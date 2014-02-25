@@ -6,9 +6,9 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* MAIN SPRITES */
-/* line 122, ../images/sprites/main/*.png */
-DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.modButton:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.quote:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before {
-  background: url('../images/../images/sprites/main-se0ef1a3069.png') no-repeat;
+/* line 138, ../images/sprites/main/*.png */
+DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.modButton:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.quote:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before {
+  background: url('../images/../images/sprites/main-s6bb4e63ebf.png') no-repeat;
 }
 
 /* line 30, ../scss/sprites.scss */
@@ -30,11 +30,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 0;
   width: 32px;
   height: 32px;
-  background: url('../images/../images/sprites/main-se0ef1a3069.png') 0 -84px no-repeat transparent;
+  background: url('../images/../images/sprites/main-s6bb4e63ebf.png') 0 -85px no-repeat transparent;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.banUser:before {
-  background-position: -25px -28px;
+  background-position: 0 0;
   width: 14px;
   left: 9px;
   height: 13px;
@@ -42,7 +42,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.edit:before {
-  background-position: 0 0;
+  background-position: -14px 0;
   width: 13px;
   left: 9.5px;
   height: 13px;
@@ -50,11 +50,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.modButton:before {
-  background-position: 0 -52px;
+  background-position: -15px -53px;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.reportUser:before {
-  background-position: -26px 0;
+  background-position: -26px -14px;
   width: 15px;
   left: 8.5px;
   height: 15px;
@@ -62,7 +62,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.userProfile:before {
-  background-position: -13px 0;
+  background-position: -27px 0;
   width: 13px;
   left: 9.5px;
   height: 14px;
@@ -70,33 +70,49 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.quote:before {
-  background-position: 0 -28px;
+  background-position: -14px -29px;
   width: 25px;
   left: 3.5px;
   height: 24px;
   top: 4px;
 }
-/* line 65, ../scss/sprites.scss */
+/* line 64, ../scss/sprites.scss */
 .sprite.mod-demoteUser:before {
-  background-position: 0 -15px;
+  background-position: 0 -29px;
   width: 14px;
   left: 9px;
   height: 13px;
   top: 9.5px;
 }
-/* line 65, ../scss/sprites.scss */
+/* line 64, ../scss/sprites.scss */
 .sprite.mod-promoteUser:before {
-  background-position: -14px -15px;
+  background-position: -12px -14px;
   width: 14px;
   left: 9px;
   height: 13px;
   top: 9.5px;
 }
-/* line 65, ../scss/sprites.scss */
+/* line 64, ../scss/sprites.scss */
 .sprite.mod-banUser:before {
-  background-position: -25px -28px;
+  background-position: 0 0;
   width: 14px;
   left: 9px;
   height: 13px;
   top: 9.5px;
+}
+/* line 64, ../scss/sprites.scss */
+.sprite.globalRank:before {
+  background-position: 0 -14px;
+  width: 12px;
+  left: 10px;
+  height: 12px;
+  top: 10px;
+}
+/* line 64, ../scss/sprites.scss */
+.sprite.victories:before {
+  background-position: 0 -53px;
+  width: 15px;
+  left: 8.5px;
+  height: 16px;
+  top: 8px;
 }

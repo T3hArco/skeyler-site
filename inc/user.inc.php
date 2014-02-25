@@ -1,7 +1,6 @@
 <?php
 class User
 {
-
   const RANK_REGULAR = 0;
   const RANK_VIP = 5;
   const RANK_MOD = 10;
@@ -164,10 +163,16 @@ class User
   public static function writeRankTag($user) {
     global $Config;
 
-    if ($user['rank'] == self::RANK_REGULAR) {
+    if(is_int($user)) {
+      $rank = $user;
+    } else {
+      $rank = $user['rank'];
+    }
+
+    if ($rank == self::RANK_REGULAR) {
       return '';
     }
-    $rankStr = self::getRankStr($user['rank']);
+    $rankStr = self::getRankStr($rank);
     return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
   }
 
@@ -303,6 +308,22 @@ class User
       'userId' => $userId,
     );
     return DB::q($query, $binds)->fetchAll();
+  }
+
+  // change the user's rank!!! supers only
+  public static function changeUserRank($userId, $newRank) {
+    $query = '
+      UPDATE users
+      SET rank = :newRank
+      WHERE id = :userId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'userId' => $userId,
+      'newRank' => $newRank,
+    );
+    DB::q($query, $binds);
+    return true;
   }
 
 }

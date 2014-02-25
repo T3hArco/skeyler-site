@@ -2,7 +2,7 @@
 $user = $local['user'];
 
 ?>
-<div class="profile">
+<div class="profile" data-user-id="<?php echo $user['id']; ?>" data-rank="<?php echo $user['rank']; ?>">
 
   <?php if(User::can(User::RANK_MOD)) : ?>
     <?php echo User::writeModOptions('user'); ?>
@@ -66,9 +66,9 @@ $user = $local['user'];
 
     <h3>Statistics</h3>
     <dl><!--
-      --><dt class="globalRank">Global Rank</dt><!--
+      --><dt class="globalRank sprite">Global Rank</dt><!--
       --><dd>10</dd><!--
-      --><dt class="victories">Victories</dt><!--
+      --><dt class="victories sprite">Victories</dt><!--
       --><dd>884</dd><!--
     --></dl>
     </div>

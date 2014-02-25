@@ -60,7 +60,7 @@ $main-default-size: 32px;
 
   // %foo: hovers, actives, extras
   @each $i in (
-    arrowDown, arrowUp, banUser
+    arrowDown, arrowUp, banUser, flag, star
   ) {
     &%#{$i} {
       @include spr($i);
@@ -70,6 +70,8 @@ $main-default-size: 32px;
  &.mod-promoteUser:before {@extend %arrowUp; }
  &.mod-demoteUser:before {@extend %arrowDown; }
  &.mod-banUser:before {@extend %banUser; }
+ &.globalRank:before {@extend %flag; }
+ &.victories:before {@extend %star; }
 
 
 

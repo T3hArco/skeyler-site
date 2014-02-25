@@ -250,6 +250,7 @@ $(function () {
     return false;
   });
 
+  // you're modding someone on a thread!!!
   $('.mod-thread a').on('click', function () {
     var threadData = $('.posts').data();
     $el = $(this).closest('li');
@@ -356,6 +357,13 @@ $(function () {
           $popup
             .append($h4, $select, $submit, $cancel)
           ;
+          $(window).on('keydown.popup', function (e) {
+            var key = e.keyCode;
+            if (key == 27) {
+              $cancel.click();
+              $(window).off('keydown.popup');
+            }
+          });
 
           $popupContainer
             .append($popup)
@@ -412,6 +420,14 @@ $(function () {
           .append($h4, $input, $submit, $cancel)
         ;
 
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
         $popupContainer
           .append($popup)
           .appendTo($('body'))
@@ -430,6 +446,7 @@ $(function () {
     return false;
   });
 
+  // you're modding someone on a post!!!
   $('.mod-post a').on('click', function () {
     var post_data = $(this).closest('.post').data();
     $el = $(this).closest('li');
@@ -466,12 +483,169 @@ $(function () {
         document.location = '/editPost.php?postId=' + post_data.postId;
         break;
       case 'deletePost':
+        var z = confirm('Are you sure you want to delete this very good post???');
+        // not z! nazi!!!!
+        if (!z) {
+          alert('Post was not deleted! Crisis Averted!');
+          return false;
+        }
         postData = {
           postId: post_data.postId
         };
         sendCallback = function () {
           $post.css('opacity', 0.5);
         };
+        break;
+      default:
+        return;
+    }
+
+    if (sendNow) {
+      send(sendCallback);
+    }
+
+    return false;
+  });
+
+
+  // you're modding someone on their user profile!!
+  $('.mod-user a').on('click', function () {
+    var userData = $(this).closest('.profile').data();
+    $el = $(this).closest('li');
+    var modType = $el.data('modType');
+    var sendNow = true;
+    var postData = {};
+
+    var callback = function (data) {
+      var cb = noop();
+      // if successful, we want to redirect/refresh
+      if (data.success) {
+      }
+      handleNotices(data, cb);
+      // make the dropdowns go away
+      $(window).click();
+    };
+
+    var send = function (cb) {
+      cb = cb || noop;
+      var cb2 = function (data) {
+        callback(data);
+        cb();
+      };
+      $.post('/mod/' + modType + '.php', postData, cb2);
+    };
+
+    var sendCallback = noop();
+
+    switch (modType) {
+      case 'promoteUser':
+        sendNow = false;
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val(userData.rank);
+        var userId = userData.userId;
+
+        var $submit = $('<button>').text('Pick this user\'s new rank!!!').on('click', function () {
+          postData = {
+            userId: userId,
+            newRank: $input.val()
+          };
+          $.post('/mod/userChangeRank.php', postData, function (data) {
+            $popupContainer.remove();
+            handleNotices(data, function (a) {
+              document.location = document.location;
+            });
+
+          });
+        });
+
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
+        $h4 = $('<h4>').html('WHOA THIS USER IS MOVING UP IN THE WORLD!');
+        $popup
+          .append($h4, $input, $submit, $cancel)
+        ;
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
+        break;
+      case 'demoteUser':
+
+
+        sendNow = false;
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val(userData.rank);
+        var userId = userData.userId;
+
+        var $submit = $('<button>').text('Pick this user\'s new rank!!!').on('click', function () {
+          postData = {
+            userId: userId,
+            newRank: $input.val()
+          };
+          $.post('/mod/userChangeRank.php', postData, function (data) {
+            $popupContainer.remove();
+            handleNotices(data, function (a) {
+              document.location = document.location;
+            });
+
+          });
+        });
+
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
+        var $h4 = $('<h4>').html('PUNISH THIS USER FOR THEIR INSOLENCE!');
+        var $rankList = $('<div>')
+            .text('Available Ranks Loading!!!....')
+            .addClass('rankList')
+          ;
+        $popup
+          .append($h4, $input, $submit, $rankList, $cancel)
+        ;
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+        $.get('/mod/getRanks.php', function (data) {
+          $('.rankList').html(data.out);
+        });
+
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
+
         break;
       default:
         return;
@@ -499,12 +673,12 @@ $(function () {
             .attr('data-height', img.naturalHeight)
             .on('click', function () {
               var $postContent = $(this).closest('.postContent');
-              if($postContent.length == 0) {
+              if ($postContent.length == 0) {
                 $(this).toggleClass('expanded');
                 return;
               }
               $(this).toggleClass('expanded');
-              if($postContent.find('.tinyImage.expanded').length == 0) {
+              if ($postContent.find('.tinyImage.expanded').length == 0) {
                 $postContent.removeClass('expanded');
               } else {
                 $postContent.addClass('expanded');

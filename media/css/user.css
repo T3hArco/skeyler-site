@@ -60,8 +60,9 @@
   border-image: url(../images/noiseGrey.png) 0 0 2 0 repeat repeat;
   border-width: 0px 0px 2px 0px;
   text-align: right;
+  font-weight: bold;
 }
-/* line 49, ../scss/user.scss */
+/* line 50, ../scss/user.scss */
 .quickstats dl {
   display: block;
   width: 188px;
@@ -69,7 +70,7 @@
   margin: 0;
   padding: 0;
 }
-/* line 57, ../scss/user.scss */
+/* line 58, ../scss/user.scss */
 .quickstats dt, .quickstats dd {
   display: inline-block;
   padding: 0.25em 8px;
@@ -79,30 +80,30 @@
   white-space: nowrap;
   overflow: visible;
 }
-/* line 66, ../scss/user.scss */
+/* line 67, ../scss/user.scss */
 .quickstats dt:nth-of-type(even), .quickstats dd:nth-of-type(even) {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
 }
-/* line 71, ../scss/user.scss */
+/* line 72, ../scss/user.scss */
 .quickstats dt {
   letter-spacing: -1px;
 }
-/* line 74, ../scss/user.scss */
+/* line 75, ../scss/user.scss */
 .quickstats dd {
   text-align: right;
 }
-/* line 80, ../scss/user.scss */
+/* line 81, ../scss/user.scss */
 .quickstats dd a:after {
   display: none;
 }
 
-/* line 86, ../scss/user.scss */
+/* line 87, ../scss/user.scss */
 .statsDetailed {
   float: left;
   padding: 0 0 0 30px;
   width: 620px;
 }
-/* line 95, ../scss/user.scss */
+/* line 96, ../scss/user.scss */
 .statsDetailed ul.tabs {
   display: inline-block;
   list-style: none;
@@ -123,7 +124,7 @@
   height: 1.5em;
   overflow: hidden;
 }
-/* line 110, ../scss/user.scss */
+/* line 111, ../scss/user.scss */
 .statsDetailed ul.tabs:after {
   content: '';
   display: inline-block;
@@ -131,35 +132,35 @@
   line-height: 0;
   width: 99%;
 }
-/* line 118, ../scss/user.scss */
+/* line 119, ../scss/user.scss */
 .statsDetailed ul.tabs li {
   display: inline-block;
 }
-/* line 121, ../scss/user.scss */
+/* line 122, ../scss/user.scss */
 .statsDetailed ul.tabs li a {
   padding: 0 0.25em;
   color: #555;
   border-bottom: 2px solid transparent;
 }
-/* line 127, ../scss/user.scss */
+/* line 128, ../scss/user.scss */
 .statsDetailed ul.tabs li a:hover {
   border-bottom-color: #555;
   text-decoration: none;
 }
-/* line 133, ../scss/user.scss */
+/* line 134, ../scss/user.scss */
 .statsDetailed ul.tabs li.selected a {
   color: #25bfff;
   border-bottom: 2px solid #25bfff;
 }
-/* line 141, ../scss/user.scss */
+/* line 142, ../scss/user.scss */
 .statsDetailed .tabItem {
   display: none;
 }
-/* line 144, ../scss/user.scss */
+/* line 145, ../scss/user.scss */
 .statsDetailed .tabItem.selected {
   display: block;
 }
-/* line 149, ../scss/user.scss */
+/* line 150, ../scss/user.scss */
 .statsDetailed h3 {
   background: url(../images/noiseBlackLight.png) repeat left center #636363;
   color: #fff;
@@ -168,7 +169,7 @@
   font-size: 1em;
   font-weight: bold;
 }
-/* line 158, ../scss/user.scss */
+/* line 159, ../scss/user.scss */
 .statsDetailed dl, .statsDetailed .stats {
   display: block;
   width: 590px;
@@ -184,11 +185,11 @@
   border-image: url(../images/noiseBlackLight.png) 0 1 1 1 repeat repeat;
   border-width: 0px 1px 1px 1px;
 }
-/* line 167, ../scss/user.scss */
+/* line 168, ../scss/user.scss */
 .statsDetailed .stats {
   padding: 0.5em;
 }
-/* line 171, ../scss/user.scss */
+/* line 172, ../scss/user.scss */
 .statsDetailed dt, .statsDetailed dd {
   display: inline-block;
   padding: 0.25em 8px;
@@ -198,19 +199,33 @@
   white-space: nowrap;
   overflow: visible;
 }
-/* line 180, ../scss/user.scss */
+/* line 181, ../scss/user.scss */
 .statsDetailed dt:nth-of-type(even), .statsDetailed dd:nth-of-type(even) {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
-/* line 185, ../scss/user.scss */
+/* line 186, ../scss/user.scss */
+.statsDetailed dt.sprite {
+  padding-left: 30px;
+  height: auto;
+  line-height: 1.428571429;
+}
+/* line 191, ../scss/user.scss */
+.statsDetailed dt.sprite.globalRank:before {
+  top: 8px;
+}
+/* line 194, ../scss/user.scss */
+.statsDetailed dt.sprite.victories:before {
+  top: 5px;
+}
+/* line 199, ../scss/user.scss */
 .statsDetailed dt {
   letter-spacing: -1px;
 }
-/* line 188, ../scss/user.scss */
+/* line 202, ../scss/user.scss */
 .statsDetailed dd {
   text-align: right;
 }
-/* line 194, ../scss/user.scss */
+/* line 208, ../scss/user.scss */
 .statsDetailed dd a:after {
   display: none;
 }
