@@ -206,9 +206,10 @@ class User
     $lis = array();
     switch ($type) {
       case 'forum':
-        if (self::can(User::RANK_ADMIN)) {
+        if (self::can(User::RANK_SUPER)) {
           $lis[] = 'Rename Forum';
           $lis[] = 'Move Forum';
+          $lis[] = 'Create New Forum';
         }
         break;
       case 'thread':

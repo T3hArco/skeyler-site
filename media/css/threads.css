@@ -119,52 +119,57 @@ h2.threadTitle.closed:after {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
 }
 
-/* line 129, ../scss/threads.scss */
+/* line 128, ../scss/threads.scss */
 .postOptions {
   opacity: 0.25;
 }
 
-/* line 133, ../scss/threads.scss */
+/* line 132, ../scss/threads.scss */
 .post:hover .postOptions, .postOptions.active {
   opacity: 1;
 }
 
-/* line 137, ../scss/threads.scss */
+/* line 136, ../scss/threads.scss */
+.postContent.expanded + .postOptions {
+  display: none;
+}
+
+/* line 140, ../scss/threads.scss */
 .userInfo {
   width: 192px;
   display: inline-block;
   padding: 0 32px;
   text-align: right;
 }
-/* line 158, ../scss/threads.scss */
+/* line 161, ../scss/threads.scss */
 .userInfo .avatar {
   width: 128px;
   height: 128px;
   border: 2px solid #d1d1d1;
   display: inline-block;
 }
-/* line 165, ../scss/threads.scss */
+/* line 168, ../scss/threads.scss */
 .userInfo a.userLink {
   color: #404346;
   font-weight: bold;
   display: block;
 }
-/* line 171, ../scss/threads.scss */
+/* line 174, ../scss/threads.scss */
 .userInfo .postCount {
   display: block;
 }
-/* line 175, ../scss/threads.scss */
+/* line 178, ../scss/threads.scss */
 .userInfo .rankTag {
   display: block;
 }
-/* line 179, ../scss/threads.scss */
+/* line 182, ../scss/threads.scss */
 .userInfo .ip, .userInfo .steamId {
   display: block;
   color: #afafaf;
   font-size: 0.75em;
 }
 
-/* line 186, ../scss/threads.scss */
+/* line 189, ../scss/threads.scss */
 .postContent {
   display: inline-block;
   width: 645px;
@@ -174,12 +179,13 @@ h2.threadTitle.closed:after {
   overflow-x: auto;
   font-family: Helvetica;
   color: #333;
+  text-align: justify;
 }
-/* line 198, ../scss/threads.scss */
+/* line 202, ../scss/threads.scss */
 .postContent.expanded {
   overflow-x: initial;
 }
-/* line 202, ../scss/threads.scss */
+/* line 206, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -188,31 +194,31 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 211, ../scss/threads.scss */
+/* line 215, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 218, ../scss/threads.scss */
+/* line 222, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 225, ../scss/threads.scss */
+/* line 229, ../scss/threads.scss */
 .postContent blockquote a.postLink {
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 232, ../scss/threads.scss */
+/* line 236, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 236, ../scss/threads.scss */
+/* line 240, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
@@ -221,7 +227,7 @@ h2.threadTitle.closed:after {
   font-style: italic;
   color: #999;
 }
-/* line 245, ../scss/threads.scss */
+/* line 249, ../scss/threads.scss */
 .postContent .postTime {
   font-size: 0.75em;
   color: #676565;

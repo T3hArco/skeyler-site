@@ -123,7 +123,6 @@ h2.threadTitle {
       @include noise(Blue);
     }
   }
-
 }
 
 .postOptions {
@@ -132,6 +131,10 @@ h2.threadTitle {
 
 .post:hover .postOptions, .postOptions.active {
   opacity: 1;
+}
+
+.postContent.expanded + .postOptions {
+  display: none;
 }
 
 .userInfo {
@@ -194,6 +197,7 @@ h2.threadTitle {
   overflow-x: auto;
   font-family: Helvetica;
   color: #333;
+  text-align: justify;
 
   &.expanded {
     overflow-x: initial;
@@ -223,7 +227,7 @@ h2.threadTitle {
     }
 
     a.postLink {
-      font-size: 1em;
+      font-size: 0.9em;
       margin: 0 0 10px -16px;
       display: inline-block;
     }

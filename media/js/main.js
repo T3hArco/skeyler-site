@@ -761,6 +761,63 @@ $(function () {
         });
 
         break;
+
+      case 'renameForum':
+        sendNow = false;
+
+        var forumId = forumData.forumId;
+        var name = $h2.text();
+        var description = forumData.forumDescription;
+
+
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val(name).attr('placeholder', 'Forum Name');
+        var $inputDescription = $('<input>').val(description).attr('placeholder', 'Forum Description');
+
+        var $submit = $('<button>').text('Change this forum\'s name and description!!').on('click', function () {
+          postData = {
+            forumId: forumId,
+            name: $input.val(),
+            description: $inputDescription.val()
+          };
+          $.post('/mod/renameForum.php', postData, function (data) {
+            $popupContainer.remove();
+            handleNotices(data, function (a) {
+              document.location = document.location;
+            });
+
+          });
+        });
+
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
+        $h4 = $('<h4>').html('CHECK OUT THIS WICKED SICK FORUM RENAME!');
+        $popup
+          .append($h4, $input, $('<br>'), $inputDescription, $('<br>'), $submit, $cancel)
+        ;
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
+        break;
       case 'demoteUser':
 
 

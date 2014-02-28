@@ -180,7 +180,7 @@ $tags: (vip, mod, admin, dev, super, owner);
     padding: 8px;
     overflow: auto;
     overflow-x: hidden;
-    background: #fff;
+    @include noise(White);
   }
 
   .chat {
@@ -401,6 +401,27 @@ a.sprite[target="_blank"]:after {
   @include filter(blur(2px));
   //color:transparent;
   //text-shadow:0 0 0.5em #ccc, 0 0 0.5em #ccc;
-
 }
 
+input {
+  @include noise(Grey);
+  @include noiseBorder(GreyDark, 2, 0, 0, 1);
+}
+
+textarea {
+  @include noise(Grey);
+  @include noiseBorder(GreyDark, 3, 0, 0, 2);
+}
+
+input[type="submit"], button {
+  padding: 0.5em 1em;
+  @include noiseBorder(GreyDark, 0, 1, 2, 0);
+  color: #5c5c5c;
+  margin: 0 0 2px 0;
+  vertical-align: top;
+
+  &:focus {
+    @include noiseBorder(GreyDark, 2, 0, 0, 1);
+    margin: 2px 0 0 0;
+  }
+}

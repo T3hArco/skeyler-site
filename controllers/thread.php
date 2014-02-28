@@ -4,7 +4,7 @@ require '../_.php';
 global $User, $Config, $pageId;
 
 $Page = new Page('forums');
-$Page->setClasses('thread');
+$Page->setClasses('page-thread');
 
 $threadId = (int)getGet('threadId');
 $postId = (int)getGet('postId');

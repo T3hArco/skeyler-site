@@ -260,7 +260,7 @@ ul.pageNav li.curPage span {
   padding: 8px;
   overflow: auto;
   overflow-x: hidden;
-  background: #fff;
+  background: url(../images/noisewhite.png) repeat left center white;
 }
 /* line 187, ../scss/main.scss */
 #chatbox .chat a.userLink:before {
@@ -524,4 +524,58 @@ a.sprite[target="_blank"]:after {
   -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
   filter: blur(2px);
+}
+
+/* line 406, ../scss/main.scss */
+input {
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  border-width: 2px 0px 0px 1px;
+}
+
+/* line 411, ../scss/main.scss */
+textarea {
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 3 0 0 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 3 0 0 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 3 0 0 2 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 3 0 0 2 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 3 0 0 2 repeat repeat;
+  border-width: 3px 0px 0px 2px;
+}
+
+/* line 416, ../scss/main.scss */
+input[type="submit"], button {
+  padding: 0.5em 1em;
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 0 1 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 1 2 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 0 1 2 0 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 0 1 2 0 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 0 1 2 0 repeat repeat;
+  border-width: 0px 1px 2px 0px;
+  color: #5c5c5c;
+  margin: 0 0 2px 0;
+  vertical-align: top;
+}
+/* line 423, ../scss/main.scss */
+input[type="submit"]:focus, button:focus {
+  border-style: solid;
+  border-color: #e0e0e0;
+  -moz-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -webkit-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  -o-border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  border-image: url(../images/noiseGreyDark.png) 2 0 0 1 repeat repeat;
+  border-width: 2px 0px 0px 1px;
+  margin: 2px 0 0 0;
 }
