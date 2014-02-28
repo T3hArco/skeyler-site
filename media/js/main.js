@@ -511,7 +511,7 @@ $(function () {
   // you're modding someone on their user profile!!
   $('.mod-user a').on('click', function () {
     var userData = $(this).closest('.profile').data();
-    $el = $(this).closest('li');
+    var $el = $(this).closest('li');
     var modType = $el.data('modType');
     var sendNow = true;
     var postData = {};
@@ -657,6 +657,186 @@ $(function () {
 
     return false;
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // you're doing forum modding!!!
+  $('.mod-forum a').on('click', function () {
+
+    var $el = $(this).closest('li');
+    var modType = $el.data('modType');
+
+    var $h2 = $(this).closest('.modDropdown').prev('h2');
+    var forumData = $h2.data();
+
+    var sendNow = true;
+    var postData = {};
+
+    var callback = function (data) {
+      var cb = noop();
+      // if successful, we want to redirect/refresh
+      if (data.success) {
+      }
+      handleNotices(data, cb);
+      // make the dropdowns go away
+      $(window).click();
+    };
+
+    var send = function (cb) {
+      cb = cb || noop;
+      var cb2 = function (data) {
+        callback(data);
+        cb();
+      };
+      $.post('/mod/' + modType + '.php', postData, cb2);
+    };
+
+    var sendCallback = noop();
+
+    switch (modType) {
+      case 'renameForum':
+        sendNow = false;
+
+        var forumId = forumData.forumId;
+        var name = $h2.text();
+        var description = forumData.forumDescription;
+
+
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val(name).attr('placeholder', 'Forum Name');
+        var $inputDescription = $('<input>').val(description).attr('placeholder', 'Forum Description');
+
+        var $submit = $('<button>').text('Change this forum\'s name and description!!').on('click', function () {
+          postData = {
+            forumId: forumId,
+            name: $input.val(),
+            description: $inputDescription.val()
+          };
+          $.post('/mod/renameForum.php', postData, function (data) {
+            $popupContainer.remove();
+            handleNotices(data, function (a) {
+              document.location = document.location;
+            });
+
+          });
+        });
+
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
+        $h4 = $('<h4>').html('CHECK OUT THIS WICKED SICK FORUM RENAME!');
+        $popup
+          .append($h4, $input, $('<br>'), $inputDescription, $('<br>'), $submit, $cancel)
+        ;
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
+        break;
+      case 'demoteUser':
+
+
+        sendNow = false;
+        var $popup = $('<div>').addClass('popup');
+        var $popupContainer = $('<div>').addClass('popupContainer');
+        var $input = $('<input>').val(userData.rank);
+        var userId = userData.userId;
+
+        var $submit = $('<button>').text('Pick this user\'s new rank!!!').on('click', function () {
+          postData = {
+            userId: userId,
+            newRank: $input.val()
+          };
+          $.post('/mod/userChangeRank.php', postData, function (data) {
+            $popupContainer.remove();
+            handleNotices(data, function (a) {
+              document.location = document.location;
+            });
+
+          });
+        });
+
+        var $cancel = $('<a>')
+            .attr('href', '#')
+            .text('Close! Undo! Undo! I changed my mind!')
+            .addClass('popupCloseLink')
+            .on('click', function () {
+              $popupContainer.remove();
+              return false;
+            })
+          ;
+
+        var $h4 = $('<h4>').html('PUNISH THIS USER FOR THEIR INSOLENCE!');
+        var $rankList = $('<div>')
+            .text('Available Ranks Loading!!!....')
+            .addClass('rankList')
+          ;
+        $popup
+          .append($h4, $input, $submit, $rankList, $cancel)
+        ;
+        $popupContainer
+          .append($popup)
+          .appendTo($('body'))
+        ;
+
+        $.get('/mod/getRanks.php', function (data) {
+          $('.rankList').html(data.out);
+        });
+
+        $(window).on('keydown.popup', function (e) {
+          var key = e.keyCode;
+          if (key == 27) {
+            $cancel.click();
+            $(window).off('keydown.popup');
+          }
+        });
+
+
+        break;
+      default:
+        return;
+    }
+
+    if (sendNow) {
+      send(sendCallback);
+    }
+
+    return false;
+  });
+
+
+
+
+
+
 
 
   $('.postContent img').one('load',function () {

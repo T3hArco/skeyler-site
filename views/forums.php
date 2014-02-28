@@ -1,5 +1,6 @@
 <?php global $now, $Config, $pageId; ?>
-  <h2><?php echo $local['forums'][$local['forumId']]['name']; ?></h2>
+  <h2 data-forum-id="<?php echo $local['forumId']; ?>" data-forum-description="<?php echo ent($local['forums'][$local['forumId']]['description']); ?>"><?php echo ent($local['forums'][$local['forumId']]['name']); ?></h2>
+  <?php echo User::writeModOptions('forum'); ?>
   <br class="clr" />
 <?php if ($local['forumId']) : ?>
   <span class="forumInfo"><?php echo $local['forums'][$local['forumId']]['threadCount']; ?>

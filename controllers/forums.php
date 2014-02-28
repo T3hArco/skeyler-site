@@ -1,6 +1,7 @@
 <?php
 require '../_.php';
 $Page = new Page('forums');
+$Page->setClasses('page-forum');
 
 $forumId = (int)getGet('forumId');
 

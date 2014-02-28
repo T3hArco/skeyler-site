@@ -152,7 +152,7 @@
   }
 
   public static function close($threadId) {
-    $query = 'UPDATE threads SET isClosed = 1 WHERE id = :threadId';
+    $query = 'UPDATE threads SET isClosed = 1 WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
     );
@@ -160,7 +160,7 @@
   }
 
   public static function open($threadId) {
-    $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId';
+    $query = 'UPDATE threads SET isClosed = 0 WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
     );
@@ -168,7 +168,7 @@
   }
 
   public static function sticky($threadId) {
-    $query = 'UPDATE threads SET isSticky = 1 WHERE id = :threadId';
+    $query = 'UPDATE threads SET isSticky = 1 WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
     );
@@ -176,7 +176,7 @@
   }
 
   public static function unsticky($threadId) {
-    $query = 'UPDATE threads SET isSticky = 0 WHERE id = :threadId';
+    $query = 'UPDATE threads SET isSticky = 0 WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
     );
@@ -184,7 +184,7 @@
   }
 
   public static function rename($threadId, $title) {
-    $query = 'UPDATE threads SET title = :title WHERE id = :threadId';
+    $query = 'UPDATE threads SET title = :title WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
       'title' => $title,
@@ -198,7 +198,7 @@
 
     DB::beginTransaction();
 
-    $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId';
+    $query = 'UPDATE threads SET forumId = :forumId WHERE id = :threadId LIMIT 1';
     $binds = array(
       'threadId' => $threadId,
       'forumId' => $destinationForumId,

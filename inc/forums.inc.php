@@ -218,6 +218,26 @@ class Forums
 
   }
 
+  public static function rename($forumId, $name, $description = null) {
+    if (is_null($description)) {
+      $query = 'UPDATE forums SET name = :name WHERE id = :forumId LIMIT 1';
+      $binds = array(
+        'forumId' => $forumId,
+        'name' => $name,
+      );
+    }
+    else {
+      $query = 'UPDATE forums SET name = :name, description = :description WHERE id = :forumId LIMIT 1';
+      $binds = array(
+        'forumId' => $forumId,
+        'name' => $name,
+        'description' => $description,
+      );
+    }
+    DB::q($query, $binds);
+  }
+
+
 }
 
 
