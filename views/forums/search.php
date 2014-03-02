@@ -9,7 +9,7 @@ $posts = $local['posts'];
         <div class="post">A post matched here, but you don't have permission to view it. ~({ O W N A G E })~</div>
       <?php else : ?>
         <div class="post post-<?php echo $post['id']; ?>" data-post-id="<?php echo $post['id']; ?>">
-          <a href="/thread.php?threadId=<?php echo $post['threadId']; ?>"><?php echo ent($post['title']); ?></a>
+          <a href="/forums/thread.php?threadId=<?php echo $post['threadId']; ?>"><?php echo ent($post['title']); ?></a>
           -
           <a href="/forum.php?forumId=<?php echo $post['forumId']; ?>"><?php echo $post['forumName']; ?></a>
           -

@@ -1,5 +1,7 @@
  
-
+IndexIgnore *
 DirectoryIndex blog.php
 
-
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^forums$ /forums/ [NC,QSA,L]

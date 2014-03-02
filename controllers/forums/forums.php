@@ -1,5 +1,5 @@
 <?php
-require '../_.php';
+require '_forums.php';
 $Page = new Page('forums');
 $Page->setClasses('page-forum');
 
@@ -13,8 +13,8 @@ if (!isset($forums[$forumId])) {
 }
 
 $local['breadcrumbs'] = array(
-  'Forums' => '/forums.php',
-  $forums[$forumId]['name'] => '/forums.php?forumId=' . $forumId,
+  'Forums' => '/forums/',
+  $forums[$forumId]['name'] => '/forums/?forumId=' . $forumId,
 );
 
 if ($forumId == 0) {

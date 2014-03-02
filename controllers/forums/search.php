@@ -1,5 +1,5 @@
 <?php
-require '../_.php';
+require '_forums.php';
 $Page = new Page('forum');
 $Page->header('Search');
 

@@ -1,7 +1,7 @@
 <?php global $User; ?>
 <?php $post = $local['post']; ?>
 <h2>Edit a Post From:
-  <a href="/thread.php?threadId=<?php echo $local['thread']['id']; ?>"><?php echo ent($local['thread']['title']); ?></a>
+  <a href="/forums/thread.php?threadId=<?php echo $local['thread']['id']; ?>"><?php echo ent($local['thread']['title']); ?></a>
 </h2>
 <form method="post" class="editPost">
   <label>

@@ -1,5 +1,5 @@
 <?php
-require '../_.php';
+require '_forums.php';
 $Page = new Page('forums');
 
 $postId = (int)getGet('postId');
@@ -39,9 +39,9 @@ if($thread['isClosed'] && !User::can(User::RANK_MOD)) {
 }
 
 $local['breadcrumbs'] = array(
-  'Forums' => '/forums.php',
-  $forum['name'] => '/forums.php?forumId=' . $thread['forumId'],
-  $thread['title'] => '/thread.php?threadId=' . $thread['id'],
+  'Forums' => '/forums/',
+  $forum['name'] => '/forums/?forumId=' . $thread['forumId'],
+  $thread['title'] => '/forums/thread.php?threadId=' . $thread['id'],
 );
 
 // they submitted the form
@@ -58,7 +58,7 @@ if ($isSubmit) {
 
   if (!$hasErrors) {
     $lastPostId = Posts::editPost($content, $postId);
-    redirect('/thread.php?postId=' . $postId);
+    redirect('/forums/thread.php?postId=' . $postId);
   }
 }
 

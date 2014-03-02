@@ -1,5 +1,5 @@
 <?php
-require '../_.php';
+require '_forums.php';
 
 global $User, $Config, $pageId;
 
@@ -17,7 +17,7 @@ if ($postId && !$threadId) {
     $postCount = Posts::getPostCountForPostIdByThread($post);
     $pageId = floor(($postCount - 1) / $Config['postsPerPage']) + 1;
     $postNum = (($postCount - 1) % $Config['postsPerPage']) + 1;
-    redirect('/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
+    redirect('/forums/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
   }
 }
 
@@ -27,7 +27,7 @@ if($lastPost) {
   $postCount = $thread['postCount'];
   $pageId = floor(($postCount - 1) / $Config['postsPerPage']) + 1;
   $postNum = (($postCount - 1) % $Config['postsPerPage']) + 1;
-  redirect('/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
+  redirect('/forums/thread.php?threadId=' . $threadId . '&page=' . $pageId . '#p_' . $postNum);
 }
 
 if (!$thread) {
@@ -43,9 +43,9 @@ if (!$forum) {
 }
 
 $local['breadcrumbs'] = array(
-  'Forums' => '/forums.php',
-  $forum['name'] => '/forums.php?forumId=' . $thread['forumId'],
-  $thread['title'] => '/thread.php?threadId=' . $threadId,
+  'Forums' => '/forums/',
+  $forum['name'] => '/forums/?forumId=' . $thread['forumId'],
+  $thread['title'] => '/forums/thread.php?threadId=' . $threadId,
 );
 
 if ($User['rank'] < $forum['visibleRank']) {

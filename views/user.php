@@ -35,7 +35,7 @@ $user = $local['user'];
       <h3>Forum Stats</h3>
       <dl>
         <dt>Post Count</dt><!--
-             --><dd><a href="/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+             --><dd><a href="/forums/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
         <dt>Forum Rank</dt><!--
              --><dd><?php echo User::writeRankTag($user); ?></dd>
         <dt>Doubloons Tossed</dt><!--

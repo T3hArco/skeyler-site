@@ -480,7 +480,7 @@ $(function () {
     switch (modType) {
       case 'editPost':
         sendNow = false;
-        document.location = '/editPost.php?postId=' + post_data.postId;
+        document.location = '/forums/editPost.php?postId=' + post_data.postId;
         break;
       case 'deletePost':
         var z = confirm('Are you sure you want to delete this very good post???');

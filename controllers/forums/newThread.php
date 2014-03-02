@@ -1,5 +1,5 @@
 <?php
-require '../_.php';
+require '_forums.php';
 $Page = new Page('forums');
 
 
@@ -25,8 +25,8 @@ if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostR
 
 
 $local['breadcrumbs'] = array(
-  'Forums' => '/forums.php',
-  $forum['name'] => '/forums.php?forumId=' . $forumId,
+  'Forums' => '/forums/',
+  $forum['name'] => '/forums/?forumId=' . $forumId,
 );
 
 // they submitted the form
@@ -60,7 +60,7 @@ if ($isSubmit) {
 
   if (!$hasErrors) {
     $threadId = Threads::insertThread($title, $content, $forumId, $options);
-    redirect('/thread.php?threadId=' . $threadId);
+    redirect('/forums/thread.php?threadId=' . $threadId);
   }
 
 

@@ -42,7 +42,7 @@ if ($local['thread']['isSticky']) {
         <a href="#" class="sprite quote"></a>
         <a href="/user.php?userId=<?php echo $User['id']; ?>" class="sprite userProfile" target="_blank"></a>
         <?php if ($post['userId'] == $User['id']) : ?>
-          <a href="/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
+          <a href="/forums/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
           <?php //else : ?>
           <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>
@@ -52,7 +52,7 @@ if ($local['thread']['isSticky']) {
 </div>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'bottom right'); ?>
 <?php if($local['canPost']) : ?>
-  <form method="post" class="createPost" action="/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
+  <form method="post" class="createPost" action="/forums/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
     <label>
       <strong>Content:</strong><br/>
       <textarea id="postContent" name="content" rows="10" cols="100"></textarea>
