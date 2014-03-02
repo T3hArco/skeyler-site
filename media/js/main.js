@@ -196,7 +196,7 @@ $(function () {
         .text('Sending message...')
         .appendTo($chats)
       ;
-      $chats.scrollTop($chats.outerHeight() + 100);
+      $chats.scrollTop($chats.outerHeight() + 200);
       $(this).find('#chatboxPost').val('');
 
       $.post('/api/chatboxPost.php', {content: content}, function (json) {
@@ -215,14 +215,14 @@ $(function () {
             )
           ;
           $chats.append($div);
-          $chats.scrollTop($chats.outerHeight() + 100);
+          $chats.scrollTop($chats.outerHeight() + 200);
         } else {
           $div = $('<div>')
             .addClass('chat-message chat-error')
             .text('Error sending message.')
             .appendTo($chats)
           ;
-          $chats.scrollTop($chats.outerHeight() + 100);
+          $chats.scrollTop($chats.outerHeight() + 200);
         }
 
       })
@@ -1177,7 +1177,7 @@ function updateChatbox() {
     data.highestId = parseInt(data.highestId, 10);
     data.lowestId = parseInt(data.lowestId, 10);
     var addedNew = false;
-    var atBottom = ($chats.get(0).scrollHeight - $chats.scrollTop() <= $chats.outerHeight());
+    var atBottom = ($chats.get(0).scrollHeight - $chats.scrollTop() <= $chats.outerHeight() + 14); // 14 is some extra padding. like if you're on the second to last line
     for (var i = _.max([chatbox.lowestId + 1, data.lowestId]); i <= data.highestId; i++) {
       if (!data.chats[i] || $chats.find('.chat-' + i).length > 0) {
         continue;
@@ -1228,7 +1228,7 @@ function updateChatbox() {
     }
     // if new stuff was added, and we're at the bottom of the screen
     if (addedNew && atBottom) {
-      $chats.scrollTop($chats.outerHeight() + 100);
+      $chats.scrollTop($chats.outerHeight() + 200);
     }
 
     if (chatbox.playNoise && addedNew) {

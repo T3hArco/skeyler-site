@@ -184,10 +184,17 @@ $tags: (vip, mod, admin, dev, super, owner);
   }
 
   .chat {
-    a.userLink:before {
-      line-height: 1.0;
-      vertical-align: bottom;
-      max-height: 15px;
+    a.userLink {
+      height: 15px;
+      display: inline-block;
+
+      &:before {
+        line-height: 1.0;
+        vertical-align: bottom;
+        max-height: 15px;
+        height: 15px;
+        display: none;
+      }
     }
   }
 

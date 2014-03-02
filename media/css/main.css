@@ -263,20 +263,27 @@ ul.pageNav li.curPage span {
   background: url(../images/noisewhite.png) repeat left center white;
 }
 /* line 187, ../scss/main.scss */
+#chatbox .chat a.userLink {
+  height: 15px;
+  display: inline-block;
+}
+/* line 191, ../scss/main.scss */
 #chatbox .chat a.userLink:before {
   line-height: 1.0;
   vertical-align: bottom;
   max-height: 15px;
+  height: 15px;
+  display: none;
 }
-/* line 194, ../scss/main.scss */
+/* line 201, ../scss/main.scss */
 #chatbox .chat-date {
   font-style: italic;
 }
-/* line 198, ../scss/main.scss */
+/* line 205, ../scss/main.scss */
 #chatbox .chat ~ .chat-date {
   margin-top: 1em;
 }
-/* line 202, ../scss/main.scss */
+/* line 209, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -291,7 +298,7 @@ ul.pageNav li.curPage span {
   border-radius: 0 0 0.5em 0.5em;
 }
 
-/* line 212, ../scss/main.scss */
+/* line 219, ../scss/main.scss */
 .dimensions {
   position: absolute;
   display: inline-block;
@@ -301,22 +308,22 @@ ul.pageNav li.curPage span {
   padding: 0.5em;
   font-size: 0.8em;
 }
-/* line 221, ../scss/main.scss */
+/* line 228, ../scss/main.scss */
 .dimensions:hover {
   color: #fff;
 }
 
-/* line 226, ../scss/main.scss */
+/* line 233, ../scss/main.scss */
 .tinyImage {
   border: 2px solid #a54;
   cursor: pointer;
 }
-/* line 230, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .tinyImage.expanded {
   max-width: none;
 }
 
-/* line 235, ../scss/main.scss */
+/* line 242, ../scss/main.scss */
 .missing42 {
   width: 42px;
   height: 42px;
@@ -324,7 +331,7 @@ ul.pageNav li.curPage span {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
 
-/* line 242, ../scss/main.scss */
+/* line 249, ../scss/main.scss */
 .missing52 {
   width: 42px;
   height: 42px;
@@ -332,22 +339,22 @@ ul.pageNav li.curPage span {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0AQMAAAD/tomoAAAABlBMVEX4APgAAAAfdBzzAAAAKUlEQVR4Xt3PQQkAAAjAwIEBjGR1IxlAUEvoQxjce6DlUrHmZAlXfvtpTQiymQ2xdWAAAAAASUVORK5CYII=") no-repeat;
 }
 
-/* line 251, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 .modButton.active {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
   z-index: 1000;
 }
 
-/* line 258, ../scss/main.scss */
+/* line 265, ../scss/main.scss */
 .modDropdown {
   display: inline-block;
   position: relative;
 }
-/* line 262, ../scss/main.scss */
+/* line 269, ../scss/main.scss */
 .modDropdown:hover {
   background: url(../images/noiseBlackLight.png) repeat left center #636363;
 }
-/* line 283, ../scss/main.scss */
+/* line 290, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -360,7 +367,7 @@ ul.pageNav li.curPage span {
   text-align: left;
   background: #222;
 }
-/* line 297, ../scss/main.scss */
+/* line 304, ../scss/main.scss */
 .modDropdown ul li a {
   color: #fff;
   display: block;
@@ -369,12 +376,12 @@ ul.pageNav li.curPage span {
   background: url(../images/noiseblack.png) repeat left center #3b3b3b;
   line-height: 32px;
 }
-/* line 305, ../scss/main.scss */
+/* line 312, ../scss/main.scss */
 .modDropdown ul li a:hover {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
   text-decoration: none;
 }
-/* line 311, ../scss/main.scss */
+/* line 318, ../scss/main.scss */
 .modDropdown ul li.userActions {
   padding: 0 16px;
   line-height: 32px;
@@ -382,19 +389,19 @@ ul.pageNav li.curPage span {
   font-weight: bold;
   white-space: nowrap;
 }
-/* line 321, ../scss/main.scss */
+/* line 328, ../scss/main.scss */
 .modDropdown ul.mod-thread a {
   padding: 0 0.5em 0 0;
 }
 
 @-moz-keyframes spin {
-  /* line 330, ../scss/main.scss */
+  /* line 337, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 333, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -402,13 +409,13 @@ ul.pageNav li.curPage span {
 }
 
 @-webkit-keyframes spin {
-  /* line 330, ../scss/main.scss */
+  /* line 337, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 333, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -416,13 +423,13 @@ ul.pageNav li.curPage span {
 }
 
 @-o-keyframes spin {
-  /* line 330, ../scss/main.scss */
+  /* line 337, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 333, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -430,13 +437,13 @@ ul.pageNav li.curPage span {
 }
 
 @-ms-keyframes spin {
-  /* line 330, ../scss/main.scss */
+  /* line 337, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 333, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -444,18 +451,18 @@ ul.pageNav li.curPage span {
 }
 
 @keyframes spin {
-  /* line 330, ../scss/main.scss */
+  /* line 337, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 333, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 338, ../scss/main.scss */
+/* line 345, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -468,7 +475,7 @@ ul.pageNav li.curPage span {
   z-index: 9998;
 }
 
-/* line 350, ../scss/main.scss */
+/* line 357, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;
@@ -480,34 +487,34 @@ ul.pageNav li.curPage span {
   background: #eee;
 }
 
-/* line 361, ../scss/main.scss */
+/* line 368, ../scss/main.scss */
 .popupCloseLink {
   font-size: 0.75em;
 }
-/* line 364, ../scss/main.scss */
+/* line 371, ../scss/main.scss */
 .popupCloseLink:before {
   margin-top: 2em;
   content: '\a';
   display: block;
 }
 
-/* line 371, ../scss/main.scss */
+/* line 378, ../scss/main.scss */
 table {
   width: 100%;
 }
 
-/* line 379, ../scss/main.scss */
+/* line 386, ../scss/main.scss */
 a[target="_blank"]:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAAD1BMVEX///////////////////+Rd1MVAAAABHRSTlMAaeRqY+AomwAAADNJREFUeF4lxIEJACAMBLErdACRjuIAX/n9Z7IghEDYhlwkcGe7Z+Xac4cLnVKjkOCzLR6tNQaTLNDT1wAAAABJRU5ErkJggg==");
   white-space: pre;
 }
 
-/* line 385, ../scss/main.scss */
+/* line 392, ../scss/main.scss */
 a.sprite[target="_blank"]:after {
   display: none;
 }
 
-/* line 389, ../scss/main.scss */
+/* line 396, ../scss/main.scss */
 .login {
   width: 154px;
   height: 23px;
@@ -518,7 +525,7 @@ a.sprite[target="_blank"]:after {
   color: transparent;
 }
 
-/* line 399, ../scss/main.scss */
+/* line 406, ../scss/main.scss */
 .curse {
   font-weight: bold;
   -webkit-filter: blur(2px);
@@ -526,7 +533,7 @@ a.sprite[target="_blank"]:after {
   filter: blur(2px);
 }
 
-/* line 406, ../scss/main.scss */
+/* line 413, ../scss/main.scss */
 input {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   border-style: solid;
@@ -539,7 +546,7 @@ input {
   border-width: 2px 0px 0px 1px;
 }
 
-/* line 411, ../scss/main.scss */
+/* line 418, ../scss/main.scss */
 textarea {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   border-style: solid;
@@ -552,7 +559,7 @@ textarea {
   border-width: 3px 0px 0px 2px;
 }
 
-/* line 416, ../scss/main.scss */
+/* line 423, ../scss/main.scss */
 input[type="submit"], button {
   padding: 0.5em 1em;
   border-style: solid;
@@ -567,7 +574,7 @@ input[type="submit"], button {
   margin: 0 0 2px 0;
   vertical-align: top;
 }
-/* line 423, ../scss/main.scss */
+/* line 430, ../scss/main.scss */
 input[type="submit"]:focus, button:focus {
   border-style: solid;
   border-color: #e0e0e0;
