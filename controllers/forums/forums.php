@@ -17,6 +17,7 @@ $local['breadcrumbs'] = array(
   $forums[$forumId]['name'] => '/forums/?forumId=' . $forumId,
 );
 
+
 if ($forumId == 0) {
   array_pop($local['breadcrumbs']);
 
@@ -27,6 +28,8 @@ if ($forumId == 0) {
   }
 
   $data['onlineUsers'] = $onlineUsers;
+} else {
+  $data['showOnlineUsers'] = false;
 }
 
 // marks the forum as seen at the current time by the current user
