@@ -659,18 +659,6 @@ $(function () {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   // you're doing forum modding!!!
   $('.mod-forum a').on('click', function () {
 
@@ -890,12 +878,6 @@ $(function () {
   });
 
 
-
-
-
-
-
-
   $('.postContent img').one('load',function () {
       var $that = $(this);
       var img = $(this).get(0);
@@ -1044,9 +1026,6 @@ $(function () {
   });
 
 
-  /////// WTF EVERYTHING BELOW THIS LINE IN JQUERY IS BUSTED
-
-
   var wordsOfCurse = ['poopy'];
 
   //replace the very very bad words!!!!
@@ -1054,13 +1033,13 @@ $(function () {
     var textNodes = [];
 
     function grabInner(node) {
-      if (node.nodeType == 3) {
-        if (!node.nodeValue.match(/^\s*$/)) {
+      if ((node || {}).nodeType == 3) {
+        if (node && !node.nodeValue.match(/^\s*$/)) {
           textNodes.push(node);
         }
       }
       else {
-        var childNodes = node.childNodes;
+        var childNodes = (node || {}).childNodes || [];
         var len = childNodes.length;
         for (var a = 0; a < len; a += 1) {
           grabInner(childNodes[a]);

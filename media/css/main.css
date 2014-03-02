@@ -528,9 +528,11 @@ a.sprite[target="_blank"]:after {
 /* line 406, ../scss/main.scss */
 .curse {
   font-weight: bold;
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  filter: blur(2px);
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  filter: blur(1px);
+  color: transparent;
+  text-shadow: 0 0 0.25em #ccc, 0 0 0.5em #ccc;
 }
 
 /* line 413, ../scss/main.scss */
