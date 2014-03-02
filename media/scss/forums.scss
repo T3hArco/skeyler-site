@@ -345,6 +345,18 @@ table.threads {
 
 }
 
+.onlineUsers {
+  @include noise(White);
+  padding: 1em;
 
+  h3 {
+    margin: 0;
+  }
+
+  .userLink {
+    margin-right: 1em;
+  }
+
+}
 
 

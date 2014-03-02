@@ -3,7 +3,7 @@ require '_forums.php';
 $Page = new Page('forums');
 $Page->setClasses('page-forum');
 
-$forumId = (int)getGet('forumId');
+$forumId = (int) getGet('forumId');
 
 $forums = Forums::getForumAndSubforums($forumId);
 
@@ -19,6 +19,14 @@ $local['breadcrumbs'] = array(
 
 if ($forumId == 0) {
   array_pop($local['breadcrumbs']);
+
+  $data['showOnlineUsers'] = true;
+  $onlineUsers = User::loadOnlineUsers();
+  foreach ($onlineUsers as &$user) {
+    $user = User::writeUserLink($user);
+  }
+
+  $data['onlineUsers'] = $onlineUsers;
 }
 
 // marks the forum as seen at the current time by the current user

@@ -354,3 +354,17 @@ table.threads thead:after {
 table.threads tbody tr:first-of-type {
   border-width: 0;
 }
+
+/* line 348, ../scss/forums.scss */
+.onlineUsers {
+  background: url(../images/noisewhite.png) repeat left center white;
+  padding: 1em;
+}
+/* line 352, ../scss/forums.scss */
+.onlineUsers h3 {
+  margin: 0;
+}
+/* line 356, ../scss/forums.scss */
+.onlineUsers .userLink {
+  margin-right: 1em;
+}

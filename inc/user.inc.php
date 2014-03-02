@@ -344,4 +344,20 @@ class User
     return true;
   }
 
+  // returns all users active on the forums in the last 15mins
+  public static function loadOnlineUsers() {
+    global $now;
+    $query = '
+      SELECT *
+      FROM users
+      WHERE lastActiveForumTimestamp >= :timestamp
+      ORDER BY rank DESC
+      LIMIT 51;
+    ';
+    $binds = array(
+      'timestamp' => $now - 15 * 60,
+    );
+    return DB::q($query, $binds)->fetchAll();
+  }
+
 }
