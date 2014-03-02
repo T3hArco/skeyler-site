@@ -215,11 +215,9 @@ table.threads {
     @include noise(Grey);
     font-size: 0.75em;
     @include noiseBorder(GreyMedium, 7, 0, 0, 0);
-    //border-top:7px solid transparent;
 
     &:hover {
-      //background-color: #f2f3f6;
-      @include noise(OffWhite);
+      @include noise(GreyDark);
     }
 
     td {
@@ -306,6 +304,10 @@ table.threads {
     tr {
       background: transparent;
       border-width: 0;
+
+      &:hover {
+        background: transparent;
+      }
     }
 
     th {
