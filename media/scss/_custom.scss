@@ -7,7 +7,7 @@ $mainWidth: 900px;
 $borderGrey: #dfdfdf;
 $borderGray: $borderGrey;
 
-$subforumBg: #3d628c;
+$subforumBg: #3b3b3b;
 //#3d3d3e;
 
 // $orange: #F7931D;
@@ -41,6 +41,12 @@ $graey: #aaa;
   }
   @if $color == GreyMedium {
     @return #f3f3f3;
+  }
+  @if $color == Beige {
+    @return #f1e8b9;
+  }
+  @if $color == BeigeLight {
+    @return #fff5c4;
   }
   @if $color == OffWhite {
     @return #f9f9f9;

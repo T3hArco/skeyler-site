@@ -14,7 +14,11 @@
 .page-forum {
   .modDropdown {
     //right: 12px;/
-    float:right;
+    float: right;
+  }
+
+  h2 {
+    margin: 0;
   }
 }
 
@@ -23,22 +27,33 @@
   .row {
     background: $subforumBg;
     //color: #949495;
-    color: #94a9c0;
-    color: #ccc;
+    //color: #94a9c0;
+    //color: #ccc;
+    color: #aaa;
+    //color: #838383;
     min-height: 32px;
-    padding: 0 0 0 48px;
-    @include border-radius(0.25em);
+    padding: 0 0 0 30px;
     display: block;
     margin: 0 0 1em 0;
     text-align: right;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 7px;
+      bottom: 7px;
+      left: 7px;
+      width: 10px;
+    }
 
     &.head {
-      border-bottom: 1px solid #d8d8d8;
+      @include noiseBorder(Divider, 0, 0, 2, 0);
       background: transparent;
       padding: 0;
-      color: #494949;
+      color: #999;
       margin: 0 0 15px 0;
-      @include border-radius(0);
       vertical-align: bottom;
       min-height: 0;
       font-weight: bold;
@@ -60,16 +75,17 @@
       padding: 4px 0;
 
       &.noSubforums {
-        margin-top: 8px;
+        margin-top: 4px;
+        line-height: 1.2;
       }
 
       &.forumInfo {
         float: left;
         text-align: left;
+        line-height: 1;
 
         .forumName, .description {
           display: inline-block;
-          line-height: 1.0;
           float: left;
         }
 
@@ -101,10 +117,9 @@
             a {
               display: inline-block;
               padding: 0.1em 0.5em;
-              background: #2c4b6d;
-              //border: 1px solid rgba(#fff, 0.25);
+              //background: #2c4b6d;
+              @include noise(BlackLight);
               box-shadow: 0 0 0.25em rgba(#fff, 0.25);
-              @include border-radius(0.25em);
               color: #fff;
 
               &:hover {
@@ -116,8 +131,6 @@
       }
 
       &.postCount {
-        //color: #bababa;
-        color: #aaa;
         line-height: 52px;
         vertical-align: top;
         margin: 0 1em 0 0;
@@ -128,24 +141,25 @@
         display: inline-block;
         //float: right;
         // apparently a float here breaks randomly in chrome. weird rounding error?
-        background: #fff;
-        @include border-radius(0.25em);
+        background: #e7e7e7;
         margin: 2px;
-        padding: 2px;
+        padding: 5px;
         min-width: 200px;
         min-height: 56px;
 
         .avatar {
           vertical-align: top;
-          width: 52px;
-          height: 52px;
-          @include border-radius(0.25em);
+          width: 46px;
+          height: 46px;
+          //@include border-radius(0.25em);
           vertical-align: middle;
+          outline: 2px solid #bebebe;
         }
 
         .subPostInfo {
           display: inline-block;
           vertical-align: middle;
+          font-size: 1.2em;
         }
 
         .timestamp, .userLink, .viewLink {
@@ -161,7 +175,7 @@
           font-weight: bold;
         }
         .viewLink {
-          color: #385464;
+          color: $blue;
         }
 
       }
@@ -170,30 +184,17 @@
   }
 
   .row.forumNew {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEX////////////////////////////////7/fpnvTj///93xE2w3Zir25F1w0t0wkiv3Jat25NOxqYUAAAACHRSTlPqBoeE5I3nii1WPakAAABgSURBVHhe7dNJCoAwDEDRpJNJZ+9/WUUUau2wdKEfsspbBQIole2mJIKwwwTAGBx78o7PnKda7JO5KDdAKkFqAL71WTA/VC7B2gAU4gVioAeoew38YCJg9rwLoDZ9YDRu5Dsm96QNNE0AAAAASUVORK5CYII=') no-repeat 8px 6px $subforumBg;
+    &:before {
+      @include noise(Blue);
+      @include noiseBorder(White, 3, 2, 3, 2);
+    }
   }
 
   .row.forumSeen {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEX////////////////////////////////f39/////Hx8fIyMjd3d3+/v7CwsLe3t7mcNmfAAAACHRSTlMG6oeE5OeNiud7DD8AAABqSURBVHhe1dG9CYAwGIThA8EdHMHONRzBznXESlH0E2LvBhZu4AQZwSa9nb8cSRYQ3/KpDg5BKlZNglicakQuVBBVmrNZvwLpzV1BGB6YCOMD28fAYf70naDWCxZNYP8H/0r/7A5hZkObH+4YTEk1WQzWAAAAAElFTkSuQmCC') no-repeat 8px 6px $subforumBg;
-  }
-
-  .row.noSubforums {
-    background-position: 8px 13px;
-  }
-
-  .row:hover {
-    background-color: #6d90ba;
-    background-color: #5c7da0;
-    //color: #222;
-    //
-    //.cell.postCount {
-    //  //color: #222;
-    //}
-  }
-
-  .row.head:hover {
-    background-color: transparent;
-    color: #494949;
+    &:before {
+      @include noise(GreyDark);
+      @include noiseBorder(White, 3, 2, 3, 2);
+    }
   }
 
 }
@@ -209,13 +210,16 @@ table.threads {
 
   tr {
     color: #515151;
-    height: 25px;
-    background-color: #e5e5e5;
+    height: 40px;
+    //background-color: #e5e5e5;
+    @include noise(Grey);
     font-size: 0.75em;
-    border-top: 7px solid #fff;
+    @include noiseBorder(GreyMedium, 7, 0, 0, 0);
+    //border-top:7px solid transparent;
 
     &:hover {
-      background-color: #f2f3f6;
+      //background-color: #f2f3f6;
+      @include noise(OffWhite);
     }
 
     td {
@@ -224,22 +228,34 @@ table.threads {
     }
 
     .title {
-      padding-left: 32px;
+      padding-left: 24px;
       font-size: 1.25em;
-      position: relative;
 
       span {
         max-width: 275px;
         display: inline-block;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -16px;
+          top: -2px;
+          bottom: -2px;
+          display: block;
+          width: 9px;
+          @include noiseBorder(White, 3, 2, 3, 2);
+        }
+
       }
     }
 
-    &.threadNew .title {
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAATlBMVEX///////////////////////////////////////////+Ozmv///+NzWlqvjxpvjtnvTh2w0yOzmyLzWiNzmq74aaKzGWc1H2a03uKzGYLR4gOAAAAC3RSTlPe4bb9plNK4N+5uFc0eh4AAABZSURBVHhepczJDoUgEETRamZsnKf3/v9HNbBoA3HlXZ5UCs4ESME4KJ2eaQVK85A7CxGQxil3FMEtQ5GlEX4V+embzSry+zNzv+0i0hehSghdJR1s9JB8tBcwDgvd/QYRIgAAAABJRU5ErkJggg==') no-repeat 4px center;
+    &.threadNew .title span:before {
+      @include noise(Blue);
     }
 
-    &.threadSeen .title {
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAPFBMVEX////////////////////////////////////////////S0tLR0dH////Q0NDX19fDw8PCwsLIyMjk5OQj0fLoAAAAC3RSTlPe4f1K36a5tlO44J4ZVbgAAABMSURBVHhepcg5DoAwDATAdc7DzgH8/69ISWGUggKmHFjvoJy3iKY+mQiq55j6KgLqOKa2Bjr8aeRtemNmkUtH/RnahpC3yUihQJWQboMbDHlKFy9FAAAAAElFTkSuQmCC') no-repeat 4px center;
+    &.threadSeen .title span:before {
+      @include noise(GreyDark);
     }
 
     &.closed .title span a:after {
@@ -257,11 +273,13 @@ table.threads {
     }
 
     &.sticky {
-      background-color: #f2ecb6;
+      //background-color: #f2ecb6;
       //opacity: 1.0;
+      @include noise(Beige);
 
       &:hover {
-        background-color: #fffad9;
+        //background-color: #fffad9;
+        @include noise(BeigeLight);
       }
 
       .title span a:before {
@@ -276,13 +294,9 @@ table.threads {
     }
 
     a.userLink {
-      color: #385464;
+      color: $blue;
+      font-weight: bold;
     }
-
-  }
-
-  thead tr:hover {
-    background: initial;
   }
 
   thead {
@@ -291,30 +305,39 @@ table.threads {
 
     tr {
       background: transparent;
+      border-width: 0;
     }
 
     th {
       color: #494949;
-
       padding: 0;
 
       &.pageNav {
         vertical-align: bottom;
         font-weight: normal;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2em;
       }
     }
 
     // tables!! :argh:... lets fake a border
     &:after {
       content: '';
-      height: 1px;
+      height: 2px;
       display: block;
       position: absolute;
       left: 0;
       width: 866px + 32px - $contentPadding * 2;
-      background: $subforumBg;
-      background: #d8d8d8;
-      @include transform(translateY(-1px));
+      @include noise(Divider);
+      @include transform(translateY(-8px));
+    }
+  }
+
+  tbody {
+    & tr:first-of-type {
+      border-width: 0;
     }
   }
 

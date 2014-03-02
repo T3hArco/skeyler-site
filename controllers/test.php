@@ -7,3 +7,5 @@ echo '<img src="' . User::writeAvatar($User['avatarUrl'], 'full') . '" />';
 echo '<img src="' . User::writeAvatar($User['avatarUrl']) . '" />';
 
 ?>
+
+

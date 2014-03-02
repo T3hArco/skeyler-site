@@ -85,14 +85,14 @@
           <?php endif; ?>
         </td>
         <td>
-          <a href="/users.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
+          <a href="/user.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['userId']]['name']; ?></a>
         </td>
         <td><?php echo $thread['postCount']; ?></td>
         <td><?php echo $thread['views']; ?></td>
         <td colspan="2">
           <?php if ($thread['lastPostUserId']) : ?>
           <?php echo writeDate($thread['lastPostTimestamp']); ?> by
-          <a href="/users.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
+          <a href="/user.php?userId=<?php echo $local['users'][$thread['lastPostUserId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['lastPostUserId']]['name']; ?></a>
           <a href="/forums/thread.php?threadId=<?php echo $thread['id']; ?>&amp;lastPost">(view)</a></td>
         <?php else : ?>
           Never by nobody

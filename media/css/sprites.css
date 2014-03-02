@@ -76,7 +76,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   height: 24px;
   top: 4px;
 }
-/* line 64, ../scss/sprites.scss */
+/* line 65, ../scss/sprites.scss */
 .sprite.mod-demoteUser:before {
   background-position: 0 -29px;
   width: 14px;
@@ -84,7 +84,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   height: 13px;
   top: 9.5px;
 }
-/* line 64, ../scss/sprites.scss */
+/* line 65, ../scss/sprites.scss */
 .sprite.mod-promoteUser:before {
   background-position: -12px -14px;
   width: 14px;
@@ -92,7 +92,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   height: 13px;
   top: 9.5px;
 }
-/* line 64, ../scss/sprites.scss */
+/* line 65, ../scss/sprites.scss */
 .sprite.mod-banUser:before {
   background-position: 0 0;
   width: 14px;
@@ -100,7 +100,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   height: 13px;
   top: 9.5px;
 }
-/* line 64, ../scss/sprites.scss */
+/* line 65, ../scss/sprites.scss */
 .sprite.globalRank:before {
   background-position: 0 -14px;
   width: 12px;
@@ -108,7 +108,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   height: 12px;
   top: 10px;
 }
-/* line 64, ../scss/sprites.scss */
+/* line 65, ../scss/sprites.scss */
 .sprite.victories:before {
   background-position: 0 -53px;
   width: 15px;

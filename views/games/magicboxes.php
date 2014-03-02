@@ -26,7 +26,7 @@
               <span class="magicBox titletip" title="You must wait 24 hours before you can open another magic box."><?php echo($i * 10 + $j); ?></span>
             <?php endif; ?>
           <?php else : ?>
-            <a href="/users.php?userId=<?php echo $local['boxes'][$i * 10 + $j]; ?>" class="magicBox userLink empty"><?php echo ent($local['users'][$local['boxes'][$i * 10 + $j]]['name']); ?></a>
+            <a href="/user.php?userId=<?php echo $local['boxes'][$i * 10 + $j]; ?>" class="magicBox userLink empty"><?php echo ent($local['users'][$local['boxes'][$i * 10 + $j]]['name']); ?></a>
           <?php endif; ?>
         <?php endfor; ?>
       </div>
