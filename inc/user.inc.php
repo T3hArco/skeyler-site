@@ -163,9 +163,10 @@ class User
   public static function writeRankTag($user) {
     global $Config;
 
-    if(is_int($user)) {
+    if (is_int($user)) {
       $rank = $user;
-    } else {
+    }
+    else {
       $rank = $user['rank'];
     }
 
@@ -322,6 +323,22 @@ class User
     $binds = array(
       'userId' => $userId,
       'newRank' => $newRank,
+    );
+    DB::q($query, $binds);
+    return true;
+  }
+
+  public static function updateLastActiveTimestamp($userId) {
+    global $now;
+    $query = '
+      UPDATE users
+      SET lastActiveForumTimestamp = :now
+      WHERE id = :userId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'userId' => $userId,
+      'now' => $now,
     );
     DB::q($query, $binds);
     return true;

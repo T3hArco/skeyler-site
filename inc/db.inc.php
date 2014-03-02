@@ -13,6 +13,7 @@ class DB
     if (self::$conn) {
       return true;
     }
+    // Connects to DB. If you don't do a try-catch it will literally echo the password on error
     try {
       $dbInfo = $Config['db'];
       $dsn = $dbInfo['lang'] . ':dbname=' . $dbInfo['dbName'] . ';host=' . $dbInfo['host'];

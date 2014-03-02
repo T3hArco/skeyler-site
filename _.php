@@ -53,26 +53,8 @@ require 'inc/threads.inc.php';
 require 'inc/posts.inc.php';
 require 'inc/bbcode.inc.php';
 
-//connects to the db. If you don't do a try-catch it will literally echo the password on error
+//connects to the db.
 DB::init();
-
-
-//try {
-//  $dsn = $Config['db']['lang'] . ':dbname=' . $Config['db']['dbName'] . ';host=' . $Config['db']['host'];
-//  $DB = new DB($dsn, $Config['db']['user'], $Config['db']['pass']);
-//} catch (Exception $e) {
-//  header('HTTP/1.1 500 Internal Server Error');
-//  if (!isset($isJson) || !$isJson) {
-//    echo 'Failed to connect to database. Oh no!';
-//  } else {
-//    $err = array(
-//      'status' => 'failed',
-//      'message' => 'Database connection failed',
-//    );
-//    echo json_encode($err);
-//  }
-//  exit;
-//}
 
 // pageId is gonna be the most common $_GET, so might as well put it here
 $pageId = max(
@@ -122,5 +104,10 @@ if (isset($_SESSION['userId']) && $_SESSION['userId']) {
 }
 
 $isLoggedIn = (!!$User['id']);
+
+// if logged in, update their last view timestamp
+if($isLoggedIn) {
+  User::updateLastActiveTimestamp($User['id']);
+}
 
 
