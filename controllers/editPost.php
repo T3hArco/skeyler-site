@@ -34,6 +34,10 @@ if($User['id'] != $post['userId'] && User::can(User::RANK_MOD)) {
   exit;
 }
 
+if($thread['isClosed'] && !User::can(User::RANK_MOD)) {
+  Notice::error('This thread is closed. You can\'t edit posts in closed threads. Contact someone on staff if you need it modified.');
+}
+
 $local['breadcrumbs'] = array(
   'Forums' => '/forums.php',
   $forum['name'] => '/forums.php?forumId=' . $thread['forumId'],

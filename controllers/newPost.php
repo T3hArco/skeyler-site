@@ -23,6 +23,10 @@ if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostR
   exit;
 }
 
+if($thread['isClosed'] && !User::can(User::RANK_MOD)) {
+  Notice::error('This thread is closed. You can\'t post anything else in it');
+}
+
 $local['breadcrumbs'] = array(
   'Forums' => '/forums.php',
   $forum['name'] => '/forums.php?forumId=' . $thread['forumId'],

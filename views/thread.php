@@ -51,18 +51,19 @@ if ($local['thread']['isSticky']) {
   <?php endforeach; ?>
 </div>
 <?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'bottom right'); ?>
-<form method="post" class="createPost" action="/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
-  <label>
-    <strong>Content:</strong><br/>
-    <textarea id="postContent" name="content" rows="10" cols="100"></textarea>
-  </label>
-  <br/>
-  <input type="submit" value="Preview"/>
-  <input type="submit" name="submit" value="Post!"/>
+<?php if($local['canPost']) : ?>
+  <form method="post" class="createPost" action="/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
+    <label>
+      <strong>Content:</strong><br/>
+      <textarea id="postContent" name="content" rows="10" cols="100"></textarea>
+    </label>
+    <br/>
+    <input type="submit" value="Preview"/>
+    <input type="submit" name="submit" value="Post!"/>
 
-  <div class="draftWrapper">
-    <span class="saveDraft"></span>
-    <a class="loadDraft" href="#"></a>
-  </div>
-
-</form>
+    <div class="draftWrapper">
+      <span class="saveDraft"></span>
+      <a class="loadDraft" href="#"></a>
+    </div>
+  </form>
+<?php endif; ?>

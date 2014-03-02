@@ -73,5 +73,8 @@ $data['forum'] = $forum;
 $data['posts'] = $posts;
 $data['users'] = $users;
 
+// can post is the forum post rank limit + if the thread is closed you must be >= mod
+$data['canPost'] = User::can(max($forum['createPostRank'], ($thread['isClosed'] ? User::RANK_MOD :User::RANK_REGULAR)));
+
 $Page->header($thread['title']);
 view($data);
