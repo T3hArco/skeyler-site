@@ -224,7 +224,7 @@ function writeTimeLength($length, $outType = 'verbose') {
       'h' => 60 * 60,
       'm' => 60,
     );
-    $vals = [];
+    $vals = array();
 
     foreach($timeStrings as $val) {
 
@@ -236,7 +236,7 @@ function writeTimeLength($length, $outType = 'verbose') {
 
     $outStrs = array_slice(array_keys($timeStrings), count($timeStrings) - count($vals));
 
-    $out = [];
+    $out = array();
 
 
     foreach($vals as $i => $v) {
