@@ -329,35 +329,40 @@ class User
   }
 
   public static function updateLastActiveTimestamp($userId) {
-    global $now;
-    $query = '
-      UPDATE users
-      SET lastActiveForumTimestamp = :now
-      WHERE id = :userId
-      LIMIT 1;
-    ';
-    $binds = array(
-      'userId' => $userId,
-      'now' => $now,
-    );
-    DB::q($query, $binds);
-    return true;
+//    global $now;
+//    $query = '
+//      UPDATE users
+//      SET lastActiveForumTimestamp = :now
+//      WHERE id = :userId
+//      LIMIT 1;
+//    ';
+//    $binds = array(
+//      'userId' => $userId,
+//      'now' => $now,
+//    );
+//    DB::q($query, $binds);
+//    return true;
   }
 
   // returns all users active on the forums in the last 15mins
   public static function loadOnlineUsers() {
-    global $now;
-    $query = '
-      SELECT *
-      FROM users
-      WHERE lastActiveForumTimestamp >= :timestamp
-      ORDER BY rank DESC
-      LIMIT 51;
-    ';
-    $binds = array(
-      'timestamp' => $now - 15 * 60,
-    );
-    return DB::q($query, $binds)->fetchAll();
+    return array(array(
+      'id' => 1,
+      'rank'=>100,
+      'name' => 'POOPY BUTTS!',
+    ));
+//    global $now;
+//    $query = '
+//      SELECT *
+//      FROM users
+//      WHERE lastActiveForumTimestamp >= :timestamp
+//      ORDER BY rank DESC
+//      LIMIT 51;
+//    ';
+//    $binds = array(
+//      'timestamp' => $now - 15 * 60,
+//    );
+//    return DB::q($query, $binds)->fetchAll();
   }
 
 }
