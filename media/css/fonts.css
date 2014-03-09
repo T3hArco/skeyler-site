@@ -20,3 +20,11 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Helvetica Condensed Bold';
+  src: url("../fonts/HelveticaLTStd-BoldCond.eot");
+  src: url("../fonts/HelveticaLTStd-BoldCond.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaLTStd-BoldCond.woff") format("woff"), url("../fonts/HelveticaLTStd-BoldCond.ttf") format("truetype"), url("../fonts/HelveticaLTStd-BoldCond.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}

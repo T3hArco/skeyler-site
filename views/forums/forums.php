@@ -111,7 +111,7 @@
   <div class="onlineUsers">
     <h3>These users are online right now!</h3>
     <?php if(count($local['onlineUsers']) > 0) : ?>
-      <?php echo implode(', ', $local['onlineUsers']); ?>
+      <?php echo implode('', $local['onlineUsers']); ?>
     <?php else : ?>
       No one is online. So sad. :(
     <?php endif; ?>

@@ -21,8 +21,9 @@ if ($local['thread']['isSticky']) {
     <div class="post post-<?php echo $post['id']; ?><?php echo ($post['userId'] == $User['id'] ? ' myPost' : ''); ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
       <div class="userInfo">
         <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
-        <?php echo User::writeUserLink($local['users'][$post['userId']]); ?>
+        <?php echo User::writeUserLink($local['users'][$post['userId']], array('hideTag' => true)); ?>
         <span class="postCount"><?php echo($local['users'][$post['userId']]['postCount']); ?> posts</span>
+        <?php echo User::writeRankTag($local['users'][$post['userId']]); ?>
         <?php if (User::can(User::RANK_MOD)) : ?>
           <span class="steamId">STEAM_<?php echo $local['users'][$post['userId']]['steamId']; ?></span>
           <?php if (User::can(User::RANK_ADMIN)) : ?>

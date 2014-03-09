@@ -145,13 +145,13 @@
 .table.subforums .row .cell.lastPostInfo {
   text-align: left;
   display: inline-block;
-  background: #e7e7e7;
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   margin: 2px;
   padding: 5px;
   min-width: 200px;
   min-height: 56px;
 }
-/* line 150, ../scss/forums.scss */
+/* line 151, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .avatar {
   vertical-align: top;
   width: 46px;
@@ -159,31 +159,31 @@
   vertical-align: middle;
   outline: 2px solid #bebebe;
 }
-/* line 159, ../scss/forums.scss */
+/* line 160, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .subPostInfo {
   display: inline-block;
   vertical-align: middle;
   font-size: 1.2em;
 }
-/* line 165, ../scss/forums.scss */
+/* line 166, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .timestamp, .table.subforums .row .cell.lastPostInfo .userLink, .table.subforums .row .cell.lastPostInfo .viewLink {
   display: block;
   font-size: 0.65em;
 }
-/* line 170, ../scss/forums.scss */
+/* line 171, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .timestamp {
   color: #929292;
 }
-/* line 173, ../scss/forums.scss */
+/* line 174, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .userLink {
   color: #4b4b4b;
   font-weight: bold;
 }
-/* line 177, ../scss/forums.scss */
+/* line 178, ../scss/forums.scss */
 .table.subforums .row .cell.lastPostInfo .viewLink {
   color: #25bfff;
 }
-/* line 187, ../scss/forums.scss */
+/* line 188, ../scss/forums.scss */
 .table.subforums .row.forumNew:before {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
   border-style: solid;
@@ -195,7 +195,7 @@
   border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
   border-width: 3px 2px 3px 2px;
 }
-/* line 194, ../scss/forums.scss */
+/* line 195, ../scss/forums.scss */
 .table.subforums .row.forumSeen:before {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
   border-style: solid;
@@ -208,17 +208,17 @@
   border-width: 3px 2px 3px 2px;
 }
 
-/* line 202, ../scss/forums.scss */
+/* line 203, ../scss/forums.scss */
 table.threads {
   width: 100%;
   border-collapse: collapse;
   position: relative;
 }
-/* line 207, ../scss/forums.scss */
+/* line 208, ../scss/forums.scss */
 table.threads .pageNav {
   float: right;
 }
-/* line 211, ../scss/forums.scss */
+/* line 212, ../scss/forums.scss */
 table.threads tr {
   color: #515151;
   height: 40px;
@@ -233,27 +233,27 @@ table.threads tr {
   border-image: url(../images/noiseGreyMedium.png) 7 0 0 0 repeat repeat;
   border-width: 7px 0px 0px 0px;
 }
-/* line 219, ../scss/forums.scss */
+/* line 220, ../scss/forums.scss */
 table.threads tr:hover {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
-/* line 223, ../scss/forums.scss */
+/* line 224, ../scss/forums.scss */
 table.threads tr td {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-/* line 228, ../scss/forums.scss */
+/* line 229, ../scss/forums.scss */
 table.threads tr .title {
   padding-left: 24px;
   font-size: 1.25em;
 }
-/* line 232, ../scss/forums.scss */
+/* line 233, ../scss/forums.scss */
 table.threads tr .title span {
   max-width: 275px;
   display: inline-block;
   position: relative;
 }
-/* line 237, ../scss/forums.scss */
+/* line 238, ../scss/forums.scss */
 table.threads tr .title span:before {
   content: '';
   position: absolute;
@@ -271,62 +271,62 @@ table.threads tr .title span:before {
   border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
   border-width: 3px 2px 3px 2px;
 }
-/* line 251, ../scss/forums.scss */
+/* line 252, ../scss/forums.scss */
 table.threads tr.threadNew .title span:before {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
 }
-/* line 255, ../scss/forums.scss */
+/* line 256, ../scss/forums.scss */
 table.threads tr.threadSeen .title span:before {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
-/* line 259, ../scss/forums.scss */
+/* line 260, ../scss/forums.scss */
 table.threads tr.closed .title span a:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=");
 }
-/* line 266, ../scss/forums.scss */
+/* line 267, ../scss/forums.scss */
 table.threads tr.closed .title span a:before {
   content: 'Locked: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 273, ../scss/forums.scss */
+/* line 274, ../scss/forums.scss */
 table.threads tr.sticky {
   background: url(../images/noisebeige.png) repeat left center #f1e8b9;
 }
-/* line 278, ../scss/forums.scss */
+/* line 279, ../scss/forums.scss */
 table.threads tr.sticky:hover {
   background: url(../images/noiseBeigeLight.png) repeat left center #fff5c4;
 }
-/* line 283, ../scss/forums.scss */
+/* line 284, ../scss/forums.scss */
 table.threads tr.sticky .title span a:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 290, ../scss/forums.scss */
+/* line 291, ../scss/forums.scss */
 table.threads tr a {
   color: #515151;
 }
-/* line 294, ../scss/forums.scss */
+/* line 295, ../scss/forums.scss */
 table.threads tr a.userLink {
   color: #25bfff;
   font-weight: bold;
 }
-/* line 304, ../scss/forums.scss */
+/* line 305, ../scss/forums.scss */
 table.threads thead tr {
   background: transparent;
   border-width: 0;
 }
-/* line 308, ../scss/forums.scss */
+/* line 309, ../scss/forums.scss */
 table.threads thead tr:hover {
   background: transparent;
 }
-/* line 313, ../scss/forums.scss */
+/* line 314, ../scss/forums.scss */
 table.threads thead th {
   color: #494949;
   padding: 0;
 }
-/* line 317, ../scss/forums.scss */
+/* line 318, ../scss/forums.scss */
 table.threads thead th.pageNav {
   vertical-align: bottom;
   font-weight: normal;
@@ -335,7 +335,7 @@ table.threads thead th.pageNav {
   margin: 0;
   font-size: 1.2em;
 }
-/* line 328, ../scss/forums.scss */
+/* line 329, ../scss/forums.scss */
 table.threads thead:after {
   content: '';
   height: 2px;
@@ -350,21 +350,21 @@ table.threads thead:after {
   -o-transform: translateY(-8px);
   transform: translateY(-8px);
 }
-/* line 341, ../scss/forums.scss */
+/* line 342, ../scss/forums.scss */
 table.threads tbody tr:first-of-type {
   border-width: 0;
 }
 
-/* line 348, ../scss/forums.scss */
+/* line 349, ../scss/forums.scss */
 .onlineUsers {
   background: url(../images/noisewhite.png) repeat left center white;
   padding: 1em;
 }
-/* line 352, ../scss/forums.scss */
+/* line 353, ../scss/forums.scss */
 .onlineUsers h3 {
-  margin: 0;
+  margin: 0 0 0.5em 0;
 }
-/* line 356, ../scss/forums.scss */
+/* line 357, ../scss/forums.scss */
 .onlineUsers .userLink {
   margin-right: 1em;
 }

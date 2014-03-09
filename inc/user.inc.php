@@ -169,32 +169,62 @@ class User
     if ($rank == self::RANK_REGULAR) {
       return '';
     }
-    $rankStr = self::getRankStr($rank);
-    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
+
+    $rankShort = self::getRankStr($rank);
+    $rankStr = self::getRankStr($rank, true);
+
+    return '<span class="rankTag tag-' . $rankShort . '">' . $rankStr . '</span>';
+
+//    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
   }
 
-  public static function getRankStr($rank) {
-    if ($rank >= self::RANK_OWNER) {
-      return 'owner';
+  public static function getRankStr($rank, $isLong = false) {
+    if(!$isLong){
+      if ($rank >= self::RANK_OWNER) {
+        return 'owner';
+      }
+      elseif ($rank >= self::RANK_SUPER) {
+        return 'super';
+      }
+      elseif ($rank >= self::RANK_DEV) {
+        return 'dev';
+      }
+      elseif ($rank >= self::RANK_ADMIN) {
+        return 'admin';
+      }
+      elseif ($rank >= self::RANK_MOD) {
+        return 'mod';
+      }
+      elseif ($rank >= self::RANK_VIP) {
+        return 'vip';
+      }
+      elseif ($rank >= self::RANK_REGULAR) {
+        return 'reg';
+      }
+    } else {
+      if ($rank >= self::RANK_OWNER) {
+        return 'Owner';
+      }
+      elseif ($rank >= self::RANK_SUPER) {
+        return 'Super Administrator';
+      }
+      elseif ($rank >= self::RANK_DEV) {
+        return 'Developer';
+      }
+      elseif ($rank >= self::RANK_ADMIN) {
+        return 'Administrator';
+      }
+      elseif ($rank >= self::RANK_MOD) {
+        return 'Moderator';
+      }
+      elseif ($rank >= self::RANK_VIP) {
+        return 'VIP';
+      }
+      elseif ($rank >= self::RANK_REGULAR) {
+        return 'dirtshirt';
+      }
     }
-    elseif ($rank >= self::RANK_SUPER) {
-      return 'super';
-    }
-    elseif ($rank >= self::RANK_DEV) {
-      return 'dev';
-    }
-    elseif ($rank >= self::RANK_ADMIN) {
-      return 'admin';
-    }
-    elseif ($rank >= self::RANK_MOD) {
-      return 'mod';
-    }
-    elseif ($rank >= self::RANK_VIP) {
-      return 'vip';
-    }
-    elseif ($rank >= self::RANK_REGULAR) {
-      return 'regular';
-    }
+
     return 'peanutbutter';
   }
 
@@ -343,11 +373,39 @@ class User
 
   // returns all users active on the forums in the last 15mins
   public static function loadOnlineUsers() {
-//    return array(array(
-//      'id' => 1,
-//      'rank'=>100,
-//      'name' => 'POOPY BUTTS!',
-//    ));
+    return array(
+      array(
+        'id' => 1,
+        'rank' => 0,
+        'name' => 'asakhgdlakhs!',
+      ),array(
+        'id' => 1,
+        'rank' => 5,
+        'name' => 'asdt4etdfgDAF',
+      ),array(
+        'id' => 1,
+        'rank' => 10,
+        'name' => 'asd33DGSD',
+      ),array(
+        'id' => 1,
+        'rank' => 50,
+        'name' => 'KNOXed!',
+      ),array(
+        'id' => 1,
+        'rank' => 70,
+        'name' => 'snoipa!',
+      ),array(
+        'id' => 1,
+        'rank' => 90,
+        'name' => 'TNTag!',
+      ),array(
+        'id' => 1,
+        'rank' => 100,
+        'name' => 'George!',
+      ),
+
+
+    );
     global $now;
     $query = '
       SELECT *

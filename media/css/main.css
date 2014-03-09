@@ -164,79 +164,109 @@ ul.pageNav li.curPage span {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-vip:before {
-  content: url("../images/tags/vip.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 173, ../scss/main.scss */
+.tag-reg, .tag-vip, .tag-mod, .tag-admin, .tag-dev, .tag-super, .tag-owner {
+  color: #fff !important;
+  text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 3px #000;
+  padding: 0.25em 0.5em;
+  font-size: 1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  font-family: 'Helvetica Condensed Bold';
+}
+/* line 182, ../scss/main.scss */
+.tag-reg:hover, .tag-vip:hover, .tag-mod:hover, .tag-admin:hover, .tag-dev:hover, .tag-super:hover, .tag-owner:hover {
+  text-decoration: none;
+  outline: 2px solid #9c9c9c;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-mod:before {
-  content: url("../images/tags/mod.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 188, ../scss/main.scss */
+.tag-reg {
+  background: #e8e8e8;
+  text-shadow: 1px 1px 2px #000, 0 0 2px #000;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-admin:before {
-  content: url("../images/tags/admin.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 193, ../scss/main.scss */
+.tag-vip {
+  background: #ffe762;
+}
+/* line 196, ../scss/main.scss */
+.tag-vip:hover {
+  outline: 2px solid #c8a900;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-dev:before {
-  content: url("../images/tags/dev.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 201, ../scss/main.scss */
+.tag-mod {
+  background: #bdf04f;
+}
+/* line 203, ../scss/main.scss */
+.tag-mod:hover {
+  outline: 2px solid #6d990d;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-super:before {
-  content: url("../images/tags/super.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 208, ../scss/main.scss */
+.tag-admin {
+  background: #ff6262;
+}
+/* line 210, ../scss/main.scss */
+.tag-admin:hover {
+  outline: 2px solid #c80000;
 }
 
-/* line 137, ../scss/main.scss */
-.tag-owner:before {
-  content: url("../images/tags/owner.png") " ";
-  display: inline-block;
-  white-space: pre;
-  vertical-align: middle;
-  height: 16px;
+/* line 215, ../scss/main.scss */
+.tag-dev {
+  background: #7ad8ff;
+}
+/* line 217, ../scss/main.scss */
+.tag-dev:hover {
+  outline: 2px solid #009ee0;
 }
 
-/* line 147, ../scss/main.scss */
+/* line 222, ../scss/main.scss */
+.tag-super {
+  background: #ba83ff;
+}
+/* line 224, ../scss/main.scss */
+.tag-super:hover {
+  outline: 2px solid #6700e9;
+}
+
+/* line 229, ../scss/main.scss */
+.tag-owner {
+  background: #5e5e5e;
+}
+/* line 231, ../scss/main.scss */
+.tag-owner:hover {
+  outline: 2px solid #121212;
+}
+
+/* line 236, ../scss/main.scss */
+.rankTag {
+  padding: 0 0.5em;
+}
+/* line 239, ../scss/main.scss */
+.rankTag:hover {
+  outline: 0;
+}
+
+/* line 244, ../scss/main.scss */
 .breadcrumbs {
   margin: 0;
   padding: 0;
   display: inline-block;
   float: left;
 }
-/* line 153, ../scss/main.scss */
+/* line 250, ../scss/main.scss */
 .breadcrumbs li {
   display: inline-block;
   list-style: none;
   padding: 0 1em 0 0;
 }
-/* line 158, ../scss/main.scss */
+/* line 255, ../scss/main.scss */
 .breadcrumbs li a {
   color: #25bfff;
   display: inline-block;
 }
-/* line 162, ../scss/main.scss */
+/* line 259, ../scss/main.scss */
 .breadcrumbs li ~ li:before {
   content: '>';
   color: #555;
@@ -248,9 +278,9 @@ ul.pageNav li.curPage span {
   vertical-align: middle;
 }
 
-/* line 176, ../scss/main.scss */
+/* line 273, ../scss/main.scss */
 #chatbox .chats {
-  font-size: 0.75em;
+  font-size: 0.8em;
   border: 1px solid #d8d8d8;
   border-bottom: none;
   -webkit-border-radius: 0.5em 0.5em 0 0;
@@ -264,28 +294,26 @@ ul.pageNav li.curPage span {
   overflow-x: hidden;
   background: url(../images/noisewhite.png) repeat left center white;
 }
-/* line 189, ../scss/main.scss */
+/* line 287, ../scss/main.scss */
+#chatbox .chat ~ .chat {
+  margin-top: 0.25em;
+}
+/* line 291, ../scss/main.scss */
 #chatbox .chat a.userLink {
-  height: 15px;
   display: inline-block;
+  font-family: Helvetica, serif;
+  font-weight: bold;
+  font-size: 0.8em;
 }
-/* line 193, ../scss/main.scss */
-#chatbox .chat a.userLink:before {
-  line-height: 1.0;
-  vertical-align: bottom;
-  max-height: 15px;
-  height: 15px;
-  display: none;
-}
-/* line 203, ../scss/main.scss */
+/* line 308, ../scss/main.scss */
 #chatbox .chat-date {
   font-style: italic;
 }
-/* line 207, ../scss/main.scss */
+/* line 312, ../scss/main.scss */
 #chatbox .chat ~ .chat-date {
   margin-top: 1em;
 }
-/* line 211, ../scss/main.scss */
+/* line 316, ../scss/main.scss */
 #chatbox input {
   width: 100%;
   border: 1px solid #d8d8d8;
@@ -300,7 +328,7 @@ ul.pageNav li.curPage span {
   border-radius: 0 0 0.5em 0.5em;
 }
 
-/* line 221, ../scss/main.scss */
+/* line 326, ../scss/main.scss */
 .dimensions {
   position: absolute;
   display: inline-block;
@@ -310,22 +338,22 @@ ul.pageNav li.curPage span {
   padding: 0.5em;
   font-size: 0.8em;
 }
-/* line 230, ../scss/main.scss */
+/* line 335, ../scss/main.scss */
 .dimensions:hover {
   color: #fff;
 }
 
-/* line 235, ../scss/main.scss */
+/* line 340, ../scss/main.scss */
 .tinyImage {
   border: 2px solid #a54;
   cursor: pointer;
 }
-/* line 239, ../scss/main.scss */
+/* line 344, ../scss/main.scss */
 .tinyImage.expanded {
   max-width: none;
 }
 
-/* line 244, ../scss/main.scss */
+/* line 349, ../scss/main.scss */
 .missing42 {
   width: 42px;
   height: 42px;
@@ -333,7 +361,7 @@ ul.pageNav li.curPage span {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqAQMAAAD/DVsYAAAABlBMVEX4APgAAAAfdBzzAAAAJUlEQVR4Xs3OoQEAAARFwScZy+p/LAlDEKSrB5HW2tLyghselgat1Xgl/EfvxwAAAABJRU5ErkJggg==") no-repeat;
 }
 
-/* line 251, ../scss/main.scss */
+/* line 356, ../scss/main.scss */
 .missing52 {
   width: 42px;
   height: 42px;
@@ -341,22 +369,22 @@ ul.pageNav li.curPage span {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0AQMAAAD/tomoAAAABlBMVEX4APgAAAAfdBzzAAAAKUlEQVR4Xt3PQQkAAAjAwIEBjGR1IxlAUEvoQxjce6DlUrHmZAlXfvtpTQiymQ2xdWAAAAAASUVORK5CYII=") no-repeat;
 }
 
-/* line 260, ../scss/main.scss */
+/* line 365, ../scss/main.scss */
 .modButton.active {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
   z-index: 1000;
 }
 
-/* line 267, ../scss/main.scss */
+/* line 372, ../scss/main.scss */
 .modDropdown {
   display: inline-block;
   position: relative;
 }
-/* line 271, ../scss/main.scss */
+/* line 376, ../scss/main.scss */
 .modDropdown:hover {
   background: url(../images/noiseBlackLight.png) repeat left center #636363;
 }
-/* line 292, ../scss/main.scss */
+/* line 397, ../scss/main.scss */
 .modDropdown ul {
   display: none;
   position: absolute;
@@ -369,7 +397,7 @@ ul.pageNav li.curPage span {
   text-align: left;
   background: #222;
 }
-/* line 306, ../scss/main.scss */
+/* line 411, ../scss/main.scss */
 .modDropdown ul li a {
   color: #fff;
   display: block;
@@ -378,12 +406,12 @@ ul.pageNav li.curPage span {
   background: url(../images/noiseblack.png) repeat left center #3b3b3b;
   line-height: 32px;
 }
-/* line 314, ../scss/main.scss */
+/* line 419, ../scss/main.scss */
 .modDropdown ul li a:hover {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
   text-decoration: none;
 }
-/* line 320, ../scss/main.scss */
+/* line 425, ../scss/main.scss */
 .modDropdown ul li.userActions {
   padding: 0 16px;
   line-height: 32px;
@@ -391,19 +419,19 @@ ul.pageNav li.curPage span {
   font-weight: bold;
   white-space: nowrap;
 }
-/* line 330, ../scss/main.scss */
+/* line 435, ../scss/main.scss */
 .modDropdown ul.mod-thread a {
   padding: 0 0.5em 0 0;
 }
 
 @-moz-keyframes spin {
-  /* line 339, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   from {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 342, ../scss/main.scss */
+  /* line 447, ../scss/main.scss */
   to {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -411,13 +439,13 @@ ul.pageNav li.curPage span {
 }
 
 @-webkit-keyframes spin {
-  /* line 339, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 342, ../scss/main.scss */
+  /* line 447, ../scss/main.scss */
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -425,13 +453,13 @@ ul.pageNav li.curPage span {
 }
 
 @-o-keyframes spin {
-  /* line 339, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 342, ../scss/main.scss */
+  /* line 447, ../scss/main.scss */
   to {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -439,13 +467,13 @@ ul.pageNav li.curPage span {
 }
 
 @-ms-keyframes spin {
-  /* line 339, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
-  /* line 342, ../scss/main.scss */
+  /* line 447, ../scss/main.scss */
   to {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -453,18 +481,18 @@ ul.pageNav li.curPage span {
 }
 
 @keyframes spin {
-  /* line 339, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   from {
     transform: rotate(0deg);
   }
 
-  /* line 342, ../scss/main.scss */
+  /* line 447, ../scss/main.scss */
   to {
     transform: rotate(360deg);
   }
 }
 
-/* line 347, ../scss/main.scss */
+/* line 452, ../scss/main.scss */
 .popupContainer {
   text-align: center;
   position: fixed;
@@ -477,7 +505,7 @@ ul.pageNav li.curPage span {
   z-index: 9998;
 }
 
-/* line 359, ../scss/main.scss */
+/* line 464, ../scss/main.scss */
 .popup {
   padding: 1em;
   width: 80%;
@@ -489,34 +517,34 @@ ul.pageNav li.curPage span {
   background: #eee;
 }
 
-/* line 370, ../scss/main.scss */
+/* line 475, ../scss/main.scss */
 .popupCloseLink {
   font-size: 0.75em;
 }
-/* line 373, ../scss/main.scss */
+/* line 478, ../scss/main.scss */
 .popupCloseLink:before {
   margin-top: 2em;
   content: '\a';
   display: block;
 }
 
-/* line 380, ../scss/main.scss */
+/* line 485, ../scss/main.scss */
 table {
   width: 100%;
 }
 
-/* line 388, ../scss/main.scss */
+/* line 493, ../scss/main.scss */
 a[target="_blank"]:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAAD1BMVEX///////////////////+Rd1MVAAAABHRSTlMAaeRqY+AomwAAADNJREFUeF4lxIEJACAMBLErdACRjuIAX/n9Z7IghEDYhlwkcGe7Z+Xac4cLnVKjkOCzLR6tNQaTLNDT1wAAAABJRU5ErkJggg==");
   white-space: pre;
 }
 
-/* line 394, ../scss/main.scss */
+/* line 499, ../scss/main.scss */
 a.sprite[target="_blank"]:after {
   display: none;
 }
 
-/* line 398, ../scss/main.scss */
+/* line 503, ../scss/main.scss */
 .login {
   width: 154px;
   height: 23px;
@@ -527,7 +555,7 @@ a.sprite[target="_blank"]:after {
   color: transparent;
 }
 
-/* line 408, ../scss/main.scss */
+/* line 513, ../scss/main.scss */
 .curse {
   font-weight: bold;
   -webkit-filter: blur(1px);
@@ -537,7 +565,7 @@ a.sprite[target="_blank"]:after {
   text-shadow: 0 0 0.25em #ccc, 0 0 0.5em #ccc;
 }
 
-/* line 415, ../scss/main.scss */
+/* line 520, ../scss/main.scss */
 input {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   border-style: solid;
@@ -550,7 +578,7 @@ input {
   border-width: 2px 0px 0px 1px;
 }
 
-/* line 420, ../scss/main.scss */
+/* line 525, ../scss/main.scss */
 textarea {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
   border-style: solid;
@@ -563,7 +591,7 @@ textarea {
   border-width: 3px 0px 0px 2px;
 }
 
-/* line 425, ../scss/main.scss */
+/* line 530, ../scss/main.scss */
 input[type="submit"], button {
   padding: 0.5em 1em;
   border-style: solid;
@@ -578,7 +606,7 @@ input[type="submit"], button {
   margin: 0 0 2px 0;
   vertical-align: top;
 }
-/* line 432, ../scss/main.scss */
+/* line 537, ../scss/main.scss */
 input[type="submit"]:focus, button:focus {
   border-style: solid;
   border-color: #e0e0e0;
@@ -591,29 +619,29 @@ input[type="submit"]:focus, button:focus {
   margin: 2px 0 0 0;
 }
 
-/* line 438, ../scss/main.scss */
+/* line 543, ../scss/main.scss */
 .admin-form {
   display: block;
   clear: both;
 }
-/* line 442, ../scss/main.scss */
+/* line 547, ../scss/main.scss */
 .admin-form input {
   display: block;
 }
 
-/* line 457, ../scss/main.scss */
+/* line 562, ../scss/main.scss */
 .form-labels {
   width: 320px;
   float: left;
   margin: 20px;
 }
-/* line 462, ../scss/main.scss */
+/* line 567, ../scss/main.scss */
 .form-labels > div {
   position: relative;
   overflow: hidden;
   margin: 1em 0;
 }
-/* line 469, ../scss/main.scss */
+/* line 574, ../scss/main.scss */
 .form-labels .labels input, .form-labels .labels textarea {
   width: 100%;
   border-style: solid;
@@ -632,7 +660,7 @@ input[type="submit"]:focus, button:focus {
   padding: 12px;
   outline: 0;
 }
-/* line 480, ../scss/main.scss */
+/* line 585, ../scss/main.scss */
 .form-labels .labels input:focus, .form-labels .labels input:valid, .form-labels .labels textarea:focus, .form-labels .labels textarea:valid {
   border-style: solid;
   border-color: #e0e0e0;
@@ -644,7 +672,7 @@ input[type="submit"]:focus, button:focus {
   border-width: 2px 2px 2px 2px;
   padding: 4px 6px 20px 6px;
 }
-/* line 485, ../scss/main.scss */
+/* line 590, ../scss/main.scss */
 .form-labels .labels input:focus + label, .form-labels .labels input:valid + label, .form-labels .labels textarea:focus + label, .form-labels .labels textarea:valid + label {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
   color: white;
@@ -655,7 +683,7 @@ input[type="submit"]:focus, button:focus {
   top: 100%;
   margin-top: -16px;
 }
-/* line 496, ../scss/main.scss */
+/* line 601, ../scss/main.scss */
 .form-labels .labels input:focus, .form-labels .labels textarea:focus {
   border-style: solid;
   border-color: #25bfff;
@@ -666,11 +694,11 @@ input[type="submit"]:focus, button:focus {
   border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
   border-width: 2px 2px 2px 2px;
 }
-/* line 500, ../scss/main.scss */
+/* line 605, ../scss/main.scss */
 .form-labels .labels input:focus + label, .form-labels .labels textarea:focus + label {
   background: url(../images/noiseblue.png) repeat left center #25bfff;
 }
-/* line 505, ../scss/main.scss */
+/* line 610, ../scss/main.scss */
 .form-labels .labels label {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
@@ -682,7 +710,7 @@ input[type="submit"]:focus, button:focus {
   left: 0;
   width: 100%;
 }
-/* line 516, ../scss/main.scss */
+/* line 621, ../scss/main.scss */
 .form-labels .labels textarea {
   display: block;
   resize: vertical;

@@ -141,7 +141,8 @@
         display: inline-block;
         //float: right;
         // apparently a float here breaks randomly in chrome. weird rounding error?
-        background: #e7e7e7;
+        //background: #e7e7e7;
+        @include noise(Grey);
         margin: 2px;
         padding: 5px;
         min-width: 200px;
@@ -350,7 +351,7 @@ table.threads {
   padding: 1em;
 
   h3 {
-    margin: 0;
+    margin: 0 0 0.5em 0;
   }
 
   .userLink {
