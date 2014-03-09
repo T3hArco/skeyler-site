@@ -2,8 +2,8 @@
 
 .page-thread {
   & > .modDropdown {
-    right: 12px;
-    position: absolute;
+    float: right;
+    clear: both;
   }
 }
 
