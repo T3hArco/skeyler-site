@@ -4,11 +4,22 @@ require '_mod.php';
 // check permission
 validateRank(User::RANK_ADMIN);
 
-$postId = (int)getPost('postId');
+$postId = (int) getPost('postId');
 $post = Posts::load($postId);
 
-if(!$post) {
+if (!$post) {
   Notice::error('Could not find the post you want to delete!!!!');
+  exit;
+}
+
+$threadId = $post['threadId'];
+$thread = Threads::load($threadId);
+if ($thread['postCount'] == 1) {
+  $data = array(
+    'noPostsRemain' => true,
+    'success' => false,
+  );
+  view($data);
   exit;
 }
 

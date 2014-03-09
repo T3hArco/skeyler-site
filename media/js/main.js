@@ -470,7 +470,7 @@ $(function () {
       cb = cb || noop;
       var cb2 = function (data) {
         callback(data);
-        cb();
+        cb(data);
       };
       $.post('/mod/' + modType + '.php', postData, cb2);
     };
@@ -492,8 +492,17 @@ $(function () {
         postData = {
           postId: post_data.postId
         };
-        sendCallback = function () {
-          $post.css('opacity', 0.5);
+        sendCallback = function (data) {
+          if (data.success) {
+            $post.css('opacity', 0.5);
+          } else {
+            if (data.noPostsRemain) {
+              var z = confirm('Can\'t delete a post if its the only post in a thread. Would you like to delete the thread instead?');
+              if (z) {
+                $('.mod-thread .mod-deleteThread a').click();
+              }
+            }
+          }
         };
         break;
       default:
