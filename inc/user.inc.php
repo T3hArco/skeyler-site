@@ -93,7 +93,6 @@ class User
         SET
           name = :name,
           avatarUrl = :avatarUrl,
-          lastLoginTimestamp = :lastLoginTimestamp,
           lastLoginIp = :lastLoginIp
         WHERE id = :userId
         LIMIT 1;
@@ -103,7 +102,6 @@ class User
         'name' => $user['personaname'],
         'avatarUrl' => $user['avatar'],
         'lastLoginIp' => '',
-        'lastLoginTimestamp' => $now,
       );
 
       DB::q($query, $binds)->fetch();
@@ -115,12 +113,11 @@ class User
     }
     else {
       $query = '
-        INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, lastLoginTimestamp, authKey, avatarUrl)
-          VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :lastLoginTimestamp, :authKey, :avatarUrl)
+        INSERT INTO users(steamId64, steamId, name, registerIp, lastLoginIp, registerTimestamp, authKey, avatarUrl)
+          VALUES(:steamId64, :steamId, :name, :lastLoginIp, :lastLoginIp, :lastLoginTimestamp, :authKey, :avatarUrl)
         ON DUPLICATE KEY UPDATE
           name = :name,
           avatarUrl = :avatarUrl,
-          lastLoginTimestamp = :lastLoginTimestamp,
           lastLoginIp = :lastLoginIp
       ';
       $binds = array(
@@ -128,7 +125,6 @@ class User
         'steamId' => Steam::steam64ToSTEAM($user['steamid']),
         'name' => $user['personaname'],
         'lastLoginIp' => '',
-        'lastLoginTimestamp' => $now,
         'authKey' => randomStr(64),
         'avatarUrl' => $user['avatar'],
       );
