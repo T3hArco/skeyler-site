@@ -157,7 +157,6 @@ class User
 
   // normally you won't use this func. use writeUserLink instead!
   public static function writeRankTag($user) {
-    global $Config;
 
     if (is_int($user)) {
       $rank = $user;
@@ -373,39 +372,39 @@ class User
 
   // returns all users active on the forums in the last 15mins
   public static function loadOnlineUsers() {
-    return array(
-      array(
-        'id' => 1,
-        'rank' => 0,
-        'name' => 'asakhgdlakhs!',
-      ),array(
-        'id' => 1,
-        'rank' => 5,
-        'name' => 'asdt4etdfgDAF',
-      ),array(
-        'id' => 1,
-        'rank' => 10,
-        'name' => 'asd33DGSD',
-      ),array(
-        'id' => 1,
-        'rank' => 50,
-        'name' => 'KNOXed!',
-      ),array(
-        'id' => 1,
-        'rank' => 70,
-        'name' => 'snoipa!',
-      ),array(
-        'id' => 1,
-        'rank' => 90,
-        'name' => 'TNTag!',
-      ),array(
-        'id' => 1,
-        'rank' => 100,
-        'name' => 'George!',
-      ),
-
-
-    );
+//    return array(
+//      array(
+//        'id' => 1,
+//        'rank' => 0,
+//        'name' => 'asakhgdlakhs!',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 5,
+//        'name' => 'asdt4etdfgDAF',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 10,
+//        'name' => 'asd33DGSD',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 50,
+//        'name' => 'KNOXed!',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 70,
+//        'name' => 'snoipa!',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 90,
+//        'name' => 'TNTag!',
+//      ),array(
+//        'id' => 1,
+//        'rank' => 100,
+//        'name' => 'George!',
+//      ),
+//
+//
+//    );
     global $now;
     $query = '
       SELECT *
