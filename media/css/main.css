@@ -58,7 +58,7 @@ a {
 
 /* line 40, ../scss/main.scss */
 .alert-success {
-  background: url(../images/noisegreen.png) repeat left center #a6d95d;
+  background: url(../images/noisegreen.png) repeat left center #bdf04f;
   color: #fff;
 }
 /* line 44, ../scss/main.scss */
@@ -76,11 +76,6 @@ a {
   background: url(../images/noiseGreyMedium.png) repeat left center #f3f3f3;
   border: 1px solid #dfdfdf;
   padding: 30px;
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  -ms-border-radius: 0.25em;
-  -o-border-radius: 0.25em;
-  border-radius: 0.25em;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 0.25em;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 0.25em;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 0.25em;
@@ -633,7 +628,7 @@ input[type="submit"]:focus, button:focus {
 .form-labels {
   width: 320px;
   float: left;
-  margin: 20px;
+  margin: 20px 0;
 }
 /* line 567, ../scss/main.scss */
 .form-labels > div {
@@ -677,7 +672,7 @@ input[type="submit"]:focus, button:focus {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
   color: white;
   font-size: 70%;
-  padding: 1px 6px;
+  padding: 1px 8px;
   z-index: 2;
   text-transform: uppercase;
   top: 100%;

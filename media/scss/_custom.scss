@@ -18,6 +18,12 @@ $blue: #25bfff;
 $graey: #aaa;
 
 @function noiseToColor($color) {
+  @if $color == BlackFooter {
+    @return #1f1f1f;
+  }
+  @if $color == BlackNav {
+    @return #0e0e0e;
+  }
   @if $color == Black {
     @return #3b3b3b;
   }
@@ -31,7 +37,7 @@ $graey: #aaa;
     @return #5b8ec8;
   }
   @if $color == Green {
-    @return #a6d95d;
+    @return #bdf04f;
   }
   @if $color == Grey {
     @return #e9e9e9;

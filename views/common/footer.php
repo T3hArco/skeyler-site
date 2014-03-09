@@ -10,6 +10,14 @@
       <audio src="<?php echo $Config['mediaServer']; ?>audio/ding.mp3" id="chatboxAudio">
     </div>
   </div>
-  <p id="footer">footer</p>
+</div>
+  <footer>
+    <ul class="bottomNav"><!--
+      --><li <?php echo ($local['navigationItem'] == 'news' ? 'class = "selected"' : ''); ?>><a href="/blog.php">News</a></li><!--
+      --><li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums/">Forums</a></li><!--
+      --><!--<li <?php echo ($local['navigationItem'] == 'servers' ? 'class = "selected"' : ''); ?>><a href="/servers.php">Servers</a></li>--><!--
+      --><!--<li <?php echo ($local['navigationItem'] == 'stats' ? 'class = "selected"' : ''); ?>><a href="/stats.php">Stats</a></li>--><!--
+    --></ul>
+  </footer>
   </body>
 </html>

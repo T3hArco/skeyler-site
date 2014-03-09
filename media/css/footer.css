@@ -1,0 +1,56 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 5, ../scss/footer.scss */
+footer {
+  background: #1f1f1f;
+  margin-top: -32px;
+  padding: 0 0 150px 0;
+}
+
+/* line 11, ../scss/footer.scss */
+ul.bottomNav {
+  border-style: solid;
+  border-color: #636363;
+  -moz-border-image: url(../images/noiseBlackLight.png) 1 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlackLight.png) 1 0 0 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlackLight.png) 1 0 0 0 repeat repeat;
+  -o-border-image: url(../images/noiseBlackLight.png) 1 0 0 0 repeat repeat;
+  border-image: url(../images/noiseBlackLight.png) 1 0 0 0 repeat repeat;
+  border-width: 1px 0px 0px 0px;
+  font-family: 'Arvil Sans', Arial;
+  font-size: 1.5em;
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  width: 900px;
+  margin: 0 auto;
+  background: #0e0e0e;
+  position: relative;
+  top: 32px;
+  text-align: left;
+}
+/* line 27, ../scss/footer.scss */
+ul.bottomNav li {
+  display: inline-block;
+}
+/* line 30, ../scss/footer.scss */
+ul.bottomNav li a {
+  display: inline-block;
+  padding: 0 1em;
+  color: #939393;
+  text-decoration: none;
+  line-height: 46px;
+}
+/* line 38, ../scss/footer.scss */
+ul.bottomNav li a:hover {
+  background: url(../images/noiseblack.png) repeat left center #3b3b3b;
+}
+/* line 43, ../scss/footer.scss */
+ul.bottomNav li.selected a {
+  color: #25bfff;
+}

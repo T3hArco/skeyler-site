@@ -1,0 +1,48 @@
+@import "base";
+
+$footerOffset: 32px;
+
+footer {
+  background: #1f1f1f;
+  margin-top: (-1 * $footerOffset);
+  padding: 0 0 150px 0;
+}
+
+ul.bottomNav {
+  @include noiseBorder(BlackLight, 1, 0, 0, 0);
+  $liHeight: 46px;
+  font-family: 'Arvil Sans', Arial;
+  font-size: 1.5em;
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  width: $mainWidth;
+  margin: 0 auto;
+  background: #0e0e0e;
+  // there's no point in using a noisy image for a background this dark
+  position: relative;
+  top: ($footerOffset);
+  text-align: left;
+
+  li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      padding: 0 1em;
+      color: #939393;
+      text-decoration: none;
+      //@include border-radius(0.5em);
+      line-height: $liHeight;
+
+      &:hover {
+        @include noise(Black);
+      }
+    }
+
+    &.selected a {
+      color: $blue;
+    }
+  }
+
+}
