@@ -58,7 +58,7 @@
     <?php endforeach; ?>
   </div>
 <?php endif; ?>
-<?php if (User::can($local['forums'][$local['forumId']]['createThreadRank'])) : ?>
+<?php if (User::can($local['forums'][$local['forumId']]['createThreadRank']) && $local['forumId'] != 0) : ?>
   <a href="/forums/newThread.php?forumId=<?php echo $local['forumId']; ?>" class="newThreadLink">New Thread</a>
 <?php endif; ?>
 <?php if (count($local['threads']) > 0) : ?>

@@ -33,6 +33,7 @@ if (!$forumId) {
     'createPostRank' => 0,
     'createThreadRank' => 0,
   );
+  $data['isCreate'] = true;
   $data['parentId'] = (int) getGet('parentId');
 }
 else {
@@ -41,11 +42,11 @@ else {
     Notice::error('No forum found with that ID!');
     return;
   }
+  $data['isCreate'] = false;
 }
 
 $Page->header();
 
 $data['forum'] = $forum;
-$data['isCreate'] = true;
 view($data);
 
