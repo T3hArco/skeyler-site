@@ -26,6 +26,7 @@
 
 <h3>New Thread Preview:</h3>
 <h2 id="parsedTitle">Your title could be here!</h2>
+<br class="clr">
 <div class="posts">
   <div class="post">
     <div class="userInfo">

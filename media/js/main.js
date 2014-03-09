@@ -671,6 +671,8 @@ $(function () {
     var sendNow = true;
     var postData = {};
 
+    var forumId = forumData.forumId;
+
     var callback = function (data) {
       var cb = noop();
       // if successful, we want to redirect/refresh
@@ -696,7 +698,6 @@ $(function () {
       case 'renameForum':
         sendNow = false;
 
-        var forumId = forumData.forumId;
         var name = $h2.text();
         var description = forumData.forumDescription;
 
@@ -753,7 +754,6 @@ $(function () {
       case 'renameForum':
         sendNow = false;
 
-        var forumId = forumData.forumId;
         var name = $h2.text();
         var description = forumData.forumDescription;
 
@@ -808,7 +808,7 @@ $(function () {
         break;
       case 'createNewForum':
         sendNow = false;
-        document.location = '/mod/editForum.php';
+        document.location = '/mod/editForum.php?parentId=' + forumId;
         break;
       case 'editForum':
         sendNow = false;

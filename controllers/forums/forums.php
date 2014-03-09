@@ -19,7 +19,7 @@ $local['breadcrumbs'] = array(
 
 
 if ($forumId == 0) {
-  array_pop($local['breadcrumbs']);
+  $local['breadcrumbs'] = array();
 
   $data['showOnlineUsers'] = true;
   $onlineUsers = User::loadOnlineUsers();

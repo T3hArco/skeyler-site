@@ -32,7 +32,7 @@ class Forums
   SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.createPostRank, f.createThreadRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId
   FROM forums AS f
   LEFT JOIN forum_parents AS fp
-    ON fp.forumId = f.id
+    ON fp.forumId = f.id AND fp.isMainParent = 1
   WHERE (fp.parentId = :forumId OR f.id = :forumId) AND f.visibleRank <= :rank
   ORDER BY `order`
   ;
@@ -58,7 +58,7 @@ class Forums
       SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId, fp.parentId
       FROM forums AS f
       LEFT JOIN forum_parents AS fp
-        ON fp.forumId = f.id
+        ON fp.forumId = f.id AND fp.isMainParent = 1
       WHERE fp.parentId IN(' . $whereIn . ') AND f.visibleRank <= :rank
       ORDER BY `order`
       ;
@@ -88,7 +88,7 @@ class Forums
     $query = 'SELECT f.*, fp.parentId
       FROM forums AS f
         LEFT JOIN forum_parents AS fp
-        ON f.id = fp.forumId
+        ON f.id = fp.forumId AND fp.isMainParent = 1
       WHERE f.visibleRank <= :rank
       ORDER BY f.`order`
     ';
@@ -235,6 +235,76 @@ class Forums
       );
     }
     DB::q($query, $binds);
+  }
+
+  public static function createForum($parentId, $name, $description, $visibleRank, $createPostRank, $createThreadRank) {
+    DB::beginTransaction();
+
+    $query = '
+      INSERT INTO forums
+      (name, description, visibleRank, createPostRank, createThreadRank)
+      VALUES(:name, :description, :visibleRank, :createPostRank, :createThreadRank)
+    ';
+    $binds = array(
+      'name' => $name,
+      'description' => $description,
+      'visibleRank' => $visibleRank,
+      'createPostRank' => $createPostRank,
+      'createThreadRank' => $createThreadRank,
+    );
+    DB::q($query, $binds);
+
+    $forumId = DB::lastInsertId();
+
+    $query = '
+      INSERT INTO forum_parents(forumId, parentId, isMainParent)
+      VALUES(:forumId, :parentId, 1);
+    ';
+    $binds = array(
+      'forumId' => $forumId,
+      'parentId' => $parentId,
+    );
+    DB::q($query, $binds);
+
+    $query = '
+      INSERT INTO forum_parents(forumId, parentId, isMainParent)
+      SELECT :forumId, parentId, 0 FROM forum_parents WHERE forumId = :parentId;
+    ;';
+
+    $binds = array(
+      'forumId' => $forumId,
+      'parentId' => $parentId,
+    );
+
+    DB::q($query, $binds);
+
+    DB::commit();
+    return $forumId;
+  }
+
+  public static function editForum($forumId, $name, $description, $visibleRank, $createPostRank, $createThreadRank) {
+    $query = '
+      UPDATE forums
+      SET
+        `name` = :name,
+        description = :description,
+        visibleRank = :visibleRank,
+        createPostRank = :createPostRank,
+        createThreadRank = :createThreadRank
+      WHERE id = :forumId
+      LIMIT 1;
+    ';
+    $binds = array(
+      'name' => $name,
+      'description' => $description,
+      'visibleRank' => $visibleRank,
+      'createPostRank' => $createPostRank,
+      'createThreadRank' => $createThreadRank,
+      'forumId' => $forumId,
+    );
+    var_dump($query, $binds);
+    DB::q($query, $binds);
+    return DB::lastInsertId();
   }
 
 

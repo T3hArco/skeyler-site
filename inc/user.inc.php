@@ -206,6 +206,7 @@ class User
         if (self::can(User::RANK_SUPER)) {
           $lis[] = 'Rename Forum';
           $lis[] = 'Move Forum';
+          $lis[] = 'Edit Forum';
           $lis[] = 'Create New Forum';
         }
         break;

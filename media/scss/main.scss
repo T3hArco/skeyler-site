@@ -71,6 +71,7 @@ h2 {
   float: left;
   clear: both;
   color: #555;
+  font-size: 1.8em;
 
   a {
     color: #767676;
@@ -433,3 +434,92 @@ input[type="submit"], button {
     margin: 2px 0 0 0;
   }
 }
+
+.admin-form {
+  display: block;
+  clear: both;
+
+  input {
+    display: block;
+  }
+}
+
+//HTML  SCSS   Result
+//Edit on
+//* {
+//  box-sizing: border-box;
+//}
+//
+//html {
+//  font: 14px/1.4 Sans-Serif;
+//}
+
+.form-labels {
+  width: 320px;
+  float: left;
+  margin: 20px;
+
+  & > div {
+    position: relative;
+    overflow: hidden;
+    margin: 1em 0;
+  }
+  .labels {
+
+    input, textarea {
+      width: 100%;
+      @include noiseBorder(GreyDark, 2, 2, 2, 2);
+      @include noise(White);
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      padding: 12px;
+      outline: 0;
+
+      &:focus, &:valid {
+        @include noiseBorder(GreyDark, 2, 2, 2, 2);
+        padding: 4px 6px 20px 6px;
+      }
+
+      &:focus + label, &:valid + label {
+        @include noise(GreyDark);
+        color: white;
+        font-size: 70%;
+        padding: 1px 6px;
+        z-index: 2;
+        text-transform: uppercase;
+        top: 100%;
+        margin-top: -16px;
+      }
+
+      &:focus {
+        @include noiseBorder(Blue, 2, 2, 2, 2);
+      }
+
+      &:focus + label {
+        @include noise(Blue);
+      }
+
+    }
+    label {
+      transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+      position: absolute;
+      color: #999;
+      padding: 7px 6px;
+      margin: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    textarea {
+      display: block;
+      resize: vertical;
+    }
+  }
+}
+
+
+
+
