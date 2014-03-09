@@ -58,11 +58,10 @@
     <?php endforeach; ?>
   </div>
 <?php endif; ?>
-
+<?php if (User::can($local['forums'][$local['forumId']]['createThreadRank'])) : ?>
+  <a href="/forums/newThread.php?forumId=<?php echo $local['forumId']; ?>" class="newThreadLink">New Thread</a>
+<?php endif; ?>
 <?php if (count($local['threads']) > 0) : ?>
-  <?php if (User::can($local['forums'][$local['forumId']]['createThreadRank'])) : ?>
-    <a href="/forums/newThread.php?forumId=<?php echo $local['forumId']; ?>" class="newThreadLink">New Thread</a>
-  <?php endif; ?>
   <table class="threads">
     <thead>
     <tr>
