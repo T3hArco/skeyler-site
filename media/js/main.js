@@ -806,65 +806,13 @@ $(function () {
         });
 
         break;
-      case 'demoteUser':
-
-
+      case 'createNewForum':
         sendNow = false;
-        var $popup = $('<div>').addClass('popup');
-        var $popupContainer = $('<div>').addClass('popupContainer');
-        var $input = $('<input>').val(userData.rank);
-        var userId = userData.userId;
-
-        var $submit = $('<button>').text('Pick this user\'s new rank!!!').on('click', function () {
-          postData = {
-            userId: userId,
-            newRank: $input.val()
-          };
-          $.post('/mod/userChangeRank.php', postData, function (data) {
-            $popupContainer.remove();
-            handleNotices(data, function (a) {
-              document.location = document.location;
-            });
-
-          });
-        });
-
-        var $cancel = $('<a>')
-            .attr('href', '#')
-            .text('Close! Undo! Undo! I changed my mind!')
-            .addClass('popupCloseLink')
-            .on('click', function () {
-              $popupContainer.remove();
-              return false;
-            })
-          ;
-
-        var $h4 = $('<h4>').html('PUNISH THIS USER FOR THEIR INSOLENCE!');
-        var $rankList = $('<div>')
-            .text('Available Ranks Loading!!!....')
-            .addClass('rankList')
-          ;
-        $popup
-          .append($h4, $input, $submit, $rankList, $cancel)
-        ;
-        $popupContainer
-          .append($popup)
-          .appendTo($('body'))
-        ;
-
-        $.get('/mod/getRanks.php', function (data) {
-          $('.rankList').html(data.out);
-        });
-
-        $(window).on('keydown.popup', function (e) {
-          var key = e.keyCode;
-          if (key == 27) {
-            $cancel.click();
-            $(window).off('keydown.popup');
-          }
-        });
-
-
+        document.location = '/mod/editForum.php';
+        break;
+      case 'editForum':
+        sendNow = false;
+        document.location = '/mod/editForum.php?forumId=' + forumId;
         break;
       default:
         return;
