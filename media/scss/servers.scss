@@ -11,7 +11,7 @@ $green: #b9d44d;
 
   .name {
     //background: $blue;
-    @include noise(Black);
+    @include noise("Black");
     padding: 1em;
     color: #fff;
 
@@ -34,13 +34,13 @@ $green: #b9d44d;
     height: 4px;
     //background: #eee;
     //@include noise(Green);
-    @include noise(Grey);
+    @include noise("Grey");
     margin: 3px 0;
     padding: 0;
 
     .playerPercent {
       //background: $green;
-      @include noise(Green);
+      @include noise("Green");
       display: inline-block;
       height: 4px;
       margin: 0;
@@ -50,7 +50,7 @@ $green: #b9d44d;
 
   .details {
     //background: #f3f1f1;
-    @include noise(White);
+    @include noise("White");
     padding: 0.25em 0.25em 0.25em 0.5em;
 
     .joinServer {
@@ -63,7 +63,7 @@ $green: #b9d44d;
       padding: 0.125em 1em;
       //@include border-radius(0.25em);
       letter-spacing: 1px;
-      @include noise(blue);
+      @include noise("Blue");
 
       &:hover {
         text-decoration: none;

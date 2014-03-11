@@ -14,7 +14,7 @@ h1 {
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
 
-  @include noise(White);
+  @include noise("White");
   @include noiseBorder(GreyDark, 0, 0, 2, 0);
   padding: 25px 20px;
   height: $headerHeight;
@@ -66,8 +66,8 @@ ul.topNav {
   margin: ($headerHeight - $liHeight - 8px) 0 0 0;
   list-style: none;
   width: $mainWidth - 230px;
-  @include noise(White);
-  @include noiseBorder(Blue, 0, 0, 3, 0);
+  @include noise("White");
+  @include noiseBorder("Blue", 0, 0, 3, 0);
   float: right;
   position: relative;
 
@@ -126,7 +126,7 @@ ul.topNav {
     }
 
     &.selected a {
-      @include noise(Blue);
+      @include noise("Blue");
       color: #fff;
       position: relative;
 
@@ -148,7 +148,7 @@ ul.topNav {
     content: '';
     height: 5px;
     width: 100%;
-    @include noise(White);
+    @include noise("White");
     @include noiseBorder(GreyDark, 0, 0, 2, 0);
     //background:green;
     //border-bottom:2px solid red;
@@ -161,7 +161,7 @@ ul.topNav {
     content: '';
     height: 3px;
     width: 4px;
-    @include noise(White);
+    @include noise("White");
     bottom: -3px;
     right: 0;
     position: absolute;

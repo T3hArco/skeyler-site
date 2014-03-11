@@ -54,7 +54,7 @@
     .postDetails {
       color: $graey;
       display: block;
-      @include noise(Grey);
+      @include noise("Grey");
       @include noiseBorder(GreyDark, 2, 0, 0, 0);
       padding: 7px 10px;
 

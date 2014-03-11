@@ -185,26 +185,24 @@
 }
 /* line 188, ../scss/forums.scss */
 .table.subforums .row.forumNew:before {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
   border-style: solid;
-  border-color: white;
-  -moz-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -o-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
+  -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -o-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   border-width: 3px 2px 3px 2px;
 }
 /* line 195, ../scss/forums.scss */
 .table.subforums .row.forumSeen:before {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
   border-style: solid;
-  border-color: white;
-  -moz-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -o-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
+  -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -o-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   border-width: 3px 2px 3px 2px;
 }
 
@@ -263,17 +261,16 @@ table.threads tr .title span:before {
   display: block;
   width: 9px;
   border-style: solid;
-  border-color: white;
-  -moz-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -webkit-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  -o-border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
-  border-image: url(../images/noisewhite.png) 3 2 3 2 repeat repeat;
+  -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  -o-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
+  border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   border-width: 3px 2px 3px 2px;
 }
 /* line 252, ../scss/forums.scss */
 table.threads tr.threadNew .title span:before {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
 }
 /* line 256, ../scss/forums.scss */
 table.threads tr.threadSeen .title span:before {
@@ -291,7 +288,7 @@ table.threads tr.closed .title span a:before {
 }
 /* line 274, ../scss/forums.scss */
 table.threads tr.sticky {
-  background: url(../images/noisebeige.png) repeat left center #f1e8b9;
+  background: url(../images/noiseBeige.png) repeat left center;
 }
 /* line 279, ../scss/forums.scss */
 table.threads tr.sticky:hover {
@@ -357,7 +354,7 @@ table.threads tbody tr:first-of-type {
 
 /* line 349, ../scss/forums.scss */
 .onlineUsers {
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   padding: 1em;
 }
 /* line 353, ../scss/forums.scss */

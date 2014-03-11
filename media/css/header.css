@@ -16,7 +16,7 @@ h1 {
   display: inline-block;
   text-transform: uppercase;
   font-family: 'Arvil Sans', Arial;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   border-style: solid;
   border-color: #e0e0e0;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -64,14 +64,13 @@ ul.topNav {
   margin: 66px 0 0 0;
   list-style: none;
   width: 670px;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   border-style: solid;
-  border-color: #25bfff;
-  -moz-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
-  -o-border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
-  border-image: url(../images/noiseblue.png) 0 0 3 0 repeat repeat;
+  -moz-border-image: url(../images/noiseBlue.png) 0 0 3 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 0 0 3 0 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 0 0 3 0 repeat repeat;
+  -o-border-image: url(../images/noiseBlue.png) 0 0 3 0 repeat repeat;
+  border-image: url(../images/noiseBlue.png) 0 0 3 0 repeat repeat;
   border-width: 0px 0px 3px 0px;
   float: right;
   position: relative;
@@ -96,7 +95,7 @@ ul.topNav li a:hover {
 }
 /* line 128, ../scss/header.scss */
 ul.topNav li.selected a {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
   color: #fff;
   position: relative;
 }
@@ -117,7 +116,7 @@ ul.topNav:after {
   content: '';
   height: 5px;
   width: 100%;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   border-style: solid;
   border-color: #e0e0e0;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -135,7 +134,7 @@ ul.topNav:before {
   content: '';
   height: 3px;
   width: 4px;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   bottom: -3px;
   right: 0;
   position: absolute;

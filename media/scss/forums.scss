@@ -142,7 +142,7 @@
         //float: right;
         // apparently a float here breaks randomly in chrome. weird rounding error?
         //background: #e7e7e7;
-        @include noise(Grey);
+        @include noise("Grey");
         margin: 2px;
         padding: 5px;
         min-width: 200px;
@@ -186,15 +186,15 @@
 
   .row.forumNew {
     &:before {
-      @include noise(Blue);
-      @include noiseBorder(White, 3, 2, 3, 2);
+      @include noise("Blue");
+      @include noiseBorder("White", 3, 2, 3, 2);
     }
   }
 
   .row.forumSeen {
     &:before {
       @include noise(GreyDark);
-      @include noiseBorder(White, 3, 2, 3, 2);
+      @include noiseBorder("White", 3, 2, 3, 2);
     }
   }
 
@@ -213,7 +213,7 @@ table.threads {
     color: #515151;
     height: 40px;
     //background-color: #e5e5e5;
-    @include noise(Grey);
+    @include noise("Grey");
     font-size: 0.75em;
     @include noiseBorder(GreyMedium, 7, 0, 0, 0);
 
@@ -243,14 +243,14 @@ table.threads {
           bottom: -2px;
           display: block;
           width: 9px;
-          @include noiseBorder(White, 3, 2, 3, 2);
+          @include noiseBorder("White", 3, 2, 3, 2);
         }
 
       }
     }
 
     &.threadNew .title span:before {
-      @include noise(Blue);
+      @include noise("Blue");
     }
 
     &.threadSeen .title span:before {
@@ -274,7 +274,7 @@ table.threads {
     &.sticky {
       //background-color: #f2ecb6;
       //opacity: 1.0;
-      @include noise(Beige);
+      @include noise("Beige");
 
       &:hover {
         //background-color: #fffad9;
@@ -347,7 +347,7 @@ table.threads {
 }
 
 .onlineUsers {
-  @include noise(White);
+  @include noise("White");
   padding: 1em;
 
   h3 {

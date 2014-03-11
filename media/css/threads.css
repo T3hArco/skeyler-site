@@ -70,12 +70,11 @@ h2.threadTitle.closed:after {
 /* line 43, ../scss/threads.scss */
 .post.myPost {
   border-style: solid;
-  border-color: #25bfff;
-  -moz-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
-  -o-border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
-  border-image: url(../images/noiseblue.png) 0 0 0 5 repeat repeat;
+  -moz-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
+  -o-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
+  border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
   border-width: 0px 0px 0px 5px;
 }
 /* line 71, ../scss/threads.scss */
@@ -116,7 +115,7 @@ h2.threadTitle.closed:after {
 }
 /* line 122, ../scss/threads.scss */
 .postOptions > a:active, .postOptions > .modDropdown:active {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
 }
 
 /* line 128, ../scss/threads.scss */

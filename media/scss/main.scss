@@ -2,7 +2,7 @@
 
 body {
   text-align: center;
-  @include noise(Grey);
+  @include noise("Grey");
   padding: 0;
 }
 
@@ -18,7 +18,7 @@ a {
   &:before {
     content: '';
     display: block;
-    @include noise(White);
+    @include noise("White");
     //border-width:0 0 2px 0;
     @include noiseBorder(GreyDark, 0, 0, 2, 0);
     height: 7px;
@@ -38,7 +38,7 @@ a {
 }
 
 .alert-success {
-  @include noise(Green);
+  @include noise("Green");
   color: #fff;
 
   &:before {
@@ -106,7 +106,7 @@ ul.pageNav {
       color: #7d7d7d;
 
       &:hover {
-        @include noise(Blue);
+        @include noise("Blue");
         text-decoration: none;
         color: #fff;
       }
@@ -279,7 +279,7 @@ $owner: #5e5e5e;
     padding: 8px;
     overflow: auto;
     overflow-x: hidden;
-    @include noise(White);
+    @include noise("White");
   }
 
   .chat {
@@ -363,7 +363,7 @@ $owner: #5e5e5e;
 .modButton {
 
   &.active {
-    @include noise(Blue);
+    @include noise("Blue");
     z-index: 1000;
   }
 
@@ -413,11 +413,11 @@ $owner: #5e5e5e;
         display: block;
         white-space: pre;
         padding: 0 40px 0 8px;
-        @include noise(Black);
+        @include noise("Black");
         line-height: 32px;
 
         &:hover {
-          @include noise(Blue);
+          @include noise("Blue");
           text-decoration: none;
         }
       }
@@ -518,12 +518,12 @@ a.sprite[target="_blank"]:after {
 }
 
 input {
-  @include noise(Grey);
+  @include noise("Grey");
   @include noiseBorder(GreyDark, 2, 0, 0, 1);
 }
 
 textarea {
-  @include noise(Grey);
+  @include noise("Grey");
   @include noiseBorder(GreyDark, 3, 0, 0, 2);
 }
 
@@ -574,7 +574,7 @@ input[type="submit"], button {
     input, textarea {
       width: 100%;
       @include noiseBorder(GreyDark, 2, 2, 2, 2);
-      @include noise(White);
+      @include noise("White");
       position: relative;
       top: 0;
       left: 0;
@@ -599,11 +599,11 @@ input[type="submit"], button {
       }
 
       &:focus {
-        @include noiseBorder(Blue, 2, 2, 2, 2);
+        @include noiseBorder("Blue", 2, 2, 2, 2);
       }
 
       &:focus + label {
-        @include noise(Blue);
+        @include noise("Blue");
       }
 
     }

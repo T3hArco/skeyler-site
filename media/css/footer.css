@@ -48,7 +48,7 @@ ul.bottomNav li a {
 }
 /* line 38, ../scss/footer.scss */
 ul.bottomNav li a:hover {
-  background: url(../images/noiseblack.png) repeat left center #3b3b3b;
+  background: url(../images/noiseBlack.png) repeat left center;
 }
 /* line 43, ../scss/footer.scss */
 ul.bottomNav li.selected a {

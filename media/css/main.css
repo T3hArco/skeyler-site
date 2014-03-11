@@ -27,7 +27,7 @@ a {
 #container:before {
   content: '';
   display: block;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   border-style: solid;
   border-color: #e0e0e0;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 2 0 repeat repeat;
@@ -58,7 +58,7 @@ a {
 
 /* line 40, ../scss/main.scss */
 .alert-success {
-  background: url(../images/noisegreen.png) repeat left center #bdf04f;
+  background: url(../images/noiseGreen.png) repeat left center;
   color: #fff;
 }
 /* line 44, ../scss/main.scss */
@@ -132,7 +132,7 @@ ul.pageNav li a {
 }
 /* line 108, ../scss/main.scss */
 ul.pageNav li a:hover {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
   text-decoration: none;
   color: #fff;
 }
@@ -287,7 +287,7 @@ ul.pageNav li.curPage span {
   padding: 8px;
   overflow: auto;
   overflow-x: hidden;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
 }
 /* line 287, ../scss/main.scss */
 #chatbox .chat ~ .chat {
@@ -366,7 +366,7 @@ ul.pageNav li.curPage span {
 
 /* line 365, ../scss/main.scss */
 .modButton.active {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
   z-index: 1000;
 }
 
@@ -398,12 +398,12 @@ ul.pageNav li.curPage span {
   display: block;
   white-space: pre;
   padding: 0 40px 0 8px;
-  background: url(../images/noiseblack.png) repeat left center #3b3b3b;
+  background: url(../images/noiseBlack.png) repeat left center;
   line-height: 32px;
 }
 /* line 419, ../scss/main.scss */
 .modDropdown ul li a:hover {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
   text-decoration: none;
 }
 /* line 425, ../scss/main.scss */
@@ -647,7 +647,7 @@ input[type="submit"]:focus, button:focus {
   -o-border-image: url(../images/noiseGreyDark.png) 2 2 2 2 repeat repeat;
   border-image: url(../images/noiseGreyDark.png) 2 2 2 2 repeat repeat;
   border-width: 2px 2px 2px 2px;
-  background: url(../images/noisewhite.png) repeat left center white;
+  background: url(../images/noiseWhite.png) repeat left center;
   position: relative;
   top: 0;
   left: 0;
@@ -681,17 +681,16 @@ input[type="submit"]:focus, button:focus {
 /* line 601, ../scss/main.scss */
 .form-labels .labels input:focus, .form-labels .labels textarea:focus {
   border-style: solid;
-  border-color: #25bfff;
-  -moz-border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
-  -webkit-border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
-  -o-border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
-  border-image: url(../images/noiseblue.png) 2 2 2 2 repeat repeat;
+  -moz-border-image: url(../images/noiseBlue.png) 2 2 2 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 2 2 2 2 repeat repeat;
+  -webkit-border-image: url(../images/noiseBlue.png) 2 2 2 2 repeat repeat;
+  -o-border-image: url(../images/noiseBlue.png) 2 2 2 2 repeat repeat;
+  border-image: url(../images/noiseBlue.png) 2 2 2 2 repeat repeat;
   border-width: 2px 2px 2px 2px;
 }
 /* line 605, ../scss/main.scss */
 .form-labels .labels input:focus + label, .form-labels .labels textarea:focus + label {
-  background: url(../images/noiseblue.png) repeat left center #25bfff;
+  background: url(../images/noiseBlue.png) repeat left center;
 }
 /* line 610, ../scss/main.scss */
 .form-labels .labels label {

@@ -42,7 +42,7 @@ $widthQuickStats: 188px;
   }
 
   h3 {
-    @include noiseBorder(Grey, 0, 0, 2, 0);
+    @include noiseBorder("Grey", 0, 0, 2, 0);
     text-align: right;
     font-weight: bold;
   }
@@ -65,7 +65,7 @@ $widthQuickStats: 188px;
     overflow: visible;
 
     &:nth-of-type(even) {
-      @include noise(Grey);
+      @include noise("Grey");
     }
   }
 
@@ -98,7 +98,7 @@ $widthQuickStats: 188px;
     list-style: none;
     margin: 0 0 0.5em 0;
     padding: 0 1em 1em 1em;
-    @include noiseBorder(Grey, 0, 0, 2, 0);
+    @include noiseBorder("Grey", 0, 0, 2, 0);
     font-family: 'Arvil Sans', Arial;
     font-size: 1.5em;
     width: $width;
@@ -159,7 +159,7 @@ $widthQuickStats: 188px;
   dl, .stats {
     display: block;
     width: $width;
-    @include noise(Grey);
+    @include noise("Grey");
     margin: 0;
     padding: 0;
     @include noiseBorder(BlackLight, 0, 1, 1, 1);
