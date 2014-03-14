@@ -14,9 +14,10 @@
 .profile .modDropdown {
   right: 30px;
   position: absolute;
+  top: 52px;
 }
 
-/* line 17, ../scss/user.scss */
+/* line 18, ../scss/user.scss */
 .quickstats {
   display: inline-block;
   float: left;
@@ -30,26 +31,26 @@
   border-width: 0px 2px 0px 0px;
   width: 218px;
 }
-/* line 25, ../scss/user.scss */
+/* line 26, ../scss/user.scss */
 .quickstats .membership {
   display: block;
   color: #999;
   font-size: 0.8em;
 }
-/* line 31, ../scss/user.scss */
+/* line 32, ../scss/user.scss */
 .quickstats .avatar {
   width: 188px;
   height: 188px;
   border: 2px solid #d1d1d1;
 }
-/* line 37, ../scss/user.scss */
+/* line 38, ../scss/user.scss */
 .quickstats .steamId {
   display: block;
   text-align: right;
   color: #999;
   font-size: 0.8em;
 }
-/* line 44, ../scss/user.scss */
+/* line 45, ../scss/user.scss */
 .quickstats h3 {
   border-style: solid;
   border-color: #e9e9e9;
@@ -62,7 +63,7 @@
   text-align: right;
   font-weight: bold;
 }
-/* line 50, ../scss/user.scss */
+/* line 51, ../scss/user.scss */
 .quickstats dl {
   display: block;
   width: 188px;
@@ -70,7 +71,7 @@
   margin: 0;
   padding: 0;
 }
-/* line 58, ../scss/user.scss */
+/* line 59, ../scss/user.scss */
 .quickstats dt, .quickstats dd {
   display: inline-block;
   padding: 0.25em 8px;
@@ -80,30 +81,30 @@
   white-space: nowrap;
   overflow: visible;
 }
-/* line 67, ../scss/user.scss */
+/* line 68, ../scss/user.scss */
 .quickstats dt:nth-of-type(even), .quickstats dd:nth-of-type(even) {
   background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
 }
-/* line 72, ../scss/user.scss */
+/* line 73, ../scss/user.scss */
 .quickstats dt {
   letter-spacing: -1px;
 }
-/* line 75, ../scss/user.scss */
+/* line 76, ../scss/user.scss */
 .quickstats dd {
   text-align: right;
 }
-/* line 81, ../scss/user.scss */
+/* line 82, ../scss/user.scss */
 .quickstats dd a:after {
   display: none;
 }
 
-/* line 87, ../scss/user.scss */
+/* line 88, ../scss/user.scss */
 .statsDetailed {
   float: left;
   padding: 0 0 0 30px;
   width: 620px;
 }
-/* line 96, ../scss/user.scss */
+/* line 97, ../scss/user.scss */
 .statsDetailed ul.tabs {
   display: inline-block;
   list-style: none;
@@ -124,7 +125,7 @@
   height: 1.5em;
   overflow: hidden;
 }
-/* line 111, ../scss/user.scss */
+/* line 112, ../scss/user.scss */
 .statsDetailed ul.tabs:after {
   content: '';
   display: inline-block;
@@ -132,35 +133,35 @@
   line-height: 0;
   width: 99%;
 }
-/* line 119, ../scss/user.scss */
+/* line 120, ../scss/user.scss */
 .statsDetailed ul.tabs li {
   display: inline-block;
 }
-/* line 122, ../scss/user.scss */
+/* line 123, ../scss/user.scss */
 .statsDetailed ul.tabs li a {
   padding: 0 0.25em;
   color: #555;
   border-bottom: 2px solid transparent;
 }
-/* line 128, ../scss/user.scss */
+/* line 129, ../scss/user.scss */
 .statsDetailed ul.tabs li a:hover {
   border-bottom-color: #555;
   text-decoration: none;
 }
-/* line 134, ../scss/user.scss */
+/* line 135, ../scss/user.scss */
 .statsDetailed ul.tabs li.selected a {
   color: #25bfff;
   border-bottom: 2px solid #25bfff;
 }
-/* line 142, ../scss/user.scss */
+/* line 143, ../scss/user.scss */
 .statsDetailed .tabItem {
   display: none;
 }
-/* line 145, ../scss/user.scss */
+/* line 146, ../scss/user.scss */
 .statsDetailed .tabItem.selected {
   display: block;
 }
-/* line 150, ../scss/user.scss */
+/* line 151, ../scss/user.scss */
 .statsDetailed h3 {
   background: url(../images/noiseBlackLight.png) repeat left center #636363;
   color: #fff;
@@ -169,7 +170,7 @@
   font-size: 1em;
   font-weight: bold;
 }
-/* line 159, ../scss/user.scss */
+/* line 160, ../scss/user.scss */
 .statsDetailed dl, .statsDetailed .stats {
   display: block;
   width: 590px;
@@ -185,11 +186,11 @@
   border-image: url(../images/noiseBlackLight.png) 0 1 1 1 repeat repeat;
   border-width: 0px 1px 1px 1px;
 }
-/* line 168, ../scss/user.scss */
+/* line 169, ../scss/user.scss */
 .statsDetailed .stats {
   padding: 0.5em;
 }
-/* line 172, ../scss/user.scss */
+/* line 173, ../scss/user.scss */
 .statsDetailed dt, .statsDetailed dd {
   display: inline-block;
   padding: 0.25em 8px;
@@ -199,33 +200,33 @@
   white-space: nowrap;
   overflow: visible;
 }
-/* line 181, ../scss/user.scss */
+/* line 182, ../scss/user.scss */
 .statsDetailed dt:nth-of-type(even), .statsDetailed dd:nth-of-type(even) {
   background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
-/* line 186, ../scss/user.scss */
+/* line 187, ../scss/user.scss */
 .statsDetailed dt.sprite {
   padding-left: 30px;
   height: auto;
   line-height: 1.428571429;
 }
-/* line 191, ../scss/user.scss */
+/* line 192, ../scss/user.scss */
 .statsDetailed dt.sprite.globalRank:before {
   top: 8px;
 }
-/* line 194, ../scss/user.scss */
+/* line 195, ../scss/user.scss */
 .statsDetailed dt.sprite.victories:before {
   top: 5px;
 }
-/* line 199, ../scss/user.scss */
+/* line 200, ../scss/user.scss */
 .statsDetailed dt {
   letter-spacing: -1px;
 }
-/* line 202, ../scss/user.scss */
+/* line 203, ../scss/user.scss */
 .statsDetailed dd {
   text-align: right;
 }
-/* line 208, ../scss/user.scss */
+/* line 209, ../scss/user.scss */
 .statsDetailed dd a:after {
   display: none;
 }

@@ -40,7 +40,7 @@ $user = $local['user'];
         <dt>Forum Rank</dt><!--
              --><dd><?php echo User::writeRankTag($user); ?></dd>
         <dt>Doubloons Tossed</dt><!--
-             --><dd>99999</dd>
+             --><dd>0</dd>
         <dt>Doubloons</dt><!--
              --><dd><?php echo $user['money']; ?></dd>
       </dl>
@@ -68,9 +68,9 @@ $user = $local['user'];
     <h3>Statistics</h3>
     <dl><!--
       --><dt class="globalRank sprite">Global Rank</dt><!--
-      --><dd>10</dd><!--
+      --><dd>9999</dd><!--
       --><dt class="victories sprite">Victories</dt><!--
-      --><dd>884</dd><!--
+      --><dd>0</dd><!--
     --></dl>
     </div>
     <div class="tabItem" data-tab="bh">
