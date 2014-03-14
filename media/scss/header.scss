@@ -19,6 +19,14 @@ h1 {
   padding: 25px 20px;
   height: $headerHeight;
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   strong {
     font-size: 1.5em;
     font-weight: normal;
@@ -263,11 +271,12 @@ ul.welcome {
 
   }
 
-  input[type="submit"]:focus{
+  input[type="submit"]:focus {
     border-width: none;
   }
 
 }
+
 //
 //h2 {
 //  color: #565656;

@@ -35,7 +35,7 @@
 <body>
 <div id="container">
   <div class="header">
-    <h1><strong>Skeyler</strong> <span>Gmod Community</span></h1>
+    <h1><a href="/"><strong>Skeyler</strong> <span>Gmod Community</span></a></h1>
     <ul class="topNav"><!--
       --><li <?php echo ($local['navigationItem'] == 'news' ? 'class = "selected"' : ''); ?>><a href="/blog.php">News</a></li><!--
       --><li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums/">Forums</a></li><!--
