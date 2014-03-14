@@ -27,6 +27,7 @@ try {
     if ($openid->validate()) {
       if (!preg_match('#^http:\/\/steamcommunity\.com\/openid\/id\/(\d{17})$#', $openid->identity, $match)) {
         view(array('err' => 'There was a problem authenticating you. Please try again later.'));
+        exit;
       }
       $steamId64 = $match[1];
       $steamUserId = User::login($steamId64);

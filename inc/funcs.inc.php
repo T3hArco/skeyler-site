@@ -203,6 +203,7 @@ function view($variables, $viewUrl = null) {
     // exploit attempt or missing view file
     throw new ErrorException('Failed to include view');
   }
+  exit;
 }
 
 

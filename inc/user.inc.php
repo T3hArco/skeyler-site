@@ -124,7 +124,9 @@ class User
         'steamId64' => $user['steamid'],
         'steamId' => Steam::steam64ToSTEAM($user['steamid']),
         'name' => $user['personaname'],
-        'lastLoginIp' => '',
+        'registerIp' => ip2long($_SERVER['REMOTE_ADDR']),
+        'lastLoginIp' => ip2long($_SERVER['REMOTE_ADDR']),
+        'lastLoginTimestamp' => $now,
         'authKey' => randomStr(64),
         'avatarUrl' => $user['avatar'],
       );
