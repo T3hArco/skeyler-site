@@ -25,7 +25,7 @@ $user = $local['user'];
         <dt>Playtime</dt><!--
              --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
         <dt>Last Seen</dt><!--
-             --><dd><?php echo writeDateEng($user['lastLoginTimestamp']); ?></dd>
+             --><dd><?php echo date('n/j/y', $user['lastLoginTimestamp']); ?></dd>
         <dt>Last Scene</dt><!--
              --><dd>--</dd>
         <dt>Steam Profile</dt><!--
