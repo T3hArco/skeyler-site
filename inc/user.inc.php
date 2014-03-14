@@ -158,7 +158,7 @@ class User
   }
 
   // normally you won't use this func. use writeUserLink instead!
-  public static function writeRankTag($user) {
+  public static function writeRankTag($user, $isLong = false) {
 
     if (is_int($user)) {
       $rank = $user;
@@ -172,15 +172,15 @@ class User
     }
 
     $rankShort = self::getRankStr($rank);
-    $rankStr = self::getRankStr($rank, true);
+    $rankStr = self::getRankStr($rank, $isLong);
 
-    return '<span class="rankTag tag-' . $rankShort . '">' . $rankStr . '</span>';
+    return '<span class="rankTag tag-' . $rankShort . ' ' . ($isLong ? 'longName' : 'shortName') . '">' . $rankStr . '</span>';
 
-//    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
+    //    return '<img src="' . $Config['mediaServer'] . 'images/tags/' . $rankStr . '.png" class="rankTag" alt="' . $rankStr . '" title="' . ucwords($rankStr) . '" />';
   }
 
   public static function getRankStr($rank, $isLong = false) {
-    if(!$isLong){
+    if (!$isLong) {
       if ($rank >= self::RANK_OWNER) {
         return 'owner';
       }
@@ -202,7 +202,8 @@ class User
       elseif ($rank >= self::RANK_REGULAR) {
         return 'reg';
       }
-    } else {
+    }
+    else {
       if ($rank >= self::RANK_OWNER) {
         return 'Owner';
       }
@@ -374,39 +375,39 @@ class User
 
   // returns all users active on the forums in the last 15mins
   public static function loadOnlineUsers() {
-//    return array(
-//      array(
-//        'id' => 1,
-//        'rank' => 0,
-//        'name' => 'asakhgdlakhs!',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 5,
-//        'name' => 'asdt4etdfgDAF',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 10,
-//        'name' => 'asd33DGSD',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 50,
-//        'name' => 'KNOXed!',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 70,
-//        'name' => 'snoipa!',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 90,
-//        'name' => 'TNTag!',
-//      ),array(
-//        'id' => 1,
-//        'rank' => 100,
-//        'name' => 'George!',
-//      ),
-//
-//
-//    );
+    //    return array(
+    //      array(
+    //        'id' => 1,
+    //        'rank' => 0,
+    //        'name' => 'asakhgdlakhs!',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 5,
+    //        'name' => 'asdt4etdfgDAF',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 10,
+    //        'name' => 'asd33DGSD',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 50,
+    //        'name' => 'KNOXed!',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 70,
+    //        'name' => 'snoipa!',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 90,
+    //        'name' => 'TNTag!',
+    //      ),array(
+    //        'id' => 1,
+    //        'rank' => 100,
+    //        'name' => 'George!',
+    //      ),
+    //
+    //
+    //    );
     global $now;
     $query = '
       SELECT *

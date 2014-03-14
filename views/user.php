@@ -27,7 +27,7 @@ $user = $local['user'];
         <dt>Last Seen</dt><!--
              --><dd><?php echo writeDateEng($user['lastLoginTimestamp']); ?></dd>
         <dt>Last Scene</dt><!--
-             --><dd><?php echo writeTimeLength($user['playtime'], 'short'); ?></dd>
+             --><dd>--</dd>
         <dt>Steam Profile</dt><!--
              --><dd><a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>" target="_blank">View Profile</a></dd>
       </dl>
@@ -35,7 +35,8 @@ $user = $local['user'];
       <h3>Forum Stats</h3>
       <dl>
         <dt>Post Count</dt><!--
-             --><dd><a href="/forums/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+             --><!--<dd><a href="/forums/search.php?userId=<?php echo $user['id']; ?>" title="Search this users super good awesome posts!"><?php echo $user['postCount']; ?></a></dd>
+             --><dd><?php echo $user['postCount']; ?></dd>
         <dt>Forum Rank</dt><!--
              --><dd><?php echo User::writeRankTag($user); ?></dd>
         <dt>Doubloons Tossed</dt><!--

@@ -239,6 +239,10 @@ $owner: #5e5e5e;
   &:hover {
     outline: 0;
   }
+
+  &.shortName{
+    text-transform: uppercase;
+  }
 }
 
 .breadcrumbs {
