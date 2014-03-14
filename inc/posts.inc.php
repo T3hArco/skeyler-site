@@ -70,7 +70,20 @@ class Posts
     );
     DB::q($query, $binds);
 
-    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
+//    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
+//    $binds = array(
+//      'threadInc' => ($isNewThread ? 1 : 0),
+//      'lastPostUserId' => $User['id'],
+//      'now' => $now,
+//      'threadId' => $threadId,
+//      'forumId' => $forumId,
+//    );
+//    DB::q($query, $binds);
+
+    $query = '
+      UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE
+      id IN (SELECT parentId FROM forum_parents WHERE forumId = :forumId) OR id = :forumId;
+    ';
     $binds = array(
       'threadInc' => ($isNewThread ? 1 : 0),
       'lastPostUserId' => $User['id'],
@@ -79,6 +92,8 @@ class Posts
       'forumId' => $forumId,
     );
     DB::q($query, $binds);
+
+
 
     $query = 'UPDATE users SET postCount = postCount + 1 WHERE id = :userId';
     $binds = array(
