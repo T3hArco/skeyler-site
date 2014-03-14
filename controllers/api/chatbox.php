@@ -22,7 +22,7 @@ if (count($userIds)) {
 }
 
 foreach ($users as $userId => $user) {
-  $users[$userId]['rankStr'] = User::getRankStr($user);
+  $users[$userId]['rankStr'] = User::getRankStr($user['rank']);
 }
 
 $data['chats'] = $chats;
