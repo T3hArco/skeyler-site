@@ -196,7 +196,7 @@ $(function () {
         .text('Sending message...')
         .appendTo($chats)
       ;
-      $chats.scrollTop($chats.outerHeight() + 200);
+      $chats.scrollTop($chats.get(0).scrollHeight + 200);
       $(this).find('#chatboxPost').val('');
 
       $.post('/api/chatboxPost.php', {content: content}, function (json) {
@@ -215,14 +215,14 @@ $(function () {
             )
           ;
           $chats.append($div);
-          $chats.scrollTop($chats.outerHeight() + 200);
+          $chats.scrollTop($chats.get(0).scrollHeight + 200);
         } else {
           $div = $('<div>')
             .addClass('chat-message chat-error')
             .text('Error sending message.')
             .appendTo($chats)
           ;
-          $chats.scrollTop($chats.outerHeight() + 200);
+          $chats.scrollTop($chats.get(0).scrollHeight + 200);
         }
 
       })
@@ -1164,7 +1164,7 @@ function updateChatbox() {
     }
     // if new stuff was added, and we're at the bottom of the screen
     if (addedNew && atBottom) {
-      $chats.scrollTop($chats.outerHeight() + 200);
+      $chats.scrollTop($chats.get(0).scrollHeight + 200);
     }
 
     if (chatbox.playNoise && addedNew) {
