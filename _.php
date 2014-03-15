@@ -106,7 +106,7 @@ if (isset($_SESSION['userId']) && $_SESSION['userId']) {
 $isLoggedIn = (!!$User['id']);
 
 // if logged in, update their last view timestamp
-if($isLoggedIn) {
+if($isLoggedIn && !isset($dontUpdateLoginTimestamp)) {
   User::updateLastActiveTimestamp($User['id']);
 }
 

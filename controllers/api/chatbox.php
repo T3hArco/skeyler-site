@@ -1,4 +1,7 @@
 <?php
+
+$dontUpdateLoginTimestamp = true;
+
 require '_api.php';
 
 $max = 50;
