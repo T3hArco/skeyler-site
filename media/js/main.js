@@ -436,6 +436,7 @@ $(function () {
 
         break;
       default:
+        alert('Sorry, mah man. This functionality does not exist yet.');
         return;
     }
 
@@ -506,6 +507,7 @@ $(function () {
         };
         break;
       default:
+        alert('Sorry, mah man. This functionality does not exist yet.');
         return;
     }
 
@@ -657,6 +659,7 @@ $(function () {
 
         break;
       default:
+        alert('Sorry, mah man. This functionality does not exist yet.');
         return;
     }
 
@@ -824,6 +827,7 @@ $(function () {
         document.location = '/mod/editForum.php?forumId=' + forumId;
         break;
       default:
+        alert('Sorry, mah man. This functionality does not exist yet.');
         return;
     }
 
