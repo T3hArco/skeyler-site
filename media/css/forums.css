@@ -363,5 +363,6 @@ table.threads tbody tr:first-of-type {
 }
 /* line 357, ../scss/forums.scss */
 .onlineUsers .userLink {
-  margin-right: 1em;
+  display: inline-block;
+  margin: 0 0.5em 0.5em 0;
 }
