@@ -1,6 +1,7 @@
 <?php
 class User
 {
+  const RANK_GUEST = -1;
   const RANK_REGULAR = 0;
   const RANK_VIP = 5;
   const RANK_MOD = 10;

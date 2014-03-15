@@ -1248,7 +1248,7 @@ function visChange() {
   if (isHidden()) {
     // change chatbox interval to 60 seconds when the page isn't visible
     chatbox.timeout = 60000;
-    chatbox.playNoise = true;
+    chatbox.playNoise = false;
   } else {
     // swap the chatbox interval back to 5 seconds when the page is visible again
     chatbox.timeout = 5000;

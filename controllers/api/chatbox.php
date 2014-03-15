@@ -1,7 +1,7 @@
 <?php
 require '_api.php';
 
-$max = 20;
+$max = 50;
 $id = (int)getGet('id');
 
 $query = 'SELECT * FROM chatbox WHERE id > :id ORDER BY id DESC LIMIT ' . $max . ';';
