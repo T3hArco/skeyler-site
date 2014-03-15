@@ -14,7 +14,7 @@ $ranks = array(
 asort($ranks);
 
 $out = '';
-$out = '<h5>Here are the ranks!!!</h5>';
+$out = '<h5>Here are the ranks!</h5>';
 
 foreach ($ranks as $rankVal) {
   $out .= $rankVal . ': ' . User::writeRankTag($rankVal) . ' - ' . User::getRankStr($rankVal) . '<br/>';

@@ -38,7 +38,7 @@ if (!$thread) {
 $forum = Forums::load($thread['forumId']);
 
 if (!$forum) {
-  Notice::error('What in the ache ee double hockey sticks!!?? Thread could not be matched up to a forum');
+  Notice::error('What in the ache ee double hockey sticks!? Thread could not be matched up to a forum');
   exit;
 }
 

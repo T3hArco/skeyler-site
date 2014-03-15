@@ -13,7 +13,7 @@ $user = $local['user'];
   <div class="quickstats">
     <span class="membership">Member since <?php echo date('F, Y', $user['registerTimestamp']); ?></span>
     <!--    <div class="username">--><?php //echo User::writeRankTag($user); ?><!-- --><?php //echo ent($user['name']); ?><!--</div>-->
-    <img src="<?php echo User::writeAvatar($user['avatarUrl'], 'full'); ?>" alt="<?php echo ent($user['name']); ?>\'s avatar!!!!" class="avatar"/>
+    <img src="<?php echo User::writeAvatar($user['avatarUrl'], 'full'); ?>" alt="<?php echo ent($user['name']); ?>\'s avatar!" class="avatar"/>
     <br/>
     <?php if (User::can(User::RANK_MOD)) : ?>
       <span class="steamId">STEAM_<?php echo ent($user['steamId']); ?></span>
@@ -61,7 +61,7 @@ $user = $local['user'];
     <div class="tabItem selected" data-tab="sa">
       <h3>Achievements</h3>
       <div class="stats">
-      HERE ARE YOUR STATS AND ACHIEVEMENTSSS!!
+      HERE ARE YOUR STATS AND ACHIEVEMENTSSS!
       YOU DONT HAVE ANY
     </div>
 

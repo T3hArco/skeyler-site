@@ -9,7 +9,7 @@ $threadId = (int)getPost('threadId');
 $thread = Threads::load($threadId);
 
 if(!$thread) {
-  Notice::error('Could not find the thread you want to close!!!!');
+  Notice::error('Could not find the thread you want to close!');
   exit;
 }
 

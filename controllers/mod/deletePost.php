@@ -8,7 +8,7 @@ $postId = (int) getPost('postId');
 $post = Posts::load($postId);
 
 if (!$post) {
-  Notice::error('Could not find the post you want to delete!!!!');
+  Notice::error('Could not find the post you want to delete!');
   exit;
 }
 

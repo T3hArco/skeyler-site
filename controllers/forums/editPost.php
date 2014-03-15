@@ -7,13 +7,13 @@ $postId = (int)getGet('postId');
 $post = Posts::load($postId);
 
 if (!$post) {
-  Notice::error('Could not find the post you want to edit!!!');
+  Notice::error('Could not find the post you want to edit!');
   exit;
 }
 
 $thread = Threads::load($post['threadId']);
 if (!$thread) {
-  Notice::error('That post isn\'t in a thread! What the heck!!!');
+  Notice::error('That post isn\'t in a thread! What the heck!');
   exit;
 }
 

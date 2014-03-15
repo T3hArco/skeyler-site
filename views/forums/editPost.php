@@ -10,7 +10,7 @@
   </label>
   <br/>
   <!--<input type="submit" value="Preview"/>-->
-  <input type="submit" name="submit" value="Save this edit!!"/>
+  <input type="submit" name="submit" value="Save this edit!"/>
 
   <div class="draftWrapper">
     <span class="saveDraft"></span>
