@@ -5,21 +5,21 @@
   <title><?php echo($local['title'] ? substr($local['title'], 0, 50) . (strlen($local['title']) > 50 ? '...' : '') . ' - ' : ''); ?>Skeyler</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <link rel="shortcut icon" href="<?php echo $Config['mediaServer']; ?>favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/fonts.css?z=<?php $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/fonts.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/bootstrap-theme.css"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/main.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/header.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/forums.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/threads.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/posts.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/games.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/blog.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/servers.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/staff.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/user.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/sprites.css?z=<?php $Config['staticFileCacheId']; ?>"/>
-  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/footer.css?z=<?php $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/main.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/header.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/forums.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/threads.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/posts.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/games.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/blog.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/servers.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/staff.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/user.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/sprites.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/footer.css?z=<?php echo $Config['staticFileCacheId']; ?>"/>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/underscore-min.js"></script>

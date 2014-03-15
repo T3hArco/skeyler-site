@@ -60,22 +60,15 @@ a {
 .alert-success {
   background: url(../images/noiseGreen.png) repeat left center;
   color: #fff;
-  font-weight: bold;
-  text-shadow: 1px 1px 0.25em rgba(0, 0, 0, 0.5);
-  position: relative;
-  padding-left: 40px;
 }
 /* line 50, ../scss/main.scss */
 .alert-success:before {
   background: url(../images/noiseNotice.png) no-repeat left center;
   content: '';
   display: inline-block;
-  width: 28px;
-  height: 26px;
+  width: 26px;
+  height: 17px;
   vertical-align: text-bottom;
-  position: absolute;
-  left: 9px;
-  top: 11px;
 }
 /* line 62, ../scss/main.scss */
 .alert-success a {
