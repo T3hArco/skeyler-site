@@ -31,8 +31,7 @@ if ($local['thread']['isSticky']) {
           <?php endif; ?>
         <?php endif; ?>
       </div><!--
-   --><div class="postContent">
-        <?php echo $post['contentParsed']; ?>
+   --><div class="postContent"><?php echo $post['contentParsed']; ?>
         <?php if ($post['lastEditTimestamp']) : ?>
           <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
         <?php endif; ?>
