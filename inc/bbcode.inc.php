@@ -128,7 +128,7 @@ class BBCode
     $out = self::parseCodeEnd($out, $codeTags);
 
     // last, convert new lines to <br />
-    $out = nl2br($out);
+//    $out = nl2br($out);
 
     return $out;
   }
