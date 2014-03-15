@@ -1,5 +1,5 @@
 <?php
-require '../../_.php';
+require '_test.php';
 
 $bbcode = getPost('bbcode');
 

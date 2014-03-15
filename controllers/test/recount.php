@@ -1,5 +1,5 @@
 <?php
-require '../../_.php';
+require '_test.php';
 $Page = new Page();
 $Page->header('Recount threads or something');
 
