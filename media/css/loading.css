@@ -177,7 +177,7 @@ body {
 }
 
 /* line 165, ../scss/loading.scss */
-.loading-message {
+#loading-message {
   color: #25bfff;
   font-style: italic;
 }

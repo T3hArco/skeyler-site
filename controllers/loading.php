@@ -86,7 +86,8 @@ if (is_null($user['name'])) {
 </body>
 
 <script>
-  var $loading = document.getElementsByClassName('loading-message')[0];
+  var $loading = document.getElementById('loading-message')[0];
+  var filesTotal = 'X';
 
   // Called when the loading screen finishes loading all assets.
   function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
@@ -95,17 +96,17 @@ if (is_null($user['name'])) {
   // Called when a file starts downloading. The filename includes the entire path of the file;
   // for example "materials/models/bobsModels/car.mdl".
   function DownloadingFile(fileName) {
-
+    $loading.textContent = 'Downloading some sweet stuff: ' + fileName;
   }
 
   // Called when something happens. This might be "Initialising Game Data", "Sending Client Info", etc.
   function SetStatusChanged(status) {
-
+    $loading.textContent = status;
   }
 
   // Called at the start, tells us how many files need to be downloaded in total.
   function SetFilesTotal(total) {
-
+    filesTotal = parseInt(total, 10);
   }
 
   // Called when the number of files to download changes.
