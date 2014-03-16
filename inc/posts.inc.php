@@ -93,13 +93,19 @@ class Posts
     );
     DB::q($query, $binds);
 
+    $postInc = 1;
 
+    // postcounts dont increase on the arcade forum, because it is terrible!
+    // this is hard coded because it's a one-off
+    if($forumId == 20){
+      $postInc = 0;
+    }
 
-    $query = 'UPDATE users SET postCount = postCount + 1 WHERE id = :userId';
+    $query = 'UPDATE users SET postCount = postCount + :postInc WHERE id = :userId';
     $binds = array(
       'userId' => $User['id'],
+      'postInc' => $postInc,
     );
-
     DB::q($query, $binds);
 
     DB::commit();
