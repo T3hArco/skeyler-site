@@ -76,6 +76,14 @@ $(function () {
   // handles keyboard shortcuts on keyup
   // TODO: verify there are no race conditions here
   $('#postContent').on('keyup', function (e) {
+
+    // all the browsers are the worst!
+    var canExecInsertText = false;
+    try {
+      canExecInsertText = document.execCommand && document.queryCommandEnabled('insertText');
+    } catch (e) {
+    }
+
     if (!e) {
       e = {};
     }
@@ -143,7 +151,7 @@ $(function () {
       }
       if (modifiedText !== false) {
         // if the execCommand is available, use it to fix undos
-        if (document.execCommand) {
+        if (canExecInsertText) {
           // if pasting, need to undo the existing paste
           if (key == 86) {
             document.execCommand('undo', false);
@@ -179,7 +187,7 @@ $(function () {
             insertText += '\n';
           }
 
-          if (document.execCommand) {
+          if (canExecInsertText) {
             document.execCommand('insertText', false, insertText);
           } else {
             //otherwise update the textarea with the new content
@@ -190,8 +198,6 @@ $(function () {
 
           break;
       }
-
-
     }
 
     var parsedContent = bbcode.parse($(this).val());
