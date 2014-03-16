@@ -1,11 +1,10 @@
 <?php
 
+$dontUpdateLoginTimestamp = true;
 
-
-// to delete:
 require '../_.php';
 
-//    http://skeyler.com/loading.php?mapname=%m&steamid=%s"
+// sv_loadingurl "http://skeyler.com/loading.php?steamid=%s&mapname=%m"
 
 $steam64 = isset($_GET['steamid']) ? $_GET['steamid'] : '';
 $mapname = isset($_GET['mapname']) ? $_GET['mapname'] : '';
