@@ -1,0 +1,19 @@
+// this is the loading page! don't put this css in with the main stuff since it'll break things probably!
+
+@import "base";
+
+body {
+  background-color: #ccc;
+  // Old browsers
+  @include filter-gradient(#ffffff, #dddddd, horizontal);
+  // IE6-9 fallback on horizontal gradient
+  @include background-image(radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(205, 205, 205, 1) 100%));
+}
+
+#logo {
+  // fix this url
+  background: url(../images/skeylerLogo.png) no-repeat;
+  display: block;
+  width: 277px;
+  height: 132px;
+}

@@ -109,7 +109,7 @@
 
 <?php if($local['showOnlineUsers']) : ?>
   <div class="onlineUsers">
-    <h3>These users are online right now!</h3>
+    <h4>Online Users</h4>
     <?php if(count($local['onlineUsers']) > 0) : ?>
       <?php echo implode('', $local['onlineUsers']); ?>
     <?php else : ?>

@@ -124,7 +124,7 @@ $(function () {
           modifiedCaretEnd = caret.end + 7;
           break;
         case 73: // pressed ctrl+i
-          modifiedText = newContents.substr(0, caret.start) + '[i]' + caret.text + '[/i]' + newContents.slice(caret.end)
+          modifiedText = newContents.substr(0, caret.start) + '[i]' + caret.text + '[/i]' + newContents.slice(caret.end);
           modifiedCaretStart = caret.start;
           modifiedCaretEnd = caret.end + 7;
           break;
@@ -133,6 +133,15 @@ $(function () {
         $(this).val(modifiedText);
         $(this).caret(modifiedCaretStart, modifiedCaretEnd);
       }
+    } else {
+      // didn't press ctrl
+      switch(key){
+        case 13:
+
+          break;
+      }
+
+
     }
 
     var parsedContent = bbcode.parse($(this).val());

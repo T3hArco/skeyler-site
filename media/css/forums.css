@@ -354,12 +354,7 @@ table.threads tbody tr:first-of-type {
 
 /* line 349, ../scss/forums.scss */
 .onlineUsers {
-  background: url(../images/noiseWhite.png) repeat left center;
-  padding: 1em;
-}
-/* line 353, ../scss/forums.scss */
-.onlineUsers h3 {
-  margin: 0 0 0.5em 0;
+  padding: 1em 0 0 0;
 }
 /* line 357, ../scss/forums.scss */
 .onlineUsers .userLink {
