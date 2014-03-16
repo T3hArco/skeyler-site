@@ -109,7 +109,7 @@ class User
 
       DB::commit();
 
-      return $existingUser[0]['id'];
+      return $existingUser['id'];
 
     }
     else {
