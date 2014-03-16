@@ -39,6 +39,7 @@ a {
 
 .alert-success {
   @include noise("Green");
+  clear:both;
 
   color: #fff;
   //font-weight: bold;

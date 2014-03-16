@@ -21,13 +21,18 @@ body {
   width: 100%;
 }
 
+.joining{
+  color: #4e4e4e;
+  font-style: italic;
+}
+
 #logo {
   // fix this url
   background: url(../images/skeylerLogo.png) no-repeat;
   display: inline-block;
   width: 277px;
   height: 132px;
-  margin-bottom:64px;
+  margin-bottom: 40px;
 }
 
 .bottom-wrapper {
@@ -45,6 +50,7 @@ body {
   width: 184px;
   height: 184px;
   display: block;
+  background: #ccc;
 }
 
 .steam-id {
