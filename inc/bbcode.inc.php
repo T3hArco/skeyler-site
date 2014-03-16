@@ -20,7 +20,7 @@ class BBCode
     foreach (self::$basicReplacements as $k => $v) {
       $validReplacements[] = $k;
     }
-    $pattern = '#\[(' . implode('|', $validReplacements) . ')\]((?:.|\n|\r)*?)\[\/\1\]#i';
+    $pattern = '#\[(' . implode('|', $validReplacements) . ')\](.*?)\[\/\1\]#is';
 
     return preg_replace_callback($pattern, function ($matches) {
       $tag = BBCode::$basicReplacements[$matches[1]];
@@ -56,15 +56,22 @@ class BBCode
 
   public static function parseQuote($str)
   {
-    $pattern = '#\[quote=&quot;([^"]+?)&quot; postid=&quot;([0-9]+)&quot;\]((?:.|\n|\r)*?)\[\/quote\]#i';
+    $pattern = '#\[quote(?:=&quot;([^"]+?)&quot;(?: postid=&quot;([0-9]+)&quot;)?)?\](.*?)\[\/quote\]#is';
     return preg_replace_callback($pattern, function ($matches) {
-      return '<blockquote><a class="postLink" href="/forums/thread.php?postId=' . $matches[2] . '">' . $matches[1] . ' posted:</a><br/>' . $matches[3] . '</blockquote>';
+      if($matches[1] && $matches[2]){
+        return '<blockquote><a class="postLink" href="/forums/thread.php?postId=' . $matches[2] . '">' . $matches[1] . ' posted:</a><br/>' . $matches[3] . '</blockquote>';
+      }
+      if($matches[1]) {
+        return '<blockquote><span class="postLink">' . $matches[1] . ' posted:</span><br/>' . $matches[3] . '</blockquote>';
+      }
+      return '<blockquote>' . $matches[3] . '</blockquote>';
+
     }, $str);
   }
 
   public static function parseList($str)
   {
-    $pattern = '#\[list\]((?:.|\n|\r)*?)\[\/list\]#i';
+    $pattern = '#\[list\](.*?)\[\/list\]#is';
     return preg_replace_callback($pattern, function ($matches) {
       $content = $matches[1];
       $pattern2 = '#\[\*\]([^\n]*?\n)#i';
@@ -85,7 +92,7 @@ class BBCode
 
   public static function parseCodeStart($str, &$codeTags)
   {
-    $pattern = '#\[code\]((?:.|\n|\r)*?)\[\/code\]#i';
+    $pattern = '#\[code\](.*?)\[\/code\]#is';
     return preg_replace_callback($pattern, function ($matches) use (&$codeTags) {
       $codeTags[] = $matches[1];
       return '<code' . count($codeTags) . '>';

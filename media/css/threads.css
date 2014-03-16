@@ -211,7 +211,7 @@ h2.threadTitle.closed:after {
   position: absolute;
 }
 /* line 231, ../scss/threads.scss */
-.postContent blockquote a.postLink {
+.postContent blockquote .postLink {
   font-size: 0.9em;
   margin: 0 0 10px -16px;
   display: inline-block;

@@ -91,8 +91,14 @@ bbcode.parseImg = function (str) {
 
 // parses a quote in the form [quote="name" postid="123"]text[/quote]
 bbcode.parseQuote = function (str) {
-  return str.replace(/\[quote=&quot;([^"]+?)&quot; postid=&quot;(\d+)&quot;\]((?:.|\n|\r)*?)\[\/quote\]/gi, function (z, username, postId, quoteText) {
-    return '<blockquote><a class="postLink" href="/forums/thread.php?postId=' + postId + '">' + username + ' posted:</a><br/>' + quoteText + '</blockquote>';
+  return str.replace(/\[quote(?:=&quot;([^"]+?)&quot;(?: postid=&quot;(\d+)&quot;)?)?\]((?:.|\n|\r)*?)\[\/quote\]/gi, function (z, username, postId, quoteText) {
+    if (username && postId) {
+      return '<blockquote><a class="postLink" href="/forums/thread.php?postId=' + postId + '">' + username + ' posted:</a><br/>' + quoteText + '</blockquote>';
+    }
+    if (username) {
+      return '<blockquote><span class="postLink">' + username + ' posted:</span><br/>' + quoteText + '</blockquote>';
+    }
+    return '<blockquote>' + quoteText + '</blockquote>';
   });
 };
 
