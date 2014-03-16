@@ -1,5 +1,10 @@
+<?php
+global $isLoggedIn, $User;
+
+?>
 <br class="clr"/><?php global $Config; ?>
     <!-- <?php echo $local['totalMs']; ?>ms -->
+<?php if($isLoggedIn && User::can(User::RANK_REGULAR)) : ?>
     <div id="chatbox">
       <h4>Chatbox</h4>
       <div class="chats">
@@ -9,6 +14,7 @@
       </form>
       <audio src="<?php echo $Config['mediaServer']; ?>audio/ding.mp3" id="chatboxAudio">
     </div>
+<?php endif; ?>
   </div>
 </div>
   <footer>
