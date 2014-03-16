@@ -67,7 +67,7 @@ if (is_null($user['name'])) {
   <p>You are joining <?php echo($mapname ? '<b>' . $mapname . '</b> by' : 'the') ?> Skeyler Servers. Enjoy your stay!</p>
 
   <div class="loading-bar"></div>
-  <p class="loading-message">Loading....</p>
+  <p id="loading-message">Loading....</p>
 </div>
 <div class="bottom-wrapper">
   <div class="user-info">
