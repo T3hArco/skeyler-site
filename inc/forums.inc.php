@@ -302,9 +302,22 @@ class Forums
       'createThreadRank' => $createThreadRank,
       'forumId' => $forumId,
     );
-    var_dump($query, $binds);
     DB::q($query, $binds);
     return DB::lastInsertId();
+  }
+
+  public static function getParents($forumId){
+    $query = '
+      SELECT f.id, f.name
+      FROM forum_parents AS fp
+      LEFT JOIN forums AS f
+        ON fp.forumId = f.id
+      WHERE forumId = :forumId;
+    ';
+    $binds = array(
+      'forumId' => $forumId,
+    );
+    return DB::q($query, $binds)->fetchAll();
   }
 
 

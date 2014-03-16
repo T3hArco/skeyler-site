@@ -54,7 +54,7 @@ class User
     $binds = array(
       'steamId64' => $steam64,
     );
-    return DB::q($query, $binds)->fetchAll();
+    return DB::q($query, $binds)->fetch();
   }
 
   /**
@@ -88,7 +88,7 @@ class User
     // data on a user.
     $existingUser = User::loadBySteam64($steamId64);
 
-    if ($existingUser && count($existingUser) == 1) {
+    if ($existingUser && is_array($existingUser)) {
       $query = '
         UPDATE users
         SET
@@ -99,10 +99,10 @@ class User
         LIMIT 1;
       ';
       $binds = array(
-        'userId' => $existingUser[0]['id'],
+        'userId' => $existingUser['id'],
         'name' => $user['personaname'],
         'avatarUrl' => $user['avatar'],
-        'lastLoginIp' => '',
+        'lastLoginIp' => ip2long($_SERVER['REMOTE_ADDR']),
       );
 
       DB::q($query, $binds)->fetch();

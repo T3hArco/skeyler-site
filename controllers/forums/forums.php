@@ -12,6 +12,8 @@ if (!isset($forums[$forumId])) {
   exit;
 }
 
+//$forumBreadcrumbs = Forums::getParents($forumId);
+
 $local['breadcrumbs'] = array(
   'Forums' => '/forums/',
   $forums[$forumId]['name'] => '/forums/?forumId=' . $forumId,

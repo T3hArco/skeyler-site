@@ -2,8 +2,7 @@
 class Steam
 {
 
-  public static function fetchAPI($interfaceName, $methodName, $version = 1, $qs = array(), $deepness = '', $postData = null)
-  {
+  public static function fetchAPI($interfaceName, $methodName, $version = 1, $qs = array(), $deepness = '', $postData = null) {
     global $Config;
     if (isset($qs['key'])) {
       $qs['key'] = $Config['steamApiKey'];
@@ -12,7 +11,8 @@ class Steam
     $url = 'http://api.steampowered.com/' . $interfaceName . '/' . $methodName . '/v' . $version . '?' . $query;
     if ($postData) {
       $json = curlGet($url, $postData);
-    } else {
+    }
+    else {
       $json = curlGet($url);
     }
     if (!$json) {
@@ -40,9 +40,8 @@ class Steam
     return $content;
   }
 
-  public static function getUserProfile($steamId64s)
-  {
-    $steamId64s = (array)$steamId64s;
+  public static function getUserProfile($steamId64s) {
+    $steamId64s = (array) $steamId64s;
     $qs = array(
       'key' => 1,
       'steamIds' => implode(',', $steamId64s),
@@ -50,6 +49,9 @@ class Steam
     return self::fetchAPI('ISteamUser', 'GetPlayerSummaries', 2, $qs, 'response.players');
   }
 
+  public static function isValidSteam64($steam64) {
+    return (strlen($steam64) == 17 && substr($steam64, 0, 4) == '7656');
+  }
 
   /**
    * Converts a steam64 to a STEAM_ID
@@ -57,11 +59,10 @@ class Steam
    * @param string $profileId
    * @return string steam id
    */
-  public static function steam64ToSTEAM($profileId)
-  {
+  public static function steam64ToSTEAM($profileId) {
     $steamPieces = array(0 => '0', 1 => '', 2 => '');
     $steamPieces[1] = substr($profileId, -1) % 2;
-    $steamPieces[2] = ((int)bcsub($profileId, '76561197960265728') - $steamPieces[1]) / 2;
+    $steamPieces[2] = ((int) bcsub($profileId, '76561197960265728') - $steamPieces[1]) / 2;
     $steamId = implode(':', $steamPieces);
     return $steamId;
   }

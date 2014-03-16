@@ -3,13 +3,51 @@
 
 
 // to delete:
-require '../inc/config.inc.php';
+require '../_.php';
 
 //    http://skeyler.com/loading.php?mapname=%m&steamid=%s"
 
 $steam64 = isset($_GET['steamid']) ? $_GET['steamid'] : '';
 $mapname = isset($_GET['mapname']) ? $_GET['mapname'] : '';
 
+if (Steam::isValidSteam64($steam64)) {
+  $user = User::loadBySteam64($steam64);
+}
+
+if (!$user) {
+  $userTemp = Steam::getUserProfile($steam64);
+
+  if ($userTemp && count($userTemp) == 1) {
+    $user = array(
+      'steamId' => Steam::steam64ToSTEAM($userTemp[0]['steamid']),
+      'name' => $userTemp[0]['personaname'],
+      'lastLoginTimestamp' => 0,
+      'rank' => 0,
+      'money' => 0,
+      'playtime' => 0,
+      'avatarUrl' => $userTemp[0]['avatar'],
+    );
+  }
+}
+
+if (!$user) {
+  $user = array(
+    'steamId' => '0:0:1',
+    'name' => 'Friend',
+    'lastLoginTimestamp' => 0,
+    'rank' => 0,
+    'money' => 0,
+    'playtime' => 0,
+    'avatarUrl' => 'http://media.steampowered.com/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg',
+  );
+}
+
+if (!$user['avatarUrl']) {
+  $user['avatarUrl'] = 'http://media.steampowered.com/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg';
+}
+if (is_null($user['name'])) {
+  $user['name'] = 'Friend';
+}
 
 
 ?>
@@ -46,7 +84,24 @@ $mapname = isset($_GET['mapname']) ? $_GET['mapname'] : '';
 
 </style>
 <body>
-<div id="logo"></div>
-<p>You are joining <b>The Lounge</b> by Skeyler Servers. Enjoy your stay!</p>
+<div class="top-wrapper">
+  <div id="logo"></div>
+  <p>You are joining <?php echo($mapname ? '<b>' . $mapname . '</b> by' : 'the') ?> Skeyler Servers. Enjoy your stay!</p>
 
+  <div class="loading-bar"></div>
+  <p class="loading-message">Loading....</p>
+</div>
+<div class="bottom-wrapper">
+  <div class="user-info">
+    <img class="avatar" src="<?php echo User::writeAvatar($user['avatarUrl'], 'full'); ?>"/>
+
+    <div class="steam-id">STEAM_<?php echo $user['steamId']; ?></div>
+  </div>
+  <div class="welcome-wrapper">
+    <h3>Welcome Back, <span class="name"><?php echo ent($user['name']); ?></span>!</h3>
+
+    <div class="money"><?php echo number_format((int) $user['money']); ?></div>
+    <div class="rank"><?php echo User::writeRankTag($user); ?></div>
+  </div>
+</div>
 </body>
