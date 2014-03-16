@@ -61,6 +61,7 @@ $(function () {
       switch (key) {
         case 66: // ctrl+b
         case 73: // ctrl+i
+        case 76: // ctrl+L
           e.stopPropagation();
           e.preventDefault();
           return false;
@@ -147,6 +148,12 @@ $(function () {
           modifiedCaretStart = caret.start;
           modifiedCaretEnd = caret.end + 7;
           insertText = '[i]' + caret.text + '[/i]';
+          break;
+        case 76:// pressed ctrl+L
+          modifiedText = newContents.substr(0, caret.start) + '[list]\n[*]' + caret.text + '\n[/list]' + newContents.slice(caret.end);
+          modifiedCaretStart = caret.start + 10;
+          modifiedCaretEnd = caret.end + 10;
+          insertText = '[list]\n[*]' + caret.text + '\n[/list]';
           break;
       }
       if (modifiedText !== false) {
