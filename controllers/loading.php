@@ -64,7 +64,7 @@ if (is_null($user['name'])) {
 <body>
 <div class="top-wrapper">
   <div id="logo"></div>
-  <p>You are joining <?php echo($mapname ? '<b>' . $mapname . '</b> by' : 'the') ?> Skeyler Servers. Enjoy your stay!</p>
+  <p class="joining">You are joining <?php echo($mapname ? '<b>' . $mapname . '</b> by' : 'the') ?> Skeyler Servers. Enjoy your stay!</p>
 
   <div class="loading-bar"></div>
   <p id="loading-message">Loading....</p>
