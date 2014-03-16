@@ -85,7 +85,7 @@ if (is_null($user['name'])) {
 </body>
 
 <script>
-  var $loading = document.getElementById('loading-message')[0];
+  var $loading = document.getElementById('loading-message');
   var filesTotal = 'X';
 
   // Called when the loading screen finishes loading all assets.
