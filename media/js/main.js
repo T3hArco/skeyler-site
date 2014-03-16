@@ -86,16 +86,21 @@ $(function () {
     var key = e.keyCode;
 
     var modifiedText = false;
+    var caret = $(this).caret();
+    var modifiedCaretStart = caret.start;
+    var modifiedCaretEnd = caret.end;
 
     if (ctrl) {
-      var caret = $(this).caret();
-      var modifiedCaretStart = caret.start;
-      var modifiedCaretEnd = caret.end;
+
+      var insertText = '';
 
       switch (key) {
         case 86: // pressed ctrl+v
           var copiedText = newContents.substring(oldCaret.start, caret.start);
           var copiedTextLength = copiedText.length;
+
+          // the amount of displacement caused by adding strings to the text pasted
+          var copiedTextOffset = 0;
           // if a url/img start tag is already there, we don't want to auto-add tags
           if (newContents.substring(oldCaret.start - 5, oldCaret.start) in {'[img]': 1, '[url]': 1}) {
             break;
@@ -104,39 +109,84 @@ $(function () {
           copiedText = copiedText.replace(/^(https?:\/\/[^\s]*)/i, function (z, url) {
             // if it's a url, check if it is an image, so bbcode can be autowrapped around the pasted text
             if (/\.(bmp|gif|jpe?g|png)\??.*?$/i.test(url) || /^http:\/\/cloud\.steampowered\.com\/ugc\//.test(url)) {
+              copiedTextOffset = 11;
               return '[img]' + url + '[/img]';
             } else if (/^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-z0-9_-]+)/i.test(url)) {
+              var originalUrlLength = url.toString().length;
               url.replace(/^https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-z0-9_-]+)/i, function (z, youtubeId) {
                 url = youtubeId;
               });
+              copiedTextOffset = url.toString() - originalUrlLength;
               return '[youtube]' + url + '[/youtube]';
             } else {
+              copiedTextOffset = 11;
               return '[url]' + url + '[/url]';
             }
           });
           modifiedText = newContents.substr(0, oldCaret.start) + copiedText + newContents.slice(oldCaret.start + copiedTextLength);
-          modifiedCaretStart = caret.start + 11;
-          modifiedCaretEnd = caret.start + 11;
+          modifiedCaretStart = caret.start + copiedTextOffset;
+          modifiedCaretEnd = caret.start + copiedTextOffset;
+          insertText = copiedText;
           break;
         case 66: // pressed ctrl+b
           modifiedText = newContents.substr(0, caret.start) + '[b]' + caret.text + '[/b]' + newContents.slice(caret.end);
           modifiedCaretStart = caret.start;
           modifiedCaretEnd = caret.end + 7;
+          insertText = '[b]' + caret.text + '[/b]';
           break;
         case 73: // pressed ctrl+i
           modifiedText = newContents.substr(0, caret.start) + '[i]' + caret.text + '[/i]' + newContents.slice(caret.end);
           modifiedCaretStart = caret.start;
           modifiedCaretEnd = caret.end + 7;
+          insertText = '[i]' + caret.text + '[/i]';
           break;
       }
       if (modifiedText !== false) {
-        $(this).val(modifiedText);
+        // if the execCommand is available, use it to fix undos
+        if (document.execCommand) {
+          // if pasting, need to undo the existing paste
+          if (key == 86) {
+            document.execCommand('undo', false);
+          }
+          document.execCommand('insertText', false, insertText);
+        } else {
+          // otherwise, replace the textarea with the modified version
+          $(this).val(modifiedText);
+        }
         $(this).caret(modifiedCaretStart, modifiedCaretEnd);
       }
     } else {
       // didn't press ctrl
-      switch(key){
+      switch (key) {
         case 13:
+          // lists add [*] when you press enter
+          var nearestBeforeListStart = newContents.substring(0, modifiedCaretStart).lastIndexOf('[list]');
+          var nearestBeforeListEnd = newContents.substring(0, modifiedCaretStart).lastIndexOf('[/list]');
+          var nearestAfterListEnd = newContents.substring(modifiedCaretStart).lastIndexOf('[/list]');
+
+          // if no [list] before the caret
+          // if there's [/list] after the nearest [list]
+          // if there's no [/list]
+          if (nearestBeforeListStart == -1
+            || (nearestBeforeListEnd != -1 && nearestBeforeListEnd > nearestBeforeListStart)
+            || nearestAfterListEnd == -1) {
+            break;
+          }
+          var insertText = '[*]';
+          var caretOffset = insertText.length;
+
+          if (newContents.substring(modifiedCaretStart - 7, modifiedCaretStart + 7) === '[list]\n[/list]') {
+            insertText += '\n';
+          }
+
+          if (document.execCommand) {
+            document.execCommand('insertText', false, insertText);
+          } else {
+            //otherwise update the textarea with the new content
+            modifiedText = newContents.substr(0, caret.start) + caret.text + insertText + newContents.slice(caret.end);
+            $(this).val(modifiedText);
+          }
+          $(this).caret(modifiedCaretStart + caretOffset, modifiedCaretEnd + caretOffset);
 
           break;
       }
