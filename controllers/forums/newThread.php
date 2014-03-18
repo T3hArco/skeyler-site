@@ -38,12 +38,12 @@ $isSubmit = isset($_POST['submit']);
 if ($isSubmit) {
   $hasErrors = false;
 
-  if (strlen($title) < 5) {
+  if (strlen(trim($title)) < 5) {
     Notice::error('Title too short. Make it at least 5 characters.');
     $hasErrors = true;
   }
-  if (strlen($content) < 5) {
-    Notice::error('Content too short. Make it at least 5 characters.');
+  if (strlen(trim($content)) < 1) {
+    Notice::error('Content too short. Make your post longer! Let your posts flow with all the words of the rainbow!');
     $hasErrors = true;
   }
 

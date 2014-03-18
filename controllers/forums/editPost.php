@@ -51,13 +51,13 @@ $content = getPost('content');
 $isSubmit = isset($_POST['submit']);
 if ($isSubmit) {
   $hasErrors = false;
-  if (strlen($content) < 5) {
-    Notice::error('Content too short. Make it at least 5 characters.');
+  if (strlen(trim($content)) < 1) {
+    Notice::error('Content too short. Make your post longer! Let your posts flow with all the words of the rainbow!');
     $hasErrors = true;
   }
 
   if (!$hasErrors) {
-    $lastPostId = Posts::editPost($content, $postId);
+    Posts::editPost($content, $postId);
     redirect('/forums/thread.php?postId=' . $postId);
   }
 }
