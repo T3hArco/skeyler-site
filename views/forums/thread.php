@@ -35,7 +35,7 @@ if ($local['thread']['isSticky']) {
         <?php if ($post['lastEditTimestamp']) : ?>
           <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
         <?php endif; ?>
-        <span class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></span>
+        <a href="/forums/thread.php?postId=<?php echo $post['id']; ?>" class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></a>
       </div>
       <div class="postOptions">
         <a href="#" class="sprite quote"></a>
