@@ -40,6 +40,10 @@ h2.threadTitle {
     @include noiseBorder(GreyDark, 0, 0, 0, 5);
   }
 
+  &.seenPost {
+    @include noise(GreyMedium);
+  }
+
   &.myPost {
     @include noiseBorder("Blue", 0, 0, 0, 5);
   }

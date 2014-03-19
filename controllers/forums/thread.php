@@ -63,11 +63,16 @@ if (!$posts) {
 $userIds = array_unique(array_merge(eachField($posts, 'userId'), eachField($posts, 'lastEditUserId')));
 $users = User::loadIds($userIds);
 
+$lastReads = Threads::getLastReads(array($threadId));
+$postsSeenPrior = (int)(isset($lastReads[$threadId], $lastReads[$threadId]['postsSeen']) ? $lastReads[$threadId]['postsSeen'] : 0);
+$postSeenPriorThisPage = $postsSeenPrior - ($pageId - 1) * $Config['postsPerPage'];
+
 $postsSeen = max(0, min($pageId * $Config['postsPerPage'], count($posts) + (($pageId - 1) * $Config['postsPerPage'])));
 
 // marks the forum as seen at the current time by the current user
 Threads::updateLastSeen($threadId, $postsSeen);
 
+$data['lastSeen'] = $postSeenPriorThisPage;
 $data['thread'] = $thread;
 $data['forum'] = $forum;
 $data['posts'] = $posts;

@@ -64,10 +64,10 @@ $graey: #aaa;
 }
 
 @mixin noise($url, $repeat: repeat) {
-  //$urlTemp: str-slice($url, 1, 1);
-  //$urlTemp2: to-upper-case( #{$urlTemp} );
-  //$urlTemp3: str-slice($url, 2);
-  //test:$urlTemp2;
+//$urlTemp: str-slice($url, 1, 1);
+//$urlTemp2: to-upper-case( #{$urlTemp} );
+//$urlTemp3: str-slice($url, 2);
+//test:$urlTemp2;
   background: url(../images/noise#{$url}.png) $repeat left center noiseToColor($url);
 }
 

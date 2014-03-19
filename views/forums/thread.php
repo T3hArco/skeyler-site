@@ -18,7 +18,7 @@ if ($local['thread']['isSticky']) {
   <?php $i = 0; ?>
   <?php foreach ($local['posts'] as $post) : ?>
     <?php $i++; ?>
-    <div class="post post-<?php echo $post['id']; ?><?php echo ($post['userId'] == $User['id'] ? ' myPost' : ''); ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
+    <div class="post post-<?php echo $post['id']; ?><?php echo ($post['userId'] == $User['id'] ? ' myPost' : '') . ($i <= $local['lastSeen'] ? ' seenPost':' newPost') ?>" id="p_<?php echo $i; ?>" data-post-id="<?php echo $post['id']; ?>" data-bbcode="<?php echo ent($post['content']); ?>" data-user-id="<?php echo $post['userId']; ?>">
       <div class="userInfo">
         <img src="<?php echo User::writeAvatar($local['users'][$post['userId']]['avatarUrl'], 'full'); ?>" class="avatar"/>
         <?php echo User::writeUserLink($local['users'][$post['userId']], array('hideTag' => true)); ?>
