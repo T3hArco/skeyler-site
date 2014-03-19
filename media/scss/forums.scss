@@ -274,11 +274,11 @@ table.threads {
     &.sticky {
       //background-color: #f2ecb6;
       //opacity: 1.0;
-      @include noise("Beige");
+      @include noise(BeigeLight);
 
       &:hover {
         //background-color: #fffad9;
-        @include noise(BeigeLight);
+        @include noise("Beige");
       }
 
       .title span a:before {

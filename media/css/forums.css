@@ -288,11 +288,11 @@ table.threads tr.closed .title span a:before {
 }
 /* line 274, ../scss/forums.scss */
 table.threads tr.sticky {
-  background: url(../images/noiseBeige.png) repeat left center;
+  background: url(../images/noiseBeigeLight.png) repeat left center #fff5c4;
 }
 /* line 279, ../scss/forums.scss */
 table.threads tr.sticky:hover {
-  background: url(../images/noiseBeigeLight.png) repeat left center #fff5c4;
+  background: url(../images/noiseBeige.png) repeat left center;
 }
 /* line 284, ../scss/forums.scss */
 table.threads tr.sticky .title span a:before {
