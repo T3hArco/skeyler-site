@@ -42,9 +42,8 @@ if ($local['thread']['isSticky']) {
         <a href="/user.php?userId=<?php echo $post['userId']; ?>" class="sprite userProfile" target="_blank"></a>
         <?php if ($post['userId'] == $User['id']) : ?>
           <a href="/forums/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
-          <?php //else : ?>
-          <?php echo User::writeModOptions('post'); ?>
         <?php endif; ?>
+        <?php echo User::writeModOptions('post'); ?>
       </div>
     </div>
   <?php endforeach; ?>
