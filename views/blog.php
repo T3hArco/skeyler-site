@@ -1,7 +1,8 @@
 <div class="blog">
   <ul class="categories">
-    <li class="selected"><a href="#">Newest</a></li>
-    <li><a href="#">Popular</a></li>
+    <li class="selected"><a>Newest</a></li>
+<!--    <li class="selected"><a href="#">Newest</a></li>-->
+<!--    <li><a href="#">Popular</a></li>-->
   </ul>
 
   <?php foreach ($local['threads'] as $thread) : ?>
