@@ -31,7 +31,7 @@ class BBCode
   public static function parseUrl($str)
   {
 
-    $pattern = '#\[url=&quot;(https?:\/\/.*?)&quot;\]((?:.|\n|\r)*?)\[\/url\]#i';
+    $pattern = '#\[url=&quot;((?:https?:\/\/|www\.|steam:\/\/).*?)&quot;\]((?:.|\n|\r)*?)\[\/url\]#i';
 
     //todo: decide if it needs to unent() before urlencode
 
@@ -39,7 +39,7 @@ class BBCode
       return '<a href="' . $matches[1] . '">' . $matches[2] . '</a>';
     }, $str);
 
-    $pattern2 = '#\[url\](https?:\/\/.*?)\[\/url\]#i';
+    $pattern2 = '#\[url\]((?:https?:\/\/|www\.|steam:\/\/).*?)\[\/url\]#i';
     $str = preg_replace_callback($pattern2, function ($matches) {
       return '<a href="' . $matches[1] . '">' . $matches[1] . '</a>';
     }, $str);
@@ -48,7 +48,7 @@ class BBCode
 
   public static function parseImg($str)
   {
-    $pattern = '#\[img\](https?:\/\/.*?)\[\/img\]#i';
+    $pattern = '#\[img\]((?:https?:\/\/|www\.).*?)\[\/img\]#i';
     return preg_replace_callback($pattern, function ($matches) {
       return '<img src="' . $matches[1] . '" />';
     }, $str);

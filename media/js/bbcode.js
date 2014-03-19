@@ -74,9 +74,9 @@ bbcode.parseBasic = function (str) {
 // also parses urls in the form [url]http://google.com[/url] to <a href="http://google.com">http://google.com</a>
 // TODO: need to url escape the url, but don't remember which func was the good one (will prob have to unentity it first)
 bbcode.parseUrl = function (str) {
-  return str.replace(/\[url=&quot;(https?:\/\/.*?)&quot;\]((?:.|\n|\r)*?)\[\/url\]/gi,function (z, url, content) {
+  return str.replace(/\[url=&quot;((?:https?:\/\/|www\.|steam:\/\/).*?)&quot;\]((?:.|\n|\r)*?)\[\/url\]/gi,function (z, url, content) {
     return '<a href="' + url + '">' + content + '</a>';
-  }).replace(/\[url\](https?:\/\/.*?)\[\/url\]/gi, function (z, url) {
+  }).replace(/\[url\]((?:https?:\/\/|www\.|steam:\/\/).*?)\[\/url\]/gi, function (z, url) {
       return '<a href="' + url + '">' + url + '</a>';
     });
 };
@@ -84,7 +84,7 @@ bbcode.parseUrl = function (str) {
 // parses imgs in the form [img]http://google.com[/img] to <img src="http://google.com" />
 // TODO: need to url escape the url, but don't remember which func was the good one (will prob have to unentity it first)
 bbcode.parseImg = function (str) {
-  return str.replace(/\[img\](https?:\/\/.*?)\[\/img\]/gi, function (z, url) {
+  return str.replace(/\[img\]((?:https?:\/\/|www\.).*?)\[\/img\]/gi, function (z, url) {
     return '<img src="' + url + '" />';
   });
 };
