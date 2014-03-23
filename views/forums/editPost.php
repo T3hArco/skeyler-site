@@ -51,21 +51,23 @@
 </div>
 
 <h3>Original Post:</h3>
-<div class="post post-<?php echo $post['id']; ?>" data-post-id="<?php echo $post['id']; ?>" data-user-id="<?php echo $post['userId']; ?>">
-  <div class="userInfo">
-    <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
-    <img src="<?php echo User::writeAvatar($User['avatarUrl'], 'full'); ?>" class="avatar"/>
-    <?php echo User::writeUserLink($User, array('hideTag' => true)); ?>
-    <span class="postCount"><?php echo($User['postCount']); ?> posts</span>
-    <?php echo User::writeRankTag($User); ?>
-    <?php if (User::can(User::RANK_MOD)) : ?>
-      <span class="steamId">STEAM_<?php echo $User['steamId']; ?></span>
-      <?php if (User::can(User::RANK_ADMIN)) : ?>
-        <span class="ip"><?php echo long2ip($post['ip']); ?></span>
+<div class="posts">
+  <div class="post post-<?php echo $post['id']; ?>" data-post-id="<?php echo $post['id']; ?>" data-user-id="<?php echo $post['userId']; ?>"><!--
+    --><div class="userInfo">
+      <span class="postTime"><?php echo writeDateEng($post['timestamp']); ?></span>
+      <img src="<?php echo User::writeAvatar($User['avatarUrl'], 'full'); ?>" class="avatar"/>
+      <?php echo User::writeUserLink($User, array('hideTag' => true)); ?>
+      <span class="postCount"><?php echo($User['postCount']); ?> posts</span>
+      <?php echo User::writeRankTag($User); ?>
+      <?php if (User::can(User::RANK_MOD)) : ?>
+        <span class="steamId">STEAM_<?php echo $User['steamId']; ?></span>
+        <?php if (User::can(User::RANK_ADMIN)) : ?>
+          <span class="ip"><?php echo long2ip($post['ip']); ?></span>
+        <?php endif; ?>
       <?php endif; ?>
-    <?php endif; ?>
-  </div><!--
---><div class="postContent">
-    <?php echo $post['contentParsed']; ?>
-  </div>
+    </div><!--
+  --><div class="postContent">
+      <?php echo $post['contentParsed']; ?>
+    </div><!--
+  --></div>
 </div>

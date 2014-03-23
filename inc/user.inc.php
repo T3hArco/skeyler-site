@@ -297,7 +297,7 @@ class User
     return $out;
   }
 
-  public static function searchUsers($search) {
+  public static function searchUsers($search, $order) {
     global $Config, $pageId;
 
     $query = '
