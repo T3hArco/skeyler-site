@@ -39,9 +39,9 @@ $user = $local['user'];
              --><dd><?php echo $user['postCount']; ?></dd>
         <dt>Rank</dt><!--
              --><dd><?php echo (User::writeRankTag($user) ?: 'Dirtshirt'); ?></dd>
-        <dt>Doubloons Tossed</dt><!--
+        <dt>Pixels Tossed</dt><!--
              --><dd>0</dd>
-        <dt>Doubloons</dt><!--
+        <dt>Pixels</dt><!--
              --><dd><?php echo $user['money']; ?></dd>
       </dl>
     </div>

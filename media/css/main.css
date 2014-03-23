@@ -182,22 +182,22 @@ ul.pageNav li.curPage span {
 /* line 201, ../scss/main.scss */
 .tag-reg:hover, .tag-vip:hover, .tag-mod:hover, .tag-admin:hover, .tag-dev:hover, .tag-super:hover, .tag-owner:hover {
   text-decoration: none;
-  outline: 2px solid #9c9c9c;
+  outline: 2px solid #121212;
 }
 
 /* line 207, ../scss/main.scss */
 .tag-reg {
-  background: #e8e8e8;
+  background: #5e5e5e;
   text-shadow: 1px 1px 2px #000, 0 0 2px #000;
 }
 
 /* line 212, ../scss/main.scss */
 .tag-vip {
-  background: #ffe762;
+  background: #ffe555;
 }
 /* line 215, ../scss/main.scss */
 .tag-vip:hover {
-  outline: 2px solid #c8a900;
+  outline: 2px solid #bb9e00;
 }
 
 /* line 220, ../scss/main.scss */
@@ -211,38 +211,38 @@ ul.pageNav li.curPage span {
 
 /* line 227, ../scss/main.scss */
 .tag-admin {
-  background: #ff6262;
+  background: #ff5555;
 }
 /* line 229, ../scss/main.scss */
 .tag-admin:hover {
-  outline: 2px solid #c80000;
+  outline: 2px solid #bb0000;
 }
 
 /* line 234, ../scss/main.scss */
 .tag-dev {
-  background: #7ad8ff;
+  background: #45c0ff;
 }
 /* line 236, ../scss/main.scss */
 .tag-dev:hover {
-  outline: 2px solid #009ee0;
+  outline: 2px solid #0071ab;
 }
 
 /* line 241, ../scss/main.scss */
 .tag-super {
-  background: #ba83ff;
+  background: #b156ff;
 }
 /* line 243, ../scss/main.scss */
 .tag-super:hover {
-  outline: 2px solid #6700e9;
+  outline: 2px solid #6500bc;
 }
 
 /* line 248, ../scss/main.scss */
 .tag-owner {
-  background: #5e5e5e;
+  background: #3c3c3c;
 }
 /* line 250, ../scss/main.scss */
 .tag-owner:hover {
-  outline: 2px solid #121212;
+  outline: 2px solid black;
 }
 
 /* line 255, ../scss/main.scss */
