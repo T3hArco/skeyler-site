@@ -6,9 +6,9 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* MAIN SPRITES */
-/* line 658, ../images/sprites/main/*.png */
+/* line 650, ../images/sprites/main/*.png */
 DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before, .sprite.bbc-bold:before, .sprite.bbc-heading:before, .sprite.bbc-image:before, .sprite.bbc-italic:before, .sprite.bbc-link:before, .sprite.bbc-list:before, .sprite.bbc-quote:before, .sprite.bbc-underline:before {
-  background: url('../images/../images/sprites/main-s2e93c2ba9f.png') no-repeat;
+  background: url('../images/../images/sprites/main-sb2ba46ae63.png') no-repeat;
 }
 
 /* line 30, ../scss/sprites.scss */
@@ -30,7 +30,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
   left: 0;
   width: 32px;
   height: 32px;
-  background: url('../images/../images/sprites/main-s2e93c2ba9f.png') 0 -709px no-repeat transparent;
+  background: url('../images/../images/sprites/main-sb2ba46ae63.png') 0 -709px no-repeat transparent;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.banUser:before {
@@ -102,11 +102,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before {
-  background-position: 0 -1797px;
+  background-position: 0 -1765px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-moveThread:before {
-  background-position: 0 -1317px;
+  background-position: 0 -1285px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-deleteThread:before {
@@ -158,11 +158,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.profile:before {
-  background-position: 0 -1413px;
+  background-position: 0 -1381px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.profile:hover:before {
-  background-position: 0 -1989px;
+  background-position: 0 -1957px;
 }
 /* line 115, ../scss/sprites.scss */
 .sprite.quote {
@@ -174,11 +174,11 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.quote:before {
-  background-position: 0 -1573px;
+  background-position: 0 -1541px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.quote:hover:before {
-  background-position: 0 -1605px;
+  background-position: 0 -1573px;
 }
 /* line 139, ../scss/sprites.scss */
 .sprite.bbc-bold:before {
