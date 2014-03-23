@@ -202,7 +202,7 @@
 }
 /* line 182, ../scss/user.scss */
 .statsDetailed dt:nth-of-type(even), .statsDetailed dd:nth-of-type(even) {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 187, ../scss/user.scss */
 .statsDetailed dt.sprite {

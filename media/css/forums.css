@@ -185,8 +185,9 @@
 }
 /* line 188, ../scss/forums.scss */
 .table.subforums .row.forumNew:before {
-  background: url(../images/noiseBlue.png) repeat left center;
+  background: url(../images/noiseBlue.png) repeat left center #25bfff;
   border-style: solid;
+  border-color: white;
   -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
@@ -196,8 +197,9 @@
 }
 /* line 195, ../scss/forums.scss */
 .table.subforums .row.forumSeen:before {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
   border-style: solid;
+  border-color: white;
   -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
@@ -233,7 +235,7 @@ table.threads tr {
 }
 /* line 220, ../scss/forums.scss */
 table.threads tr:hover {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 224, ../scss/forums.scss */
 table.threads tr td {
@@ -261,6 +263,7 @@ table.threads tr .title span:before {
   display: block;
   width: 9px;
   border-style: solid;
+  border-color: white;
   -moz-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
   -webkit-border-image: url(../images/noiseWhite.png) 3 2 3 2 repeat repeat;
@@ -270,11 +273,11 @@ table.threads tr .title span:before {
 }
 /* line 252, ../scss/forums.scss */
 table.threads tr.threadNew .title span:before {
-  background: url(../images/noiseBlue.png) repeat left center;
+  background: url(../images/noiseBlue.png) repeat left center #25bfff;
 }
 /* line 256, ../scss/forums.scss */
 table.threads tr.threadSeen .title span:before {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 260, ../scss/forums.scss */
 table.threads tr.closed .title span a:after {
@@ -292,7 +295,7 @@ table.threads tr.sticky {
 }
 /* line 279, ../scss/forums.scss */
 table.threads tr.sticky:hover {
-  background: url(../images/noiseBeige.png) repeat left center;
+  background: url(../images/noiseBeige.png) repeat left center #f1e8b9;
 }
 /* line 284, ../scss/forums.scss */
 table.threads tr.sticky .title span a:before {

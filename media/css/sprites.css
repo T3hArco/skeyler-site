@@ -6,9 +6,9 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* MAIN SPRITES */
-/* line 594, ../images/sprites/main/*.png */
-DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before {
-  background: url('../images/../images/sprites/main-s65226789a6.png') no-repeat;
+/* line 658, ../images/sprites/main/*.png */
+DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before, .sprite.bbc-bold:before, .sprite.bbc-heading:before, .sprite.bbc-image:before, .sprite.bbc-italic:before, .sprite.bbc-link:before, .sprite.bbc-list:before, .sprite.bbc-quote:before, .sprite.bbc-underline:before {
+  background: url('../images/../images/sprites/main-s2e93c2ba9f.png') no-repeat;
 }
 
 /* line 30, ../scss/sprites.scss */
@@ -30,7 +30,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
   left: 0;
   width: 32px;
   height: 32px;
-  background: url('../images/../images/sprites/main-s65226789a6.png') 0 -629px no-repeat transparent;
+  background: url('../images/../images/sprites/main-s2e93c2ba9f.png') 0 -709px no-repeat transparent;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.banUser:before {
@@ -58,7 +58,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.mod-demoteUser:before {
-  background-position: 0 -29px;
+  background-position: -12px -14px;
   width: 14px;
   left: 9px;
   height: 13px;
@@ -66,7 +66,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.mod-promoteUser:before {
-  background-position: -12px -14px;
+  background-position: -32px -133px;
   width: 14px;
   left: 9px;
   height: 13px;
@@ -90,7 +90,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.victories:before {
-  background-position: 0 -53px;
+  background-position: -32px -165px;
   width: 15px;
   left: 8.5px;
   height: 16px;
@@ -98,23 +98,23 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-closeThread:before {
-  background-position: 0 -309px;
+  background-position: 0 -389px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before {
-  background-position: 0 -1717px;
+  background-position: 0 -1797px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-moveThread:before {
-  background-position: 0 -1237px;
+  background-position: 0 -1317px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-deleteThread:before {
-  background-position: 0 -437px;
+  background-position: 0 -517px;
 }
 /* line 90, ../scss/sprites.scss */
 .sprite.mod-renameThread:before {
-  background-position: 0 -597px;
+  background-position: 0 -677px;
 }
 /* line 115, ../scss/sprites.scss */
 .sprite.edit {
@@ -122,15 +122,15 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 118, ../scss/sprites.scss */
 .sprite.edit:hover {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.edit:before {
-  background-position: 0 -565px;
+  background-position: 0 -645px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.edit:hover:before {
-  background-position: 0 -597px;
+  background-position: 0 -677px;
 }
 /* line 115, ../scss/sprites.scss */
 .sprite.modButton {
@@ -138,15 +138,15 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 118, ../scss/sprites.scss */
 .sprite.modButton:hover {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.modButton:before {
-  background-position: 0 -1141px;
+  background-position: 0 -1189px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.modButton:hover:before {
-  background-position: 0 -1173px;
+  background-position: 0 -1221px;
 }
 /* line 115, ../scss/sprites.scss */
 .sprite.profile {
@@ -154,15 +154,15 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 118, ../scss/sprites.scss */
 .sprite.profile:hover {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.profile:before {
-  background-position: -15px -53px;
+  background-position: 0 -1413px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.profile:hover:before {
-  background-position: 0 -1365px;
+  background-position: 0 -1989px;
 }
 /* line 115, ../scss/sprites.scss */
 .sprite.quote {
@@ -170,13 +170,77 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
 }
 /* line 118, ../scss/sprites.scss */
 .sprite.quote:hover {
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 122, ../scss/sprites.scss */
 .sprite.quote:before {
-  background-position: 0 -1493px;
+  background-position: 0 -1573px;
 }
 /* line 127, ../scss/sprites.scss */
 .sprite.quote:hover:before {
-  background-position: 0 -1525px;
+  background-position: 0 -1605px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-bold:before {
+  background-position: 0 -89px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-heading:before {
+  background-position: -20px -89px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-image:before {
+  background-position: -20px -69px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-italic:before {
+  background-position: 0 -69px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-link:before {
+  background-position: 0 -29px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-list:before {
+  background-position: -20px -49px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-quote:before {
+  background-position: -20px -29px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
+}
+/* line 139, ../scss/sprites.scss */
+.sprite.bbc-underline:before {
+  background-position: 0 -49px;
+  width: 20px;
+  left: 6px;
+  height: 20px;
+  top: 6px;
 }

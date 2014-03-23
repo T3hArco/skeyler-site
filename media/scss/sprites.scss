@@ -132,4 +132,13 @@ $main-default-size: 32px;
     }
   }
 
+  // bbcode
+  @each $i in (
+    "bold", heading, image, "italic", link, list, quote, "underline"
+  ) {
+    &.bbc-#{$i}:before {
+      @include spr(bbc-#{$i});
+    }
+  }
+
 }

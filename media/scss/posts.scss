@@ -31,7 +31,99 @@
   }
 
   #postTitle {
-    width: 621px;
+    width: 100%;
   }
 }
+
+
+
+// makes post form fit together better on good browsers
+.postFlexWrapper {
+  @include flexbox();
+
+  textarea {
+    @include flex(5);
+  }
+  .bbcode {
+    @include flex(1);
+  }
+}
+
+$bbcodeWidth: 150px;
+
+#postContent {
+  width: $mainWidth - $bbcodeWidth - 2px - (2 * $contentPadding);
+  // 2px = border
+}
+
+.createPost {
+  display: inline-block;
+}
+
+.page-thread .createPost{
+  margin: 0 (-1 * $contentPadding);
+
+  #postContent {
+    width: $mainWidth - $bbcodeWidth - 2px;
+    // 2px = border
+  }
+
+}
+
+.bbcode {
+  width: $bbcodeWidth;
+  display: inline-block;
+  @include noise(GreyDark);
+  padding: 15px;
+
+  h3 {
+    font-family: "Helvetica Condensed Bold", helvetica;
+    font-size: 1.25em;
+    color: #5c5c5c;
+    margin: 0;
+    padding: 0 0 0.5em 0;
+  }
+
+  ul {
+    display: inline-block;
+    margin: 0 0 1em 0;
+    padding: 0;
+    //text-align: justify;
+
+    li {
+      display: inline-block;
+      margin: 4px 2px;
+
+      a {
+        @include noise(OffWhite);
+        @include noiseBorder("Grey", 0, 0, 2, 0);
+
+        &:hover {
+          @include noise("Grey");
+        }
+        &:active {
+          @include noise("Blue");
+        }
+
+        //@include noiseBorder();
+
+        &:before {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  input[type="submit"] {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
 

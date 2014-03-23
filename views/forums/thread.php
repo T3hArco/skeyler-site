@@ -48,20 +48,29 @@ if ($local['thread']['isSticky']) {
     </div>
   <?php endforeach; ?>
 </div>
-<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'bottom right'); ?>
 <?php if($local['canPost']) : ?>
-  <form method="post" class="createPost" action="/forums/newPost.php?threadId=<?php echo $local['thread']['id']; ?>">
-    <label>
-      <strong>Content:</strong><br/>
-      <textarea id="postContent" name="content" rows="10" cols="100"></textarea>
-    </label>
-    <br/>
-    <input type="submit" value="Preview"/>
-    <input type="submit" name="submit" value="Post!"/>
-
+  <form method="post" class="createPost" action="/forums/newPost.php?threadId=<?php echo $local['thread']['id']; ?>"><!--
+  --><div class="postFlexWrapper"><!--
+    --><textarea id="postContent" name="content" rows="10" cols="100" placeholder="Enter your post content here."></textarea><!--
+    --><div class="bbcode">
+        <h3>Post Formatting</h3>
+        <ul class="bbc">
+          <li><a href="#" class="sprite bbc-bold" data-bbc="[b]%s[/b]"></a></li>
+          <li><a href="#" class="sprite bbc-italic" data-bbc="[i]%s[/i]"></a></li>
+          <li><a href="#" class="sprite bbc-underline" data-bbc="[u]%s[/u]"></a></li>
+          <li><a href="#" class="sprite bbc-list" data-bbc="[list]^[*]%s^[/list]"></a></li>
+          <li><a href="#" class="sprite bbc-image" data-bbc="[img]%s[/img]"></a></li>
+          <li><a href="#" class="sprite bbc-heading" data-bbc="[h1]%s[/h1]"></a></li>
+          <li><a href="#" class="sprite bbc-link" data-bbc="[url=&quot;&quot;]%s[/url]"></a></li>
+        </ul>
+        <input type="submit" value="Preview"/>
+        <input type="submit" name="submit" value="Post!"/>
+      </div>
+    </div>
     <div class="draftWrapper">
       <span class="saveDraft"></span>
       <a class="loadDraft" href="#"></a>
     </div>
   </form>
 <?php endif; ?>
+<?php echo writePageNav($pageId, floor(($local['thread']['postCount'] - 1) / $Config['postsPerPage']) + 1, null, null, 'bottom right'); ?>

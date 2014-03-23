@@ -46,7 +46,7 @@ h2.threadTitle.closed:after {
 /* line 34, ../scss/threads.scss */
 .post {
   border-style: solid;
-  border-color: #e0e0e0;
+  border-color: #dddddd;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
@@ -59,7 +59,7 @@ h2.threadTitle.closed:after {
 /* line 37, ../scss/threads.scss */
 .post.seen {
   border-style: solid;
-  border-color: #e0e0e0;
+  border-color: #dddddd;
   -moz-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseGreyDark.png) 0 0 0 5 repeat repeat;
@@ -74,6 +74,7 @@ h2.threadTitle.closed:after {
 /* line 47, ../scss/threads.scss */
 .post.myPost {
   border-style: solid;
+  border-color: #25bfff;
   -moz-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
   -webkit-border-image: url(../images/noiseBlue.png) 0 0 0 5 repeat repeat;
@@ -113,7 +114,7 @@ h2.threadTitle.closed:after {
 }
 /* line 127, ../scss/threads.scss */
 .postOptions > a:active, .postOptions > .modDropdown:active {
-  background: url(../images/noiseBlue.png) repeat left center;
+  background: url(../images/noiseBlue.png) repeat left center #25bfff;
 }
 
 /* line 141, ../scss/threads.scss */

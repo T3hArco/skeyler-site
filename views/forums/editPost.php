@@ -3,20 +3,32 @@
 <h2>Edit a Post From:
   <a href="/forums/thread.php?threadId=<?php echo $local['thread']['id']; ?>"><?php echo ent($local['thread']['title']); ?></a>
 </h2>
-<form method="post" class="editPost">
-  <label>
-    <strong>Content:</strong><br/>
-    <textarea id="postContent" name="content" rows="10" cols="100"><?php echo ent($local['content']); ?></textarea>
-  </label>
-  <br/>
-  <!--<input type="submit" value="Preview"/>-->
-  <input type="submit" name="submit" value="Save this edit!"/>
 
+<br class="clr" />
+<form method="post" class="editPost">
+  <label for="postContent">Content</label>
+  <div class="postFlexWrapper"><!--
+  --><textarea id="postContent" name="content" rows="10" cols="100" placeholder="Enter your post content here."><?php echo ent($local['content']); ?></textarea><!--
+  --><div class="bbcode">
+      <h3>Post Formatting</h3>
+      <ul class="bbc">
+        <li><a href="#" class="sprite bbc-bold" data-bbc="[b]%s[/b]"></a></li>
+        <li><a href="#" class="sprite bbc-italic" data-bbc="[i]%s[/i]"></a></li>
+        <li><a href="#" class="sprite bbc-underline" data-bbc="[u]%s[/u]"></a></li>
+        <li><a href="#" class="sprite bbc-list" data-bbc="[list]^[*]%s^[/list]"></a></li>
+        <li><a href="#" class="sprite bbc-image" data-bbc="[img]%s[/img]"></a></li>
+        <li><a href="#" class="sprite bbc-heading" data-bbc="[h1]%s[/h1]"></a></li>
+        <li><a href="#" class="sprite bbc-link" data-bbc="[url=&quot;&quot;]%s[/url]"></a></li>
+      </ul>
+      <input type="submit" name="submit" value="Save this edit!"/>
+    </div>
+  </div>
   <div class="draftWrapper">
     <span class="saveDraft"></span>
     <a class="loadDraft" href="#"></a>
   </div>
 </form>
+
 <h3>Edited Post Preview:</h3>
 
 <div class="posts">
@@ -33,10 +45,8 @@
           <span class="ip"><?php echo ent($_SERVER['REMOTE_ADDR']); ?></span>
         <?php endif; ?>
       <?php endif; ?>
-    </div>
-    <!--
-     -->
-    <div id="parsedContent" class="postContent"></div>
+    </div><!--
+     --><div id="parsedContent" class="postContent"></div>
   </div>
 </div>
 

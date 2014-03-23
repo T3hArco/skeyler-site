@@ -1,23 +1,34 @@
 <?php global $User; ?>
 <h2>Create New Thread</h2>
 
+<br class="clr"/>
 <form method="post" class="createThread">
   <label>
     <strong>Title:</strong><br/>
     <input type="text" id="postTitle" name="title" value="<?php echo ent($local['title']); ?>"/>
   </label>
-  <label>
-    <strong>Content:</strong><br/>
-    <textarea id="postContent" name="content" rows="10" cols="100"><?php echo ent($local['content']); ?></textarea>
-  </label>
-  <br/>
-  <!--<input type="submit" value="Preview"/>-->
-  <?php if (User::can(User::RANK_ADMIN)) : ?>
-    <label><input type="checkbox" name="isSticky"> Sticky</label>
-    <label><input type="checkbox" name="isClosed"> Closed</label>
-  <?php endif; ?>
-  <input type="submit" name="submit" value="Post New Thread!"/>
+  <label for="postContent">Content</label>
 
+  <div class="postFlexWrapper"><!--
+  --><textarea id="postContent" name="content" rows="10" cols="100" placeholder="Enter your post content here."><?php echo ent($local['content']); ?></textarea><!--
+  --><div class="bbcode">
+      <h3>Post Formatting</h3>
+      <ul class="bbc">
+        <li><a href="#" class="sprite bbc-bold" data-bbc="[b]%s[/b]"></a></li>
+        <li><a href="#" class="sprite bbc-italic" data-bbc="[i]%s[/i]"></a></li>
+        <li><a href="#" class="sprite bbc-underline" data-bbc="[u]%s[/u]"></a></li>
+        <li><a href="#" class="sprite bbc-list" data-bbc="[list]^[*]%s^[/list]"></a></li>
+        <li><a href="#" class="sprite bbc-image" data-bbc="[img]%s[/img]"></a></li>
+        <li><a href="#" class="sprite bbc-heading" data-bbc="[h1]%s[/h1]"></a></li>
+        <li><a href="#" class="sprite bbc-link" data-bbc="[url=&quot;&quot;]%s[/url]"></a></li>
+      </ul>
+      <?php if (User::can(User::RANK_ADMIN)) : ?>
+        <label><input type="checkbox" name="isSticky"> Sticky</label>
+        <label><input type="checkbox" name="isClosed"> Closed</label>
+      <?php endif; ?>
+      <input type="submit" name="submit" value="Post New Thread!"/>
+    </div>
+  </div>
   <div class="draftWrapper">
     <span class="saveDraft"></span>
     <a class="loadDraft" href="#"></a>
@@ -41,7 +52,7 @@
           <span class="ip"><?php echo ent($_SERVER['REMOTE_ADDR']); ?></span>
         <?php endif; ?>
       <?php endif; ?>
-    </div><!--
- --><div id="parsedContent" class="postContent"></div>
+    </div>\<!--
+     --><div id="parsedContent" class="postContent"></div>
   </div>
 </div>

@@ -16,7 +16,7 @@
 }
 /* line 12, ../scss/servers.scss */
 .server .name {
-  background: url(../images/noiseBlack.png) repeat left center;
+  background: url(../images/noiseBlack.png) repeat left center #3b3b3b;
   padding: 1em;
   color: #fff;
 }
@@ -43,7 +43,7 @@
 }
 /* line 41, ../scss/servers.scss */
 .server .percent .playerPercent {
-  background: url(../images/noiseGreen.png) repeat left center;
+  background: url(../images/noiseGreen.png) repeat left center #a6d95d;
   display: inline-block;
   height: 4px;
   margin: 0;
@@ -51,7 +51,7 @@
 }
 /* line 51, ../scss/servers.scss */
 .server .details {
-  background: url(../images/noiseWhite.png) repeat left center;
+  background: url(../images/noiseWhite.png) repeat left center white;
   padding: 0.25em 0.25em 0.25em 0.5em;
 }
 /* line 56, ../scss/servers.scss */
@@ -63,7 +63,7 @@
   font-size: 1.7em;
   padding: 0.125em 1em;
   letter-spacing: 1px;
-  background: url(../images/noiseBlue.png) repeat left center;
+  background: url(../images/noiseBlue.png) repeat left center #25bfff;
 }
 /* line 68, ../scss/servers.scss */
 .server .details .joinServer:hover {

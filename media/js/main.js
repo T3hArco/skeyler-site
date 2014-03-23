@@ -237,6 +237,62 @@ $(function () {
     $('#parsedTitle').text(title);
   });
 
+
+  // user clicked on bbcode buttons
+  $('.bbcode .bbc a').on('click', function () {
+
+    var $postContent = $(this).closest('form').find('#postContent');
+    $postContent.focus();
+
+    // all the browsers are the worst!
+    var canExecInsertText = false;
+    var e;
+    try {
+      canExecInsertText = document.execCommand && document.queryCommandEnabled('insertText');
+    } catch (e) {
+    }
+
+    if (!e) {
+      e = {};
+    }
+
+    var caret = $postContent.caret();
+    var modifiedCaretStart = caret.start;
+    var modifiedCaretEnd = caret.end;
+
+    var newContents = $postContent.val();
+
+    var highlightedText = caret.text;
+    var bbc = ($(this).data('bbc') || '').toString();
+    var insertText = bbc.replace(/%s/g, highlightedText).replace(/\^/g, "\n");
+
+    var caretOffset = bbc.indexOf('%s');
+
+    if (canExecInsertText) {
+      document.execCommand('insertText', false, insertText);
+    } else {
+      //otherwise update the textarea with the new content
+      var modifiedText = newContents.substr(0, caret.start) + insertText + newContents.slice(caret.end);
+      $postContent.val(modifiedText);
+    }
+    $postContent.caret(modifiedCaretStart + caretOffset, modifiedCaretEnd + caretOffset);
+
+    if ($('#parsedContent').length && $('#postContent').length) {
+      var parsedContent = bbcode.parse($('#postContent').val());
+      if (parsedContent.length == 0) {
+        parsedContent = '<em>[Type some text in the textarea and it will update down here as a preview.]</em>';
+      }
+      $('#parsedContent').html(parsedContent);
+    }
+
+    if (!_.isEmpty($postContent.val())) {
+      Draft.save($postContent.val());
+    }
+
+    return false;
+
+  });
+
   ////// END BBCode
 
 
