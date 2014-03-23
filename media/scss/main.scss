@@ -39,7 +39,7 @@ a {
 
 .alert-success {
   @include noise("Green");
-  clear:both;
+  clear: both;
 
   color: #fff;
   //font-weight: bold;
@@ -366,6 +366,12 @@ $owner: #3c3c3c;
 
   &.expanded {
     max-width: none;
+    position: relative;
+    left: 50%;
+    @include transform(translate(-50%));
+    z-index: 3;
+    margin-left: (-1 * 192px / 3);
+    // offset it based on the user info size. i have no idea where the 3 comes from though (should be 2?), it just works
   }
 }
 
