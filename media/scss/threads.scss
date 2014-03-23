@@ -87,7 +87,7 @@ h2.threadTitle {
   width: 32px;
   height: 32px;
   display: inline-block;
-  @include noise(GreyDark);
+  //@include noise(GreyDark);
 }
 
 .postOptions {
@@ -116,11 +116,12 @@ h2.threadTitle {
   //}
 
   & > a, & > .modDropdown {
-    margin: 0 0 8px 0;
-    @include noise(GreyDark);
+    //margin: 0 0 8px 0;
+    margin:0;
+    //@include noise(GreyDark);
 
     &:hover {
-      @include noise(BlackLight);
+      //@include noise(BlackLight);
     }
 
     &:active {
@@ -130,11 +131,11 @@ h2.threadTitle {
 }
 
 .postOptions {
-  opacity: 0.25;
+  //opacity: 0.25;
 }
 
 .post:hover .postOptions, .postOptions.active {
-  opacity: 1;
+  //opacity: 1;
 }
 
 .postContent.expanded + .postOptions {
@@ -173,6 +174,7 @@ h2.threadTitle {
     color: #404346;
     font-weight: bold;
     display: block;
+    @include force-wrap;
   }
 
   .postCount {

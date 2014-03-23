@@ -97,7 +97,6 @@ h2.threadTitle.closed:after {
   width: 32px;
   height: 32px;
   display: inline-block;
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
 }
 
 /* line 93, ../scss/threads.scss */
@@ -110,69 +109,62 @@ h2.threadTitle.closed:after {
 }
 /* line 118, ../scss/threads.scss */
 .postOptions > a, .postOptions > .modDropdown {
-  margin: 0 0 8px 0;
-  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+  margin: 0;
 }
-/* line 122, ../scss/threads.scss */
-.postOptions > a:hover, .postOptions > .modDropdown:hover {
-  background: url(../images/noiseBlackLight.png) repeat left center #636363;
-}
-/* line 126, ../scss/threads.scss */
+/* line 127, ../scss/threads.scss */
 .postOptions > a:active, .postOptions > .modDropdown:active {
   background: url(../images/noiseBlue.png) repeat left center;
 }
 
-/* line 132, ../scss/threads.scss */
-.postOptions {
-  opacity: 0.25;
-}
-
-/* line 136, ../scss/threads.scss */
-.post:hover .postOptions, .postOptions.active {
-  opacity: 1;
-}
-
-/* line 140, ../scss/threads.scss */
+/* line 141, ../scss/threads.scss */
 .postContent.expanded + .postOptions {
   display: none;
 }
 
-/* line 144, ../scss/threads.scss */
+/* line 145, ../scss/threads.scss */
 .userInfo {
   width: 192px;
   display: inline-block;
   padding: 0 32px;
   text-align: right;
 }
-/* line 165, ../scss/threads.scss */
+/* line 166, ../scss/threads.scss */
 .userInfo .avatar {
   width: 128px;
   height: 128px;
   border: 2px solid #d1d1d1;
   display: inline-block;
 }
-/* line 172, ../scss/threads.scss */
+/* line 173, ../scss/threads.scss */
 .userInfo a.userLink {
   color: #404346;
   font-weight: bold;
   display: block;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -hp-pre-wrap;
+  word-wrap: break-word;
 }
-/* line 178, ../scss/threads.scss */
+/* line 180, ../scss/threads.scss */
 .userInfo .postCount {
   display: block;
 }
-/* line 182, ../scss/threads.scss */
+/* line 184, ../scss/threads.scss */
 .userInfo .rankTag {
   display: block;
 }
-/* line 186, ../scss/threads.scss */
+/* line 188, ../scss/threads.scss */
 .userInfo .ip, .userInfo .steamId {
   display: block;
   color: #afafaf;
   font-size: 0.75em;
 }
 
-/* line 193, ../scss/threads.scss */
+/* line 195, ../scss/threads.scss */
 .postContent {
   display: inline-block;
   width: 645px;
@@ -191,7 +183,7 @@ h2.threadTitle.closed:after {
   white-space: -hp-pre-wrap;
   word-wrap: break-word;
 }
-/* line 212, ../scss/threads.scss */
+/* line 214, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -200,31 +192,31 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 221, ../scss/threads.scss */
+/* line 223, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 228, ../scss/threads.scss */
+/* line 230, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 235, ../scss/threads.scss */
+/* line 237, ../scss/threads.scss */
 .postContent blockquote .postLink {
   font-size: 0.9em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 242, ../scss/threads.scss */
+/* line 244, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 246, ../scss/threads.scss */
+/* line 248, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
@@ -233,7 +225,7 @@ h2.threadTitle.closed:after {
   font-style: italic;
   color: #999;
 }
-/* line 255, ../scss/threads.scss */
+/* line 257, ../scss/threads.scss */
 .postContent .postTime {
   font-size: 0.75em;
   color: #676565;

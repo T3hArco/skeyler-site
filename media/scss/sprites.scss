@@ -50,16 +50,16 @@ $main-default-size: 32px;
   }
 
   @each $i in (
-    banUser, edit, modButton, reportUser, userProfile, quote
+    banUser, reportUser, userProfile
   ) {
     &.#{$i}:before {
       @include spr($i);
     }
   }
 
-
   // %foo: hovers, actives, extras
   @each $i in (
+    //close, sticky, move, delete, rename,
     arrowDown, arrowUp, banUser, flag, star
   ) {
     &%#{$i} {
@@ -67,16 +67,69 @@ $main-default-size: 32px;
     }
   }
 
- &.mod-promoteUser:before {@extend %arrowUp; }
- &.mod-demoteUser:before {@extend %arrowDown; }
- &.mod-banUser:before {@extend %banUser; }
- &.globalRank:before {@extend %flag; }
- &.victories:before {@extend %star; }
+  &.mod-promoteUser:before {
+    @extend %arrowUp;
+  }
+  &.mod-demoteUser:before {
+    @extend %arrowDown;
+  }
+  &.mod-banUser:before {
+    @extend %banUser;
+  }
+  &.globalRank:before {
+    @extend %flag;
+  }
+  &.victories:before {
+    @extend %star;
+  }
 
+  // %foo: hovers, actives, extras
+  @each $i in (
+    closeThread, sticky, move, delete, edit
+  ) {
+    &%#{$i} {
+      @include spr(#{$i}_white);
+    }
+  }
 
+  // thread mod buttons
+  &.mod-closeThread:before {
+    @extend %closeThread;
+  }
+  &.mod-stickyThread:before, &.mod-unstickyThread:before {
+    @extend %sticky;
+  }
+  &.mod-moveThread:before {
+    @extend %move;
+  }
+  &.mod-deleteThread:before {
+    @extend %delete;
+  }
+  &.mod-renameThread:before {
+    @extend %edit;
+  }
 
+  @each $i in (
+    edit, modButton, profile, quote
+  ) {
+    &.#{$i} {
+      background: transparent;
 
+      &:hover {
+        @include noise("GreyDark");
+      }
 
+      &:before {
+        @include spr(#{$i}_gray);
+        //background-color:transparent;
+      }
 
+      &:hover:before {
+        @include spr(#{$i}_white);
+        //background-color:red;
+      }
+
+    }
+  }
 
 }

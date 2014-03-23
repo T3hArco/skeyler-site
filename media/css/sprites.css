@@ -6,9 +6,9 @@
 @import "zen";              // Add the Zen Grids responsive layout mixins.
 */
 /* MAIN SPRITES */
-/* line 138, ../images/sprites/main/*.png */
-DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.modButton:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.quote:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before {
-  background: url('../images/../images/sprites/main-s6bb4e63ebf.png') no-repeat;
+/* line 594, ../images/sprites/main/*.png */
+DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before {
+  background: url('../images/../images/sprites/main-s65226789a6.png') no-repeat;
 }
 
 /* line 30, ../scss/sprites.scss */
@@ -30,7 +30,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 0;
   width: 32px;
   height: 32px;
-  background: url('../images/../images/sprites/main-s6bb4e63ebf.png') 0 -85px no-repeat transparent;
+  background: url('../images/../images/sprites/main-s65226789a6.png') 0 -629px no-repeat transparent;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.banUser:before {
@@ -39,18 +39,6 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 9px;
   height: 13px;
   top: 9.5px;
-}
-/* line 55, ../scss/sprites.scss */
-.sprite.edit:before {
-  background-position: -14px 0;
-  width: 13px;
-  left: 9.5px;
-  height: 13px;
-  top: 9.5px;
-}
-/* line 55, ../scss/sprites.scss */
-.sprite.modButton:before {
-  background-position: -15px -53px;
 }
 /* line 55, ../scss/sprites.scss */
 .sprite.reportUser:before {
@@ -67,14 +55,6 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 9.5px;
   height: 14px;
   top: 9px;
-}
-/* line 55, ../scss/sprites.scss */
-.sprite.quote:before {
-  background-position: -14px -29px;
-  width: 25px;
-  left: 3.5px;
-  height: 24px;
-  top: 4px;
 }
 /* line 65, ../scss/sprites.scss */
 .sprite.mod-demoteUser:before {
@@ -115,4 +95,88 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.edit:before, .sprite.mod
   left: 8.5px;
   height: 16px;
   top: 8px;
+}
+/* line 90, ../scss/sprites.scss */
+.sprite.mod-closeThread:before {
+  background-position: 0 -309px;
+}
+/* line 90, ../scss/sprites.scss */
+.sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before {
+  background-position: 0 -1717px;
+}
+/* line 90, ../scss/sprites.scss */
+.sprite.mod-moveThread:before {
+  background-position: 0 -1237px;
+}
+/* line 90, ../scss/sprites.scss */
+.sprite.mod-deleteThread:before {
+  background-position: 0 -437px;
+}
+/* line 90, ../scss/sprites.scss */
+.sprite.mod-renameThread:before {
+  background-position: 0 -597px;
+}
+/* line 115, ../scss/sprites.scss */
+.sprite.edit {
+  background: transparent;
+}
+/* line 118, ../scss/sprites.scss */
+.sprite.edit:hover {
+  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+}
+/* line 122, ../scss/sprites.scss */
+.sprite.edit:before {
+  background-position: 0 -565px;
+}
+/* line 127, ../scss/sprites.scss */
+.sprite.edit:hover:before {
+  background-position: 0 -597px;
+}
+/* line 115, ../scss/sprites.scss */
+.sprite.modButton {
+  background: transparent;
+}
+/* line 118, ../scss/sprites.scss */
+.sprite.modButton:hover {
+  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+}
+/* line 122, ../scss/sprites.scss */
+.sprite.modButton:before {
+  background-position: 0 -1141px;
+}
+/* line 127, ../scss/sprites.scss */
+.sprite.modButton:hover:before {
+  background-position: 0 -1173px;
+}
+/* line 115, ../scss/sprites.scss */
+.sprite.profile {
+  background: transparent;
+}
+/* line 118, ../scss/sprites.scss */
+.sprite.profile:hover {
+  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+}
+/* line 122, ../scss/sprites.scss */
+.sprite.profile:before {
+  background-position: -15px -53px;
+}
+/* line 127, ../scss/sprites.scss */
+.sprite.profile:hover:before {
+  background-position: 0 -1365px;
+}
+/* line 115, ../scss/sprites.scss */
+.sprite.quote {
+  background: transparent;
+}
+/* line 118, ../scss/sprites.scss */
+.sprite.quote:hover {
+  background: url(../images/noiseGreyDark.png) repeat left center #e0e0e0;
+}
+/* line 122, ../scss/sprites.scss */
+.sprite.quote:before {
+  background-position: 0 -1493px;
+}
+/* line 127, ../scss/sprites.scss */
+.sprite.quote:hover:before {
+  background-position: 0 -1525px;
 }

@@ -39,7 +39,7 @@ if ($local['thread']['isSticky']) {
       </div>
       <div class="postOptions">
         <a href="#" class="sprite quote"></a>
-        <a href="/user.php?userId=<?php echo $post['userId']; ?>" class="sprite userProfile" target="_blank"></a>
+        <a href="/user.php?userId=<?php echo $post['userId']; ?>" class="sprite profile" target="_blank"></a>
         <?php if ($post['userId'] == $User['id']) : ?>
           <a href="/forums/editPost.php?postId=<?php echo $post['id']; ?>" class="sprite edit"></a>
         <?php endif; ?>
