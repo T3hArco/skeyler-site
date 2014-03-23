@@ -182,12 +182,12 @@ ul.pageNav li.curPage span {
 /* line 201, ../scss/main.scss */
 .tag-reg:hover, .tag-vip:hover, .tag-mod:hover, .tag-admin:hover, .tag-dev:hover, .tag-super:hover, .tag-owner:hover {
   text-decoration: none;
-  outline: 2px solid #121212;
+  outline: 2px solid #909090;
 }
 
 /* line 207, ../scss/main.scss */
 .tag-reg {
-  background: #5e5e5e;
+  background: gainsboro;
   text-shadow: 1px 1px 2px #000, 0 0 2px #000;
 }
 
