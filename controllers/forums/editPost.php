@@ -29,7 +29,7 @@ if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostR
   exit;
 }
 
-if($User['id'] != $post['userId'] || User::can(User::RANK_MOD)) {
+if($User['id'] != $post['userId'] && !User::can(User::RANK_MOD)) {
   Notice::error('You cannot edit someone else\'s post!');
   exit;
 }
