@@ -1,0 +1,45 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+/* line 4, ../scss/userlist.scss */
+.userlist thead tr {
+  background: transparent;
+  color: #a6a6a6;
+  font-weight: bold;
+  font-family: "Helvetica Condensed Bold", Helvetica;
+}
+/* line 10, ../scss/userlist.scss */
+.userlist tr {
+  background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
+}
+/* line 12, ../scss/userlist.scss */
+.userlist tr:nth-child(even) {
+  background: url(../images/noiseGrey.png) repeat left center #e9e9e9;
+}
+/* line 17, ../scss/userlist.scss */
+.userlist td {
+  color: #6a6a6a;
+  font-family: "Helvetica Condensed Bold", Helvetica;
+}
+/* line 22, ../scss/userlist.scss */
+.userlist td:nth-child(2) {
+  font-weight: bold;
+}
+/* line 24, ../scss/userlist.scss */
+.userlist td:nth-child(2) a {
+  color: #6a6a6a;
+}
+/* line 27, ../scss/userlist.scss */
+.userlist td:nth-child(2) a:hover {
+  color: #25bfff;
+  text-decoration: none;
+}
+/* line 36, ../scss/userlist.scss */
+.userlist .rankTag {
+  display: block;
+  text-align: center;
+}

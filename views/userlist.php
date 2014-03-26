@@ -8,28 +8,24 @@
 </form>
 
 <?php if (count($local['users']) > 0) : ?>
-  <table>
+  <table class="userlist">
     <thead>
-    <td>rank</td>
-    <td>name</td>
-    <td>steamID</td>
-    <td>money</td>
-    <td>playtime</td>
-    <td>last login</td>
-    <td>posts</td>
+    <td>Rank</td>
+    <td>Playername</td>
+    <td>Play Time</td>
+    <td>Pixels</td>
+    <td>Posts</td>
+    <td>Status</td>
     </thead>
 
     <?php foreach ($local['users'] as $user) : ?>
       <tr>
         <td><?php echo User::writeRankTag($user); ?></td>
         <td><?php echo User::writeUserLink($user, array('hideTag' => true)); ?></td>
-        <td>
-          <a href="http://steamcommunity.com/profiles/<?php echo $user['steamId64']; ?>/" target="_blank"><?php echo $user['steamId']; ?></a>
-        </td>
-        <td><?php echo $user['money']; ?></td>
         <td><?php echo $user['playtime']; ?></td>
-        <td><?php echo writeDateEng($user['lastLoginTimestamp']); ?></td>
+        <td><span class="money"><?php echo $user['money']; ?></span></td>
         <td><?php echo $user['postCount']; ?></td>
+        <td><?php echo writeDateEng($user['lastLoginTimestamp']); ?></td>
       </tr>
     <?php endforeach; ?>
   </table>

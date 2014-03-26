@@ -6,13 +6,13 @@ global $User, $Config, $pageId;
 $Page = new Page();
 $Page->header('User Search');
 
-$search = getPost('search');
+$search = (string) getGet('search');
+$sort = (string) getGet('sort');
+$order = getGet('order') === 1 ? 'DESC' : 'ASC';
 
 $users = array();
 
-if (strlen($search) > 0) {
-  $users = User::searchUsers($search);
-}
+$users = User::searchUsers($search);
 
 $data = array(
   'search' => $search,

@@ -1,0 +1,42 @@
+@import 'base';
+
+.userlist {
+  thead tr {
+    background: transparent;
+    color: #a6a6a6;
+    font-weight: bold;
+    font-family: "Helvetica Condensed Bold", Helvetica;
+  }
+  tr {
+    @include noise(GreyDark);
+    &:nth-child(even) {
+      @include noise("Grey");
+    }
+  }
+
+  td {
+    color: #6a6a6a;
+    //font-weight: bold;
+    font-family: "Helvetica Condensed Bold", Helvetica;
+
+    &:nth-child(2) {
+      font-weight: bold;
+      a {
+        color: #6a6a6a;
+
+        &:hover {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+
+  .rankTag {
+    display: block;
+    text-align: center;
+  }
+}
+
+

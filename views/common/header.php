@@ -20,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/user.css?y=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/sprites.css?y=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/footer.css?y=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/userlist.css?y=<?php echo $Config['staticFileCacheId']; ?>"/>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/underscore-min.js"></script>

@@ -297,17 +297,27 @@ class User
     return $out;
   }
 
-  public static function searchUsers($search, $order) {
+  public static function searchUsers($search, $order = 'name ASC') {
     global $Config, $pageId;
+
+    $wheres = array(
+      1
+    );
+
+    if ($search) {
+      $wheres[] = 'name LIKE :likeSearch';
+    }
 
     $query = '
       SELECT * FROM users
-      WHERE name LIKE :likeSearch
+      WHERE ' . implode($wheres, ' AND ') . '
       LIMIT ' . ($Config['usersPerPage'] * ($pageId - 1)) . ', ' . $Config['usersPerPage'] . ';
     ';
+
     $binds = array(
       'likeSearch' => '%' . $search . '%',
     );
+
     return populateIds(DB::q($query, $binds)->fetchAll());
   }
 
