@@ -9,7 +9,30 @@ require '../_.php';
 $steam64 = isset($_GET['steamid']) ? $_GET['steamid'] : '';
 $mapname = isset($_GET['mapname']) ? $_GET['mapname'] : '';
 
-$mapname = 'The Lounge';
+//$mapname = 'The Lounge';
+
+$mapType = substr($mapname, 0, strpos($mapname, '_'));
+
+switch($mapType){
+  case 'bh':
+  case 'bhop':
+    $mapname = 'Bunny Hop';
+    break;
+  case 'dr':
+  case 'dtka':
+  case 'deathrun':
+    $mapname = 'Deathrun';
+    break;
+  case 'ss':
+  case 'lounge':
+    $mapname = 'The Lounge';
+    break;
+  case 'sa':
+  case 'sass':
+  case 'sassilization':
+    $mapname = 'Sassilization RTS';
+    break;
+}
 
 $user = null;
 
