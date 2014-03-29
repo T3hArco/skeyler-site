@@ -4,12 +4,16 @@ $dontUpdateLoginTimestamp = true;
 
 require '../_.php';
 
+// This is the most stupid way to do "Joining X".
+// Every server will have it modified like this:
+// DEATHRUN EXAMPLE: http://skeyler.com/loading.php?steamid=%s&mapname=Deathrun
+// If someone finds a better way, please edit this.
 // sv_loadingurl "http://skeyler.com/loading.php?steamid=%s&mapname=%m"
 
 $steam64 = isset($_GET['steamid']) ? $_GET['steamid'] : '';
 $mapname = isset($_GET['mapname']) ? $_GET['mapname'] : '';
 
-$mapname = 'The Lounge';
+$mapname = $_GET["mapname"]
 
 $user = null;
 
