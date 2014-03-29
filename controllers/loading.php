@@ -16,6 +16,7 @@ $mapType = substr($mapname, 0, strpos($mapname, '_'));
 switch($mapType){
   case 'bh':
   case 'bhop':
+  case 'kz':
     $mapname = 'Bunny Hop';
     break;
   case 'dr':
