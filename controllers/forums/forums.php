@@ -12,12 +12,18 @@ if (!isset($forums[$forumId])) {
   exit;
 }
 
-//$forumBreadcrumbs = Forums::getParents($forumId);
+$forumBreadcrumbs = Forums::getParents($forumId);
 
 $local['breadcrumbs'] = array(
   'Forums' => '/forums/',
-  $forums[$forumId]['name'] => '/forums/?forumId=' . $forumId,
 );
+
+foreach($forumBreadcrumbs as $breadcrumb){
+  $local['breadcrumbs'][$breadcrumb['name']] = '/forums/?forumId=' . $breadcrumb['id'];
+}
+
+$local['breadcrumbs'][$forums[$forumId]['name']] = '/forums/?forumId=' . $forumId;
+
 
 
 if ($forumId == 0) {

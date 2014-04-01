@@ -32,7 +32,7 @@ class Forums
   SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.createPostRank, f.createThreadRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId
   FROM forums AS f
   LEFT JOIN forum_parents AS fp
-    ON fp.forumId = f.id AND fp.isMainParent = 1
+    ON fp.forumId = f.id AND fp.depth = 1
   WHERE (fp.parentId = :forumId OR f.id = :forumId) AND f.visibleRank <= :rank
   ORDER BY `order`
   ;
@@ -58,7 +58,7 @@ class Forums
       SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId, fp.parentId
       FROM forums AS f
       LEFT JOIN forum_parents AS fp
-        ON fp.forumId = f.id AND fp.isMainParent = 1
+        ON fp.forumId = f.id AND fp.depth = 1
       WHERE fp.parentId IN(' . $whereIn . ') AND f.visibleRank <= :rank
       ORDER BY `order`
       ;
@@ -88,7 +88,7 @@ class Forums
     $query = 'SELECT f.*, fp.parentId
       FROM forums AS f
         LEFT JOIN forum_parents AS fp
-        ON f.id = fp.forumId AND fp.isMainParent = 1
+        ON f.id = fp.forumId AND fp.depth = 1
       WHERE f.visibleRank <= :rank
       ORDER BY f.`order`
     ';
@@ -257,7 +257,7 @@ class Forums
     $forumId = DB::lastInsertId();
 
     $query = '
-      INSERT INTO forum_parents(forumId, parentId, isMainParent)
+      INSERT INTO forum_parents(forumId, parentId, depth)
       VALUES(:forumId, :parentId, 1);
     ';
     $binds = array(
@@ -267,7 +267,7 @@ class Forums
     DB::q($query, $binds);
 
     $query = '
-      INSERT INTO forum_parents(forumId, parentId, isMainParent)
+      INSERT INTO forum_parents(forumId, parentId, depth)
       SELECT :forumId, parentId, 0 FROM forum_parents WHERE forumId = :parentId;
     ;';
 
@@ -308,11 +308,14 @@ class Forums
 
   public static function getParents($forumId){
     $query = '
-      SELECT f.id, f.name
+      SELECT f.name, f.id
       FROM forum_parents AS fp
       LEFT JOIN forums AS f
-        ON fp.forumId = f.id
-      WHERE forumId = :forumId;
+        ON fp.parentId = f.id
+      WHERE fp.forumId = :forumId
+        AND fp.parentId != 0
+      ORDER BY fp.depth DESC
+      ;
     ';
     $binds = array(
       'forumId' => $forumId,
