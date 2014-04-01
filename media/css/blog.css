@@ -48,28 +48,36 @@
   -o-border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
   border-image: url(../images/noiseDivider.png) 2 0 0 0 repeat repeat;
   border-width: 2px 0px 0px 0px;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -hp-pre-wrap;
+  word-wrap: break-word;
 }
-/* line 34, ../scss/blog.scss */
+/* line 35, ../scss/blog.scss */
 .blog .blogPost img {
   max-width: 100%;
 }
-/* line 38, ../scss/blog.scss */
+/* line 39, ../scss/blog.scss */
 .blog .blogPost h3 {
   display: inline-block;
   float: left;
   padding: 0;
   margin: 0;
 }
-/* line 44, ../scss/blog.scss */
+/* line 45, ../scss/blog.scss */
 .blog .blogPost h3 a {
   color: #555;
   font-weight: bold;
 }
-/* line 50, ../scss/blog.scss */
+/* line 51, ../scss/blog.scss */
 .blog .blogPost a {
   color: #25bfff;
 }
-/* line 54, ../scss/blog.scss */
+/* line 55, ../scss/blog.scss */
 .blog .blogPost .postDetails {
   color: #aaaaaa;
   display: block;
@@ -84,7 +92,7 @@
   border-width: 2px 0px 0px 0px;
   padding: 7px 10px;
 }
-/* line 61, ../scss/blog.scss */
+/* line 62, ../scss/blog.scss */
 .blog .blogPost .postDetails .user-link:before {
   background: url(../images/noiseUser.png) no-repeat left center;
   content: '';
@@ -92,7 +100,7 @@
   width: 20px;
   display: inline-block;
 }
-/* line 69, ../scss/blog.scss */
+/* line 70, ../scss/blog.scss */
 .blog .blogPost .postDetails .timestamp {
   color: #aaaaaa;
   background: url(../images/noiseClock.png) no-repeat left center;
@@ -101,7 +109,7 @@
   margin: 0 0 0 20px;
   font-weight: bold;
 }
-/* line 78, ../scss/blog.scss */
+/* line 79, ../scss/blog.scss */
 .blog .blogPost .postDetails .comments {
   color: #aaaaaa;
   float: right;
@@ -113,12 +121,12 @@
   background: url(../images/noiseComment.png) no-repeat left center;
   font-weight: bold;
 }
-/* line 91, ../scss/blog.scss */
+/* line 92, ../scss/blog.scss */
 .blog .blogPost p {
   clear: both;
   padding-top: 1em;
 }
-/* line 96, ../scss/blog.scss */
+/* line 97, ../scss/blog.scss */
 .blog .blogPost:after {
   content: '';
   display: block;
