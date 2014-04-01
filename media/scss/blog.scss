@@ -30,7 +30,6 @@
     padding: 1.5em 0;
     //border-bottom: 2px solid #ddd;
     @include noiseBorder(Divider, 2, 0, 0, 0);
-    @include force-wrap;
 
     img {
       max-width: 100%;
@@ -92,6 +91,7 @@
     p {
       clear: both;
       padding-top: 1em;
+      @include force-wrap;
     }
 
     &:after {
