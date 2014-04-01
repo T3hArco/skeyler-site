@@ -306,6 +306,7 @@ class User
 
     if ($search) {
       $wheres[] = 'name LIKE :likeSearch';
+      $binds['likeSearch'] = '%' . $search . '%';
     }
 
     $query = '
