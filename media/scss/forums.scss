@@ -38,6 +38,9 @@
     text-align: right;
     position: relative;
 
+    @include flexbox();
+
+
     &:before {
       content: '';
       display: block;
@@ -83,6 +86,7 @@
         float: left;
         text-align: left;
         line-height: 1;
+        @include flex(2);
 
         .forumName, .description {
           display: inline-block;
@@ -134,6 +138,7 @@
         line-height: 52px;
         vertical-align: top;
         margin: 0 1em 0 0;
+        @include flex(1);
       }
 
       &.lastPostInfo {
@@ -147,6 +152,7 @@
         padding: 5px;
         min-width: 200px;
         min-height: 56px;
+        @include flex(1);
 
         .avatar {
           vertical-align: top;
