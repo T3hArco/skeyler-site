@@ -40,7 +40,6 @@
 
     @include flexbox();
 
-
     &:before {
       content: '';
       display: block;
@@ -363,6 +362,9 @@ table.threads {
   .userLink {
     display: inline-block;
     margin: 0 0.5em 0.5em 0;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    font-size: 0.8em;
   }
 
 }
