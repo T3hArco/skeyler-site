@@ -4,6 +4,11 @@ body {
   text-align: center;
   @include noise("Grey");
   padding: 0;
+  // probably fixes mobile???
+  @include max-screen(800px){
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+  }
 }
 
 a {
