@@ -42,11 +42,17 @@ if (!$forum) {
   exit;
 }
 
+$forumBreadcrumbs = Forums::getParents($forum['id']);
+
 $local['breadcrumbs'] = array(
   'Forums' => '/forums/',
-  $forum['name'] => '/forums/?forumId=' . $thread['forumId'],
-  $thread['title'] => '/forums/thread.php?threadId=' . $threadId,
 );
+
+foreach($forumBreadcrumbs as $breadcrumb){
+  $local['breadcrumbs'][$breadcrumb['name']] = '/forums/?forumId=' . $breadcrumb['id'];
+}
+
+$local['breadcrumbs'][$forum['name']]='/forums/?forumId=' . $forum['id'];
 
 if ($User['rank'] < $forum['visibleRank']) {
   Notice::error('You do not have permission to view this thread.');
