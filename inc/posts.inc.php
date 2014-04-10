@@ -80,15 +80,35 @@ class Posts
 //    );
 //    DB::q($query, $binds);
 
+//    $query = '
+//      UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE
+//      id IN (SELECT parentId FROM forum_parents WHERE forumId = :forumId) OR id = :forumId;
+//    ';
     $query = '
       UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE
-      id IN (SELECT parentId FROM forum_parents WHERE forumId = :forumId) OR id = :forumId;
+      id = :forumId;
     ';
     $binds = array(
       'threadInc' => ($isNewThread ? 1 : 0),
       'lastPostUserId' => $User['id'],
       'now' => $now,
       'threadId' => $threadId,
+      'forumId' => $forumId,
+    );
+    DB::q($query, $binds);
+
+    // how can this be optimized?
+    $query = '
+      UPDATE forum_parents AS fp
+      LEFT JOIN forums AS f
+        ON fp.parentId = f.id OR fp.forumId = f.id
+      LEFT JOIN forum_caches AS fc
+        ON fc.forumId = f.id AND fc.rank >= f.visibleRank
+      SET fc.postCount = fc.postCount + 1, fc.threadCount = fc.threadCount + :threadInc
+      WHERE fp.forumId = :forumId
+    ';
+    $binds = array(
+      'threadInc' => ($isNewThread ? 1 : 0),
       'forumId' => $forumId,
     );
     DB::q($query, $binds);

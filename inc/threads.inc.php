@@ -41,7 +41,7 @@
   }
 
 
-  public static function updateLastSeen($threadId, $postsSeen) {
+  public static function updateLastSeen($threadId, $postsSeen, $forumId) {
     global $User;
 
     if(!$User['id']) {
@@ -52,18 +52,20 @@
 
     $query = '
       INSERT INTO thread_seen (threadId, userId, postsSeen)
-        VALUES(:forumId, :userId, :postsSeen)
+        VALUES(:threadId, :userId, :postsSeen)
       ON DUPLICATE KEY UPDATE
         postsSeen = GREATEST(postsSeen, :postsSeen)
     ';
     // who cares about on big primary keys here
     $binds = array(
-      'forumId' => $threadId,
+      'threadId' => $threadId,
       'userId' => $User['id'],
       'postsSeen' => $postsSeen,
     );
 
     DB::q($query, $binds);
+
+    Forums::updateLastSeen($forumId);
 
     $query = 'UPDATE threads SET views = views + 1 WHERE id = :threadId';
     $binds = array(
@@ -206,8 +208,7 @@
     DB::q($query, $binds);
     // recount threads/posts for both forums
 
-    Forums::recountCounts($thread['forumId']);
-    Forums::recountCounts($destinationForumId);
+    Forums::forceRecacheForumCounts();
 
     DB::commit();
 

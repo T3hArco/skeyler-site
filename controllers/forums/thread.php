@@ -76,7 +76,7 @@ $postSeenPriorThisPage = $postsSeenPrior - ($pageId - 1) * $Config['postsPerPage
 $postsSeen = max(0, min($pageId * $Config['postsPerPage'], count($posts) + (($pageId - 1) * $Config['postsPerPage'])));
 
 // marks the forum as seen at the current time by the current user
-Threads::updateLastSeen($threadId, $postsSeen);
+Threads::updateLastSeen($threadId, $postsSeen, $forum['id']);
 
 $data['lastSeen'] = $postSeenPriorThisPage;
 $data['thread'] = $thread;

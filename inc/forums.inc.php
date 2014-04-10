@@ -29,10 +29,12 @@ class Forums
   public static function getForumAndSubforums($forumId) {
     global $User;
     $query = '
-  SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.createPostRank, f.createThreadRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId
+  SELECT f.id, f.name, f.description, fc.postCount, fc.threadCount, f.visibleRank, f.createPostRank, f.createThreadRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId
   FROM forums AS f
   LEFT JOIN forum_parents AS fp
     ON fp.forumId = f.id AND fp.depth = 1
+  LEFT JOIN forum_caches AS fc
+    ON f.id = fc.forumId AND rank = :rank
   WHERE (fp.parentId = :forumId OR f.id = :forumId) AND f.visibleRank <= :rank
   ORDER BY `order`
   ;
@@ -55,10 +57,12 @@ class Forums
     $whereIn = DB::whereIn($forumIds);
 
     $query = '
-      SELECT f.id, f.name, f.description, f.postCount, f.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId, fp.parentId
+      SELECT f.id, f.name, f.description, fc.postCount, fc.threadCount, f.visibleRank, f.lastPostUserId, f.lastPostTimestamp, f.lastPostThreadId, fp.parentId
       FROM forums AS f
       LEFT JOIN forum_parents AS fp
         ON fp.forumId = f.id AND fp.depth = 1
+      LEFT JOIN forum_caches AS fc
+        ON f.id = fc.forumId AND rank = :rank
       WHERE fp.parentId IN(' . $whereIn . ') AND f.visibleRank <= :rank
       ORDER BY `order`
       ;
@@ -135,19 +139,69 @@ class Forums
       return false;
     }
 
+    DB::beginTransaction();
+
     $query = '
-      INSERT INTO forum_seen (forumId, userId, timestamp)
-      VALUES(:forumId, :userId, :now)
-      ON DUPLICATE KEY UPDATE timestamp = :now
+      SELECT f.id AS forumId, SUM(ts.postsSeen) AS postsSeen
+      FROM forum_parents AS fp
+      LEFT JOIN forums AS f
+        ON fp.parentId = f.id
+      LEFT JOIN threads AS t
+        ON fp.parentId = t.forumId
+      LEFT JOIN thread_seen AS ts
+        ON t.id = ts.threadId
+      WHERE fp.forumId = :forumId AND ts.userId = :userId AND f.visibleRank <= :rank
+      GROUP BY f.id
+      ORDER BY fp.depth ASC
     ';
-    // who cares about primary keys here? but might want to make it bigint?
     $binds = array(
       'forumId' => $forumId,
       'userId' => $User['id'],
-      'now' => $now,
+      'rank' => $User['rank'],
     );
+    $rows = DB::q($query, $binds)->fetchAll();
+
+    $query = '
+      SELECT f.id AS forumId, ts.postsSeen
+      FROM forums AS f
+      LEFT JOIN threads AS t
+        ON t.forumId = f.id
+      LEFT JOIN thread_seen AS ts
+        ON t.id = ts.threadId
+      WHERE f.id = :forumId AND ts.userId = :userId AND f.visibleRank <= :rank
+      LIMIT 1;
+    ';
+    $binds = array(
+      'forumId' => $forumId,
+      'userId' => $User['id'],
+      'rank' => $User['rank'],
+    );
+    $currentForumData = DB::q($query, $binds)->fetch();
+
+    array_unshift($rows, $currentForumData);
+var_dump($rows);
+    $postCount = 0;
+
+    foreach($rows as $row){
+
+      $postCount += $row['postsSeen'];
+
+      $query = '
+        INSERT INTO forum_seen (forumId, userId, postsSeen)
+        VALUES(:forumId, :userId, :postsSeen)
+        ON DUPLICATE KEY UPDATE postsSeen = :postsSeen
+      ';
+      // who cares about primary keys here? but might want to make it bigint?
+      $binds = array(
+        'forumId' => $row['forumId'],
+        'userId' => $User['id'],
+        'postsSeen' => $postCount,
+      );
+    }
 
     DB::q($query, $binds);
+
+    DB::commit();
   }
 
 
@@ -176,6 +230,8 @@ class Forums
 
   // recounts the threads and posts in a forum
   public static function recountCounts($forumId) {
+    echo 'dont use function recountCounts() anymore. use forceRecacheForumCounts()';
+    throw new Exception('dont use function recountCounts() anymore');
 
     $query = '
       SELECT COUNT(*) AS threadCount
@@ -306,7 +362,7 @@ class Forums
     return DB::lastInsertId();
   }
 
-  public static function getParents($forumId){
+  public static function getParents($forumId) {
     $query = '
       SELECT f.name, f.id
       FROM forum_parents AS fp
@@ -321,6 +377,89 @@ class Forums
       'forumId' => $forumId,
     );
     return DB::q($query, $binds)->fetchAll();
+  }
+
+  public static function forceRecacheForumCounts() {
+
+    DB::beginTransaction();
+
+    // update threads table's counts
+    $query = '
+      UPDATE threads AS t
+        LEFT JOIN
+        (
+          SELECT threadId, COUNT(*) AS postCount
+          FROM posts
+          GROUP BY threadId
+        )
+        AS src
+          ON t.id = src.threadId
+        SET t.postCount = src.postCount;
+    ';
+    DB::q($query);
+
+    // update forums table's counts
+    $query = '
+      UPDATE forums AS f
+        LEFT JOIN
+        (
+          SELECT forumId, COUNT(*) AS threadCount, SUM(postCount) AS postCount
+          FROM threads
+          GROUP BY forumId
+        )
+        AS src
+          ON f.id = src.forumId
+        SET f.threadCount = src.threadCount,
+          f.postCount = src.postCount;
+    ';
+    DB::q($query);
+
+    // inserts a helluva lot of rows into the caches table, ignoring ones that already exist
+    $query = '
+       INSERT IGNORE INTO forum_caches (forumId, rank)
+       SELECT f.id, r.id
+         FROM forums AS f
+          JOIN ranks AS r
+       ;
+    ';
+    DB::q($query);
+
+    // holy moley look at this freaking query. I tried to optimize it. someone try to optimize it more if you dare
+    $query = '
+    UPDATE forum_caches AS fc
+
+    LEFT JOIN
+    (
+      SELECT
+        fp.parentId AS forumId,
+        r.id AS rank,
+        SUM(IF(f.visibleRank <= r.id,f.postCount,0)) + f.postCount AS postCount,
+        SUM(IF(f.visibleRank <= r.id,f.threadCount,0)) + f.threadCount AS threadCount
+      FROM (
+        SELECT forumId, parentId
+        FROM forum_parents
+        UNION
+          SELECT forumId, forumId
+          FROM forum_parents
+      ) AS fp
+      LEFT JOIN forums AS f ON fp.forumId = f.id
+      JOIN ranks AS r
+      GROUP BY fp.parentId, r.id
+    )
+    AS src
+
+    ON fc.forumId = src.forumId
+      AND fc.rank = src.rank
+
+    SET
+      fc.postCount = src.postCount,
+      fc.threadCount = src.threadCount
+    ;
+    ';
+    DB::q($query);
+
+
+    DB::commit();
   }
 
 

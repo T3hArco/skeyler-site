@@ -41,7 +41,7 @@ if ($forumId == 0) {
 }
 
 // marks the forum as seen at the current time by the current user
-Forums::updateLastSeen($forumId);
+//Forums::updateLastSeen($forumId);
 
 $forumIds = eachField($forums, 'id');
 $lastReadForumTimestamps = Forums::getLastSeen($forumIds);
