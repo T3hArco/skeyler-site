@@ -90,6 +90,14 @@ class BBCode
     }, $str);
   }
 
+  public static function parseColor($str)
+  {
+    $pattern = '#\[colou?r=&quot;(\#[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-z]+)&quot;\]((?:.|\n|\r)*?)\[\/colou?r\]#i';
+    return preg_replace_callback($pattern, function ($matches) {
+      return '<span style="color:' . $matches[1] . ';">' . $matches[2] . '</span>';
+    }, $str);
+  }
+
   public static function parseCodeStart($str, &$codeTags)
   {
     $pattern = '#\[code\](.*?)\[\/code\]#is';
@@ -129,6 +137,7 @@ class BBCode
     $out = self::parseQuote($out);
     $out = self::parseList($out);
     $out = self::parseYoutube($out);
+    $out = self::parseColor($out);
 
 
     // next to last, bring back all code tags

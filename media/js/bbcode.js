@@ -120,6 +120,12 @@ bbcode.parseYoutube = function (str) {
   });
 }
 
+bbcode.parseColor = function(str){
+  return str.replace(/\[colou?r=&quot;(#[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-z]+)&quot;\]((?:.|\n|\r)*?)\[\/colou?r\]/gi, function (z, color, text) {
+    return '<span style="color:' + color + ';">' + text + '</span>';
+  });
+};
+
 // removes a code tag from parsing, storing it to be brought back later
 bbcode.parseCodeStart = function (str) {
   var i = 0;
@@ -157,6 +163,7 @@ bbcode.parse = function (str) {
   str = bbcode.parseQuote(str);
   str = bbcode.parseList(str);
   str = bbcode.parseYoutube(str);
+  str = bbcode.parseColor(str);
 
   // next to last, bring back all code tags
   str = bbcode.parseCodeEnd(str);
