@@ -227,9 +227,9 @@ function writeTimeLength($length, $outType = 'verbose') {
     );
     $vals = array();
 
-    foreach($timeStrings as $val) {
+    foreach ($timeStrings as $val) {
 
-      if($length >= $val) {
+      if ($length >= $val) {
         $vals[] = floor($length / $val);
         $length %= $val;
       }
@@ -240,8 +240,8 @@ function writeTimeLength($length, $outType = 'verbose') {
     $out = array();
 
 
-    foreach($vals as $i => $v) {
-      $out []= str_pad($v, 2, 0, STR_PAD_LEFT) . $outStrs[$i];
+    foreach ($vals as $i => $v) {
+      $out [] = str_pad($v, 2, 0, STR_PAD_LEFT) . $outStrs[$i];
     }
 
     return implode(' ', $out);
@@ -327,7 +327,7 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
   $queryAssoc = queryToAssoc($queryString);
 
   $out = '<ul class="pageNav ' . implode(' ', (array) $classes) . '">';
-//  $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
+  //  $out .= '<li><span>Page ' . $curPageId . ' of ' . $totalPages . '</span></li>';
 
   if ($curPageId > 1) {
     $out .= '<li class="firstPage"><a href="' . writeHrefPageId($href, $queryAssoc, 1) . '">First</a></li>';
@@ -387,3 +387,90 @@ function getPost($var) {
 function randArr($arr) {
   return $arr[rand(0, count($arr) - 1)];
 }
+
+
+$serverStartTime = 0;
+/**
+ * Wrapper for fread, which kills the connection on feof
+ */
+function read($handle, $bytes) {
+  global $serverStartTime;
+
+  $meta = stream_get_meta_data($handle);
+  if ($meta['timed_out'] || $serverStartTime + 5 < microtime(1)) {
+    return false;
+  }
+  if (feof($handle)) {
+    return '';
+  }
+  $out = fread($handle, $bytes);
+  return $out;
+}
+
+function readUntil($handle, $char = "\x00") {
+  $out = '';
+  for ($a = 0; $a < 1024; $a += 1) {
+    $c = read($handle, 1);
+    if ($c == $char) {
+      break;
+    }
+    $out .= $c;
+  }
+  return $out;
+}
+
+function a2s_info($server) {
+  global $serverStartTime;
+
+  $serverStartTime = microtime(1);
+  $temp = explode(':', $server);
+
+  if(count($temp) != 2) {
+    return null;
+  }
+
+  $host = $temp[0];
+  $port = $temp[1];
+
+  if (!$host || !$port) {
+    return null;
+  }
+
+  $packet = "\xff\xff\xff\xffTSource Engine Query\0";
+
+  $handle = fsockopen('udp://' . $host, $port, $errNo, $errStr, 5);
+  stream_set_timeout($handle, 5);
+
+  fwrite($handle, $packet);
+  $data = array(
+    'host' => $host,
+    'port' => $port,
+    'header' => read($handle, 4),
+    'type' => ord(read($handle, 1)),
+    'version' => ord(read($handle, 1)),
+    'serverName' => readUntil($handle),
+    'map' => readUntil($handle),
+    'gameDirectory' => readUntil($handle),
+    'gameDescription' => readUntil($handle),
+    'appId' => ord(read($handle, 2)),
+    'playerCount' => ord(read($handle, 1)),
+    'playerMax' => ord(read($handle, 1)),
+    'botCount' => ord(read($handle, 1)),
+    'dedicated' => read($handle, 1),
+    'os' => read($handle, 1),
+    'password' => (bool) ord(read($handle, 1)),
+    'secure' => (bool) ord(read($handle, 1)),
+    'gameMode' => ord(read($handle, 1)),
+    'witnessCount' => ord(read($handle, 1)),
+    'witnessTime' => ord(read($handle, 1)),
+    'gameVersion' => readUntil($handle),
+  );
+
+  // if too much time has passed, then some of the values haven't been set, so just mark this server as invalid by making it a blank array
+  if($serverStartTime + 5 < microtime(1)) {
+    $data = null;
+  }
+
+  return $data;
+}
+

@@ -92,7 +92,7 @@ class BBCode
 
   public static function parseColor($str)
   {
-    $pattern = '#\[colou?r=&quot;(\#[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-z]+)&quot;\]((?:.|\n|\r)*?)\[\/colou?r\]#i';
+    $pattern = '#\[colou?r=&quot;(\#[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-z]+)&quot;\](.*?)\[\/colou?r\]#is';
     return preg_replace_callback($pattern, function ($matches) {
       return '<span style="color:' . $matches[1] . ';">' . $matches[2] . '</span>';
     }, $str);
