@@ -306,7 +306,7 @@ class Forums
     return DB::lastInsertId();
   }
 
-  public static function getParents($forumId){
+  public static function getParents($forumId) {
     $query = '
       SELECT f.name, f.id
       FROM forum_parents AS fp
@@ -321,6 +321,21 @@ class Forums
       'forumId' => $forumId,
     );
     return DB::q($query, $binds)->fetchAll();
+  }
+
+  public static function writePageListForThread($threadId, $postCount) {
+    global $Config;
+
+    if($postCount <= $Config['postsPerPage']) {
+      return '';
+    }
+
+    $out = '<br/><ul class="pageNav">';
+    for ($i = 0; $i <= floor(($postCount - 1) / $Config['postsPerPage']); $i++) {
+      $out .= '<li><a href="/forums/thread.php?threadId=' . $threadId . '&amp;page=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+    }
+    $out .= '</ul>';
+    return $out;
   }
 
 

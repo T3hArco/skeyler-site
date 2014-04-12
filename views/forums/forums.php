@@ -78,10 +78,13 @@
     <?php foreach ($local['threads'] as $thread) : ?>
       <tr class="thread<?php echo(!isset($local['lastReadThreadPostCounts'][$thread['id']]) || $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount'] ? 'New' : 'Seen'); ?><?php echo($thread['isSticky'] ? ' sticky' : ''); ?><?php echo($thread['isClosed'] ? ' closed' : ''); ?>">
         <td class="title">
-          <span><a href="/forums/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a></span>
-          <?php if (isset($local['lastReadThreadPostCounts'][$thread['id']]) && $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount']) : ?>
-            <a href="/forums/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['postsPerPage']) + 1; ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['postsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>)</a>
-          <?php endif; ?>
+          <span>
+            <a href="/forums/thread.php?threadId=<?php echo $thread['id']; ?>"><?php echo ent($thread['title']); ?></a>
+            <?php if (isset($local['lastReadThreadPostCounts'][$thread['id']]) && $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] < $thread['postCount']) : ?>
+              <a href="/forums/thread.php?threadId=<?php echo $thread['id']; ?>&amp;page=<?php echo floor($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] / $Config['postsPerPage']) + 1; ?>#p_<?php echo($local['lastReadThreadPostCounts'][$thread['id']]['postsSeen'] % $Config['postsPerPage'] + 1); ?>" class="newPosts">(+<?php echo($thread['postCount'] - $local['lastReadThreadPostCounts'][$thread['id']]['postsSeen']); ?>)</a>
+            <?php endif; ?>
+            <?php echo Forums::writePageListForThread($thread['id'], $thread['postCount']); ?>
+          </span>
         </td>
         <td>
           <a href="/user.php?userId=<?php echo $local['users'][$thread['userId']]['id']; ?>" class="userLink"><?php echo $local['users'][$thread['userId']]['name']; ?></a>

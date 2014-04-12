@@ -252,6 +252,31 @@ table.threads {
         }
 
       }
+
+      .pageNav {
+        float: none;
+        margin: 0;
+        line-height: 1;
+
+        &:before {
+          content: 'Pages: ';
+          font-size: 0.8em;
+          white-space: pre;
+        }
+
+        li {
+          padding: 0;
+
+          a {
+            padding: 0.25em 0.5em;
+
+            &:before, &:after {
+              content: '' !important;
+            }
+          }
+        }
+      }
+
     }
 
     &.threadNew .title span:before {
