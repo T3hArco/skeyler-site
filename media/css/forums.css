@@ -323,7 +323,7 @@ table.threads tr.threadSeen .title span:before {
   background: url(../images/noiseGreyDark.png) repeat left center #dddddd;
 }
 /* line 290, ../scss/forums.scss */
-table.threads tr.closed .title span a:after {
+table.threads tr.closed .title span a:first-child:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=");
 }
 /* line 297, ../scss/forums.scss */
@@ -341,7 +341,7 @@ table.threads tr.sticky:hover {
   background: url(../images/noiseBeige.png) repeat left center #f1e8b9;
 }
 /* line 314, ../scss/forums.scss */
-table.threads tr.sticky .title span a:before {
+table.threads tr.sticky .title span a:first-child:before {
   content: 'Sticky: ';
   font-weight: bold;
   text-transform: uppercase;
