@@ -1,0 +1,247 @@
+/*@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+*/
+@media screen and (max-width: 7680px) {
+  /* line 5, ../scss/mobile.scss */
+  #container {
+    width: auto;
+    margin: 0;
+  }
+
+  /* line 10, ../scss/mobile.scss */
+  .content {
+    padding: 0 8px;
+  }
+
+  /* line 16, ../scss/mobile.scss */
+  .header {
+    margin-bottom: 12px;
+  }
+  /* line 19, ../scss/mobile.scss */
+  .header h1 {
+    display: block;
+    height: auto;
+    padding: 0 0.5em;
+    text-align: center;
+  }
+  /* line 25, ../scss/mobile.scss */
+  .header h1 span, .header h1 strong {
+    font-size: 1em;
+    vertical-align: baseline;
+  }
+  /* line 30, ../scss/mobile.scss */
+  .header h1 span {
+    display: inline-block;
+  }
+  /* line 33, ../scss/mobile.scss */
+  .header h1 span:before {
+    content: '';
+    display: none;
+  }
+  /* line 40, ../scss/mobile.scss */
+  .header .topNavExpander {
+    display: block;
+    text-transform: uppercase;
+    padding: 0 1em;
+    text-decoration: none;
+    color: #fff;
+    background: url(../images/noiseBlack.png) repeat left center #3b3b3b;
+    font-weight: bold;
+    line-height: 46px;
+  }
+  /* line 50, ../scss/mobile.scss */
+  .header .topNavExpander:after {
+    content: ' \25bc';
+    white-space: pre;
+  }
+  /* line 56, ../scss/mobile.scss */
+  .header .topNavExpander.expanded ~ ul.topNav {
+    display: block;
+  }
+  /* line 60, ../scss/mobile.scss */
+  .header .topNavExpander.expanded:after {
+    content: ' \25b2';
+  }
+
+  /* line 68, ../scss/mobile.scss */
+  ul.topNav {
+    display: none;
+    float: none;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+  }
+  /* line 78, ../scss/mobile.scss */
+  ul.topNav:before, ul.topNav:after {
+    content: '';
+    display: none;
+  }
+  /* line 83, ../scss/mobile.scss */
+  ul.topNav li {
+    display: block;
+    border-top: 1px solid #777;
+  }
+  /* line 87, ../scss/mobile.scss */
+  ul.topNav li a {
+    display: block;
+    line-height: 46px;
+    color: #fff;
+  }
+  /* line 93, ../scss/mobile.scss */
+  ul.topNav li a, ul.topNav li.selected a {
+    background: url(../images/noiseBlack.png) repeat left center #3b3b3b;
+  }
+  /* line 96, ../scss/mobile.scss */
+  ul.topNav li a:hover, ul.topNav li.selected a:hover {
+    background: url(../images/noiseBlackLight.png) repeat left center #636363;
+    color: #fff;
+  }
+  /* line 102, ../scss/mobile.scss */
+  ul.topNav li.selected a:after {
+    display: none;
+    content: '';
+  }
+
+  /* line 109, ../scss/mobile.scss */
+  .welcome {
+    position: relative;
+    display: block;
+    float: none;
+  }
+  /* line 115, ../scss/mobile.scss */
+  .welcome a {
+    left: 0;
+    top: 0;
+  }
+
+  /* line 123, ../scss/mobile.scss */
+  .table {
+    width: auto;
+  }
+  /* line 128, ../scss/mobile.scss */
+  .table.subforums .row .cell.noSubforums {
+    line-height: 1.0;
+    margin: 0;
+  }
+  /* line 134, ../scss/mobile.scss */
+  .table.subforums .forumName {
+    line-height: 48px;
+  }
+  /* line 139, ../scss/mobile.scss */
+  .table.subforums .row .cell.forumInfo .description, .table.subforums .row .cell.postCount, .table.subforums .row .cell.forumInfo ul.subforums {
+    display: none;
+  }
+
+  /* line 147, ../scss/mobile.scss */
+  .posts {
+    margin: 0 -8px;
+  }
+
+  /* line 151, ../scss/mobile.scss */
+  .post {
+    padding: 0;
+  }
+  /* line 154, ../scss/mobile.scss */
+  .post .userInfo {
+    display: block;
+    width: auto;
+    text-align: left;
+    padding: 0;
+    border-style: solid;
+    -moz-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+    -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+    -webkit-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+    -o-border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+    border-image: url(../images/noiseDivider.png) 0 0 2 0 repeat repeat;
+    border-width: 0px 0px 2px 0px;
+  }
+  /* line 161, ../scss/mobile.scss */
+  .post .userInfo .avatar {
+    width: 32px;
+    height: 32px;
+    border: none;
+  }
+  /* line 167, ../scss/mobile.scss */
+  .post .userInfo .userLink, .post .userInfo .rankTag {
+    display: inline-block;
+    padding: 0 0.25em;
+    vertical-align: middle;
+  }
+  /* line 173, ../scss/mobile.scss */
+  .post .userInfo .userLink {
+    line-height: 32px;
+  }
+  /* line 177, ../scss/mobile.scss */
+  .post .userInfo .rankTag {
+    margin: 6px 0;
+    line-height: 20px;
+  }
+  /* line 182, ../scss/mobile.scss */
+  .post .userInfo .postCount {
+    display: none;
+  }
+  /* line 186, ../scss/mobile.scss */
+  .post .userInfo .steamId, .post .userInfo .ip {
+    line-height: 32px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 1em 0 0;
+  }
+  /* line 194, ../scss/mobile.scss */
+  .post .postOptions {
+    width: auto;
+    top: 2px;
+  }
+  /* line 199, ../scss/mobile.scss */
+  .post .postContent {
+    width: auto;
+    padding: 0.5em;
+  }
+  /* line 203, ../scss/mobile.scss */
+  .post .postContent .editInfo {
+    left: auto;
+    bottom: 0.5em;
+  }
+
+  /* line 210, ../scss/mobile.scss */
+  .page-thread .createPost {
+    margin: 0;
+  }
+  /* line 213, ../scss/mobile.scss */
+  .page-thread .createPost #postContent {
+    width: auto;
+    width: 75%;
+  }
+
+  /* line 220, ../scss/mobile.scss */
+  #chatbox {
+    padding-bottom: 32px;
+  }
+
+  /* line 224, ../scss/mobile.scss */
+  ul.bottomNav {
+    width: auto;
+    background: url(../images/noiseBlack.png) repeat left center #3b3b3b;
+    margin: 0;
+    top: 0;
+  }
+
+  /* line 231, ../scss/mobile.scss */
+  ul.pageNav.right {
+    left: 0;
+  }
+
+  /* line 235, ../scss/mobile.scss */
+  footer {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+}

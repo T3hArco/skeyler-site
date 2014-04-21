@@ -9,8 +9,12 @@
 .header {
   margin: 0 0 32px 0;
 }
+/* line 8, ../scss/header.scss */
+.header .topNavExpander {
+  display: none;
+}
 
-/* line 9, ../scss/header.scss */
+/* line 13, ../scss/header.scss */
 h1 {
   margin: 0;
   display: inline-block;
@@ -28,22 +32,22 @@ h1 {
   padding: 25px 20px;
   height: 120px;
 }
-/* line 22, ../scss/header.scss */
+/* line 26, ../scss/header.scss */
 h1 a {
   text-decoration: none;
 }
-/* line 25, ../scss/header.scss */
+/* line 29, ../scss/header.scss */
 h1 a:hover {
   text-decoration: none;
 }
-/* line 30, ../scss/header.scss */
+/* line 34, ../scss/header.scss */
 h1 strong {
   font-size: 1.5em;
   font-weight: normal;
   color: #25bfff;
   letter-spacing: 8px;
 }
-/* line 37, ../scss/header.scss */
+/* line 41, ../scss/header.scss */
 h1 span {
   line-height: 1;
   font-size: 0.75em;
@@ -54,7 +58,7 @@ h1 span {
   text-align: center;
   display: block;
 }
-/* line 56, ../scss/header.scss */
+/* line 60, ../scss/header.scss */
 h1 span:before {
   content: '\a';
   display: block;
@@ -63,7 +67,7 @@ h1 span:before {
   font-size: 1px;
 }
 
-/* line 66, ../scss/header.scss */
+/* line 70, ../scss/header.scss */
 ul.topNav {
   font-family: 'Arvil Sans', Arial;
   font-size: 1.5em;
@@ -84,11 +88,11 @@ ul.topNav {
   float: right;
   position: relative;
 }
-/* line 82, ../scss/header.scss */
+/* line 86, ../scss/header.scss */
 ul.topNav li {
   display: inline-block;
 }
-/* line 86, ../scss/header.scss */
+/* line 90, ../scss/header.scss */
 ul.topNav li a {
   display: inline-block;
   padding: 0 1em;
@@ -96,19 +100,19 @@ ul.topNav li a {
   text-decoration: none;
   line-height: 46px;
 }
-/* line 94, ../scss/header.scss */
+/* line 98, ../scss/header.scss */
 ul.topNav li a:hover {
   background: url(../images/noiseGreyMedium.png) repeat left center #f3f3f3;
   color: #222;
   position: relative;
 }
-/* line 136, ../scss/header.scss */
+/* line 140, ../scss/header.scss */
 ul.topNav li.selected a {
   background: url(../images/noiseBlue.png) repeat left center #25bfff;
   color: #fff;
   position: relative;
 }
-/* line 141, ../scss/header.scss */
+/* line 145, ../scss/header.scss */
 ul.topNav li.selected a:after {
   content: '';
   width: 0px;
@@ -120,7 +124,7 @@ ul.topNav li.selected a:after {
   top: 0;
   right: 0;
 }
-/* line 155, ../scss/header.scss */
+/* line 159, ../scss/header.scss */
 ul.topNav:after {
   content: '';
   height: 5px;
@@ -138,7 +142,7 @@ ul.topNav:after {
   bottom: -8px;
   display: block;
 }
-/* line 168, ../scss/header.scss */
+/* line 172, ../scss/header.scss */
 ul.topNav:before {
   content: '';
   height: 3px;
@@ -150,7 +154,7 @@ ul.topNav:before {
   display: inline-block;
 }
 
-/* line 240, ../scss/header.scss */
+/* line 244, ../scss/header.scss */
 ul.welcome {
   float: right;
   display: inline-block;
@@ -159,32 +163,32 @@ ul.welcome {
   font-size: 0.85em;
   line-height: 1.76471;
 }
-/* line 248, ../scss/header.scss */
+/* line 252, ../scss/header.scss */
 ul.welcome li {
   display: inline-block;
 }
-/* line 251, ../scss/header.scss */
+/* line 255, ../scss/header.scss */
 ul.welcome li a {
   color: #545d63;
   margin: 0 0.25em;
   font-weight: bold;
 }
-/* line 258, ../scss/header.scss */
+/* line 262, ../scss/header.scss */
 ul.welcome li + li ~ li:before {
   content: ' | ';
 }
-/* line 262, ../scss/header.scss */
+/* line 266, ../scss/header.scss */
 ul.welcome li:first-child {
   margin-right: 1.5em;
 }
-/* line 266, ../scss/header.scss */
+/* line 270, ../scss/header.scss */
 ul.welcome .avatar {
   vertical-align: middle;
   height: 16px;
   width: 16px;
   margin-right: 4px;
 }
-/* line 274, ../scss/header.scss */
+/* line 278, ../scss/header.scss */
 ul.welcome input[type="submit"]:focus {
   border-width: none;
 }

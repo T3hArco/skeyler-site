@@ -1,5 +1,11 @@
 $(function () {
 
+  // handles nav expanding
+  $('.topNavExpander').on('click', function(){
+    $(this).toggleClass('expanded');
+    return false;
+  });
+
   // handles clicking a quoted post link
   $('a.postLink').on('click', function () {
     var postId = 0;

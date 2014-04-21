@@ -1,0 +1,259 @@
+@import "base";
+
+@include max-screen(7680px) {
+  // everything
+  #container {
+    width: auto;
+    margin: 0;
+  }
+
+  .content {
+    padding: 0 8px;
+  }
+
+  // header stuff
+  $expandedHeight: 46px;
+  .header {
+    margin-bottom: 12px;
+
+    h1 {
+      display: block;
+      height: auto;
+      padding: 0 0.5em;
+      text-align: center;
+
+      span, strong {
+        font-size: 1em;
+        vertical-align: baseline;
+      }
+
+      span {
+        display: inline-block;
+
+        &:before {
+          content: '';
+          display: none;
+        }
+      }
+    }
+
+    .topNavExpander {
+      display: block;
+      text-transform: uppercase;
+      padding: 0 1em;
+      text-decoration: none;
+      color: #fff;
+      @include noise("Black");
+      font-weight: bold;
+      line-height: $expandedHeight;
+
+      &:after {
+        content: ' \25bc';
+        white-space: pre;
+      }
+
+      &.expanded {
+        & ~ ul.topNav {
+          display: block;
+        }
+
+        &:after {
+          content: ' \25b2';
+        }
+      }
+    }
+
+  }
+
+  ul.topNav {
+    display: none;
+    float: none;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+
+    &:before, &:after {
+      content: '';
+      display: none;
+    }
+
+    li {
+      display: block;
+      border-top: 1px solid #777;
+
+      a {
+        display: block;
+        line-height: $expandedHeight;
+        color: #fff;
+      }
+
+      a, &.selected a {
+        @include noise("Black");
+
+        &:hover {
+          @include noise("BlackLight");
+          color: #fff;
+        }
+      }
+
+      &.selected a:after {
+        display: none;
+        content: '';
+      }
+    }
+  }
+
+  .welcome {
+    position: relative;
+    //color: transparent;
+    display: block;
+    float: none;
+
+    a {
+      //position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  // forums and threads available
+  .table {
+    width: auto;
+
+    &.subforums {
+      .row {
+        .cell.noSubforums {
+          line-height: 1.0;
+          margin: 0;
+        }
+      }
+
+      .forumName {
+        line-height: 56px - 4px * 2;
+      }
+
+      .row {
+        .cell.forumInfo .description, .cell.postCount, .cell.forumInfo ul.subforums {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // thread's posts
+  .posts {
+    margin: 0 -8px;
+  }
+
+  .post {
+    padding: 0;
+
+    .userInfo {
+      display: block;
+      width: auto;
+      text-align: left;
+      padding: 0;
+      @include noiseBorder("Divider", 0, 0, 2, 0);
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border: none;
+      }
+
+      .userLink, .rankTag {
+        display: inline-block;
+        padding: 0 0.25em;
+        vertical-align: middle;
+      }
+
+      .userLink {
+        line-height: 32px;
+      }
+
+      .rankTag {
+        margin: 6px 0;
+        line-height: 20px;
+      }
+
+      .postCount {
+        display: none;
+      }
+
+      .steamId, .ip {
+        line-height: 32px;
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0 1em 0 0;
+      }
+    }
+
+    .postOptions {
+      width: auto;
+      top: 2px;
+    }
+
+    .postContent {
+      width: auto;
+      padding: 0.5em;
+
+      .editInfo {
+        left: auto;
+        bottom: 0.5em;
+      }
+    }
+  }
+
+  .page-thread .createPost {
+    margin: 0;
+
+    #postContent {
+      width: auto;
+      width: 75%;
+    }
+  }
+
+  // footer stuff
+  #chatbox {
+    padding-bottom: 32px;
+  }
+
+  ul.bottomNav {
+    width: auto;
+    @include noise("Black");
+    margin: 0;
+    top: 0;
+  }
+
+  ul.pageNav.right {
+    left: 0;
+  }
+
+  footer {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

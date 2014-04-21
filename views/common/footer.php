@@ -10,7 +10,7 @@ global $isLoggedIn, $User;
       <div class="chats">
       </div>
       <form method="post" id="chatboxPostForm">
-        <input type="textbox" name="chatboxPost" id="chatboxPost" maxlength="120"/>
+        <input type="textbox" name="chatboxPost" id="chatboxPost" maxlength="120" />
       </form>
       <audio src="<?php echo $Config['mediaServer']; ?>audio/ding.mp3" id="chatboxAudio">
     </div>

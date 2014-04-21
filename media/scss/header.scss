@@ -4,6 +4,10 @@ $headerHeight: 120px;
 
 .header {
   margin: 0 0 32px 0;
+
+  .topNavExpander {
+    display: none;
+  }
 }
 
 h1 {

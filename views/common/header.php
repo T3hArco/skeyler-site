@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/sprites.css?x=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/footer.css?x=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/userlist.css?x=<?php echo $Config['staticFileCacheId']; ?>"/>
+<!--  <link rel="stylesheet" type="text/css" media="handheld" href="--><?php //echo $Config['mediaServer']; ?><!--css/mobile.css?x=--><?php //echo $Config['staticFileCacheId']; ?><!--"/>-->
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo $Config['mediaServer']; ?>js/underscore-min.js"></script>
@@ -37,6 +38,7 @@
 <div id="container">
   <div class="header">
     <h1><a href="/"><strong>Skeyler</strong> <span>Gmod Community</span></a></h1>
+    <a class="topNavExpander" href="#">Navigation</a>
     <ul class="topNav"><!--
       --><li <?php echo ($local['navigationItem'] == 'news' ? 'class = "selected"' : ''); ?>><a href="/blog.php">News</a></li><!--
       --><li <?php echo ($local['navigationItem'] == 'forums' ? 'class = "selected"' : ''); ?>><a href="/forums/">Forums</a></li><!--
