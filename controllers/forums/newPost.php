@@ -2,7 +2,7 @@
 require '_forums.php';
 $Page = new Page('forums');
 
-$threadId = (int)getGet('threadId');
+$threadId = (int) getGet('threadId');
 
 $thread = Threads::load($threadId);
 
@@ -23,7 +23,7 @@ if ($User['rank'] < $forum['visibleRank'] || $User['rank'] < $forum['createPostR
   exit;
 }
 
-if($thread['isClosed'] && !User::can(User::RANK_MOD)) {
+if ($thread['isClosed'] && !User::can(User::RANK_MOD)) {
   Notice::error('This thread is closed. You can\'t post anything else in it');
 }
 
@@ -46,8 +46,18 @@ if ($isSubmit) {
   }
 
   if (!$hasErrors) {
-    $lastPostId = Posts::insertPost($content, $threadId, $forum['id']);
-    redirect('/forums/thread.php?postId=' . $lastPostId);
+    // if they made the last post in the thread and its been less than 2 hours, make it edit their previous post instead.
+    if ($thread['lastPostTimestamp'] > $now - 7200 && $User['id'] == $thread['lastPostUserId']) {
+      $postId = Posts::appendEditPost($content, $thread['id'], $User['id']);
+      redirect('/forums/thread.php?postId=' . $postId);
+    }
+    else {
+      // otherwise, post it!
+      $lastPostId = Posts::insertPost($content, $threadId, $forum['id']);
+      redirect('/forums/thread.php?postId=' . $lastPostId);
+    }
+
+
   }
 
 

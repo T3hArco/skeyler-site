@@ -8,7 +8,7 @@ class Posts
   }
 
   public static function loadIds($postIds) {
-    $postIds = (array)$postIds;
+    $postIds = (array) $postIds;
     if (count($postIds) == 0) {
       return array();
     }
@@ -42,8 +42,7 @@ class Posts
   public static function insertPost($content, $threadId, $forumId, $isNewThread = false) {
     global $User, $now;
 
-
-      DB::beginTransaction();
+    DB::beginTransaction();
 
     $query = '
       INSERT INTO posts (userId, timestamp, content, contentParsed, ip, threadId)
@@ -70,15 +69,15 @@ class Posts
     );
     DB::q($query, $binds);
 
-//    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
-//    $binds = array(
-//      'threadInc' => ($isNewThread ? 1 : 0),
-//      'lastPostUserId' => $User['id'],
-//      'now' => $now,
-//      'threadId' => $threadId,
-//      'forumId' => $forumId,
-//    );
-//    DB::q($query, $binds);
+    //    $query = 'UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE id = :forumId';
+    //    $binds = array(
+    //      'threadInc' => ($isNewThread ? 1 : 0),
+    //      'lastPostUserId' => $User['id'],
+    //      'now' => $now,
+    //      'threadId' => $threadId,
+    //      'forumId' => $forumId,
+    //    );
+    //    DB::q($query, $binds);
 
     $query = '
       UPDATE forums SET postCount = postCount + 1, threadCount = threadCount + :threadInc, lastPostUserId = :lastPostUserId, lastPostTimestamp = :now, lastPostThreadId = :threadId WHERE
@@ -97,7 +96,7 @@ class Posts
 
     // postcounts dont increase on the arcade forum, because it is terrible!
     // this is hard coded because it's a one-off
-    if($forumId == 20){
+    if ($forumId == 20) {
       $postInc = 0;
     }
 
@@ -134,6 +133,28 @@ class Posts
     DB::q($query, $binds);
   }
 
+  public static function appendEditPost($content, $threadId, $userId) {
+    $query = '
+      SELECT id, content
+      FROM posts
+      WHERE userId = :userId AND threadId = :threadId
+      ORDER BY id DESC
+      LIMIT 1;
+    ';
+    $binds = array(
+      'userId' => $userId,
+      'threadId' => $threadId,
+    );
+    $row = DB::q($query, $binds)->fetch();
+
+    $newContent = $row['content'] . LF . LF . '[b]Edit:[/b]' . LF . $content;
+
+    self::editPost($newContent, $row['id']);
+
+    return $row['id'];
+
+  }
+
   public static function delete($post) {
     $thread = Threads::load($post['threadId']);
 
@@ -150,7 +171,7 @@ class Posts
       'threadId' => $post['threadId'],
       'postId' => $post['id'],
     );
-    $postCount =DB::q($query, $binds)->fetch();
+    $postCount = DB::q($query, $binds)->fetch();
     $postCount = $postCount['postCount'];
 
     $query = '
