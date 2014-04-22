@@ -327,7 +327,7 @@ table.threads tr.closed .title span a:first-child:after {
   content: " " url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKAQMAAACzCY3DAAAABlBMVEV1dXV1dXWzRrgXAAAAAXRSTlMAQObYZgAAAB9JREFUeF4VxTERAAAIxLAKY0IYdl8GlMsQitYqz+cAOx4G8egZFEcAAAAASUVORK5CYII=");
 }
 /* line 297, ../scss/forums.scss */
-table.threads tr.closed .title span a:before {
+table.threads tr.closed .title span a:first-child:before {
   content: 'Locked: ';
   font-weight: bold;
   text-transform: uppercase;

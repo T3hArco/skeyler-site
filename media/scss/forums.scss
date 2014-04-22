@@ -294,7 +294,7 @@ table.threads {
     &.closed {
       //opacity: 0.6;
 
-      .title span a:before {
+      .title span a:first-child:before {
         content: 'Locked: ';
         font-weight: bold;
         text-transform: uppercase;
