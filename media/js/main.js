@@ -31,7 +31,7 @@ $(function () {
     var username = $post.find('.userLink:eq(0)').text();
 
     // remove nested quotes because they dont work and we dont want pyramids of quotes
-    bbcode = bbcode.replace(/\[quote=".+?" postid="\d+"\].*?\[\/quote\]\s*/gi, '');
+    bbcode = bbcode.replace(/\[quote=".+?" postid="\d+"\](?:.|\n|\r)*?\[\/quote\]\s*/gi, '');
 
     var quoteText = '[quote="' + username + '" postid="' + postId + '"]' + bbcode + '[/quote]\n';
 
