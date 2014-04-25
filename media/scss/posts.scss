@@ -35,8 +35,6 @@
   }
 }
 
-
-
 // makes post form fit together better on good browsers
 .postFlexWrapper {
   @include flexbox();
@@ -46,6 +44,12 @@
   }
   .bbcode {
     @include flex(1);
+  }
+}
+
+@include ie10Plus() {
+  .postFlexWrapper {
+    display: block;
   }
 }
 
@@ -60,7 +64,7 @@ $bbcodeWidth: 150px;
   display: inline-block;
 }
 
-.page-thread .createPost{
+.page-thread .createPost {
   margin: 0 (-1 * $contentPadding);
 
   #postContent {

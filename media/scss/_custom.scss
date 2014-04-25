@@ -184,6 +184,11 @@ $graey: #aaa;
   flex:  $values;
 }
 
+@mixin ie10Plus(){
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content
+  }
+}
 
 
 
