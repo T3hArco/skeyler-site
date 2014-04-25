@@ -32,8 +32,12 @@ if ($local['thread']['isSticky']) {
         <?php endif; ?>
       </div><!--
    --><div class="postContent"><?php echo $post['contentParsed']; ?>
-        <?php if ($post['lastEditTimestamp']) : ?>
-          <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
+        <?php if ($post['lastEditTimestamp'] > $post['timestamp'] + 2 * 60) : ?>
+          <?php if($post['userId'] == $post['lastEditUserId'] || User::can(User::RANK_MOD)) : ?>
+            <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by <?php echo User::writeUserLink($local['users'][$post['lastEditUserId']], array('hideTag' => true)); ?> ]</span>
+          <?php else : ?>
+            <span class="editInfo">[ Edited <?php echo writeDateEng($post['lastEditTimestamp']); ?> by Skeyler Staff ]</span>
+          <?php endif; ?>
         <?php endif; ?>
         <a href="/forums/thread.php?postId=<?php echo $post['id']; ?>" class="postTime" title="<?php echo date('r', $post['timestamp']); ?>"><?php echo writeDateEng($post['timestamp']); ?></a>
       </div>
