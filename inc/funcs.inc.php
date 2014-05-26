@@ -247,6 +247,30 @@ function writeTimeLength($length, $outType = 'verbose') {
     return implode(' ', $out);
   }
 
+  if ($outType == 'record') {
+    $times = array(
+      60 * 60,
+      60,
+      1,
+    );
+    $decimal = $length - (int)$length;
+
+    $vals = array();
+
+    foreach ($times as $val) {
+      $str = '';
+      if ($length >= $val) {
+        $str = str_pad(floor($length / $val), 2, 0, STR_PAD_LEFT);
+        $length %= $val;
+      } else {
+        $str = '00';
+      }
+      $vals[] = $str;
+    }
+
+    return implode(':', $vals) . '.' . preg_replace('#^(.*?\.)#', '', $decimal);
+  }
+
   $amount = 0;
 
   if ($length < 60) {
@@ -425,7 +449,7 @@ function a2s_info($server) {
   $serverStartTime = microtime(1);
   $temp = explode(':', $server);
 
-  if(count($temp) != 2) {
+  if (count($temp) != 2) {
     return null;
   }
 
@@ -467,7 +491,7 @@ function a2s_info($server) {
   );
 
   // if too much time has passed, then some of the values haven't been set, so just mark this server as invalid by making it a blank array
-  if($serverStartTime + 5 < microtime(1)) {
+  if ($serverStartTime + 5 < microtime(1)) {
     $data = null;
   }
 

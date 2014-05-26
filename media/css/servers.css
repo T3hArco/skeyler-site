@@ -60,22 +60,23 @@
   float: right;
   color: #fff;
   font-family: 'Arvil Sans', Arial;
-  font-size: 1.7em;
+  font-size: 1.25em;
+  line-height: 36px;
   padding: 0.125em 1em;
   letter-spacing: 1px;
   background: url(../images/noiseBlue.png) repeat left center #25bfff;
 }
-/* line 68, ../scss/servers.scss */
+/* line 70, ../scss/servers.scss */
 .server .details .joinServer:hover {
   text-decoration: none;
   background: url(../images/noiseBlueDark.png) repeat left center #5b8ec8;
 }
-/* line 75, ../scss/servers.scss */
+/* line 77, ../scss/servers.scss */
 .server .details dl {
   font-size: 0.8em;
   margin: 0;
 }
-/* line 79, ../scss/servers.scss */
+/* line 81, ../scss/servers.scss */
 .server .details dl dt {
   font-weight: normal;
   color: #888;
@@ -85,13 +86,13 @@
   clear: left;
   padding: 0.25em 0;
 }
-/* line 89, ../scss/servers.scss */
+/* line 91, ../scss/servers.scss */
 .server .details dl dd {
   display: inline-block;
   padding: 0.25em 0;
   float: left;
 }
-/* line 95, ../scss/servers.scss */
+/* line 97, ../scss/servers.scss */
 .server .details dl:after {
   content: '';
   display: block;

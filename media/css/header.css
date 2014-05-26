@@ -49,7 +49,7 @@ h1 strong {
 }
 /* line 41, ../scss/header.scss */
 h1 span {
-  line-height: 1;
+  line-height: 0.5;
   font-size: 0.75em;
   letter-spacing: 2px;
   font-family: 'Arvil Sans', Arial;
