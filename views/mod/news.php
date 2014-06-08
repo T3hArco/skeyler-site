@@ -5,5 +5,5 @@
 
 </textarea>
   <br/>
-  <input type="submit" value="Save News!"/>
+  <input type="submit" value="Save News!" name="submit" />
 </form>

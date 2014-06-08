@@ -6,7 +6,7 @@ $Page->header('Edit News');
 
 $newNews = getPost('news');
 
-if(strlen($newNews) > 0) {
+if(getPost('submit')) {
   $newsJson = array_filter(preg_split('#(?:\r?\n)+#', $newNews));
   Cache::save('news', $newsJson);
 }
