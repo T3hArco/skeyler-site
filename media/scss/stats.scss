@@ -1,0 +1,51 @@
+@import "base";
+
+.decimal {
+  font-size: 0.66em;
+  //vertical-align: text-top;
+  //text-decoration: underline;
+}
+
+table.stats {
+  border: 1px solid noiseToColor('BlackLight');
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  thead tr {
+    @include noise(BlackLight);
+    color: #fff;
+    font-weight: bold;
+  }
+
+  tr {
+    @include noise('Grey');
+
+    &:nth-child(2n) {
+      @include noise('GreyDark');
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .avatar {
+      width: 27px;
+      height: 27px;
+      display: inline-block;
+    }
+  }
+
+  td, th {
+    padding: 0.5em 1em;
+  }
+
+  td.recordTime {
+    font-family: 'Lucida Sans Typewriter', 'Lucida Console', Consolas;
+  }
+
+}
+

@@ -7,6 +7,7 @@ class Page
   protected $navigationItem;
   protected $navigationSubItem;
   protected $pageClasses;
+  public $breadcrumbs;
 
   /**
    *
@@ -62,6 +63,9 @@ class Page
       $local['navigationSubItem'] = $this->navigationSubItem;
       $local['title'] = $this->title;
       $local['pageClasses'] = $this->pageClasses;
+      if((!isset($local['breadcrumbs']) || !$local['breadcrumbs']) && $this->breadcrumbs){
+        $local['breadcrumbs'] = $this->breadcrumbs;
+      }
       include ROOT . '/views/common/header.php';
     }
     else {

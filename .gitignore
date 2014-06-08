@@ -6,3 +6,5 @@ inc/config.inc.php
 .idea/
 skeyler.iml
 media/psds/
+vendor/*
+composer.lock

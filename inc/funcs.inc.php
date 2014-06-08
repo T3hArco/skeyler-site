@@ -253,7 +253,7 @@ function writeTimeLength($length, $outType = 'verbose') {
       60,
       1,
     );
-    $decimal = $length - (int)$length;
+    $decimal = number_format($length - (int)$length, 3);
 
     $vals = array();
 
@@ -268,7 +268,7 @@ function writeTimeLength($length, $outType = 'verbose') {
       $vals[] = $str;
     }
 
-    return implode(':', $vals) . '.' . preg_replace('#^(.*?\.)#', '', $decimal);
+    return implode(':', $vals) . '.' . preg_replace('#^(.*?\.)(\d+)#', '<span class="decimal">$2</span>', $decimal);
   }
 
   $amount = 0;
@@ -326,7 +326,11 @@ function queryToAssoc($query) {
   $out = array();
   foreach ($queries as $query) {
     $arr = explode('=', $query);
-    $out[$arr[0]] = $arr[1];
+    if(isset($arr[1])) {
+      $out[$arr[0]] = $arr[1];
+    } else {
+      $out[$arr[0]];
+    }
   }
   return $out;
 }
@@ -337,6 +341,7 @@ function writePageNav($curPageId = null, $totalPages, $href = null, $queryString
     global $pageId;
     $curPageId = $pageId;
   }
+  $totalPages = ceil($totalPages);
   if ($totalPages <= 1) {
     return '';
   }

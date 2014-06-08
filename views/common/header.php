@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/sprites.css?w=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/footer.css?w=<?php echo $Config['staticFileCacheId']; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/userlist.css?w=<?php echo $Config['staticFileCacheId']; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo $Config['mediaServer']; ?>css/stats.css?w=<?php echo $Config['staticFileCacheId']; ?>"/>
 <!--  <link rel="stylesheet" type="text/css" media="handheld" href="--><?php //echo $Config['mediaServer']; ?><!--css/mobile.css?x=--><?php //echo $Config['staticFileCacheId']; ?><!--"/>-->
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

@@ -144,17 +144,34 @@ class User
 
   public static function writeAvatar($url, $type = '') {
     // full, medium
+    if(!$url) {
+      $url = 'http://media.steampowered.com/steamcommunity/public/images/avatars/f6/f6b5dbb667424c6f7ee8ed413b8ada32935fdd41.jpg';
+    }
     if ($type) {
       $url = substr($url, 0, -4) . '_' . $type . '.jpg';
     }
     return $url;
   }
 
+  public static function writeUserName($user) {
+    if(is_string($user)) {
+      return ent($user);
+    }
+    return ent($user['name']);
+  }
+
   public static function writeUserLink($user, $options = array()) {
+    if(!$user) {
+      $user = array(
+        'id' => 0,
+        'rank' => 0,
+        'name' => '<Missing User>',
+      );
+    }
     if (!isset($options['hideTag'])) {
       $options['hideTag'] = false;
     }
-    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="userLink' . (!$options['hideTag'] ? ' tag-' . self::getRankStr($user['rank']) : '') . '">' . ent($user['name']) . '</a>';
+    $out = '<a href="/user.php?userId=' . $user['id'] . '" class="userLink' . (!$options['hideTag'] ? ' tag-' . self::getRankStr($user['rank']) : '') . '">' . User::writeUserName($user) . '</a>';
     return $out;
   }
 

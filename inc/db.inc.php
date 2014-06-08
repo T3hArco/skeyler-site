@@ -231,5 +231,8 @@ class DB
     return $out[0];
   }
 
+  public static function writeLimit($perPage = 50, $pageId = 1) {
+    return ' LIMIT ' . $perPage * ($pageId - 1) . ', ' . $perPage;
+  }
 
 }
