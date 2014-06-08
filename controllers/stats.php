@@ -164,6 +164,7 @@ if (!$mapId) {
   ) AS a
   LEFT JOIN bh_records br
     ON a.recordTime = br.time
+    AND a.mapid = br.mapid
   LEFT JOIN users AS u
     ON br.steamid = u.steamId
   /* WHERE br.pb = 1 */
