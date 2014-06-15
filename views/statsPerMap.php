@@ -3,9 +3,9 @@
 <table class="stats">
   <thead>
   <tr>
-    <th>User</th>
-    <th>Attempts</th>
-    <th>Fastest Time</th>
+    <th><a href="/stats.php?gamemode=bhop&amp;mapId=<?php echo $local['mapId']; ?>&amp;sortType=username<?php echo ($local['sortType'] == 'username' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">User</a></th>
+    <th><a href="/stats.php?gamemode=bhop&amp;mapId=<?php echo $local['mapId']; ?>&amp;sortType=attempts<?php echo ($local['sortType'] == 'attempts' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Attempts</a></th>
+    <th><a href="/stats.php?gamemode=bhop&amp;mapId=<?php echo $local['mapId']; ?>&amp;sortType=time<?php echo ($local['sortType'] == 'time' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Fastest Time</a></th>
   </tr>
   </thead>
   <?php foreach ($local['records'] as $record) : ?>

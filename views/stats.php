@@ -2,11 +2,11 @@
 <table class="stats">
   <thead>
   <tr>
-    <th>Map</th>
-    <th>Player Count</th>
-    <th>Attempts</th>
+    <th><a href="/stats.php?gamemode=bhop&amp;sortType=map<?php echo ($local['sortType'] == 'map' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Map</a></th>
+    <th><a href="/stats.php?gamemode=bhop&amp;sortType=players<?php echo ($local['sortType'] == 'players' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Player Count</a></th>
+    <th><a href="/stats.php?gamemode=bhop&amp;sortType=attempts<?php echo ($local['sortType'] == 'attempts' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Attempts</a></th>
     <th>Record Holder</th>
-    <th>Fastest Time</th>
+    <th><a href="/stats.php?gamemode=bhop&amp;sortType=recordTime<?php echo ($local['sortType'] == 'recordTime' && $local['sortDir'] == 'ASC' ? '&amp;sortDir=desc' : ''); ?>">Fastest Time</a></th>
   </tr>
   </thead>
   <?php foreach ($local['recordData'] as $mapId => $mapRecordData) : ?>

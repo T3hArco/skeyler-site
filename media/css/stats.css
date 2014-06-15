@@ -37,18 +37,23 @@ table.stats tr:nth-child(2n) {
 table.stats tr a {
   display: inline-block;
   vertical-align: middle;
+  font-weight: bold;
 }
-/* line 35, ../scss/stats.scss */
+/* line 36, ../scss/stats.scss */
 table.stats tr .avatar {
   width: 27px;
   height: 27px;
   display: inline-block;
 }
-/* line 42, ../scss/stats.scss */
+/* line 43, ../scss/stats.scss */
 table.stats td, table.stats th {
   padding: 0.5em 1em;
 }
-/* line 46, ../scss/stats.scss */
+/* line 47, ../scss/stats.scss */
+table.stats th a {
+  color: #fff;
+}
+/* line 51, ../scss/stats.scss */
 table.stats td.recordTime {
   font-family: 'Lucida Sans Typewriter', 'Lucida Console', Consolas;
 }

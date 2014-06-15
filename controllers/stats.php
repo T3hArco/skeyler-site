@@ -4,6 +4,8 @@ $Page = new Page('stats');
 
 $gamemode = getGet('gamemode');
 $mapId = (int) getGet('mapId');
+$sortType = getGet('sortType');
+$sortDir = strtoupper(getGet('sortDir')) == 'DESC' ? 'DESC' : 'ASC';
 
 $gamemodesWhitelist = array(
 //  'sass' => 'Sassilization',
@@ -151,6 +153,30 @@ $gamemodeName = $gamemodesWhitelist[$gamemode];
 if (!$mapId) {
 
   // Stats for BHOP
+
+  $order = 'a.mapname';
+
+  switch($sortType) {
+    case 'map' :
+      $order = 'a.mapname';
+      break;
+    case 'players':
+      $order = 'a.playerCount';
+      break;
+    case 'attempts':
+      $order = 'a.attempts';
+      break;
+    case 'recordTime':
+      $order = 'a.recordTime';
+      break;
+//    case 'achievedTime':
+//      $order = 'i have no idea';
+//      break;
+  }
+
+  $order .= ' ' . $sortDir;
+
+
   $query = '
   SELECT a.mapid, a.recordTime, a.mapname, u.id AS userId, a.playerCount, a.attempts
   FROM
@@ -168,7 +194,7 @@ if (!$mapId) {
   LEFT JOIN users AS u
     ON br.steamid = u.steamId
   /* WHERE br.pb = 1 */
-  ORDER BY a.mapname ASC, br.date ASC
+  ORDER BY ' . $order . '
   ;
 ';
   $rows = DB::q($query)->fetchAll();
@@ -208,11 +234,31 @@ if (!$mapId) {
     'recordData' => $records,
     'users' => $users,
     'gamemodeName' => $gamemodeName,
+    'sortType' => $sortType,
+    'sortDir' => $sortDir,
   );
   view($out);
 
 }
 else {
+
+
+  $order = 'minTime';
+
+  switch($sortType) {
+    case 'time' :
+      $order = 'minTime';
+      break;
+    case 'attempts':
+      $order = 'attempts';
+      break;
+    case 'username':
+      $order = 'u.name';
+      break;
+  }
+
+  $order .= ' ' . $sortDir;
+
 
   $query = '
     SELECT SQL_CALC_FOUND_ROWS u.id AS userId, MIN(time) AS minTime, COUNT(br.id) AS attempts, level, style
@@ -221,7 +267,7 @@ else {
       ON br.steamid = u.steamId
     WHERE mapid = :mapId
     GROUP BY br.steamid
-    ORDER BY minTime ASC
+    ORDER BY ' . $order . '
     ' . DB::writeLimit(20, $pageId) . '
     ;
   ';
@@ -257,7 +303,10 @@ else {
     'users' => $users,
     'rowCount' => $rowCount,
     'gamemodeName' => $gamemodeName,
+    'mapId' => $mapId,
     'mapName' => $mapName,
+    'sortType' => $sortType,
+    'sortDir' => $sortDir,
   );
   view($out, 'statsPerMap.php');
 }

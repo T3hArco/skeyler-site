@@ -1,0 +1,10 @@
+/**
+ * hello, this is the file to add random CSS changes in if you don't want to mess with SCSS.
+ * This file is included after everything else to allow for easier overrides of css selectors.
+ * Every so often, I might move the stuff from here over to SCSS, so don't be worried if things disappear.
+ * This file starts with an underscore, so SCSS will never overwrite it.
+ */
+
+
+
+
