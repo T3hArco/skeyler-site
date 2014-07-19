@@ -174,7 +174,7 @@ h2.threadTitle.closed:after {
   margin: 0 0 1em 0;
   font-family: Helvetica;
   color: #333;
-  text-align: justify;
+  text-align: left;
   white-space: pre;
   white-space: pre-wrap;
   white-space: pre-line;
@@ -184,7 +184,7 @@ h2.threadTitle.closed:after {
   white-space: -hp-pre-wrap;
   word-wrap: break-word;
 }
-/* line 214, ../scss/threads.scss */
+/* line 215, ../scss/threads.scss */
 .postContent blockquote {
   padding: 7px 23px;
   border: 1px solid #ddd;
@@ -193,31 +193,31 @@ h2.threadTitle.closed:after {
   margin: 0;
   position: relative;
 }
-/* line 223, ../scss/threads.scss */
+/* line 224, ../scss/threads.scss */
 .postContent blockquote::before {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMARLuZEcwid1Xdqogz7if2De8AAABGSURBVHhebcWxCYAwEEDRT4RD4g7BEbKDfUiVccQhUjuSuMIV4cDiZtABrB5smbkhZ2c3poH4QVGWB66baJAqQT98Da6/vNnzF8PiKPQPAAAAAElFTkSuQmCC");
   left: 7px;
   top: 22px;
   position: absolute;
 }
-/* line 230, ../scss/threads.scss */
+/* line 231, ../scss/threads.scss */
 .postContent blockquote:after {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKBAMAAAByAqLJAAAALVBMVEWvr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr69hrK0dAAAADnRSTlMAdzPuiKrMZrtVEd0iRAGl5MMAAABHSURBVHhebcVBEYAgEEDR74yLF2eHBERgSEAEMxDBDFSxgFGIgDe9bAYI4Omh1hd7/kE76yQmZBIK18eeT46b+CLWcJ6tMgAEjxkCJlUqgwAAAABJRU5ErkJggg==");
   bottom: 10px;
   right: 6px;
   position: absolute;
 }
-/* line 237, ../scss/threads.scss */
+/* line 238, ../scss/threads.scss */
 .postContent blockquote .postLink {
   font-size: 0.9em;
   margin: 0 0 10px -16px;
   display: inline-block;
 }
-/* line 244, ../scss/threads.scss */
+/* line 245, ../scss/threads.scss */
 .postContent img {
   max-width: 100%;
 }
-/* line 248, ../scss/threads.scss */
+/* line 249, ../scss/threads.scss */
 .postContent .editInfo {
   position: absolute;
   bottom: 0px;
@@ -226,7 +226,7 @@ h2.threadTitle.closed:after {
   font-style: italic;
   color: #999;
 }
-/* line 257, ../scss/threads.scss */
+/* line 258, ../scss/threads.scss */
 .postContent .postTime {
   font-size: 0.75em;
   color: #676565;

@@ -253,7 +253,7 @@ function writeTimeLength($length, $outType = 'verbose') {
       60,
       1,
     );
-    $decimal = number_format($length - (int)$length, 3);
+    $decimal = number_format($length - (int) $length, 3);
 
     $vals = array();
 
@@ -262,7 +262,8 @@ function writeTimeLength($length, $outType = 'verbose') {
       if ($length >= $val) {
         $str = str_pad(floor($length / $val), 2, 0, STR_PAD_LEFT);
         $length %= $val;
-      } else {
+      }
+      else {
         $str = '00';
       }
       $vals[] = $str;
@@ -326,9 +327,10 @@ function queryToAssoc($query) {
   $out = array();
   foreach ($queries as $query) {
     $arr = explode('=', $query);
-    if(isset($arr[1])) {
+    if (isset($arr[1])) {
       $out[$arr[0]] = $arr[1];
-    } else {
+    }
+    else {
       $out[$arr[0]];
     }
   }
@@ -503,3 +505,12 @@ function a2s_info($server) {
   return $data;
 }
 
+function numericSuffix($num) {
+  $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
+  if (($num % 100) >= 11 && ($num % 100) <= 13) {
+    return $num . '<sup>th</sup>';
+  }
+  else {
+    return $num . '<sup>' . $ends[$num % 10] . '</sup>';
+  }
+}

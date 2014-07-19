@@ -67,10 +67,10 @@ $user = $local['user'];
 
     <h3>Statistics</h3>
     <dl><!--
-      --><dt class="globalRank sprite">Global Rank</dt><!--
-      --><dd>9999</dd><!--
-      --><dt class="victories sprite">Victories</dt><!--
-      --><dd>0</dd><!--
+      <?php foreach ($local['stats']['sassilization'] as $stat) : ?>
+        --><dt class="<?php echo spaceToCamel($stat['name']); ?> sprite"><?php echo ucwords($stat['name']); ?></dt><!--
+        --><dd><?php echo $stat['value']; ?></dd><!--
+      <?php endforeach; ?>
     --></dl>
     </div>
     <div class="tabItem" data-tab="bh">

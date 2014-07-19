@@ -8,3 +8,4 @@ skeyler.iml
 media/psds/
 vendor/*
 composer.lock
+data/*

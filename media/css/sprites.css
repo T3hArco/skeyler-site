@@ -7,7 +7,7 @@
 */
 /* MAIN SPRITES */
 /* line 650, ../images/sprites/main/*.png */
-DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before, .sprite.bbc-bold:before, .sprite.bbc-heading:before, .sprite.bbc-image:before, .sprite.bbc-italic:before, .sprite.bbc-link:before, .sprite.bbc-list:before, .sprite.bbc-quote:before, .sprite.bbc-underline:before {
+DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .sprite.userProfile:before, .sprite.mod-demoteUser:before, .sprite.mod-promoteUser:before, .sprite.mod-banUser:before, .sprite.globalRank:before, .sprite.victories:before, .tabItem[data-tab="sa"] dt.sprite:nth-child(n+2):before, .sprite.mod-closeThread:before, .sprite.mod-stickyThread:before, .sprite.mod-unstickyThread:before, .sprite.mod-moveThread:before, .sprite.mod-deleteThread:before, .sprite.mod-renameThread:before, .sprite.edit:before, .sprite.edit:hover:before, .sprite.modButton:before, .sprite.modButton:hover:before, .sprite.profile:before, .sprite.profile:hover:before, .sprite.quote:before, .sprite.quote:hover:before, .sprite.bbc-bold:before, .sprite.bbc-heading:before, .sprite.bbc-image:before, .sprite.bbc-italic:before, .sprite.bbc-link:before, .sprite.bbc-list:before, .sprite.bbc-quote:before, .sprite.bbc-underline:before {
   background: url('../images/../images/sprites/main-sb2ba46ae63.png') no-repeat;
 }
 
@@ -89,7 +89,7 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
   top: 10px;
 }
 /* line 65, ../scss/sprites.scss */
-.sprite.victories:before {
+.sprite.victories:before, .tabItem[data-tab="sa"] dt.sprite:nth-child(n+2):before {
   background-position: -32px -165px;
   width: 15px;
   left: 8.5px;
@@ -243,4 +243,9 @@ DELETE_ME_MAIN_SPRITES, .sprite.banUser:before, .sprite.reportUser:before, .spri
   left: 6px;
   height: 20px;
   top: 6px;
+}
+
+/* line 147, ../scss/sprites.scss */
+.tabItem[data-tab="sa"] dt.sprite:nth-child(n+2):before {
+  top: 5px;
 }

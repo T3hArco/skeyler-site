@@ -142,3 +142,10 @@ $main-default-size: 32px;
   }
 
 }
+
+.tabItem[data-tab="sa"] {
+  dt.sprite:nth-child(n+2):before {
+    @extend %star;
+    top: 5px;
+  }
+}
