@@ -136,14 +136,18 @@ function singPlur($count, $sing = '', $plur = 's') {
  * @return string output
  */
 function curlGet($url) {
-  $c = curl_init();
-  curl_setopt($c, CURLOPT_URL, $url);
-  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-  $output = curl_exec($c);
-  curl_close($c);
-  return $output;
+  // FIXME: THIS IS BAD AND I HATE IT. please figure out why PHP's cURL is broken because I dont like this one bit!
+  //  $c = curl_init();
+  //  curl_setopt($c, CURLOPT_URL, $url);
+  //  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+  //  $output = curl_exec($c);
+  //  curl_close($c);
+  $command = 'curl -L ' . escapeshellarg($url);
+//  echo $command .BR.BR;
+  $out = null;
+  exec($command, $out);
+  return implode("\n", $out);
 }
-
 /**
  * Loads a single page using the POST method
  *
@@ -152,14 +156,22 @@ function curlGet($url) {
  * @return string output
  */
 function curlPost($url, $postData) {
-  $c = curl_init();
-  curl_setopt($c, CURLOPT_URL, $url);
-  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($c, CURLOPT_POST, 1);
-  curl_setopt($c, CURLOPT_POSTFIELDS, $postData);
-  $output = curl_exec($c);
-  curl_close($c);
-  return $output;
+  // FIXME: THIS IS BAD AND I HATE IT. please figure out why PHP's cURL is broken because I dont like this one bit!
+  //  $c = curl_init();
+  //  curl_setopt($c, CURLOPT_URL, $url);
+  //  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+  //  curl_setopt($c, CURLOPT_POST, 1);
+  //  curl_setopt($c, CURLOPT_POSTFIELDS, $postData);
+  //  $output = curl_exec($c);
+  //  curl_close($c);
+  //  return $output;
+  $contentType = 'Content-Type: application/json';
+  $json = json_encode($postData);
+  $command = 'curl -L -H ' . escapeshellarg($contentType) . ' -d ' . escapeshellarg($json) . ' ' . escapeshellarg($url);
+//  echo $command .BR.BR;
+  $out = null;
+  exec($command, $out);
+  return implode("\n", $out);
 }
 
 
